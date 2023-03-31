@@ -24,14 +24,47 @@
                     <div class="col-lg-5 mb-30">
                         <div class="product-image col-md-12">
                             <div class="product-image-main">
-                                <img src="assets_reseller/img/product-img/product-big-1.jpg" alt="" id="product-main-image">
+                                <div>
+                                    <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(assets_reseller/img/product-img/product-big-1.jpg)">
+                                        <img src="assets_reseller/img/product-img/product-big-1.jpg" alt="" id="product-main-image">
+                                    </figure>
+                                    <style>
+                                        figure.zoom {
+                                        background-position: 50% 50%;
+                                        position: relative;
+
+                                        overflow: hidden;
+                                        cursor: zoom-in;
+                                        }
+                                        figure.zoom img:hover {
+                                        opacity: 0;
+                                        }
+                                        figure.zoom img {
+                                        transition: opacity .5s;
+                                        display: block;
+                                        width: 100%;
+                                        }
+                                    </style>
+                                    <script>
+                                        function zoom(e){
+                                        var zoomer = e.currentTarget;
+                                        e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+                                        e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+                                        x = offsetX/zoomer.offsetWidth*100
+                                        y = offsetY/zoomer.offsetHeight*100
+                                        zoomer.style.backgroundPosition = x + '% ' + y + '%';
+                                        }
+                                    </script>
+                                </div>
+                                <div>
+                                    {{-- <img src="assets_reseller/img/product-img/product-big-1.jpg" alt="" id="product-main-image"> --}}
+                                </div>
                             </div>
                             <div class="product-image-slider">
                                     <img src="assets_reseller/img/product-img/product-big-1.jpg" alt=""  class="image-list">
                                     <img src="assets_reseller/img/product-img/product-big-2.jpg" alt=""  class="image-list">
                                     <img src="assets_reseller/img/product-img/product-big-3.jpg" alt=""  class="image-list">
                                     <img src="assets_reseller/img/product-img/product-big-1.jpg" alt=""  class="image-list">
-                                
                                 <script>
                                     const sliderMainImage = document.getElementById("product-main-image"); //product container image
                                     const sliderImageList = document.getElementsByClassName("image-list"); // image thumblian group selection
@@ -93,7 +126,7 @@
                                 </div> --}}
                                 <div>
                                     <div class="product-size">
-                                        <h4 style="padding-top: 10px">Size</h4>
+                                        <h4 style="padding-top: 10px">Ukuran</h4>
                                         <div class="size-layout">
                                             <input type="radio" name="size" value="S" id="1" class="size-input">
                                             <label for="1" class="size">S</label>
@@ -112,7 +145,7 @@
                                         </div>
                                     </div>
                                     <div class="product-color">
-                                        <h4 style="padding-top: 10px">Color</h4>
+                                        <h4 style="padding-top: 10px">Warna</h4>
                                         <div class="color-layout">
                                             <input type="radio" name="color" value="S" id="6" class="color-input">
                                             <label for="6" class="color">Red</label>
@@ -122,10 +155,10 @@
             
                                             <input type="radio" name="color" value="L" id="8" class="color-input">
                                             <label for="8" class="color">Black</label>
-            
-                                           
                                         </div>
                                     </div>
+
+                                    <p class="text-dark">Sisa Stok : 49</p>
                                     {{-- <div class="product-color">
                                         <h4>Color</h4>
                                         <div class="color-layout">

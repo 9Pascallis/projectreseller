@@ -176,6 +176,10 @@
                                         <div class="product-badge offer-badge bg-dark">
                                             <span>-30%</span>
                                         </div>
+                                        <!-- Favourite -->
+                                        <div class="product-favourite">
+                                            <a href="#" class="favme fa fa-shopping-cart" style="background-color: #ff4a00; color: white;" ><b> +</b></a>
+                                        </div>
                                     </div>
 
                                     <!-- Product Description -->
@@ -190,6 +194,7 @@
                                             <!-- Add to Cart -->
                                             <div class="add-to-cart-btn">
                                                 <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Detail</a>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -205,6 +210,10 @@
                                         <!-- Product Badge -->
                                         <div class="product-badge offer-badge bg-dark">
                                             <span>-30%</span>
+                                        </div>
+                                        <!-- Favourite -->
+                                        <div class="product-favourite">
+                                            <a href="#" class="favme fa fa-shopping-cart" style="background-color: #ff4a00; color: white;" ><b> +</b></a>
                                         </div>
                                     </div>
 
@@ -236,6 +245,10 @@
                                         <div class="product-badge offer-badge bg-dark">
                                             <span>-30%</span>
                                         </div>
+                                        <!-- Favourite -->
+                                        <div class="product-favourite">
+                                            <a href="#" class="favme fa fa-shopping-cart" style="background-color: #ff4a00; color: white;" ><b> +</b></a>
+                                        </div>
                                     </div>
 
                                     <!-- Product Description -->
@@ -265,6 +278,10 @@
                                         <!-- Product Badge -->
                                         <div class="product-badge offer-badge bg-dark">
                                             <span>-30%</span>
+                                        </div>
+                                        <!-- Favourite -->
+                                        <div class="product-favourite">
+                                            <a href="#" class="favme fa fa-shopping-cart" style="background-color: #ff4a00; color: white;" ><b> +</b></a>
                                         </div>
                                     </div>
 
@@ -296,6 +313,10 @@
                                         <div class="product-badge offer-badge bg-dark">
                                             <span>-30%</span>
                                         </div>
+                                        <!-- Favourite -->
+                                        <div class="product-favourite">
+                                            <a href="#" class="favme fa fa-shopping-cart" style="background-color: #ff4a00; color: white;" ><b> +</b></a>
+                                        </div>
                                     </div>
 
                                     <!-- Product Description -->
@@ -325,6 +346,10 @@
                                         <!-- Product Badge -->
                                         <div class="product-badge offer-badge bg-dark">
                                             <span>-30%</span>
+                                        </div>
+                                        <!-- Favourite -->
+                                        <div class="product-favourite">
+                                            <a href="#" class="favme fa fa-shopping-cart" style="background-color: #ff4a00; color: white;" ><b> +</b></a>
                                         </div>
                                     </div>
 
@@ -356,6 +381,10 @@
                                         <div class="product-badge offer-badge bg-dark">
                                             <span>-30%</span>
                                         </div>
+                                        <!-- Favourite -->
+                                        <div class="product-favourite">
+                                            <a href="#" class="favme fa fa-shopping-cart" style="background-color: #ff4a00; color: white;" ><b> +</b></a>
+                                        </div>
                                     </div>
 
                                     <!-- Product Description -->
@@ -386,6 +415,10 @@
                                         <div class="product-badge offer-badge bg-dark">
                                             <span>-30%</span>
                                         </div>
+                                        <!-- Favourite -->
+                                        <div class="product-favourite">
+                                            <a href="#" class="favme fa fa-shopping-cart" style="background-color: #ff4a00; color: white;" ><b> +</b></a>
+                                        </div>
                                     </div>
                                     <!-- Product Description -->
                                     <div class="product-description">
@@ -414,6 +447,10 @@
                                         <!-- Product Badge -->
                                         <div class="product-badge offer-badge bg-dark">
                                             <span>-30%</span>
+                                        </div>
+                                        <!-- Favourite -->
+                                        <div class="product-favourite">
+                                            <a href="#" class="favme fa fa-shopping-cart" style="background-color: #ff4a00; color: white;" ><b> +</b></a>
                                         </div>
                                     </div>
 

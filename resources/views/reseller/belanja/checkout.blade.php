@@ -65,6 +65,9 @@
                                         <input type="text" class="form-control" id="first_name" value="" required>
                                     </div>
                                     <div class="col-12 mb-3">
+
+                                    </div>
+                                    <div class="col-12 mb-3">
                                         <label for="country">Provinsi <span>*</span></label>
                                         <select class="w-100" id="country">
                                             <option value="usa">-</option>
@@ -103,57 +106,7 @@
                                 </div>
                             </form>
                             <div class="col-md-12">
-                                <button type="submit" name="addtocart" value="5" class="btn essence-btn bg-dark" data-toggle="collapse" data-target="#shipping-address" style="height: 50px">Kirim Ke Alamat Lain</button>
-                            </div>
-                            <br><br>
-                            <div class="collapse mb-5" id="shipping-address">
-                                <div class="cart-page-heading mb-30">
-                                    <h5>Informasi Alamat Pengiriman Lain</h5>
-                                </div>
-                                <form action="#" method="post">
-                                    <div class="row">
-                                        <div class="col-md-12 mb-3">
-                                            <label for="first_name">Alamat <span>*</span></label>
-                                            <input type="text" class="form-control" id="first_name" value="" required>
-                                        </div>
-                                        <div class="col-12 mb-3">
-                                            <label for="country">Provinsi <span>*</span></label>
-                                            <select class="w-100" id="country">
-                                                <option value="usa">-</option>
-                                                <option value="usa">United States</option>
-                                                <option value="uk">United Kingdom</option>
-                                                <option value="ger">Germany</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-12 mb-3">
-                                            <label for="country">Kota <span>*</span></label>
-                                            <select class="w-100" id="country">
-                                                <option value="usa">-</option>
-                                                <option value="usa">United States</option>
-                                                <option value="uk">United Kingdom</option>
-                                                <option value="ger">Germany</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-12 mb-3">
-                                            <label for="country">Kecamatan <span>*</span></label>
-                                            <select class="w-100" id="country">
-                                                <option value="usa">-</option>
-                                                <option value="usa">United States</option>
-                                                <option value="uk">United Kingdom</option>
-                                                <option value="ger">Germany</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-12 mb-3">
-                                            <label for="country">Kode Pos <span>*</span></label>
-                                            <select class="w-100" id="country">
-                                                <option value="usa">-</option>
-                                                <option value="usa">United States</option>
-                                                <option value="uk">United Kingdom</option>
-                                                <option value="ger">Germany</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </form>
+                                <button type="submit" name="addtocart" value="5" class="btn essence-btn bg-dark" data-toggle="collapse" style="height: 50px">Kirim Ke Alamat Lain</button>
                             </div>
                         </div>
                     </div>

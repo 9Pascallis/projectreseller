@@ -20,7 +20,34 @@
     <div class="container-fluid mb-100">
         <div class="row px-xl-5">
             <div class="col-lg-8 table-responsive mb-5">
-                <table class="table table-light table-borderless table-hover text-center mb-0">
+                <table class="table table-light table-borderless table-hover text-center mb-0" >
+                    <style>
+                        tbody {
+                        display: block; /* to enable vertical scrolling */
+                        max-height: 490px; /* e.g. */
+                        overflow-y: scroll; /* keeps the scrollbar even if it doesn't need it; display purpose */
+                        }
+
+
+                        tr {
+                        display: table; /* display purpose; th's border */
+                        width: 100%;
+                        }
+
+                        th, td {
+                        width: 15.00%; /* to enable "word-break: break-all" */
+                        }
+                        
+                        ::-webkit-scrollbar {
+                        -webkit-appearance: none;
+                        width: 7px;
+                        }
+
+                        ::-webkit-scrollbar-thumb {
+                        background-color: rgba(192, 192, 192, 0.5);
+                        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+                        }
+                    </style>
                     <thead class="thead" style="background-color: grey">
                         <tr>
                             <th class="align-middle" style="color: white; font-family: ubuntu">Foto</th>
@@ -33,7 +60,7 @@
                     </thead>
                     <tbody class="align-middle">
                         <tr>
-                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-2.jpg" alt="" style="width: 120px;"></td>
+                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-2.jpg" alt="" style="width: 100px;"></td>
                             <td class="align-middle">RESPIRO TR-05 XENTRA N R1.4 RED</td>
                             <td class="align-middle">Rp. 440.000</td>
                             <td class="align-middle">1</td>
@@ -41,7 +68,7 @@
                             <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
                         </tr>
                         <tr>
-                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-1.jpg" alt="" style="width: 120px;"></td>
+                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-1.jpg" alt="" style="width: 100px;"></td>
                             <td class="align-middle">RESPIRO TR-05 XENTRA N R1.4 RED</td>
                             <td class="align-middle">Rp. 440.000</td>
                             <td class="align-middle">1</td>
@@ -49,7 +76,7 @@
                             <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
                         </tr>
                         <tr>
-                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-3.jpg" alt="" style="width: 120px;"></td>
+                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-3.jpg" alt="" style="width: 100px;"></td>
                             <td class="align-middle">RESPIRO TR-05 XENTRA N R1.4 RED</td>
                             <td class="align-middle">Rp. 440.000</td>
                             <td class="align-middle">1</td>
@@ -57,7 +84,7 @@
                             <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
                         </tr>
                         <tr>
-                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-4.jpg" alt="" style="width: 120px;"></td>
+                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-4.jpg" alt="" style="width: 100px;"></td>
                             <td class="align-middle">RESPIRO TR-05 XENTRA N R1.4 RED</td>
                             <td class="align-middle">Rp. 440.000</td>
                             <td class="align-middle">1</td>
@@ -65,7 +92,7 @@
                             <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
                         </tr>
                         <tr>
-                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-5.jpg" alt="" style="width: 120px;"></td>
+                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-5.jpg" alt="" style="width: 100px;"></td>
                             <td class="align-middle">RESPIRO TR-05 XENTRA N R1.4 RED</td>
                             <td class="align-middle">Rp. 440.000</td>
                             <td class="align-middle">1</td>
