@@ -44,10 +44,6 @@
                                         <input type="text" class="form-control" id="first_name" value="" required>
                                     </div>
                                     <div class="col-md-12 mb-3">
-                                        <label for="last_name">Alamat Email <span>*</span></label>
-                                        <input type="text" class="form-control" id="last_name" value="" required>
-                                    </div>
-                                    <div class="col-md-12 mb-3">
                                         <label for="company">Nomor Whatsapp</label>
                                         <input type="text" class="form-control" id="company" value="" required>
                                     </div>
@@ -66,24 +62,6 @@
                                     </div>
                                     <div class="col-12 mb-3">
 
-                                    </div>
-                                    <div class="col-12 mb-3">
-                                        <label for="country">Provinsi <span>*</span></label>
-                                        <select class="w-100" id="country">
-                                            <option value="usa">-</option>
-                                            <option value="usa">United States</option>
-                                            <option value="uk">United Kingdom</option>
-                                            <option value="ger">Germany</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12 mb-3">
-                                        <label for="country">Kota <span>*</span></label>
-                                        <select class="w-100" id="country">
-                                            <option value="usa">-</option>
-                                            <option value="usa">United States</option>
-                                            <option value="uk">United Kingdom</option>
-                                            <option value="ger">Germany</option>
-                                        </select>
                                     </div>
                                     <div class="col-12 mb-3">
                                         <label for="country">Kecamatan <span>*</span></label>
@@ -115,6 +93,10 @@
                         <div class="order-details-confirmation">
                             <div class="cart-page-heading">
                                 <h5>Transaksi</h5>
+                                <p>Input Resi</p>
+                                <div class="col-md-12 mb-3">
+                                    <input type="text" class="form-control" id="company" value="" required>
+                                </div>
                                 <p>Pengiriman</p>
                                 <div class="col-12 mb-12" style="padding-bottom: 70px">
                                     <select class="w-100" id="country">
@@ -123,7 +105,14 @@
                                         <option value="uk">SiCepat Ekspress</option>
                                     </select>
                                 </div>
-                                <p>Detail</p>
+                                <div class="col-12 mb-12" style="padding-bottom: 70px">
+                                    <select class="w-100" id="country">
+                                        <option value="usa">Pilih Service</option>
+                                        <option value="usa">Hemat </option>
+                                        <option value="uk">Reguler</option>
+                                    </select>
+                                </div>
+                                <p style="font-size: 12px"><i>Berat: 1Kg</i></p>
                             </div>
                             <ul class="order-details-form mb-4">
                                 <li><span>PRODUK</span> <span>Total</span></li>
@@ -131,6 +120,7 @@
                                 <li><span>VELOCITY VENT R3 (1)</span> <span>Rp 836.000</span></li>
                                 <li><span>NORDIC JACKET (1)</span> <span>	Rp 625.000</span></li>
                                 <li><span>JASA KIRIM</span> <span>Rp. 25.000</span></li>
+                                
                                 <li><span><b>TOTAL</b></span> <span><b>Rp.1.916.000</b></span></li>
                             </ul>
 
