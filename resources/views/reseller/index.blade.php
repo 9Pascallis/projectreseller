@@ -1,55 +1,24 @@
 @extends('reseller.layout.template')
 @section('title', 'Reseller | Home')
+
 @section('content')
-    <!-- ##### Welcome Area Start ##### -->
+    <!-- KONTEN -->
     <section class="welcome_area bg-img background-overlay" style="background-image: url(assets_reseller/img/bg-img/bg-1.jpg);">
-        <div class="container h-100">
+        <div class="container h-100 section-padding-80">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="hero-content">
-                        <h6>asoss</h6>
-                        <h2>New Collection</h2>
-                        <a href="#" class="btn essence-btn">view collection</a>
+                        <h6>SELAMAT DATANG</h6>
+                        <h2>RESPIRO</h2>
+                        <a href="reseller-belanja" class="btn essence-btn">BELANJA</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ##### Welcome Area End ##### -->
-    <!-- ##### Top Catagory Area Start ##### -->
-    <div class="top_catagory_area section-padding-80 clearfix">
-        <div class="container">
-            <div class="row justify-content-center">
-                <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(assets_reseller/img/bg-img/bg-2.jpg);">
-                        <div class="catagory-content">
-                            <a href="#">Clothing</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(assets_reseller/img/bg-img/bg-3.jpg);">
-                        <div class="catagory-content">
-                            <a href="#">Shoes</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(assets_reseller/img/bg-img/bg-4.jpg);">
-                        <div class="catagory-content">
-                            <a href="#">Accessories</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Top Catagory Area End ##### -->
+    <!-- END KONTEN -->
 
-    <!-- ##### CTA Area Start ##### -->
+    <!-- PROMO -->
     <div class="cta-area section-padding-80 clearfix">
         <div class="container">
             <div class="row">
@@ -67,9 +36,9 @@
             </div>
         </div>
     </div>
-    <!-- ##### CTA Area End ##### -->
+    <!-- PROMO END -->
 
-    <!-- ##### New Arrivals Area Start ##### -->
+    <!-- PRODUK TERBARU -->
     <section class="new_arrivals_area section-padding-80 clearfix" style="padding-top: unset">
         <div class="container">
             <h5>PRODUK TERBARU</h5>
@@ -196,9 +165,9 @@
             </div>
         </div>
     </section>
-    <!-- ##### New Arrivals Area End ##### -->
+    <!-- PRODUK TERBARU END -->
 
-    <!-- ##### New Arrivals Area Start ##### -->
+    <!-- PRODUK TERLARIS -->
     <section class="new_arrivals_area section-padding-80 clearfix" style="padding-top: unset">
         <div class="container">
             <h5>PRODUK TERLARIS</h5>
@@ -325,9 +294,9 @@
             </div>
         </div>
     </section>
-    <!-- ##### New Arrivals Area End ##### -->
+    <!-- PRODUK TERLARIS END -->
 
-    <!-- ##### New Arrivals Area Start ##### -->
+    <!-- JAKET -->
     <section class="new_arrivals_area section-padding-80 clearfix" style="padding-top: unset">
         <div class="container">
             <h5>JAKET</h5>
@@ -454,9 +423,9 @@
             </div>
         </div>
     </section>
-    <!-- ##### New Arrivals Area End ##### -->
+    <!-- JAKET END -->
 
-    <!-- ##### New Arrivals Area Start ##### -->
+    <!-- AKSESORIS -->
     <section class="new_arrivals_area section-padding-80 clearfix" style="padding-top: unset">
         <div class="container">
             <h5>AKSESORIS</h5>
@@ -583,9 +552,9 @@
             </div>
         </div>
     </section>
-    <!-- ##### New Arrivals Area End ##### -->
+    <!-- AKSESORIS END -->
 
-    <!-- ##### New Arrivals Area Start ##### -->
+    <!-- TAS -->
     <section class="new_arrivals_area section-padding-80 clearfix" style="padding-top: unset">
         <div class="container">
             <h5>TAS</h5>
@@ -712,9 +681,9 @@
             </div>
         </div>
     </section>
-    <!-- ##### New Arrivals Area End ##### -->
+    <!-- TAS END -->
 
-    <!-- ##### New Arrivals Area Start ##### -->
+    <!-- ROMPI -->
     <section class="new_arrivals_area section-padding-80 clearfix" style="padding-top: unset">
         <div class="container">
             <h5>ROMPI</h5>
@@ -841,9 +810,9 @@
             </div>
         </div>
     </section>
-    <!-- ##### New Arrivals Area End ##### -->
+    <!-- ROMPI END -->
 
-    <!-- ##### New Arrivals Area Start ##### -->
+    <!-- SARUNG TANGAN -->
     <section class="new_arrivals_area section-padding-80 clearfix" style="padding-top: unset">
         <div class="container">
             <h5>SARUNG TANGAN</h5>
@@ -970,9 +939,9 @@
             </div>
         </div>
     </section>
-    <!-- ##### New Arrivals Area End ##### -->
+    <!-- SARUNG TANGAN END -->
 
-    <!-- ##### New Arrivals Area Start ##### -->
+    <!-- T-SHIRT -->
     <section class="new_arrivals_area section-padding-80 clearfix" style="padding-top: unset">
         <div class="container">
             <h5>T-SHIRT</h5>
@@ -1099,9 +1068,9 @@
             </div>
         </div>
     </section>
-    <!-- ##### New Arrivals Area End ##### -->
+    <!-- T-SHIRT END -->
 
-    <!-- ##### New Arrivals Area Start ##### -->
+    <!-- AKSESORIS KEPALA -->
     <section class="new_arrivals_area section-padding-80 clearfix" style="padding-top: unset">
         <div class="container">
             <h5>AKSESORIS KEPALA</h5>
@@ -1228,40 +1197,5 @@
             </div>
         </div>
     </section>
-    <!-- ##### New Arrivals Area End ##### -->
-
-    
-
-    <!-- ##### Brands Area Start ##### -->
-    {{-- <div class="brands-area d-flex align-items-center justify-content-between">
-        <!-- Brand Logo -->
-        <div class="single-brands-logo">
-            <img src="assets_reseller/img/core-img/brand1.png" alt="">
-        </div>
-        <!-- Brand Logo -->
-        <div class="single-brands-logo">
-            <img src="assets_reseller/img/core-img/brand2.png" alt="">
-        </div>
-        <!-- Brand Logo -->
-        <div class="single-brands-logo">
-            <img src="assets_reseller/img/core-img/brand3.png" alt="">
-        </div>
-        <!-- Brand Logo -->
-        <div class="single-brands-logo">
-            <img src="assets_reseller/img/core-img/brand4.png" alt="">
-        </div>
-        <!-- Brand Logo -->
-        <div class="single-brands-logo">
-            <img src="assets_reseller/img/core-img/brand5.png" alt="">
-        </div>
-        <!-- Brand Logo -->
-        <div class="single-brands-logo">
-            <img src="assets_reseller/img/core-img/brand6.png" alt="">
-        </div>
-    </div> --}}
-    <!-- ##### Brands Area End ##### -->
-
-@endsection
-@section('javascript')
-
+    <!-- AKSESORIS KEPALA END -->
 @endsection
