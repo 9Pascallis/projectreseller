@@ -20,6 +20,7 @@
     <link href="assets_admin/css/style.css" rel="stylesheet">
     <link href="assets_admin/css/icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Favicon  -->
     <link rel="icon" href="assets_admin/images/logoorangecrop.png">
@@ -43,7 +44,7 @@
             <img src="assets_admin/images/logoorangecrop.png" class="logo-icon" alt="logo icon">
           </div>
           <div>
-            <h4 class="logo-text">Respiro</h4>
+            <img src="assets_admin/images/respiro.jpg" class="logo-text" width="150px" height="25px">
           </div>
           <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
           </div>
@@ -129,28 +130,47 @@
             </ul>
           </li>
           <li>
-          <li class="menu-label">Forms & Tables</li>
-          <li>
-            <a href="pages-user-profile.html">
-              <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
-              </div>
-              <div class="menu-title">User Profile</div>
-            </a>
-          </li>
-          <li>
-            <a href="pages-edit-profile.html">
-              <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
-              </div>
-              <div class="menu-title">Edit Profile</div>
-            </a>
-          </li>
-          <li>
-            <a href="pages-invoices.html">
-              <div class="parent-icon"><ion-icon name="receipt-sharp"></ion-icon>
-              </div>
-              <div class="menu-title">Invoice</div>
-            </a>
-          </li>
+          <li class="menu-label">CRUD</li>
+          <!-- USER -->
+            <li>
+              <a href="admin-viewuser">
+                <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
+                </div>
+                <div class="menu-title">User</div>
+              </a>
+            </li>
+          <!-- ADMIN -->
+            <li>
+              <a href="admin-viewadmin">
+                <div class="parent-icon"><ion-icon name="key-outline"></ion-icon>
+                </div>
+                <div class="menu-title">Admin</div>
+              </a>
+            </li>
+          <!-- PRODUK -->
+            <li>
+              <a href="admin-viewproduk">
+                <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
+                </div>
+                <div class="menu-title">Produk</div>
+              </a>
+            </li>
+          <!-- PEMESANAN -->
+            <li>
+              <a href="pages-invoices.html">
+                <div class="parent-icon"><ion-icon name="receipt-sharp"></ion-icon>
+                </div>
+                <div class="menu-title">Histori Pemesanan</div>
+              </a>
+            </li>
+          <!-- PEMBAYARAN -->
+            <li>
+              <a href="pages-invoices.html">
+                <div class="parent-icon"><ion-icon name="receipt-sharp"></ion-icon>
+                </div>
+                <div class="menu-title">Histori Pembayaran</div>
+              </a>
+            </li>
         </ul>
         <!--end navigation-->
      </aside>

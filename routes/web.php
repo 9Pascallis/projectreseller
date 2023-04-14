@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 //landing
     Route::get('/landing', function () {
         return view('/landing/landing');
@@ -13,7 +12,6 @@ use Illuminate\Support\Facades\Route;
     });
 
 //admin
-
     //index
     Route::get('/admin', function () {
         return view('/admin/index');
@@ -27,21 +25,46 @@ use Illuminate\Support\Facades\Route;
         return view('/admin/pelanggan/datapembeli');
     });
 
-//reseller
-    //index
+    //kategori
+    Route::get('/admin-viewkategori', function () {
+        return view('/admin/kategori/viewkategori');
+    });
+    Route::get('/admin-createkategori', function () {
+        return view('/admin/kategori/createkategori');
+    });
+
+    //produk
+    Route::get('/admin-viewproduk', function () {
+        return view('/admin/produk/viewproduk');
+    });
+    Route::get('/admin-createproduk', function () {
+        return view('/admin/produk/createproduk');
+    });
+
+    //USER
+    Route::get('/admin-viewuser', function () {
+        return view('/admin/user/viewuser');
+    });
+    Route::get('/admin-createuser', function () {
+        return view('/admin/user/createuser');
+    });
+
+    //ADMIN
+    Route::get('/admin-viewadmin', function () {
+        return view('/admin/admin/viewadmin');
+    });
+    Route::get('/admin-createadmin', function () {
+        return view('/admin/admin/createadmin');
+    });
+
+
+//RESELLER
+    //INDEX
     Route::get('/reseller', function () {
         return view('/reseller/index');
     });
 
-    //profile
-    Route::get('/reseller-profile', function () {
-        return view('/reseller/profile/profile');
-    });
-    Route::get('/reseller-profileedit', function () {
-        return view('/reseller/profile/profileedit');
-    });
-
-    //shop
+    //BELANJA
     Route::get('/reseller-belanja', function () {
         return view('/reseller/belanja/belanja');
     });
@@ -55,15 +78,11 @@ use Illuminate\Support\Facades\Route;
         return view('/reseller/belanja/checkout');
     });
 
-    //penjualan
-    Route::get('/reseller-penjualan', function () {
-        return view('/reseller/penjualan/index');
-    });
-
-    //profil
+    //PROFIL
     Route::get('/reseller-profil', function () {
         return view('/reseller/profil/profil');
     });
     Route::get('/reseller-editprofil', function () {
         return view('/reseller/profil/editprofil');
     });
+    
