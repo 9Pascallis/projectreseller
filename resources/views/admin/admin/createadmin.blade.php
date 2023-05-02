@@ -12,19 +12,19 @@
 			<form>
 				<div class="row" style="margin-left: 20px; margin-right: 20px">
 				<div class="row mb-3">
-					<label for="inputText" class="col-sm-3 col-form-label">Nama Lengkap</label>
+					<label for="inputText" class="col-sm-3 col-form-label" >Nama Lengkap</label>
 					<div class="col-sm-9">
-					<input type="text" class="form-control" >
+					<input type="text" class="form-control" style="text-transform:uppercase">
 					</div>
 				</div>
 				<div class="row mb-3">
 				<label for="inputText" class="col-sm-3 col-form-label">Divisi</label>
 					<div class="col-sm-9">
-						<select class="form-control select2" style="width: 100%;">
+						<select class="form-select" style="width: 100%;">
 						<option selected="selected">-</option>
-						<option>Divisi Marketing</option>
-						<option>Divisi Produksi</option>
-						<option>Divisi Sales</option>
+						<option>MARKETING</option>
+						<option>PRODUKSI</option>
+						<option>SALES</option>
 						</select>
 					</div>  
 				</div>
@@ -43,7 +43,9 @@
 				<div class="row mb-3">
 					<label for="inputText" class="col-sm-3 col-form-label">Password</label>
 					<div class="col-sm-9">
-					<input type="text" class="form-control" >
+						<input type="password" class="form-control mb-2" id="myInput" >
+						<input class="form-check-input" type="checkbox" value="" onclick="password()" required>
+						<label class="form-check-label">Show Password</label>
 					</div>
 				</div>   
 				</div>                       
@@ -55,6 +57,10 @@
 			<!-- ISI END -->
 		</div>
 	</div>
+@endsection
+
+@section('javascript')
+	<script src="assets_admin/js/password.js"></script>
 @endsection
 
 

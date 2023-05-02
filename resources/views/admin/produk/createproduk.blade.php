@@ -17,28 +17,28 @@
 						<div class="row mb-3">
 							<label for="inputText" class="col-sm-3 col-form-label">Kategori</label>
 							<div class="col-sm-8">
-							<select class="form-control select2" style="width: 100%;">
+							<select class="form-select" style="width: 100%;">
 								<option selected="selected">-</option>
-								<option>Aksesoris</option>
-								<option>Tas</option>
-								<option>Jaket</option>
-								<option>Rompi</option>
-								<option>Sarung Tangan</option>
-								<option>T-Shirt</option>
-								<option>Aksesoris Kepala</option>
+								<option>AKSESORIS</option>
+								<option>TAS</option>
+								<option>JAKET</option>
+								<option>ROMPI</option>
+								<option>SARUNG TANGAN</option>
+								<option>T-SHIRT</option>
+								<option>AKSESORIS KEPALA</option>
 								</select>
 							</div>  
 						</div>
 						<div class="row mb-3">
 							<label for="inputText" class="col-sm-3 col-form-label">Nama Produk</label>
 							<div class="col-sm-8">
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" style="text-transform:uppercase">
 							</div>
 						</div>
 						<div class="row mb-3">
 							<label for="inputText" class="col-sm-3 col-form-label">Deskripsi Produk</label>
 							<div class="col-sm-8">
-							<input type="text" class="form-control">
+							<textarea class="form-control" required></textarea>
 							</div>
 						</div>   
 						<div class="row mb-3">
@@ -54,7 +54,7 @@
 						 	</div>
 					 	</div>  
 						<div class="row mb-3">
-							<label for="inputText" class="col-sm-3 col-form-label">Foto Produk Utama</label>
+							<label for="inputText" class="col-sm-3 col-form-label">Foto Utama Produk</label>
 							<div class="col-sm-8">
 							<input type="file" class="form-control" >
 							</div>
@@ -75,7 +75,7 @@
 									<div class="row mb-3">
 										<label for="inputText" class="col-sm-3 col-form-label">Warna</label>
 										<div class="col-sm-8">
-										<input type="text" class="form-control">
+										<input type="text" class="form-control" style="text-transform:uppercase">
 										</div>
 									</div>  
 									<div class="row mb-3">
@@ -85,13 +85,13 @@
 										</div>
 									</div>  
 									<div class="row mb-3">
-										<label for="inputText" class="col-sm-3 col-form-label">Sisa Stok</label>
+										<label for="inputText" class="col-sm-3 col-form-label">Stok</label>
 										<div class="col-sm-8">
 										<input type="number" class="form-control">
 										</div>
-									</div>  
+									</div>
 									<div class="row mb-3">
-										<label for="inputText" class="col-sm-3 col-form-label">Foto Produk</label>
+										<label for="inputText" class="col-sm-3 col-form-label">Foto Varian</label>
 										<div class="col-sm-8">
 										<input type="file" class="form-control" >
 										</div>
@@ -199,7 +199,6 @@
 @endsection
 
 @section('javascript')
-	<script src="assets_admin/plugins/datatable/js/jquery.dataTables.min.js"></script>
     <script src="assets_admin/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
     <script src="assets_admin/js/table-datatable.js"></script>
 	<script src="assets_admin/js/rupiah.js"></script>

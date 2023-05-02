@@ -12,7 +12,7 @@
 			<!-- JUDUL END -->
 
 				<div class="col-12">
-					<a href="admin-createuser" class="btn btn-success" role="button" aria-pressed="true">+ Tambah User</a>
+					<a href="admin-createuser" class="btn btn-success" role="button" aria-pressed="true">+ Create User</a>
 				</div><br>
 
 			<!-- ISI -->
@@ -36,9 +36,8 @@
 								<td>0895703300407</td>
 								<td>17/03/2023</td>
 								<td class="text-center">
-									<a class="btn btn-sm btn-outline-info px-2" href="/input-cutting-output"><i class="fa fa-eye"></i></a>
-									<a class="btn btn-sm btn-outline-warning px-2" href="/input-cutting-output"><i class="fa fa-pencil"></i></a>
-									<a class="btn btn-sm btn-outline-danger px-2" href="/input-cutting-output"><i class="fa fa-trash"></i></a>
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createuser"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createuser"><i class="fa fa-trash"></i></a>
 								</td>
 							</tr>
 							<tr>
@@ -48,9 +47,8 @@
 								<td>0895703300407</td>
 								<td>17/03/2023</td>
 								<td class="text-center">
-									<a class="btn btn-sm btn-outline-info px-2" href="/input-cutting-output"><i class="fa fa-eye"></i></a>
-									<a class="btn btn-sm btn-outline-warning px-2" href="/input-cutting-output"><i class="fa fa-pencil"></i></a>
-									<a class="btn btn-sm btn-outline-danger px-2" href="/input-cutting-output"><i class="fa fa-trash"></i></a>
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createuser"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createuser"><i class="fa fa-trash"></i></a>
 								</td>
 							</tr>
 							<tr>
@@ -60,9 +58,8 @@
 								<td>0895703300407</td>
 								<td>17/03/2023</td>
 								<td class="text-center">
-									<a class="btn btn-sm btn-outline-info px-2" href="/input-cutting-output"><i class="fa fa-eye"></i></a>
-									<a class="btn btn-sm btn-outline-warning px-2" href="/input-cutting-output"><i class="fa fa-pencil"></i></a>
-									<a class="btn btn-sm btn-outline-danger px-2" href="/input-cutting-output"><i class="fa fa-trash"></i></a>
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createuser"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createuser"><i class="fa fa-trash"></i></a>
 								</td>
 							</tr>
 							<tr>
@@ -72,9 +69,8 @@
 								<td>0895703300407</td>
 								<td>17/03/2023</td>
 								<td class="text-center">
-									<a class="btn btn-sm btn-outline-info px-2" href="/input-cutting-output"><i class="fa fa-eye"></i></a>
-									<a class="btn btn-sm btn-outline-warning px-2" href="/input-cutting-output"><i class="fa fa-pencil"></i></a>
-									<a class="btn btn-sm btn-outline-danger px-2" href="/input-cutting-output"><i class="fa fa-trash"></i></a>
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createuser"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createuser"><i class="fa fa-trash"></i></a>
 								</td>
 							</tr>
 							<tr>
@@ -84,9 +80,8 @@
 								<td>0895703300407</td>
 								<td>17/03/2023</td>
 								<td class="text-center">
-									<a class="btn btn-sm btn-outline-info px-2" href="/input-cutting-output"><i class="fa fa-eye"></i></a>
-									<a class="btn btn-sm btn-outline-warning px-2" href="/input-cutting-output"><i class="fa fa-pencil"></i></a>
-									<a class="btn btn-sm btn-outline-danger px-2" href="/input-cutting-output"><i class="fa fa-trash"></i></a>
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createuser"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createuser"><i class="fa fa-trash"></i></a>
 								</td>
 							</tr>
 							<tr>
@@ -96,9 +91,8 @@
 								<td>0895703300407</td>
 								<td>17/03/2023</td>
 								<td class="text-center">
-									<a class="btn btn-sm btn-outline-info px-2" href="/input-cutting-output"><i class="fa fa-eye"></i></a>
-									<a class="btn btn-sm btn-outline-warning px-2" href="/input-cutting-output"><i class="fa fa-pencil"></i></a>
-									<a class="btn btn-sm btn-outline-danger px-2" href="/input-cutting-output"><i class="fa fa-trash"></i></a>
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createuser"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createuser"><i class="fa fa-trash"></i></a>
 								</td>
 							</tr>
 							<tr>
@@ -108,9 +102,8 @@
 								<td>0895703300407</td>
 								<td>17/03/2023</td>
 								<td class="text-center">
-									<a class="btn btn-sm btn-outline-info px-2" href="/input-cutting-output"><i class="fa fa-eye"></i></a>
-									<a class="btn btn-sm btn-outline-warning px-2" href="/input-cutting-output"><i class="fa fa-pencil"></i></a>
-									<a class="btn btn-sm btn-outline-danger px-2" href="/input-cutting-output"><i class="fa fa-trash"></i></a>
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createuser"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createuser"><i class="fa fa-trash"></i></a>
 								</td>
 							</tr>
 							<tr>
@@ -120,9 +113,8 @@
 								<td>0895703300407</td>
 								<td>17/03/2023</td>
 								<td class="text-center">
-									<a class="btn btn-sm btn-outline-info px-2" href="/input-cutting-output"><i class="fa fa-eye"></i></a>
-									<a class="btn btn-sm btn-outline-warning px-2" href="/input-cutting-output"><i class="fa fa-pencil"></i></a>
-									<a class="btn btn-sm btn-outline-danger px-2" href="/input-cutting-output"><i class="fa fa-trash"></i></a>
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createuser"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createuser"><i class="fa fa-trash"></i></a>
 								</td>
 							</tr>
 							<tr>
@@ -132,9 +124,8 @@
 								<td>0895703300407</td>
 								<td>17/03/2023</td>
 								<td class="text-center">
-									<a class="btn btn-sm btn-outline-info px-2" href="/input-cutting-output"><i class="fa fa-eye"></i></a>
-									<a class="btn btn-sm btn-outline-warning px-2" href="/input-cutting-output"><i class="fa fa-pencil"></i></a>
-									<a class="btn btn-sm btn-outline-danger px-2" href="/input-cutting-output"><i class="fa fa-trash"></i></a>
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createuser"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createuser"><i class="fa fa-trash"></i></a>
 								</td>
 							</tr>
 							<tr>
@@ -144,9 +135,8 @@
 								<td>0895703300407</td>
 								<td>17/03/2023</td>
 								<td class="text-center">
-									<a class="btn btn-sm btn-outline-info px-2" href="/input-cutting-output"><i class="fa fa-eye"></i></a>
-									<a class="btn btn-sm btn-outline-warning px-2" href="/input-cutting-output"><i class="fa fa-pencil"></i></a>
-									<a class="btn btn-sm btn-outline-danger px-2" href="/input-cutting-output"><i class="fa fa-trash"></i></a>
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createuser"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createuser"><i class="fa fa-trash"></i></a>
 								</td>
 							</tr>
 						</tbody>

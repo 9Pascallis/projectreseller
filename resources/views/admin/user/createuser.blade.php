@@ -1,6 +1,8 @@
 @extends('admin.layout.template')
 @section('title', 'Admin | Create User')
-
+@section('header')
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+@endsection
 @section('content')
 	<div class="card">
 		<div class="card-body">
@@ -14,7 +16,7 @@
 				<div class="row mb-3">
 					<label for="inputText" class="col-sm-3 col-form-label">Nama Lengkap</label>
 					<div class="col-sm-9">
-					<input type="text" class="form-control" >
+					<input type="text" class="form-control" style="text-transform:uppercase">
 					</div>
 				</div>
 				<div class="row mb-3">
@@ -22,15 +24,15 @@
 					<div class="col-sm-9">
 						<select class="form-control select2" style="width: 100%;">
 						<option selected="selected">-</option>
-						<option>Laki-Laki</option>
-						<option>Perempuan</option>
+						<option>LAKI-LAKI</option>
+						<option>PEREMPUAN</option>
 						</select>
 					</div>  
 				</div>
 				<div class="row mb-3">
 					<label for="inputText" class="col-sm-3 col-form-label">Tanggal Lahir</label>
 					<div class="col-sm-9">
-					<input type="date" class="form-control" >
+					<input type="date" class="form-control" style="text-transform:uppercase">
 					</div>
 				</div>   
 				<div class="row mb-3">
@@ -49,25 +51,25 @@
 				<div class="row mb-3">
 					<label for="inputText" class="col-sm-3 col-form-label">Alamat</label>
 					<div class="col-sm-9">
-					<input type="text" class="form-control" >
+					<input type="text" class="form-control" style="text-transform:uppercase">
 					</div>
 				</div>   
 				<div class="row mb-3">
 					<label for="inputText" class="col-sm-3 col-form-label">Provinsi</label>
 					<div class="col-sm-9">
-					<input type="text" class="form-control" >
+					<input type="text" class="form-control" style="text-transform:uppercase">
 					</div>
 				</div>   
 				<div class="row mb-3">
 					<label for="inputText" class="col-sm-3 col-form-label">Kota</label>
 					<div class="col-sm-9">
-					<input type="text" class="form-control" >
+					<input type="text" class="form-control" style="text-transform:uppercase">
 					</div>
 				</div>   
 				<div class="row mb-3">
 					<label for="inputText" class="col-sm-3 col-form-label">Kecamatan</label>
 					<div class="col-sm-9">
-					<input type="text" class="form-control" >
+					<input type="text" class="form-control" style="text-transform:uppercase">
 					</div>
 				</div>   
 				<div class="row mb-3">
@@ -82,13 +84,15 @@
 					<div class="col-sm-9">
 					<input type="text" class="form-control" >
 					</div>
-				</div>   
+				</div>    
 				<div class="row mb-3">
 					<label for="inputText" class="col-sm-3 col-form-label">Password</label>
 					<div class="col-sm-9">
-					<input type="text" class="form-control" >
+						<input type="password" class="form-control mb-2" id="myInput" >
+						<input class="form-check-input" type="checkbox" value="" onclick="password()" required>
+						<label class="form-check-label">Show Password</label>
 					</div>
-				</div>   
+				</div>  
 				</div>                       
 			</form>
 				<br><br>
@@ -100,4 +104,7 @@
 	</div>
 @endsection
 
+@section('javascript')
+	<script src="assets_admin/js/password.js"></script>
+@endsection
 

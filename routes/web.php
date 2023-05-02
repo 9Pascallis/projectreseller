@@ -57,6 +57,12 @@ use Illuminate\Support\Facades\Route;
         return view('/admin/admin/createadmin');
     });
 
+    //PEMESANAN
+    Route::get('/admin-viewpemesanan', function () {
+        return view('/admin/pemesanan/viewpemesanan');
+    });
+
+    
 
 //RESELLER
     //INDEX

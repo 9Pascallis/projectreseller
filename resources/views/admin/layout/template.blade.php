@@ -58,7 +58,7 @@
               <div class="menu-title">Dashboard</div>
             </a>
           </li>
-          <li class="menu-label">Pesanan</li>
+          {{-- <li class="menu-label">Pesanan</li>
           <li>
             <a href="javascript:;" class="has-arrow">
               <div class="parent-icon"><ion-icon name="briefcase-sharp"></ion-icon>
@@ -128,17 +128,16 @@
               <li> <a href="map-vector-maps.html"><ion-icon name="ellipse-outline"></ion-icon>Diskon Reseller</a>
               </li>
             </ul>
-          </li>
-          <li>
-          <li class="menu-label">CRUD</li>
+          </li> --}}
+          <li class="menu-label">MASTER</li>
           <!-- USER -->
-            <li>
-              <a href="admin-viewuser">
-                <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
-                </div>
-                <div class="menu-title">User</div>
-              </a>
-            </li>
+          <li>
+            <a href="admin-viewuser">
+              <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
+              </div>
+              <div class="menu-title">User</div>
+            </a>
+          </li>
           <!-- ADMIN -->
             <li>
               <a href="admin-viewadmin">
@@ -147,6 +146,15 @@
                 <div class="menu-title">Admin</div>
               </a>
             </li>
+          <li class="menu-label">DATA</li>
+          <!-- PRODUK -->
+          <li>
+            <a href="admin-viewkategori">
+              <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
+              </div>
+              <div class="menu-title">Kategori Produk</div>
+            </a>
+          </li>
           <!-- PRODUK -->
             <li>
               <a href="admin-viewproduk">
@@ -155,12 +163,13 @@
                 <div class="menu-title">Produk</div>
               </a>
             </li>
+          <li class="menu-label">HISTORI</li>
           <!-- PEMESANAN -->
             <li>
-              <a href="pages-invoices.html">
+              <a href="admin-viewpemesanan">
                 <div class="parent-icon"><ion-icon name="receipt-sharp"></ion-icon>
                 </div>
-                <div class="menu-title">Histori Pemesanan</div>
+                <div class="menu-title">Pemesanan</div>
               </a>
             </li>
           <!-- PEMBAYARAN -->
@@ -168,7 +177,7 @@
               <a href="pages-invoices.html">
                 <div class="parent-icon"><ion-icon name="receipt-sharp"></ion-icon>
                 </div>
-                <div class="menu-title">Histori Pembayaran</div>
+                <div class="menu-title">Pembayaran</div>
               </a>
             </li>
         </ul>

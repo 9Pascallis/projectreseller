@@ -6,56 +6,93 @@
 @section('content')
 	<div class="card">
 		<div class="card-body">
-			<!--Judul-->
+			<!-- JUDUL -->
 				<h5 class="mb-0 text-uppercase text-center">View Kategori</h5><hr><br>
-			<!--End Judul-->
+			<!-- JUDUL END -->
 
 				<div class="col-12">
-					<button class="btn btn-success" type="submit">+ Tambah Kategori</button>
+					<a href="admin-createkategori" class="btn btn-success" role="button" aria-pressed="true">+ Create Kategori</a>
 				</div><br>
 
-			<!--Table-->
+			<!-- ISI -->
 				<div class="table-responsive">
 					<table id="example2" class="table table-striped table-bordered">
 						<thead>
 							<tr>
-								<th>Id</th>
-								<th>Nama Kategori Produk</th>
+								<th>ID</th>
+								<th>NAMA KATEGORI</th>
+								<th>TGL UPLOAD</th>
+								<th class="text-center">ACTION</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>1</td>
-								<td>Aksesoris</td>
+								<td>AKSESORIS</td>
+								<td>17/03/2023</td>
+								<td class="text-center">
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createkategori"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createkategori"><i class="fa fa-trash"></i></a>
+								</td>
 							</tr>
 							<tr>
 								<td>2</td>
-								<td>Tas</td>
+								<td>TAS</td>
+								<td>17/03/2023</td>
+								<td class="text-center">
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createkategori"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createkategori"><i class="fa fa-trash"></i></a>
+								</td>
 							</tr>
 							<tr>
 								<td>3</td>
-								<td>Jaket</td>
+								<td>JAKET</td>
+								<td>17/03/2023</td>
+								<td class="text-center">
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createkategori"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createkategori"><i class="fa fa-trash"></i></a>
+								</td>
 							</tr>
 							<tr>
 								<td>4</td>
-								<td>Rompi</td>
+								<td>ROMPI</td>
+								<td>17/03/2023</td>
+								<td class="text-center">
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createkategori"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createkategori"><i class="fa fa-trash"></i></a>
+								</td>
 							</tr>
 							<tr>
 								<td>5</td>
-								<td>Sarung Tangan</td>
+								<td>SARUNG TANGAN</td>
+								<td>17/03/2023</td>
+								<td class="text-center">
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createkategori"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createkategori"><i class="fa fa-trash"></i></a>
+								</td>
 							</tr>
 							<tr>
 								<td>6</td>
-								<td>T-Shirt</td>
+								<td>T-SHIRT</td>
+								<td>17/03/2023</td>
+								<td class="text-center">
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createkategori"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createkategori"><i class="fa fa-trash"></i></a>
+								</td>
 							</tr>
 							<tr>
 								<td>7</td>
-								<td>Aksesoris Kepala</td>
+								<td>AKSESORIS KEPALA</td>
+								<td>17/03/2023</td>
+								<td class="text-center">
+									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createkategori"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createkategori"><i class="fa fa-trash"></i></a>
+								</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-			<!--End Table-->
+			<!-- ISI END-->
 		</div>
 	</div>
 @endsection
