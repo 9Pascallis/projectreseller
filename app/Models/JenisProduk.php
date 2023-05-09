@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Reseller extends Model
+class JenisProduk extends Model
 {
     use HasFactory;
-    protected $fillable = ['nama_lengkap', 'email', 'password'];
+
+    protected $table = 'jenis_produk';
+    protected $guarded = ['id'];
 }

@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Konten extends Model
+class Produk extends Model
 {
     use HasFactory;
-    protected $fillable = ['foto_konten', 'tanggal_mulai_konten', 'tanggal_selesai_konten'];
+
+    protected $table = 'produk';
+    protected $guarded = ['id'];
 }

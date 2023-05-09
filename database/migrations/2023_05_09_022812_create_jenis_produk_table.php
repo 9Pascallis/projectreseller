@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKontensTable extends Migration
+class CreateJenisProdukTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateKontensTable extends Migration
      */
     public function up()
     {
-        Schema::create('kontens', function (Blueprint $table) {
+        Schema::create('jenis_produk', function (Blueprint $table) {
             $table->id();
-            $table->binary('foto_konten');
-            $table->date('tanggal_mulai_konten');
-            $table->date('tanggal_selesai_konten');
+            $table->string('nama_jenis_produk')->unique();
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateKontensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kontens');
+        Schema::dropIfExists('jenis_produk');
     }
 }

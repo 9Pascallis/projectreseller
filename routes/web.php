@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\JenisProdukController;
+use App\Http\Controllers\ProdukController;
 
 //landing
     Route::get('/landing', function () {
@@ -25,13 +28,21 @@ use Illuminate\Support\Facades\Route;
         return view('/admin/pelanggan/datapembeli');
     });
 
-    //kategori
-    Route::get('/admin-viewkategori', function () {
-        return view('/admin/kategori/viewkategori');
-    });
-    Route::get('/admin-createkategori', function () {
-        return view('/admin/kategori/createkategori');
-    });
+    //JENIS PRODUK
+    Route::get('/indexjenisproduk', [JenisProdukController::class, 'index']) ->name('indexjenisproduk');
+    Route::get('/tambahjenisproduk', [JenisProdukController::class, 'create']) ->name('tambahjenisproduk');
+    Route::post('/insertdatajenisproduk', [JenisProdukController::class, 'store']) ->name('insertdatajenisproduk');
+    Route::get('/editjenisproduk-{id}', [JenisProdukController::class, 'edit']) ->name('editjenisproduk');
+    Route::post('/updatejenisproduk-{id}', [JenisProdukController::class, 'update']) ->name('updatejenisproduk');
+    Route::get('/deletejenisproduk-{id}', [JenisProdukController::class, 'destroy']) ->name('deletejenisproduk');
+
+    //PRODUK
+    Route::get('/indexproduk', [ProdukController::class, 'index']) ->name('indexproduk');
+    Route::get('/tambahproduk', [ProdukController::class, 'create']) ->name('tambahproduk');
+    Route::post('/insertdataproduk', [ProdukController::class, 'store']) ->name('insertdataproduk');
+    Route::get('/editproduk-{id}', [ProdukController::class, 'edit']) ->name('editproduk');
+    Route::post('/updateproduk-{id}', [ProdukController::class, 'update']) ->name('updateproduk');
+    Route::get('/deleteproduk-{id}', [ProdukController::class, 'destroy']) ->name('deleteproduk');
 
     //produk
     Route::get('/admin-viewproduk', function () {
@@ -50,12 +61,13 @@ use Illuminate\Support\Facades\Route;
     });
 
     //ADMIN
-    Route::get('/admin-viewadmin', function () {
-        return view('/admin/admin/viewadmin');
-    });
-    Route::get('/admin-createadmin', function () {
-        return view('/admin/admin/createadmin');
-    });
+    Route::get('/indexadmin', [AdminController::class, 'index']) ->name('indexadmin');
+    Route::get('/tambahadmin', [AdminController::class, 'create']) ->name('tambahadmin');
+    Route::post('/insertdataadmin', [AdminController::class, 'store']) ->name('insertdataadmin');
+    Route::get('/editadmin-{id}', [AdminController::class, 'edit']) ->name('editadmin');
+    Route::post('/updateadmin-{id}', [AdminController::class, 'update']) ->name('updateadmin');
+    Route::get('/deleteadmin-{id}', [AdminController::class, 'destroy']) ->name('deleteadmin');
+
 
     //PEMESANAN
     Route::get('/admin-viewpemesanan', function () {

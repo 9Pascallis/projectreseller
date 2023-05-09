@@ -22,6 +22,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+
     <!-- Favicon  -->
     <link rel="icon" href="assets_admin/images/logoorangecrop.png">
 
@@ -140,7 +145,7 @@
           </li>
           <!-- ADMIN -->
             <li>
-              <a href="admin-viewadmin">
+              <a href="indexadmin">
                 <div class="parent-icon"><ion-icon name="key-outline"></ion-icon>
                 </div>
                 <div class="menu-title">Admin</div>
@@ -149,15 +154,15 @@
           <li class="menu-label">DATA</li>
           <!-- PRODUK -->
           <li>
-            <a href="admin-viewkategori">
+            <a href="indexjenisproduk">
               <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
               </div>
-              <div class="menu-title">Kategori Produk</div>
+              <div class="menu-title">Jenis Produk</div>
             </a>
           </li>
           <!-- PRODUK -->
             <li>
-              <a href="admin-viewproduk">
+              <a href="indexproduk">
                 <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
                 </div>
                 <div class="menu-title">Produk</div>
@@ -550,6 +555,10 @@
     <script src="assets_admin/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
     <script src="assets_admin/plugins/chartjs/chart.min.js"></script>
     <script src="assets_admin/js/index3.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets_admin/js/alertcrud.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
     <!-- Main JS-->
     <script src="assets_admin/js/main.js"></script>
     @yield('javascript');
