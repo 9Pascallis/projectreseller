@@ -15,6 +15,7 @@ class CreateProdukTable extends Migration
     {
         Schema::create('produk', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_jenis_produk');
             $table->string('nama_produk')->unique();
             $table->string('deskripsi_produk');
             $table->string('harga_sebelum_diskon_produk');
@@ -22,6 +23,8 @@ class CreateProdukTable extends Migration
             $table->string('total_stok_produk');
             $table->string('foto_utama_produk');
             $table->timestamps();
+
+            $table->foreign('id_jenis_produk')->references('id')->on('jenis_produk');
         });
     }
 

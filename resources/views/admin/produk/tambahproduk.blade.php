@@ -15,21 +15,17 @@
 			<form action="/insertdataproduk" method="POST" enctype="multipart/form-data">
 				@csrf
 				<div class="row" style="margin-left: 20px; margin-right: 20px">
-					{{-- <div class="row mb-3">
+					<div class="row mb-3">
 						<label for="inputText" class="col-sm-3 col-form-label">Jenis Produk</label>
 						<div class="col-sm-8">
-						<select class="form-select" style="width: 100%;">
+						<select class="form-select" style="width: 100%;" name="id_jenis_produk">
 							<option selected="selected">-</option>
-							<option>AKSESORIS</option>
-							<option>TAS</option>
-							<option>JAKET</option>
-							<option>ROMPI</option>
-							<option>SARUNG TANGAN</option>
-							<option>T-SHIRT</option>
-							<option>AKSESORIS KEPALA</option>
+							@foreach ($datajenisproduk as $item)
+								<option style="text-transform:uppercase" value="{{$item->id}}">{{$item->nama_jenis_produk}}</option>
+							@endforeach
 							</select>
 						</div>  
-					</div> --}}
+					</div>
 					<div class="row mb-3">
 						<label for="inputText" class="col-sm-3 col-form-label">Nama Produk</label>
 						<div class="col-sm-8">
