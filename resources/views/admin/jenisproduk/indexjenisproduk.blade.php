@@ -7,7 +7,7 @@
 	<div class="card">
 		<div class="card-body">
 			<!-- JUDUL -->
-				<h5 class="mb-0 text-uppercase text-center">View Jenis Produk</h5><hr><br>
+				<h5 class="mb-0 text-uppercase text-center">Jenis Produk</h5><hr><br>
 			<!-- JUDUL END -->
 
 				<div class="col-12">
@@ -22,7 +22,7 @@
 								<th>NO</th>
 								<th>NAMA JENIS PRODUK</th>
 								<th>TGL UPLOAD</th>
-								<th class="text-center">HAPUS</th>
+								<th class="text-center">ACTION</th>
 							</tr>
 						</thead>
 						<tbody>

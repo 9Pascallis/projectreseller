@@ -40,6 +40,7 @@ use App\Http\Controllers\ProdukController;
     Route::get('/indexproduk', [ProdukController::class, 'index']) ->name('indexproduk');
     Route::get('/tambahproduk', [ProdukController::class, 'create']) ->name('tambahproduk');
     Route::post('/insertdataproduk', [ProdukController::class, 'store']) ->name('insertdataproduk');
+    Route::get('/detailproduk-{id}', [ProdukController::class, 'show']) ->name('detailproduk');
     Route::get('/editproduk-{id}', [ProdukController::class, 'edit']) ->name('editproduk');
     Route::post('/updateproduk-{id}', [ProdukController::class, 'update']) ->name('updateproduk');
     Route::get('/deleteproduk-{id}', [ProdukController::class, 'destroy']) ->name('deleteproduk');

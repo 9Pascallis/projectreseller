@@ -18,8 +18,7 @@ class CreateProdukTable extends Migration
             $table->unsignedBigInteger('id_jenis_produk');
             $table->string('nama_produk')->unique();
             $table->string('deskripsi_produk');
-            $table->string('harga_sebelum_diskon_produk');
-            $table->string('harga_setelah_diskon_produk');
+            $table->string('harga_produk');
             $table->string('total_stok_produk');
             $table->string('foto_utama_produk');
             $table->timestamps();

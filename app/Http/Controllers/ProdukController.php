@@ -5,71 +5,66 @@ namespace App\Http\Controllers;
 use App\Models\JenisProduk;
 use App\Models\Produk;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\ProdukRequest;
 class ProdukController extends Controller
 {
     public function index()
     {
-        $data = Produk::all();
-        return view ('admin/produk/indexproduk', compact('data'));
+        $produk = Produk::all();
+        return view ('admin/produk/indexproduk', compact('produk'));
     }
 
 
     public function create()
     {
-        $datajenisproduk = JenisProduk::all();
-        return view ('admin/produk/tambahproduk', compact('datajenisproduk'));
+        $jenis_produk = JenisProduk::all();
+        return view ('admin/produk/tambahproduk', compact('jenis_produk'));
     }
 
 
-    public function store(Request $request)
+    public function store(ProdukRequest $request)
     {
-
-        // $validatedData = $request->validate([
-        //     'nama_produk' => 'required',
-        //     'deskripsi_produk' => 'required',
-        //     'harga_sebelum_diskon_produk' => 'required',
-        //     'harga_setelah_diskon_produk' => 'required',
-        //     'total_stok_produk' => 'required',
-        //     'foto_utama_produk' => 'required|mimes:jpg,jpeg,png'
-
-        // ]);
-
-        // $file_name = $request->foto_utama_produk->getClientOriginalName();
-        // $image = $request->foto_utama_produk->storeAs('thumbnail', $file_name);
-
-        // Produk::create($validatedData);
-        // return redirect('/indexproduk')->with('create', 'Data Berhasil ditambah!');
-
-        $data = Produk::create($request->all());
-        if($request->hasFile('foto_utama_produk')){
-            $request->file('foto_utama_produk')->move('fotoutamaproduk/', $request->file('foto_utama_produk')->getClientOriginalName());
-            $data->foto_utama_produk = $request->file('foto_utama_produk')->getClientOriginalName();
-            $data->save();
+        $produk = $request->validated();
+        
+        if ($request->hasFile('foto_utama_produk')) {
+            $file = $request->file('foto_utama_produk');
+            $file_extension = $file->getClientOriginalName();
+            $destination_path = public_path() . '/storage';
+            $filename = $file_extension;
+            $request->file('foto_utama_produk')->move($destination_path, $filename);
+            $produk['foto_utama_produk'] = $filename;
         }
+        Produk::create($produk);
         return redirect('/indexproduk')->with('create', 'Data Berhasil ditambah!');
     }
 
+    public function show($id)
+    {
+        $produk = Produk::find($id);
+        $jenis_produk = JenisProduk::all();
+        return view ('/admin/produk/detailproduk', compact('jenis_produk','produk'));
+    }
 
     public function edit($id)
     {
-        $data = Produk::find($id);
-        return view ('/admin/produk/editproduk', compact('data'));
+        $produk = Produk::find($id);
+        $jenis_produk = JenisProduk::all();
+        return view ('/admin/produk/editproduk', compact('jenis_produk','produk'));
     }
 
 
-    public function update(Request $request, $id)
+    public function update(ProdukRequest $request, $id)
     {
-        $data = Produk::find($id);
-        $data->update($request->all());
+        $produk = Produk::find($id);
+        $produk->update($request->all());
         return redirect('/indexproduk')->with('update', 'Data Berhasil diupdate!');
     }
 
 
     public function destroy($id)
     {
-        $data = Produk::find($id);
-        $data->delete();
+        $produk = Produk::find($id);
+        $produk->delete();
         return redirect('/indexproduk')->with('destroy', 'Data Berhasil dihapus!');
     }
 }

@@ -8,11 +8,11 @@
 	<div class="card">
 		<div class="card-body">
 			<!-- JUDUL -->
-				<h5 class="mb-0 text-uppercase text-center">View Produk</h5><hr><br>
+				<h5 class="mb-0 text-uppercase text-center">Produk</h5><hr><br>
 			<!-- JUDUL END -->
 
 				<div class="col-12">
-					<a href="tambahproduk" class="btn btn-success" role="button" aria-pressed="true">+ Tambah Produk</a>
+					<a href="tambahproduk" class="btn btn-success" role="button" aria-pressed="true">+ Produk</a>
 				</div><br>
 
 				<div class="row mb-3">
@@ -49,37 +49,23 @@
 							@php
 								$no = 1;
 							@endphp
-							@foreach ( $data as $item)
+							@foreach ( $produk as $item)
 								<tr>
 									<td>{{ $no++}}</td>
 									<td style="text-transform:uppercase">{{ $item->nama_produk}}</td>
 									<td class="text-center">
-										<img src="{{asset('fotoutamaproduk/'.$item->foto_utama_produk)}}" alt="" style="width: 200px">
+										<img src="{{asset('storage/'.$item->foto_utama_produk)}}" alt="" style="width: 200px">
 									</td>
 									<td style="text-transform:uppercase">{{ $item->jenis_produk->nama_jenis_produk}}</td>
-									<td>{{ $item->harga_setelah_diskon_produk}}</td>
+									<td>{{ $item->harga_produk}}</td>
 									<td>{{ $item->total_stok_produk}}</td>
 									<td class="text-center">
-										<a class="btn btn-sm btn-outline-info px-2" href="/showproduk-{{ $item->id }}"><i class="fa fa-eye"></i></a>
+										<a class="btn btn-sm btn-outline-info px-2" href="/detailproduk-{{ $item->id }}"><i class="fa fa-eye"></i></a>
 										<a class="btn btn-sm btn-outline-warning px-2" href="/editproduk-{{ $item->id }}"><i class="fa fa-pencil"></i></a>
 										<a class="btn btn-sm btn-outline-danger px-2 deleteproduk" data-id="{{ $item->id }}" data-nama="{{ $item->nama_produk}}"><i class="fa fa-trash"></i></a>
 									</td>
 								</tr>
 							@endforeach
-							{{-- <tr>
-								<td>1</td>
-								<td>RESPIRO TR-05 XENTRA N R1.4 RED</td>
-								<td>JAKET</td>
-								<td>Rp.440.000</td>
-								<td>56</td>
-								<td>07/01/2023</td>
-								<td>17/03/2023</td>
-								<td class="text-center">
-									<a class="btn btn-sm btn-outline-info px-2" href="admin-createproduk"><i class="fa fa-eye"></i></a>
-									<a class="btn btn-sm btn-outline-warning px-2" href="admin-createproduk"><i class="fa fa-pencil"></i></a>
-									<a class="btn btn-sm btn-outline-danger px-2" href="admin-createproduk"><i class="fa fa-trash"></i></a>
-								</td>
-							</tr> --}}
 						</tbody>
 					</table>
 				</div>
