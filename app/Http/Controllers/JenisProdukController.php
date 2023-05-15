@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\JenisProduk;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\JenisProdukRequest;
+use App\Http\Requests\UpdateJenisProdukRequest;
 class JenisProdukController extends Controller
 {
 
     public function index()
     {
-        $data = JenisProduk::all();
-        return view ('admin/jenisproduk/indexjenisproduk', compact('data'));
+        $jenis_produk = JenisProduk::all();
+        return view ('admin/jenisproduk/indexjenisproduk', compact('jenis_produk'));
     }
 
 
@@ -21,36 +22,35 @@ class JenisProdukController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(JenisProdukRequest $request)
     {
-        $validatedData = $request->validate([
-            'nama_jenis_produk' => 'required'
-        ]);
-        JenisProduk::create($validatedData);
+
+        $jenis_produk = $request->validated();
+        JenisProduk::create($jenis_produk);
         return redirect('/indexjenisproduk')->with('create', 'Data Berhasil ditambah!');
 
     }
 
-
+    
     public function edit($id)
     {
-        $data = JenisProduk::find($id);
-        return view ('/admin/jenisproduk/editjenisproduk', compact('data'));
+        $jenis_produk = JenisProduk::find($id);
+        return view ('/admin/jenisproduk/editjenisproduk', compact('jenis_produk'));
     }
 
 
-    public function update(Request $request, $id)
+    public function update(JenisProdukRequest $request, $id)
     {
-        $data = JenisProduk::find($id);
-        $data->update($request->all());
+        $jenis_produk = JenisProduk::find($id);
+        $jenis_produk->update($request->all());
         return redirect('/indexjenisproduk')->with('update', 'Data Berhasil diupdate!');
     }
 
 
     public function destroy($id)
     {
-        $data = JenisProduk::find($id);
-        $data->delete();
+        $jenis_produk = JenisProduk::find($id);
+        $jenis_produk->delete();
         return redirect('/indexjenisproduk')->with('destroy', 'Data Berhasil dihapus!');
     }
 }

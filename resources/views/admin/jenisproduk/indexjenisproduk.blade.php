@@ -29,12 +29,13 @@
 							@php
 								$no = 1;
 							@endphp
-							@foreach ( $data as $item)
+							@foreach ( $jenis_produk as $item)
 								<tr>
 									<td>{{ $no++}}</td>
 									<td style="text-transform:uppercase">{{ $item->nama_jenis_produk}}</td>
 									<td>{{ $item->created_at->format('d-m-Y') }}</td>
 									<td class="text-center">
+										<a class="btn btn-sm btn-outline-warning px-2" href="/editjenisproduk-{{ $item->id }}"><i class="fa fa-pencil"></i></a>
 										<a class="btn btn-sm btn-outline-danger px-2 deletejenisproduk" data-id="{{ $item->id }}" data-nama="{{ $item->nama_jenis_produk}}"><i class="fa fa-trash"></i></a>
 									</td>
 								</tr>
