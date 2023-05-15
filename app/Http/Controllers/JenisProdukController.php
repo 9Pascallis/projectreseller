@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\JenisProduk;
 use Illuminate\Http\Request;
 use App\Http\Requests\JenisProdukRequest;
-use App\Http\Requests\UpdateJenisProdukRequest;
 class JenisProdukController extends Controller
 {
 
