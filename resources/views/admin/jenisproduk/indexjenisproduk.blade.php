@@ -32,7 +32,7 @@
 							@foreach ( $jenis_produk as $item)
 								<tr>
 									<td>{{ $no++}}</td>
-									<td style="text-transform:uppercase">{{ $item->nama_jenis_produk}}</td>
+									<td>{{ $item->nama_jenis_produk}}</td>
 									<td>{{ $item->created_at->format('d-m-Y') }}</td>
 									<td class="text-center">
 										<a class="btn btn-sm btn-outline-warning px-2" href="/editjenisproduk-{{ $item->id }}"><i class="fa fa-pencil"></i></a>

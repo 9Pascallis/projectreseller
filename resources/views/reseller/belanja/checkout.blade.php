@@ -26,45 +26,43 @@
                 <!-- CONTAINER KIRI -->
                 <div class="col-12 col-md-6">
                     <div class="checkout_details_area mt-20 clearfix">
-                        <div class="cart-page-heading mb-10">
+                        {{-- <div class="cart-page-heading mb-10">
                             <h6 class="text-dark">Cari Data Riwayat Pembeli</h6>
                         </div>
                         <form class="example mb-30" action="action_page.php">
                             <input type="text" name="search">
                             <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
+                        </form> --}}
                         <!-- INFORMASI PEMBELI -->
                             <div class="cart-page-heading mb-30">
-                                <h5>Informasi Pembeli</h5>
+                                <h5>Alamat Pengiriman</h5>
                             </div>
-                            <form action="#" method="post">
+                            <form>
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
                                         <label for="first_name">Nama Lengkap <span>*</span></label>
                                         <input type="text" class="form-control" id="first_name" value="" required>
                                     </div>
                                     <div class="col-md-12 mb-3">
-                                        <label for="company">Nomor Whatsapp</label>
+                                        <label for="company">Nomor Hp</label>
                                         <input type="text" class="form-control" id="company" value="" required>
                                     </div>
-                                </div>
-                            </form><br>
-                        <!-- INFORMASI ALAMAT PEGIRIMAN -->
-                            <div class="cart-page-heading mb-30">
-                                <h5>Informasi Alamat Pengiriman</h5>
-                            </div>
-                            <form action="#" method="post">
-                                <div class="row">
                                     <div class="col-md-12 mb-3">
                                         <label for="first_name">Alamat <span>*</span></label>
                                         <input type="text" class="form-control" id="first_name" value="" required>
                                     </div>
                                     <div class="col-12 mb-3">
-
+                                        <label for="inputText">Provinsi <span>*</span></label>
+                                        <select class="w-100" id="provinsi" value="">
+                                            <option selected="">-</option>
+                                            <option value="1">United States</option>
+                                            <option value="2">United Kingdom</option>
+                                            <option value="3">Germany</option>
+                                        </select>
                                     </div>
                                     <div class="col-12 mb-3">
-                                        <label for="country">Kecamatan <span>*</span></label>
-                                        <select class="w-100" id="country">
+                                        <label for="inputText">Kota <span>*</span></label>
+                                        <select class="w-100" id="kota" value="">
                                             <option value="usa">-</option>
                                             <option value="usa">United States</option>
                                             <option value="uk">United Kingdom</option>
@@ -72,8 +70,17 @@
                                         </select>
                                     </div>
                                     <div class="col-12 mb-3">
-                                        <label for="country">Kode Pos <span>*</span></label>
-                                        <select class="w-100" id="country">
+                                        <label for="inputText">Kecamatan <span>*</span></label>
+                                        <select class="w-100" id="kecamatan" value="">
+                                            <option value="usa">-</option>
+                                            <option value="usa">United States</option>
+                                            <option value="uk">United Kingdom</option>
+                                            <option value="ger">Germany</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="inputText">Kode Pos <span>*</span></label>
+                                        <select class="w-100" id="kode_pos" value="">
                                             <option value="usa">-</option>
                                             <option value="usa">United States</option>
                                             <option value="uk">United Kingdom</option>
@@ -81,11 +88,13 @@
                                         </select>
                                     </div>
                                 </div>
-                            </form>
+                                <div class="col-md-12">
+                                    <button class="btn essence-btn bg-dark" style="height: 50px" type="reset" value="Reset">Kirim Ke Alamat Lain</button>
+                                </div>
+                            </form><br>
+                                
                         <!-- KIRIM KE ALAMAT LAIN -->
-                        <div class="col-md-12">
-                            <button type="submit" name="addtocart" value="5" class="btn essence-btn bg-dark" data-toggle="collapse" style="height: 50px">Kirim Ke Alamat Lain</button>
-                        </div>
+                        
                     </div>
                 </div>
                 <!-- CONTAINER KIRI END -->
@@ -96,11 +105,11 @@
                         <div class="cart-page-heading">
                             <!-- JUDUL -->
                             <h5>Transaksi</h5>
-                            <!-- INPUT RESI -->
+                            {{-- <!-- INPUT RESI -->
                             <p>Input Resi</p>
                             <div class="col-md-12 mb-3">
                                 <input type="text" class="form-control" id="company" value="" required>
-                            </div>
+                            </div> --}}
                             <!-- PENGIRIMAN -->
                             <p>Pengiriman</p>
                                 <!-- JASA KURIR -->
@@ -111,14 +120,14 @@
                                         <option value="uk">SiCepat Ekspress</option>
                                     </select>
                                 </div>
-                                <!-- SERVICE -->
+                                {{-- <!-- SERVICE -->
                                 <div class="col-12 mb-12" style="padding-bottom: 70px">
                                     <select class="w-100" id="country">
                                         <option value="usa">Pilih Service</option>
                                         <option value="usa">Hemat </option>
                                         <option value="uk">Reguler</option>
                                     </select>
-                                </div>
+                                </div> --}}
                                 <p style="font-size: 12px"><i>Berat: 1Kg</i></p>
                         </div>
                         <!-- LIST PRODUK -->

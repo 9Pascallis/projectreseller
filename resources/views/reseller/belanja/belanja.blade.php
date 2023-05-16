@@ -21,25 +21,24 @@
         <div class="container">
             <div class="row">
                 <!-- CONTAINER KATEGORI DAN FILTER -->
-                <div class="col-12 col-md-4 col-lg-3">
+                <div class="col-12 col-md-3 col-lg-3">
                     <div class="shop_sidebar_area">
                         <!-- KATEGORI -->
                         <div class="widget catagory mb-30">
                             <!-- JUDUL -->
-                            <h6 class="widget-title mb-30">Kategori</h6>
+                            <h6 class="widget-title mb-30">KATEGORI: </h6>
                             <!-- KONTEN -->
                             <div class="catagories-menu">
                                 <ul id="menu-content2" class="menu-content collapse show">
                                     <li data-toggle="collapse" data-target="#clothing">
-                                        <ul class="sub-menu collapse show">
-                                            <li><a href="#"><b class="text-dark" style="font-family: ubuntu">Semua</b></a></li>
-                                            <li><a href="#"><b class="text-dark" style="font-family: ubuntu">Aksesoris</b></a></li>
-                                            <li><a href="#"><b class="text-dark" style="font-family: ubuntu">Jaket</b></a></li>
-                                            <li><a href="#"><b class="text-dark" style="font-family: ubuntu">Tas</b></a></li>
-                                            <li><a href="#"><b class="text-dark" style="font-family: ubuntu">Rompi</b></a></li>
-                                            <li><a href="#"><b class="text-dark" style="font-family: ubuntu">Sarung Tangan</b></a></li>
-                                            <li><a href="#"><b class="text-dark" style="font-family: ubuntu">T-Shirt</b></a></li>
-                                            <li><a href="#"><b class="text-dark" style="font-family: ubuntu">Aksesoris Kepala</b></a></li>
+                                        <ul class="sub-menu collapse show" >
+                                            <div style="padding-right: 50px"><hr></div>
+                                            <li><a href="reseller-belanja"><b class="text-dark" style="font-family: ubuntu">&#8226; SEMUA</b></a></li>
+                                            <div style="padding-right: 50px"><hr></div>
+                                            @foreach ( $jenis_produk as $item)
+                                            <li><a href="#"><b class="text-dark" style="font-family: ubuntu">&#8226; {{ $item->nama_jenis_produk}}</b></a></li>
+                                            <div style="padding-right: 50px"><hr></div>
+                                            @endforeach
                                         </ul>
                                     </li>
                                 </ul>
@@ -47,7 +46,7 @@
                         </div>
                         <!-- KATEGORI END -->
 
-                        <!-- FILTER HARGA -->
+                        {{-- <!-- FILTER HARGA -->
                         <div class="widget price mb-30">
                             <!-- JUDUL -->
                             <a style="color: black; font-size: 18px" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -68,9 +67,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- FILTER HARGA END -->
+                        <!-- FILTER HARGA END --> --}}
 
-                        <!-- FILTER KATEGORI -->
+                        {{-- <!-- FILTER KATEGORI -->
                         <div class="widget catagory mb-50">
                             <!-- JUDUL -->
                             <a style="color: black; font-size: 18px" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -116,13 +115,13 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- FILTER KATEGORI END --> 
+                        <!-- FILTER KATEGORI END -->  --}}
                     </div>
                 </div>
                 <!-- CONTAINTER KATEGORI DAN FILTER END -->
 
                 <!-- CONTAINER KONTEN -->
-                <div class="col-12 col-md-8 col-lg-9">
+                <div class="col-12 col-md-9 col-lg-9">
                     <!-- PRODUK -->
                     <div class="shop_grid_product_area">
                         <!-- HEADER -->
@@ -172,311 +171,44 @@
                         <!-- HEADER END -->
 
                         <!-- ISI -->
-                        <div class="row">
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="reseller-detail">
-                                            <img src="assets_reseller/img/product-img/product-1.jpg" alt="">
-                                            <!-- Product Badge -->
-                                            <div class="product-badge offer-badge bg-dark">
-                                                <span>-30%</span>
-                                            </div>
-                                            <!-- Favourite -->
-                                        </a>
-                                    </div>
+                        
+                            <div class="row">
+                                @foreach ( $produk as $item)
+                                <!-- Single Product -->
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <div class="single-product-wrapper">
+                                        <!-- Product Image -->
+                                        <div class="product-img">
+                                            <a href="reseller-detail">
+                                                <img src="{{asset('storage/'.$item->foto_utama_produk)}}" alt="">
+                                                <!-- Product Badge -->
+                                                {{-- <div class="product-badge offer-badge bg-dark">
+                                                    <span>-30%</span>
+                                                </div> --}}
+                                                <!-- Favourite -->
+                                            </a>
+                                        </div>
 
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>Jaket</span>
-                                        <a href="single-product-details.html">
-                                            <h6>RESPIRO TR-05 XENTRA N R1.4 BLACK</h6>
-                                        </a>
-                                        <p class="product-price text-dark">Rp. 440.000 <s style="color: red; font-size: 12px">Rp. 640.000</s></p>
-                                        <!-- Hover Content -->
-                                        <div class="hover-content">
-                                            <!-- Add to Cart -->
-                                            <div class="add-to-cart-btn">
-                                                <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Add to Cart</a>
+                                        <!-- Product Description -->
+                                        <div class="product-description">
+                                            <span>{{ $item->jenis_produk->nama_jenis_produk}}</span>
+                                            <a href="single-product-details.html">
+                                                <h6>{{ $item->nama_produk}}</h6>
+                                            </a>
+                                            <b class="product-price text-danger">{{ $item->harga_produk}}</b>
+                                            <!-- Hover Content -->
+                                            <div class="hover-content">
+                                                <!-- Add to Cart -->
+                                                <div class="add-to-cart-btn">
+                                                    <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Add to Cart</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
 
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="reseller-detail">
-                                            <img src="assets_reseller/img/product-img/product-2.jpg" alt="">
-                                            <!-- Product Badge -->
-                                            <div class="product-badge offer-badge bg-dark">
-                                                <span>-30%</span>
-                                            </div>
-                                            <!-- Favourite -->
-                                        </a>
-                                        
-                                    </div>
-
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>Jaket</span>
-                                        <a href="single-product-details.html">
-                                            <h6>RESPIRO TR-05 XENTRA N R1.4 BLACK</h6>
-                                        </a>
-                                        <p class="product-price text-dark">Rp. 440.000 <s style="color: red; font-size: 12px">Rp. 640.000</s></p>
-                                        <!-- Hover Content -->
-                                        <div class="hover-content">
-                                            <!-- Add to Cart -->
-                                            <div class="add-to-cart-btn">
-                                                <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="reseller-detail">
-                                            <img src="assets_reseller/img/product-img/product-3.jpg" alt="">
-                                            <!-- Product Badge -->
-                                            <div class="product-badge offer-badge bg-dark">
-                                                <span>-30%</span>
-                                            </div>
-                                            <!-- Favourite -->
-                                        </a>
-                                        
-                                    </div>
-
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>Jaket</span>
-                                        <a href="single-product-details.html">
-                                            <h6>RESPIRO TR-05 XENTRA N R1.4 BLACK</h6>
-                                        </a>
-                                        <p class="product-price text-dark">Rp. 440.000 <s style="color: red; font-size: 12px">Rp. 640.000</s></p>
-                                        <!-- Hover Content -->
-                                        <div class="hover-content">
-                                            <!-- Add to Cart -->
-                                            <div class="add-to-cart-btn">
-                                                <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="reseller-detail">
-                                            <img src="assets_reseller/img/product-img/product-4.jpg" alt="">
-                                            <!-- Product Badge -->
-                                            <div class="product-badge offer-badge bg-dark">
-                                                <span>-30%</span>
-                                            </div>
-                                            <!-- Favourite -->
-                                        </a>
-                                        
-                                    </div>
-
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>Jaket</span>
-                                        <a href="single-product-details.html">
-                                            <h6>RESPIRO TR-05 XENTRA N R1.4 BLACK</h6>
-                                        </a>
-                                        <p class="product-price text-dark">Rp. 440.000 <s style="color: red; font-size: 12px">Rp. 640.000</s></p>
-                                        <!-- Hover Content -->
-                                        <div class="hover-content">
-                                            <!-- Add to Cart -->
-                                            <div class="add-to-cart-btn">
-                                                <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="reseller-detail">
-                                            <img src="assets_reseller/img/product-img/product-5.jpg" alt="">
-                                            <!-- Product Badge -->
-                                            <div class="product-badge offer-badge bg-dark">
-                                                <span>-30%</span>
-                                            </div>
-                                            <!-- Favourite -->
-                                        </a>
-                                        
-                                    </div>
-
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>Jaket</span>
-                                        <a href="single-product-details.html">
-                                            <h6>RESPIRO TR-05 XENTRA N R1.4 BLACK</h6>
-                                        </a>
-                                        <p class="product-price text-dark">Rp. 440.000 <s style="color: red; font-size: 12px">Rp. 640.000</s></p>
-                                        <!-- Hover Content -->
-                                        <div class="hover-content">
-                                            <!-- Add to Cart -->
-                                            <div class="add-to-cart-btn">
-                                                <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="reseller-detail">
-                                            <img src="assets_reseller/img/product-img/product-1.jpg" alt="">
-                                            <!-- Product Badge -->
-                                            <div class="product-badge offer-badge bg-dark">
-                                                <span>-30%</span>
-                                            </div>
-                                            <!-- Favourite -->
-                                        </a>
-                                        
-                                    </div>
-
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>Jaket</span>
-                                        <a href="single-product-details.html">
-                                            <h6>RESPIRO TR-05 XENTRA N R1.4 BLACK</h6>
-                                        </a>
-                                        <p class="product-price text-dark">Rp. 440.000 <s style="color: red; font-size: 12px">Rp. 640.000</s></p>
-                                        <!-- Hover Content -->
-                                        <div class="hover-content">
-                                            <!-- Add to Cart -->
-                                            <div class="add-to-cart-btn">
-                                                <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="reseller-detail">
-                                            <img src="assets_reseller/img/product-img/product-2.jpg" alt="">
-                                            <!-- Product Badge -->
-                                            <div class="product-badge offer-badge bg-dark">
-                                                <span>-30%</span>
-                                            </div>
-                                            <!-- Favourite -->
-                                        </a>
-                                        
-                                    </div>
-
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>Jaket</span>
-                                        <a href="single-product-details.html">
-                                            <h6>RESPIRO TR-05 XENTRA N R1.4 BLACK</h6>
-                                        </a>
-                                        <p class="product-price text-dark">Rp. 440.000 <s style="color: red; font-size: 12px">Rp. 640.000</s></p>
-                                        <!-- Hover Content -->
-                                        <div class="hover-content">
-                                            <!-- Add to Cart -->
-                                            <div class="add-to-cart-btn">
-                                                <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="reseller-detail">
-                                            <img src="assets_reseller/img/product-img/product-3.jpg" alt="">
-                                            <!-- Product Badge -->
-                                            <div class="product-badge offer-badge bg-dark">
-                                                <span>-30%</span>
-                                            </div>
-                                            <!-- Favourite -->
-                                        </a>
-                                        
-                                    </div>
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>Jaket</span>
-                                        <a href="single-product-details.html">
-                                            <h6>RESPIRO TR-05 XENTRA N R1.4 BLACK</h6>
-                                        </a>
-                                        <p class="product-price text-dark">Rp. 440.000 <s style="color: red; font-size: 12px">Rp. 640.000</s></p>
-                                        <!-- Hover Content -->
-                                        <div class="hover-content">
-                                            <!-- Add to Cart -->
-                                            <div class="add-to-cart-btn">
-                                                <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="reseller-detail">
-                                            <img src="assets_reseller/img/product-img/product-4.jpg" alt="">
-                                            <!-- Product Badge -->
-                                            <div class="product-badge offer-badge bg-dark">
-                                                <span>-30%</span>
-                                            </div>
-                                            <!-- Favourite -->
-                                        </a>
-                                        
-                                    </div>
-
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>Jaket</span>
-                                        <a href="single-product-details.html">
-                                            <h6>RESPIRO TR-05 XENTRA N R1.4 BLACK</h6>
-                                        </a>
-                                        <p class="product-price text-dark">Rp. 440.000 <s style="color: red; font-size: 12px">Rp. 640.000</s></p>
-                                        <!-- Hover Content -->
-                                        <div class="hover-content">
-                                            <!-- Add to Cart -->
-                                            <div class="add-to-cart-btn">
-                                                <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <!-- ISI END -->
                     </div>
                     <!-- PRODUK -->

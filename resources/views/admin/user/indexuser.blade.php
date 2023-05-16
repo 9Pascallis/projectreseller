@@ -35,7 +35,7 @@
 							@foreach ( $user as $item)
 							<tr>
 								<td>{{ $no++}}</td>
-								<td style="text-transform:uppercase">{{ $item->nama_lengkap_user}}</td>
+								<td>{{ $item->nama_lengkap_user}}</td>
 								<td>{{ $item->email_user}}</td>
 								<td>{{ $item->no_telp_user}}</td>
 								<td>{{ $item->created_at->format('d-m-Y') }}</td>

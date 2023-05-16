@@ -17,7 +17,7 @@
 				<div class="row mb-3">
 					<label for="inputText" class="col-sm-3 col-form-label">Nama Lengkap</label>
 					<div class="col-sm-9">
-					<input type="text" class="form-control" name="nama_lengkap_user" value="{{old('nama_lengkap_user')}}" style="text-transform:uppercase" required>
+					<input type="text" class="form-control" name="nama_lengkap_user" value="{{old('nama_lengkap_user')}}" required>
 					@error('nama_lengkap_user')
 						<span class="invalid-feedback">{{ $message}}</span>
 					@enderror
@@ -26,7 +26,7 @@
 				<div class="row mb-3">
 					<label for="inputText" class="col-sm-3 col-form-label">Tanggal Lahir</label>
 					<div class="col-sm-9">
-					<input type="date" class="form-control" style="text-transform:uppercase" name="tanggal_lahir_user" value="{{old('tanggal_lahir_user')}}" required>
+					<input type="date" class="form-control" name="tanggal_lahir_user" value="{{old('tanggal_lahir_user')}}" required>
 					@error('tanggal_lahir_user')
 						<span class="invalid-feedback">{{ $message}}</span>
 					@enderror

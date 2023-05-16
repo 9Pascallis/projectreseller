@@ -52,11 +52,11 @@
 							@foreach ( $produk as $item)
 								<tr>
 									<td>{{ $no++}}</td>
-									<td style="text-transform:uppercase">{{ $item->nama_produk}}</td>
+									<td>{{ $item->nama_produk}}</td>
 									<td class="text-center">
 										<img src="{{asset('storage/'.$item->foto_utama_produk)}}" alt="" style="width: 200px">
 									</td>
-									<td style="text-transform:uppercase">{{ $item->jenis_produk->nama_jenis_produk}}</td>
+									<td>{{ $item->jenis_produk->nama_jenis_produk}}</td>
 									<td>{{ $item->harga_produk}}</td>
 									<td>{{ $item->total_stok_produk}}</td>
 									<td class="text-center">

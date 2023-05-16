@@ -18,13 +18,13 @@
                     <div class="row mb-3">
 						<label for="inputText" class="col-sm-3 col-form-label">Jenis Produk</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="nama_jenis_produk" style="text-transform:uppercase" value="{{ $produk->jenis_produk->nama_jenis_produk}}" disabled>
+							<input type="text" class="form-control" name="nama_jenis_produk" value="{{ $produk->jenis_produk->nama_jenis_produk}}" disabled>
                         </div>
 					</div>
 					<div class="row mb-3">
 						<label for="inputText" class="col-sm-3 col-form-label">Nama Produk</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="nama_produk" style="text-transform:uppercase" value="{{$produk->nama_produk}}" disabled>
+							<input type="text" class="form-control" name="nama_produk" value="{{$produk->nama_produk}}" disabled>
 						</div>
 					</div>
 					<div class="row mb-3">
@@ -34,7 +34,7 @@
 						</div>
 					</div>   
 					<div class="row mb-3">
-						<label for="inputText" class="col-sm-3 col-form-label">Harga Sebelum Diskon</label>
+						<label for="inputText" class="col-sm-3 col-form-label">Harga Produk</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="harga_produk" id="dengan-rupiah" value="{{$produk->harga_produk}}" disabled>
 						</div>

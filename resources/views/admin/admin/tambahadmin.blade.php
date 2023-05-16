@@ -15,7 +15,7 @@
 				<div class="row mb-3">
 					<label for="inputText" class="col-sm-3 col-form-label" >Nama Lengkap</label>
 					<div class="col-sm-9">
-					<input type="text" name="nama_lengkap_admin" value="{{old('nama_lengkap_admin')}}" class="form-control" style="text-transform:uppercase" required>
+					<input type="text" name="nama_lengkap_admin" value="{{old('nama_lengkap_admin')}}" class="form-control" required>
 					@error('nama_lengkap_admin')
 						<span class="invalid-feedback">{{ $message}}</span>
 					@enderror

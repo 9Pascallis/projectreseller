@@ -14,7 +14,7 @@
 					<div class="row mb-3">
 						<label for="inputText" class="col-sm-3 col-form-label">Nama Jenis Produk</label>
 						<div class="col-sm-9">
-							<input type="text" name="nama_jenis_produk" value="{{old('nama_jenis_produk')}}" class="form-control @error('nama_jenis_produk') is-invalid @enderror me-2" style="text-transform:uppercase" required >
+							<input type="text" name="nama_jenis_produk" value="{{old('nama_jenis_produk')}}" class="form-control @error('nama_jenis_produk') is-invalid @enderror me-2" required >
 							@error('nama_jenis_produk')
 								<span class="invalid-feedback">{{ $message}}</span>
 							@enderror

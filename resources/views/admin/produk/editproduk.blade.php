@@ -18,13 +18,13 @@
                     <div class="row mb-3">
 						<label for="inputText" class="col-sm-3 col-form-label">Jenis Produk</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="nama_jenis_produk" style="text-transform:uppercase" value="{{ $produk->jenis_produk->nama_jenis_produk}}" disabled>
+							<input type="text" class="form-control" name="nama_jenis_produk" value="{{ $produk->jenis_produk->nama_jenis_produk}}" disabled>
                         </div>
 					</div>
 					<div class="row mb-3">
 						<label for="inputText" class="col-sm-3 col-form-label">Nama Produk</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control @error('nama_produk') is-invalid @enderror me-2" name="nama_produk" style="text-transform:uppercase" value="{{$produk->nama_produk}}" required>
+							<input type="text" class="form-control @error('nama_produk') is-invalid @enderror me-2" name="nama_produk" value="{{$produk->nama_produk}}" required>
 							@error('nama_produk')
 								<span class="invalid-feedback">{{ $message}}</span>
 							@enderror

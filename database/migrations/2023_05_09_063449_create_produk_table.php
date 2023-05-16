@@ -17,13 +17,13 @@ class CreateProdukTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_jenis_produk');
             $table->string('nama_produk')->unique();
-            $table->string('deskripsi_produk');
+            $table->longText('deskripsi_produk');
             $table->string('harga_produk');
             $table->string('total_stok_produk');
             $table->string('foto_utama_produk');
             $table->timestamps();
-
-            $table->foreign('id_jenis_produk')->references('id')->on('jenis_produk');
+            
+            $table->foreign('id_jenis_produk')->references('id')->on('jenis_produk')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

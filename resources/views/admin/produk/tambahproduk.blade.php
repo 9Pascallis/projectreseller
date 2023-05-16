@@ -20,7 +20,7 @@
 						<div class="col-sm-8">
 						<select class="form-select" style="width: 100%;" name="id_jenis_produk" required>
 							@foreach ($jenis_produk as $item)
-								<option style="text-transform:uppercase" value="{{$item->id}}">{{$item->nama_jenis_produk}}</option>
+								<option value="{{$item->id}}">{{$item->nama_jenis_produk}}</option>
 							@endforeach
 							@error('nama_jenis_produk')
 								<span class="invalid-feedback">{{ $message}}</span>
@@ -31,7 +31,7 @@
 					<div class="row mb-3">
 						<label for="inputText" class="col-sm-3 col-form-label">Nama Produk</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control @error('nama_produk') is-invalid @enderror me-2" name="nama_produk" style="text-transform:uppercase" value="{{old('nama_produk')}}" required>
+							<input type="text" class="form-control @error('nama_produk') is-invalid @enderror me-2" name="nama_produk" value="{{old('nama_produk')}}" required>
 							@error('nama_produk')
 								<span class="invalid-feedback">{{ $message}}</span>
 							@enderror
