@@ -39,7 +39,7 @@
 								<th>NO</th>
 								<th>NAMA PRODUK</th>
 								<th class="text-center">FOTO PRODUK</th>
-								<th>KATEGORI</th>
+								<th>JENIS PRODUK</th>
 								<th>HARGA</th>
 								<th>STOK</th>
 								<th class="text-center">ACTION</th>

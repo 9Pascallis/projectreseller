@@ -8,11 +8,11 @@
 	<div class="card">
 		<div class="card-body">
 			<!-- JUDUL -->
-				<h5 class="mb-0 text-uppercase text-center">View Admin</h5><hr><br>
+				<h5 class="mb-0 text-uppercase text-center">Admin</h5><hr><br>
 			<!-- JUDUL END -->
 
 			<div class="col-12">
-				<a href="tambahadmin" class="btn btn-success" role="button" aria-pressed="true">+ Create Admin</a>
+				<a href="tambahadmin" class="btn btn-success" role="button" aria-pressed="true">+ Admin</a>
 			</div><br>
 
 			<!-- ISI -->
@@ -32,7 +32,7 @@
 							@php
 								$no = 1;
 							@endphp
-							@foreach ( $data as $item)
+							@foreach ( $admin as $item)
 								<tr>
 									<td>{{ $no++}}</td>
 									<td style="text-transform:uppercase">{{ $item->nama_lengkap_admin}}</td>

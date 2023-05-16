@@ -45,6 +45,30 @@ $('.deleteadmin').click(function() {
     });
 });
 
+$('.deleteuser').click(function() {
+    var id = $(this).attr('data-id');
+    var nama = $(this).attr('data-nama');
+    Swal.fire({
+        title: 'Apakah anda yakin?',
+        text: "Data " + nama + " akan terhapus!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Deleted!',
+                'Data berhasil dihapus!',
+                'success'
+            );
+            window.location = "/deleteuser-" + id + ""
+
+        }
+    });
+});
+
 $('.deletejenisproduk').click(function() {
     var id = $(this).attr('data-id');
     var nama = $(this).attr('data-nama');

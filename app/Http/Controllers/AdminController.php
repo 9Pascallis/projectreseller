@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use App\Http\Requests\AdminRequest;
 
 class AdminController extends Controller
 {
     
     public function index()
     {
-        $data = Admin::all();
-        return view ('/admin/admin/indexadmin', compact('data'));
+        $admin = Admin::all();
+        return view ('/admin/admin/indexadmin', compact('admin'));
     }
 
 
@@ -21,39 +22,33 @@ class AdminController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(AdminRequest $request)
     {
-        $validatedData = $request->validate([
-            'nama_lengkap_admin' => 'required',
-            'email_admin' => 'required',
-            'no_telp_admin' => 'required|min:11|max:13',
-            'password_admin' => 'required',
-        ]);
-        Admin::create($validatedData);
+        $admin = $request->validated();
+        Admin::create($admin);
         return redirect('/indexadmin')->with('create', 'Data Berhasil ditambah!');
-
     }
 
 
     public function edit($id)
     {
-        $data = Admin::find($id);
-        return view ('/admin/admin/editadmin', compact('data'));
+        $admin = Admin::find($id);
+        return view ('/admin/admin/editadmin', compact('admin'));
     }
 
 
-    public function update(Request $request, $id)
+    public function update(AdminRequest $request, $id)
     {
-        $data = Admin::find($id);
-        $data->update($request->all());
+        $admin = Admin::find($id);
+        $admin->update($request->all());
         return redirect('/indexadmin')->with('update', 'Data Berhasil diupdate!');
     }
 
 
     public function destroy($id)
     {
-        $data = Admin::find($id);
-        $data->delete();
+        $admin = Admin::find($id);
+        $admin->delete();
         return redirect('/indexadmin')->with('destroy', 'Data Berhasil dihapus!');
     }
 }

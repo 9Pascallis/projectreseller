@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JenisProdukController;
 use App\Http\Controllers\ProdukController;
@@ -54,12 +55,12 @@ use App\Http\Controllers\ProdukController;
     });
 
     //USER
-    Route::get('/admin-viewuser', function () {
-        return view('/admin/user/viewuser');
-    });
-    Route::get('/admin-createuser', function () {
-        return view('/admin/user/createuser');
-    });
+    Route::get('/indexuser', [UserController::class, 'index']) ->name('indexuser');
+    Route::get('/tambahuser', [UserController::class, 'create']) ->name('tambahuser');
+    Route::post('/insertdatauser', [UserController::class, 'store']) ->name('insertdatauser');
+    Route::get('/edituser-{id}', [UserController::class, 'edit']) ->name('edituser');
+    Route::post('/updateuser-{id}', [UserController::class, 'update']) ->name('updateuser');
+    Route::get('/deleteuser-{id}', [UserController::class, 'destroy']) ->name('deleteuser');
 
     //ADMIN
     Route::get('/indexadmin', [AdminController::class, 'index']) ->name('indexadmin');
@@ -68,6 +69,8 @@ use App\Http\Controllers\ProdukController;
     Route::get('/editadmin-{id}', [AdminController::class, 'edit']) ->name('editadmin');
     Route::post('/updateadmin-{id}', [AdminController::class, 'update']) ->name('updateadmin');
     Route::get('/deleteadmin-{id}', [AdminController::class, 'destroy']) ->name('deleteadmin');
+
+
 
 
     //PEMESANAN

@@ -137,7 +137,7 @@
           <li class="menu-label">MASTER</li>
           <!-- USER -->
           <li>
-            <a href="admin-viewuser">
+            <a href="indexuser">
               <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
               </div>
               <div class="menu-title">User</div>

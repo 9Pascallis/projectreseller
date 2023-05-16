@@ -1,5 +1,5 @@
 @extends('admin.layout.template')
-@section('title', 'Admin | Create Produk')
+@section('title', 'Admin | Detail Produk')
 @section('header')
 	<link href="assets_admin/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 @endsection
