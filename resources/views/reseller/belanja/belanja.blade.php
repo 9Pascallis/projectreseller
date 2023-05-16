@@ -200,7 +200,7 @@
                                             <div class="hover-content">
                                                 <!-- Add to Cart -->
                                                 <div class="add-to-cart-btn">
-                                                    <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Add to Cart</a>
+                                                    <a href="/reseller-detail-{{ $item->id }}" class="btn essence-btn" style="background-color: #ff4a00">Add to Cart</a>
                                                 </div>
                                             </div>
                                         </div>

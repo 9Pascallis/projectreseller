@@ -26,10 +26,11 @@
                 <div class="col-lg-5 mb-30">
                     <div class="product-image col-md-12">
                         <!-- ZOOM -->
-                        <div class="product-image-main">
-                            <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(assets_reseller/img/product-img/product-big-1.jpg)">
-                                <img src="assets_reseller/img/product-img/product-big-1.jpg" alt="" id="product-main-image">
+                        <div class="product-image-main mb-30">
+                            <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({{asset('storage/'.$produk->foto_utama_produk)}})">
+                                <img src="{{asset('storage/'.$produk->foto_utama_produk)}}" alt="">
                             </figure>
+                            {{-- <img src="{{asset('storage/'.$produk->foto_utama_produk)}}" alt=""> --}}
                         </div>
 
                         <!-- LIST FOTO -->
@@ -47,13 +48,16 @@
                 <div class="col-lg-7 h-auto mb-30">
                     <div class="single_product_desc clearfix">
                         <!-- KATEGORI -->
-                        <span style="font-family: ubuntu">Jaket</span>
+                        <span style="font-family: ubuntu">{{ $produk->jenis_produk->nama_jenis_produk}}</span>
                         <!-- NAMA PRODUK -->
-                        <h4 style="font-family: ubuntu">RESPIRO TR-05 XENTRA N R1.4 RED</h4>
+                        <h4 style="font-family: ubuntu">{{$produk->nama_produk}}</h4>
                         <!-- HARGA -->
-                        <p class="product-price" style="font-family: ubuntu"><span class="old-price"><b class="text-dark">Rp. 440.000</b> &ensp;</span><s style="color: red"> Rp. 660.000</s></p>
+                        <p class="product-price" style="font-family: ubuntu"><span class="old-price"><b class="text-danger">{{$produk->harga_produk}}</b> &ensp;</span></p>
                         <!-- DESKRIPSI PRODUK -->
-                        <p class="product-desc" style="font-family: ubuntu">Jalani segala aktifitas dengan percaya diri bersama TR-05 Xentra. Dilengkapi dengan inner Poly Cotton yang akan membuat anda nyaman berkendara baik dalam cuaca dingin maupun panas. Desain sporty-nya cocok untuk anda yang berkarakter dinamis. </p>
+                        <hr><p class="text-dark"><b>DETAIL PRODUK {{$produk->nama_produk}}</b></p>
+                        <p class="product-desc" style="font-family: ubuntu">{{$produk->deskripsi_produk}}</p>
+                        <!-- SISA STOK -->
+                        <p class="text-warning"><b>Stok Tersedia : {{$produk->total_stok_produk}}</b> </p>
                         <!-- POST DATA -->
                         <form class="cart-form clearfix" method="post">
                             <div>
@@ -91,20 +95,18 @@
                                         <label for="8" class="color">Black</label>
                                     </div>
                                 </div>
-                                <!-- SISA STOK -->
-                                <p class="text-dark">Sisa Stok : 49</p>
                                 <span class="divider"></span>
                                 <!-- JUMLAH PEMBELIAN -->
                                 <p class="text-dark" style="font-family: ubuntu">Jumlah Pembelian</p>
                                 <div class="product-btn-group">
-                                    <!-- KUANTITAS -->
-                                    <div>
-                                        <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus btn btn-info btn-plus minus"><i class="fa fa-minus"></i></button>
-                                        <input class="quantity text-center btn bg-light" min="0" name="quantity" value="1" type="number" style="width: 80px;" style="color: black">
-                                        <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus btn btn-info btn-plus plus"><i class="fa fa-plus"></i></button>
-                                    </div>
-                                    <!-- ADD TO CART -->
-                                    <div class="button add-cart bg-warning"><i class="fa fa-shopping-cart" style="font-size: 14px"></i> Add to Cart</div>
+                                <!-- KUANTITAS -->
+                                <div>
+                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus btn btn-info btn-plus minus"><i class="fa fa-minus"></i></button>
+                                    <input class="quantity text-center btn bg-light" min="0" name="quantity" value="1" type="number" style="width: 80px;" style="color: black">
+                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus btn btn-info btn-plus plus"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <!-- ADD TO CART -->
+                                <div class="button add-cart bg-warning"><i class="fa fa-shopping-cart" style="font-size: 14px"></i> Add to Cart</div>
 
                                 </div>
                             </div>
@@ -123,21 +125,19 @@
             </div>
             <!-- KONTEN ATAS END -->
 
-            <!-- DETAIL PRODUK -->
+            {{-- <!-- DETAIL PRODUK -->
             <div class="row mb-30">
                 <div class="col">
                     <h5 style="font-family: ubuntu">DETAIL PRODUK DARI RESPIRO TR-05 XENTRA N R1.4 RED</h5>
                     <hr style="height:1px;border:none; background-color:#333;">
-                    <p class="text-dark" style="font-family: ubuntu">Jalani segala aktifitas dengan percaya diri bersama TR-05 Xentra. Dilengkapi dengan inner Poly Cotton yang akan membuat anda nyaman berkendara baik dalam cuaca dingin maupun panas. Desain sporty-nya cocok untuk anda yang berkarakter dinamis.          
-
-                        Jaket Respiro ini cocok untuk anda yang sering berkendara di pagi hari dan malam hari.Teknologi windproof dan fitur cuff tab-nya akan memaksimalkan perlindungan anda selama berkendara. TR-05 Xentra juga dilengkapi dengan fitur air exhaust yang membantu mengeluarkan udara panas dari dalam jaket. Dengan fitur chest pocket-nya memudahkan anda untuk menjangkau barang bawaan anda</p>
+                    <p class="text-dark" style="font-family: ubuntu">{{$produk->deskripsi_produk}}</p>
                     <img src="assets_reseller/img/core-img/d1.png" alt="Image" width="30%">
 
                 </div>
             </div><br>
-            <!-- DETAIL PRODUK END -->
+            <!-- DETAIL PRODUK END --> --}}
             
-            <!-- SIZE SPEC -->
+            {{-- <!-- SIZE SPEC -->
             <div class="row mb-30">
                 <div class="col">
                     <h5 style="font-family: ubuntu">SIZE SPEC RESPIRO</h5>
@@ -284,7 +284,7 @@
                     </div>
                 </div>
             </div>
-            <!-- PRODUK SERUPA END -->
+            <!-- PRODUK SERUPA END --> --}}
         </div>
     </div>
     <!-- SECTION END -->

@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JenisProdukController;
 use App\Http\Controllers\BelanjaController;
+use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ProdukController;
 
 //landing
@@ -89,12 +90,13 @@ use App\Http\Controllers\ProdukController;
 
     //BELANJA
     Route::get('/reseller-belanja', [BelanjaController::class, 'index']) ->name('reseller-belanja');
+    Route::get('/reseller-detail-{id}', [DetailController::class, 'show']) ->name('reseller-detail');
     // Route::get('/reseller-belanja', function () {
     //     return view('/reseller/belanja/belanja');
     // });
-    Route::get('/reseller-detail', function () {
-        return view('/reseller/belanja/detail');
-    });
+    // Route::get('/reseller-detail', function () {
+    //     return view('/reseller/belanja/detail');
+    // });
     Route::get('/reseller-keranjang', function () {
         return view('/reseller/belanja/keranjang');
     });
