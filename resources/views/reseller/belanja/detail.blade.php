@@ -59,8 +59,16 @@
                         <!-- SISA STOK -->
                         <p class="text-dark"><b style="font-family: ubuntu">Stok Tersedia : {{$produk->total_stok_produk}}</b> </p>
                         <!-- POST DATA -->
-                        <form class="cart-form clearfix" method="post">
+                        <form action="/insertcart" method="POST">
+                            @csrf
+                            <input type="hidden" name="id_produk" value="{{$produk->id}}">
+                            <!-- KUANTITAS -->
                             <div>
+                                <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="btn essence1-btn bg-info"><i class="fa fa-minus"></i></button>
+                                <input class="quantity text-center btn bg-light" min="1" name="kuantitas" value="1" type="number" style="width: 70px;" style="color: black">
+                                <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="btn essence1-btn bg-info"><i class="fa fa-plus"></i></button>
+                            </div>
+                            {{-- <div>
                                 <!-- UKURAN -->
                                 <div class="product-size">
                                     <h4 style="padding-top: 10px">Ukuran</h4>
@@ -99,22 +107,17 @@
                                 <!-- JUMLAH PEMBELIAN -->
                                 <p class="text-dark" style="font-family: ubuntu"><b>Jumlah Pembelian: </b></p>
                                 <div class="product-btn-group">
-                                <!-- KUANTITAS -->
-                                <div>
-                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="btn essence1-btn bg-info"><i class="fa fa-minus"></i></button>
-                                    <input class="quantity text-center btn bg-light" min="0" name="quantity" value="1" type="number" style="width: 70px;" style="color: black">
-                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="btn essence1-btn bg-info"><i class="fa fa-plus"></i></button>
-                                </div>
+                                
                                 <!-- ADD TO CART -->
                                 
-                            </div>
+                            </div> --}}
 
                             <!-- CHECKOUT -->
                             <br>
                             <div class="cart-fav-box d-flex align-items-center">
-                                    <div style="padding-right: 15px">
+                                    {{-- <div style="padding-right: 15px">
                                         <button type="submit" name="addtocart" value="5" class="btn essence-btn bg-primary">Buy Now</button>
-                                    </div>
+                                    </div> --}}
                                     <div>
                                         <button type="submit" name="addtocart" value="5" class="btn essence-btn bg-warning"><i class="fa fa-shopping-cart" style="font-size: 14px"></i> Add to Cart + </button>
                                     </div>
