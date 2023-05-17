@@ -13,7 +13,7 @@ class BelanjaController extends Controller
     {
         $keyword = $request->keyword;
         $jenis_produk = JenisProduk::all();
-        $produk = Produk::where('nama_produk', 'LIKE', '%'.$keyword.'%')->paginate(4);
+        $produk = Produk::where('nama_produk', 'LIKE', '%'.$keyword.'%')->paginate(9);
         $produk->withPath('reseller-belanja');
         $produk->appends($request->all());
         return view ('reseller/belanja/belanja', compact('produk','jenis_produk', 'keyword'));
