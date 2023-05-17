@@ -17,12 +17,12 @@
 
 <body>
     <!-- HEADER -->
-    <header class="header_area" >
-        <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+    <header class="header_area">
+        <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between" style="background-color: #ff4a00">
             <!-- HEADER KIRI -->
             <nav class="classy-navbar" id="essenceNav">
                 <!-- LOGO -->
-                <a class="nav-brand" href="/reseller"><img src="assets_reseller/img/core-img/logoorange.png" width="180px" style="padding-bottom: 10px" alt=""></a>
+                <a class="nav-brand" href="/reseller"><img src="assets_reseller/img/core-img/logoputih.png" width="180px" style="padding-bottom: 10px" alt=""></a>
                 <div class="classy-navbar-toggler">
                     <span class="navbarToggler"><span></span><span></span><span></span></span>
                 </div>
@@ -33,9 +33,9 @@
                     <!-- NAVIGATION -->
                     <div class="classynav">
                         <ul>
-                            <li><a href="/reseller-belanja" style="font-family: Ubuntu"><b>Belanja</b></a></li>
-                            <li><a href="#" style="font-family: Ubuntu"><b>Produk</b></a>
-                                <ul class="dropdown">
+                            <li><a href="/reseller-belanja" style="font-weight: 600; color: #ffffff">Belanja</a></li>
+                            <li><a href="#" style="font-weight: 600; color: #ffffff">Produk</a>
+                                <ul class="dropdown btn-light">
                                     <li><a href="/reseller-belanja">Aksesoris</a></li>
                                     <li><a href="/reseller-belanja">Tas</a></li>
                                     <li><a href="/reseller-belanja">Jaket</a></li>
@@ -45,36 +45,35 @@
                                     <li><a href="/reseller-belanja">Aksesoris Kepala</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/reseller-belanja" style="font-family: Ubuntu"><b>Promo</b></a></li>
-                            <li><a href="" style="font-family: Ubuntu"><b>Dashboard</b></a></li>
+                            <li><a href="" style="font-weight: 600; color: #ffffff">Dashboard</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
 
             <!-- HEADER KANAN -->
-            <div class="header-meta d-flex clearfix justify-content-end">
-                <!-- PENCARIAN -->
+            <div class="header-meta d-flex clearfix justify-content-end" >
+                {{-- <!-- PENCARIAN -->
                 <div class="search-area">
                     <form action="#" method="post">
                         <input type="search" name="search" id="headerSearch" placeholder="Kolom Pencarian" style="font-family: Ubuntu">
                         <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </form>
-                </div>
+                </div> --}}
                 <!-- USER LOGIN -->
                 <div class="user-login-info">
                     <a href="#"><img src="assets_reseller/img/core-img/user.svg" alt=""></a>
                 </div>
-                <!-- KERANJANG -->
+                {{-- <!-- KERANJANG -->
                 <div class="cart-area">
                     <a href="#" id="essenceCartBtn"><img src="assets_reseller/img/core-img/bag.svg" alt=""> <span>3</span></a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </header>
     <!-- HEADER END -->
 
-    <!-- KERANJANG SAMPING -->
+    {{-- <!-- KERANJANG SAMPING -->
     <div class="cart-bg-overlay"></div>
 
     <div class="right-side-cart-area">
@@ -153,7 +152,7 @@
             </div>
         </div>
     </div>
-    <!-- KERANJANG SAMPING SELESAI -->
+    <!-- KERANJANG SAMPING SELESAI --> --}}
 
     @yield('content')
 
