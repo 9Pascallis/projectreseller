@@ -18,15 +18,15 @@
     <!-- BREADCRUMB END-->
 
     <!-- SECTION -->
-    <div class="checkout_area section-padding-80" style="padding-top:unset">
+    <div class="checkout_area" style="padding-top:unset;">
         <div class="container">
             <!-- KONTEN ATAS -->
-            <div class="row mb-30">
+            <div class="row mb-100">
                 <!-- FOTO PRODUK -->
-                <div class="col-lg-5 mb-30">
+                <div class="col-lg-5 mb-50 mt-50">
                     <div class="product-image col-md-12">
                         <!-- ZOOM -->
-                        <div class="product-image-main mb-30">
+                        <div class="product-image-main mb-30 shadow">
                             <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({{asset('storage/'.$produk->foto_utama_produk)}})">
                                 <img src="{{asset('storage/'.$produk->foto_utama_produk)}}" alt="">
                             </figure>
@@ -34,30 +34,30 @@
                         </div>
 
                         <!-- LIST FOTO -->
-                        <div class="product-image-slider">
+                        {{-- <div class="product-image-slider">
                                 <img src="assets_reseller/img/product-img/product-big-1.jpg" alt=""  class="image-list">
                                 <img src="assets_reseller/img/product-img/product-big-2.jpg" alt=""  class="image-list">
                                 <img src="assets_reseller/img/product-img/product-big-3.jpg" alt=""  class="image-list">
                                 <img src="assets_reseller/img/product-img/product-big-1.jpg" alt=""  class="image-list">
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <!-- FOTO PRODUK END -->
 
                 <!-- DESKRIPSI -->
-                <div class="col-lg-7 h-auto mb-30">
+                <div class="col-lg-7 h-auto mb-50 mt-50" style="padding-right: 50px">
                     <div class="single_product_desc clearfix">
                         <!-- KATEGORI -->
-                        <span style="font-family: ubuntu">{{ $produk->jenis_produk->nama_jenis_produk}}</span>
+                        <span style="font-family: ubuntu; font-size:medium"><b>{{ $produk->jenis_produk->nama_jenis_produk}}</b></span>
                         <!-- NAMA PRODUK -->
                         <h4 style="font-family: ubuntu">{{$produk->nama_produk}}</h4>
                         <!-- HARGA -->
-                        <p class="product-price" style="font-family: ubuntu"><span class="old-price"><b class="text-danger">{{$produk->harga_produk}}</b> &ensp;</span></p>
+                        <p class="product-price" style="font-family: ubuntu; font-size:large"><b class="text-danger">{{$produk->harga_produk}}</b></p>
                         <!-- DESKRIPSI PRODUK -->
                         <hr><p class="text-dark"><b>DETAIL PRODUK {{$produk->nama_produk}}</b></p>
-                        <p class="product-desc" style="font-family: ubuntu">{{$produk->deskripsi_produk}}</p>
+                        <p class="product-desc text-dark" style="font-family: ubuntu">{{$produk->deskripsi_produk}}</p>
                         <!-- SISA STOK -->
-                        <p class="text-warning"><b>Stok Tersedia : {{$produk->total_stok_produk}}</b> </p>
+                        <p class="text-dark"><b style="font-family: ubuntu">Stok Tersedia : {{$produk->total_stok_produk}}</b> </p>
                         <!-- POST DATA -->
                         <form class="cart-form clearfix" method="post">
                             <div>
@@ -97,24 +97,27 @@
                                 </div>
                                 <span class="divider"></span>
                                 <!-- JUMLAH PEMBELIAN -->
-                                <p class="text-dark" style="font-family: ubuntu">Jumlah Pembelian</p>
+                                <p class="text-dark" style="font-family: ubuntu"><b>Jumlah Pembelian: </b></p>
                                 <div class="product-btn-group">
                                 <!-- KUANTITAS -->
                                 <div>
-                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus btn btn-info btn-plus minus"><i class="fa fa-minus"></i></button>
-                                    <input class="quantity text-center btn bg-light" min="0" name="quantity" value="1" type="number" style="width: 80px;" style="color: black">
-                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus btn btn-info btn-plus plus"><i class="fa fa-plus"></i></button>
+                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="btn essence1-btn bg-info"><i class="fa fa-minus"></i></button>
+                                    <input class="quantity text-center btn bg-light" min="0" name="quantity" value="1" type="number" style="width: 70px;" style="color: black">
+                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="btn essence1-btn bg-info"><i class="fa fa-plus"></i></button>
                                 </div>
                                 <!-- ADD TO CART -->
-                                <div class="button add-cart bg-warning"><i class="fa fa-shopping-cart" style="font-size: 14px"></i> Add to Cart</div>
-
-                                </div>
+                                
                             </div>
 
                             <!-- CHECKOUT -->
                             <br>
                             <div class="cart-fav-box d-flex align-items-center">
-                                <button type="submit" name="addtocart" value="5" class="btn essence-btn bg-primary">Checkout</button>
+                                    <div style="padding-right: 15px">
+                                        <button type="submit" name="addtocart" value="5" class="btn essence-btn bg-primary">Buy Now</button>
+                                    </div>
+                                    <div>
+                                        <button type="submit" name="addtocart" value="5" class="btn essence-btn bg-warning"><i class="fa fa-shopping-cart" style="font-size: 14px"></i> Add to Cart + </button>
+                                    </div>
                             </div>
                         </form>
                         <!-- POST DATA END -->

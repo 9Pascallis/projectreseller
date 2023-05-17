@@ -33,8 +33,8 @@
                     <!-- NAVIGATION -->
                     <div class="classynav">
                         <ul>
-                            <li><a href="/reseller-belanja" style="font-weight: 600; color: #ffffff">Belanja</a></li>
-                            <li><a href="#" style="font-weight: 600; color: #ffffff">Produk</a>
+                            <li><a href="/reseller-belanja" style="font-weight: 600; color: #ffffff; font-family: ubuntu">Belanja</a></li>
+                            <li><a href="#" style="font-weight: 600; color: #ffffff; font-family: ubuntu">Produk</a>
                                 <ul class="dropdown btn-light">
                                     <li><a href="/reseller-belanja">Aksesoris</a></li>
                                     <li><a href="/reseller-belanja">Tas</a></li>
@@ -45,7 +45,7 @@
                                     <li><a href="/reseller-belanja">Aksesoris Kepala</a></li>
                                 </ul>
                             </li>
-                            <li><a href="" style="font-weight: 600; color: #ffffff">Dashboard</a></li>
+                            <li><a href="" style="font-weight: 600; color: #ffffff; font-family: ubuntu">Dashboard</a></li>
                         </ul>
                     </div>
                 </div>

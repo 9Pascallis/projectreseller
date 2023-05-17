@@ -318,6 +318,19 @@ img {
     font-weight: 600;
 }
 
+.essence1-btn {
+    display: inline-block;
+    width: 45px;
+    height: 40px;
+    color: #ffffff;
+    border: none;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    background-color: #0315ff;
+    font-weight: 600;
+}
+
 .essence-btn:hover,
 .essence-btn:focus {
     color: #ffffff;

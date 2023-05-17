@@ -9,10 +9,13 @@ use App\Http\Requests\ProdukRequest;
 
 class BelanjaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $keyword = $request->keyword;
         $jenis_produk = JenisProduk::all();
-        $produk = Produk::all();
-        return view ('reseller/belanja/belanja', compact('produk','jenis_produk'));
+        $produk = Produk::where('nama_produk', 'LIKE', '%'.$keyword.'%')->paginate(4);
+        $produk->withPath('reseller-belanja');
+        $produk->appends($request->all());
+        return view ('reseller/belanja/belanja', compact('produk','jenis_produk', 'keyword'));
     }
 }

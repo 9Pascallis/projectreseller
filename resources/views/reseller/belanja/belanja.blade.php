@@ -17,6 +17,7 @@
     <!-- BREADCRUMB END -->
 
     <!-- SECTION -->
+
     <section class="shop_grid_area section-padding-80" style="padding-top:unset">
         <div class="container">
             <div class="row">
@@ -33,10 +34,10 @@
                                     <li data-toggle="collapse" data-target="#clothing">
                                         <ul class="sub-menu collapse show" >
                                             <div style="padding-right: 50px"><hr></div>
-                                            <li><a href="reseller-belanja"><b class="text-dark" style="font-family: ubuntu">&#8226; SEMUA</b></a></li>
+                                            <li><a href="reseller-belanja"><b class="text-dark" style="font-family: ubuntu; font-weight: 600">&#8226; SEMUA</b></a></li>
                                             <div style="padding-right: 50px"><hr></div>
                                             @foreach ( $jenis_produk as $item)
-                                            <li><a href="#"><b class="text-dark" style="font-family: ubuntu">&#8226; {{ $item->nama_jenis_produk}}</b></a></li>
+                                            <li><a href="{{route('reseller-belanja', ['jenis_kategori' => $item->nama_jenis_produk])}}"><b class="text-dark" style="font-family: ubuntu; font-weight: 600">&#8226; {{ $item->nama_jenis_produk}}</b></a></li>
                                             <div style="padding-right: 50px"><hr></div>
                                             @endforeach
                                         </ul>
@@ -124,34 +125,24 @@
                 <div class="col-12 col-md-9 col-lg-9">
                     <!-- PRODUK -->
                     <div class="shop_grid_product_area">
+                        
                         <!-- HEADER -->
                         <div class="row">
                             <div class="col-12">
                                 <!-- JUDUL -->
                                 <h5 class="text-uppercase">DAFTAR PRODUK</h5><hr>
-                                <!-- TOTAL PRODUK -->
-                                <div class="total-products">
-                                    <p><span style="color: #ff4a00">186</span> Produk Ditemukan</p>
-                                </div>
+                                <form method="GET" action="{{route('reseller-belanja')}}">
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="keyword" value="{{$keyword}}" style="font-family: ubuntu" class="form-control" placeholder="Search Produk">
+                                        <button class="btn btn-info" style="font-family: ubuntu" type="submit">Search</button>
+                                      </div>
+                                </form>
                                 <!-- ATUR DAN TAMPILKAN -->
                                 <div class="product-topbar d-flex align-items-center justify-content-between">
-                                    <!-- ATUR -->
-                                    <div class="product-sorting d-flex">
-                                        <p>Atur:</p>
-                                        <form action="#" method="get">
-                                            <select name="select" id="sortByselect">
-                                                <option value="value">Default</option>
-                                                <option value="value">Terlaris</option>
-                                                <option value="value">Terbaru</option>
-                                                <option value="value">Terlama</option>
-                                                <option value="value">Harga Termurah</option>
-                                                <option value="value">Harga Termahal</option>
-                                                <option value="value">A-Z</option>
-                                                <option value="value">Z-A</option>
-                                            </select>
-                                            <input type="submit" class="d-none" value="">
-                                        </form>
-                                    </div>
+                                    <!-- TOTAL PRODUK -->
+                                        <div class="total-products">
+                                            <p><span style="color: #ff4a00">186</span> Produk Ditemukan</p>
+                                        </div>
                                     <!-- TAMPILKAN -->
                                     <div class="product-sorting d-flex">
                                         <p>Tampilkan :</p>
@@ -179,7 +170,7 @@
                                     <div class="single-product-wrapper">
                                         <!-- Product Image -->
                                         <div class="product-img">
-                                            <a href="reseller-detail">
+                                            <a href="/reseller-detail-{{ $item->id }}">
                                                 <img src="{{asset('storage/'.$item->foto_utama_produk)}}" alt="">
                                                 <!-- Product Badge -->
                                                 {{-- <div class="product-badge offer-badge bg-dark">
@@ -192,7 +183,7 @@
                                         <!-- Product Description -->
                                         <div class="product-description">
                                             <span>{{ $item->jenis_produk->nama_jenis_produk}}</span>
-                                            <a href="single-product-details.html">
+                                            <a href="/reseller-detail-{{ $item->id }}">
                                                 <h6>{{ $item->nama_produk}}</h6>
                                             </a>
                                             <b class="product-price text-danger">{{ $item->harga_produk}}</b>
@@ -200,7 +191,7 @@
                                             <div class="hover-content">
                                                 <!-- Add to Cart -->
                                                 <div class="add-to-cart-btn">
-                                                    <a href="/reseller-detail-{{ $item->id }}" class="btn essence-btn" style="background-color: #ff4a00">Add to Cart</a>
+                                                    <a href="/reseller-detail-{{ $item->id }}" class="btn essence-btn" style="background-color: #ff4a00">Detail</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -214,7 +205,8 @@
                     <!-- PRODUK -->
                     
                     <!-- PAGINATION -->
-                    <nav aria-label="navigation">
+                    {{$produk->links()}}
+                    {{-- <nav aria-label="navigation">
                         <ul class="pagination mt-30 mb-30">
                             <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -224,7 +216,7 @@
                             <li class="page-item"><a class="page-link" href="#">21</a></li>
                             <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
                         </ul>
-                    </nav>
+                    </nav> --}}
                     <!-- PAGINATION END -->
                 </div>
                 <!-- CONTAINER KONTEN END-->
