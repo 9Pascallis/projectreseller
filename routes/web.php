@@ -92,10 +92,15 @@ use App\Http\Controllers\ProdukController;
     //BELANJA
     Route::get('/reseller-belanja', [BelanjaController::class, 'index']) ->name('reseller-belanja');
     Route::get('/reseller-detail-{id}', [DetailController::class, 'show']) ->name('reseller-detail');
-    Route::post('/insertcart', [CartController::class, 'store']) ->name('insertcart');
-    Route::get('/reseller-keranjang', function () {
-        return view('/reseller/belanja/keranjang');
-    });
+
+    Route::get('/reseller-keranjang', [CartController::class, 'cart'])->name('/reseller-belanja');
+    Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
+    Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
+    Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
+    // Route::post('/insertcart', [CartController::class, 'store']) ->name('insertcart');
+    // Route::get('/reseller-keranjang', function () {
+    //     return view('/reseller/belanja/keranjang');
+    // });
     Route::get('/reseller-checkout', function () {
         return view('/reseller/belanja/checkout');
     });

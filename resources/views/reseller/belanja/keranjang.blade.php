@@ -37,10 +37,14 @@
                         </tr>
                     </thead>
                     <tbody class="align-middle">
+                        @if(session('cart'))
+                        @foreach(session('cart') as $id => $produk)
+
+
                         <tr>
                             <td class="align-middle"><input type="checkbox" style="width: 20px; height: 20px;"></td>
-                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-2.jpg" alt="" style="width: 100px;"></td>
-                            <td class="align-middle">RESPIRO TR-05 XENTRA N R1.4 RED</td>
+                            <td class="align-middle"><img src="{{asset('storage/'.$produk['foto_utama_produk'])}}" alt="" style="width: 100px;"></td>
+                            <td class="align-middle">{{ $produk['nama_produk'] }}</td>
                             <td class="align-middle">
                                 <button id="popupBtn" class="button-60" role="button">Warna: Red-001 &ensp;<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
                                 <div id="popupWrapper">
@@ -57,144 +61,21 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="align-middle">Rp. 440.000</td>
+                            <td class="align-middle">{{ $produk['harga_produk'] }}</td>
                             <td class="align-middle">
                                 <div>
                                     <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus btn btn-secondary btn-plus minus"><i class="fa fa-minus"></i></button>
-                                    <input class="quantity text-center btn bg-light" min="0" name="quantity" value="1" type="number" style="width: 50px;" style="color: black">
+                                    <input class="quantity text-center btn bg-light" min="0" name="kuantitas" value="{{ $produk['kuantitas'] }}" type="number" style="width: 50px;" style="color: black">
                                     <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus btn btn-secondary btn-plus plus"><i class="fa fa-plus"></i></button>
                                 </div>
                             </td>
-                            <td class="align-middle">Rp. 440.000</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
+                            <td class="align-middle">{{ $produk['harga_produk'] }}</td>
+                            <td class="align-middle actions" data-th="">
+                                <button class="btn btn-danger btn-sm remove-from-cart"><i class="fa fa-trash-o"></i></button>
+                            </td>
                         </tr>
-                        <tr>
-                            <td class="align-middle"><input type="checkbox" style="width: 20px; height: 20px;"></td>
-                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-1.jpg" alt="" style="width: 100px;"></td>
-                            <td class="align-middle">RESPIRO TR-05 XENTRA N R1.4 RED</td>
-                            <td class="align-middle">
-                                <button id="popupBtn" class="button-60" role="button">Warna: Red-001 &ensp;<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
-                                <div id="popupWrapper">
-                                    <div id="popup">
-                                        <h6>GANTI WARNA</h6><br>
-                                        <div class="column" style="padding: 5px">
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Red-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Green-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Grey-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Black-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Blue-001</button></div>
-                                        </div>
-                                        <button id="closeBtn" class="button-9" role="button" style="font-size: 16px">KONFIRMASI</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">Rp. 440.000</td>
-                            <td class="align-middle">
-                                <div>
-                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus btn btn-secondary btn-plus minus"><i class="fa fa-minus"></i></button>
-                                    <input class="quantity text-center btn bg-light" min="0" name="quantity" value="1" type="number" style="width: 50px;" style="color: black">
-                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus btn btn-secondary btn-plus plus"><i class="fa fa-plus"></i></button>
-                                </div>
-                            </td>
-                            <td class="align-middle">Rp. 440.000</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><input type="checkbox" style="width: 20px; height: 20px;"></td>
-                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-3.jpg" alt="" style="width: 100px;"></td>
-                            <td class="align-middle">RESPIRO TR-05 XENTRA N R1.4 RED</td>
-                            <td class="align-middle">
-                                <button id="popupBtn" class="button-60" role="button">Warna: Red-001 &ensp;<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
-                                <div id="popupWrapper">
-                                    <div id="popup">
-                                        <h6>GANTI WARNA</h6><br>
-                                        <div class="column" style="padding: 5px">
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Red-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Green-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Grey-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Black-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Blue-001</button></div>
-                                        </div>
-                                        <button id="closeBtn" class="button-9" role="button" style="font-size: 16px">KONFIRMASI</button>
-                                    </div>
-                                </div>
-                                
-                            </td>
-                            <td class="align-middle">Rp. 440.000</td>
-                            <td class="align-middle">
-                                <div>
-                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus btn btn-secondary btn-plus minus"><i class="fa fa-minus"></i></button>
-                                    <input class="quantity text-center btn bg-light" min="0" name="quantity" value="1" type="number" style="width: 50px;" style="color: black">
-                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus btn btn-secondary btn-plus plus"><i class="fa fa-plus"></i></button>
-                                </div>
-                            </td>
-                            <td class="align-middle">Rp. 440.000</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><input type="checkbox" style="width: 20px; height: 20px;"></td>
-                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-4.jpg" alt="" style="width: 100px;"></td>
-                            <td class="align-middle">RESPIRO TR-05 XENTRA N R1.4 RED</td>
-                            <td class="align-middle">
-                                <button id="popupBtn" class="button-60" role="button">Warna: Red-001 &ensp;<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
-                                <div id="popupWrapper">
-                                    <div id="popup">
-                                        <h6>GANTI WARNA</h6><br>
-                                        <div class="column" style="padding: 5px">
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Red-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Green-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Grey-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Black-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Blue-001</button></div>
-                                        </div>
-                                        <button id="closeBtn" class="button-9" role="button" style="font-size: 16px">KONFIRMASI</button>
-                                    </div>
-                                </div>
-                                
-                            </td>
-                            <td class="align-middle">Rp. 440.000</td>
-                            <td class="align-middle">
-                                <div>
-                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus btn btn-secondary btn-plus minus"><i class="fa fa-minus"></i></button>
-                                    <input class="quantity text-center btn bg-light" min="0" name="quantity" value="1" type="number" style="width: 50px;" style="color: black">
-                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus btn btn-secondary btn-plus plus"><i class="fa fa-plus"></i></button>
-                                </div>
-                            </td>
-                            <td class="align-middle">Rp. 440.000</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><input type="checkbox" style="width: 20px; height: 20px;"></td>
-                            <td class="align-middle"><img src="assets_reseller/img/product-img/product-5.jpg" alt="" style="width: 100px;"></td>
-                            <td class="align-middle">RESPIRO TR-05 XENTRA N R1.4 RED</td>
-                            <td class="align-middle">
-                                <button id="popupBtn" class="button-60" role="button">Warna: Red-001 &ensp;<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
-                                <div id="popupWrapper">
-                                    <div id="popup">
-                                        <h6>GANTI WARNA</h6><br>
-                                        <div class="column" style="padding: 5px">
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Red-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Green-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Grey-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Black-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Blue-001</button></div>
-                                        </div>
-                                        <button id="closeBtn" class="button-9" role="button" style="font-size: 16px">KONFIRMASI</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">Rp. 440.000</td>
-                            <td class="align-middle">
-                                <div>
-                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus btn btn-secondary btn-plus minus"><i class="fa fa-minus"></i></button>
-                                    <input class="quantity text-center btn bg-light" min="0" name="quantity" value="1" type="number" style="width: 50px;" style="color: black">
-                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus btn btn-secondary btn-plus plus"><i class="fa fa-plus"></i></button>
-                                </div>
-                            </td>
-                            <td class="align-middle">Rp. 440.000</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        
+                        @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -373,6 +254,46 @@
         document.getElementById("closeBtn").addEventListener("click", function() {
             document.getElementById("popupWrapper").style.display = "none";
         });
+
+        $(".update-cart").change(function (e) {
+            e.preventDefault();
+      
+            var ele = $(this);
+      
+            $.ajax({
+                url: '{{ route('update.cart') }}',
+                method: "patch",
+                data: {
+                    _token: '{{ csrf_token() }}', 
+                    id: ele.parents("tr").attr("data-id"), 
+                    quantity: ele.parents("tr").find(".quantity").val()
+                },
+                success: function (response) {
+                   window.location.reload();
+                }
+            });
+        });
+      
+        $(".remove-from-cart").click(function (e) {
+            e.preventDefault();
+      
+            var ele = $(this);
+      
+            if(confirm("Are you sure want to remove?")) {
+                $.ajax({
+                    url: '{{ route('remove.from.cart') }}',
+                    method: "DELETE",
+                    data: {
+                        _token: '{{ csrf_token() }}', 
+                        id: ele.parents("tr").attr("data-id")
+                    },
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+      
     </script>
 @endsection
 @section('javascript')
