@@ -8,29 +8,17 @@ use App\Http\Controllers\BelanjaController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\IndexAdminController;
+use App\Http\Controllers\IndexResellerController;
 
-//landing
-    Route::get('/landing', function () {
-        return view('/landing/landing');
-    });
-//auth
-    Route::get('/login', function () {
-        return view('/auth/login');
-    });
+//LOGIN
+Route::get('/login', [LoginController::class, 'index']) ->name('login');
 
-//admin
-    //index
-    Route::get('/admin', function () {
-        return view('/admin/index');
-    });
+//ADMIN
 
-    //pelanggan
-    Route::get('/admin-datareseller', function () {
-        return view('/admin/pelanggan/datareseller');
-    });
-    Route::get('/admin-datapembeli', function () {
-        return view('/admin/pelanggan/datapembeli');
-    });
+    //INDEX
+    Route::get('/admin', [IndexAdminController::class, 'index']) ->name('admin');
 
     //JENIS PRODUK
     Route::get('/indexjenisproduk', [JenisProdukController::class, 'index']) ->name('indexjenisproduk');
@@ -49,14 +37,6 @@ use App\Http\Controllers\ProdukController;
     Route::post('/updateproduk-{id}', [ProdukController::class, 'update']) ->name('updateproduk');
     Route::get('/deleteproduk-{id}', [ProdukController::class, 'destroy']) ->name('deleteproduk');
 
-    //produk
-    Route::get('/admin-viewproduk', function () {
-        return view('/admin/produk/viewproduk');
-    });
-    Route::get('/admin-createproduk', function () {
-        return view('/admin/produk/createproduk');
-    });
-
     //USER
     Route::get('/indexuser', [UserController::class, 'index']) ->name('indexuser');
     Route::get('/tambahuser', [UserController::class, 'create']) ->name('tambahuser');
@@ -73,9 +53,6 @@ use App\Http\Controllers\ProdukController;
     Route::post('/updateadmin-{id}', [AdminController::class, 'update']) ->name('updateadmin');
     Route::get('/deleteadmin-{id}', [AdminController::class, 'destroy']) ->name('deleteadmin');
 
-
-
-
     //PEMESANAN
     Route::get('/admin-viewpemesanan', function () {
         return view('/admin/pemesanan/viewpemesanan');
@@ -84,24 +61,15 @@ use App\Http\Controllers\ProdukController;
     
 
 //RESELLER
+
     //INDEX
-    Route::get('/reseller', function () {
-        return view('/reseller/index');
-    });
+    Route::get('/reseller', [IndexResellerController::class, 'index']) ->name('reseller');
 
     //BELANJA
     Route::get('/reseller-belanja', [BelanjaController::class, 'index']) ->name('reseller-belanja');
     Route::get('/reseller-detail-{id}', [DetailController::class, 'show']) ->name('reseller-detail');
-
-    // Route::get('/reseller-keranjang', [CartController::class, 'cart'])->name('/reseller-belanja');
-    // Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
-    // Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
-    // Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
     Route::post('cart/add', [CartController::class, 'store']) ->name('cart/add');
     Route::get('reseller-keranjang', [CartController::class, 'index']) ->name('reseller-keranjang');
-    // Route::get('/reseller-keranjang', function () {
-    //     return view('/reseller/belanja/keranjang');
-    // });
     Route::get('/reseller-checkout', function () {
         return view('/reseller/belanja/checkout');
     });

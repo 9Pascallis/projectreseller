@@ -6,13 +6,8 @@
     <!-- BREADCRUMB -->
     <div class="container-fluid mb-30">
         <div class="row px-xl-5">
-            <div class="col-12">
-                <nav class="breadcrumb bg-light">
-                    <a class="breadcrumb-item text-dark" href="reseller" style="font-size: 14px; font-family: ubuntu">Home</a>
-                    <a class="breadcrumb-item text-dark" href="reseller-belanja" style="font-size: 14px; font-family: ubuntu">Belanja</a>
-                    <a class="breadcrumb-item text-dark" href="reseller-detail" style="font-size: 14px; font-family: ubuntu">Detail</a>
-                    <span class="breadcrumb-item text-dark active" style="font-size: 14px; font-family: ubuntu">Keranjang</span>
-                </nav>
+            <div class="col-12 text-center">
+                <h4 style="font-family: ubuntu">KERANJANG</h4><hr>
             </div>
         </div>
     </div>
@@ -26,7 +21,7 @@
                 <table class="table table-light table-borderless table-hover text-center mb-0" >
                     <thead class="thead" style="background-color: rgb(248, 248, 248)">
                         <tr>
-                            <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Pilih</th>
+                            <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">No</th>
                             <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Foto</th>
                             <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Produk</th>
                             <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Variasi</th>
@@ -37,13 +32,16 @@
                         </tr>
                     </thead>
                     <tbody class="align-middle">
-
+                        @php
+                        $no = 1;
+                        @endphp
                         @foreach ($getCartItem as $item)
                         <tr>
-                            <td class="align-middle"><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                            <td class="align-middle">{{ $no++}}</td>
                             <td class="align-middle"><img src="{{asset('storage/'.$item['produk']['foto_utama_produk'])}}" alt="" style="width: 100px;"></td>
                             <td class="align-middle">{{ $item['produk']['nama_produk'] }}</td>
-                            <td class="align-middle">
+                            <td class="align-middle">WARNA: RED | UKURAN: S</td>
+                            {{-- <td class="align-middle">
                                 <button id="popupBtn" class="button-60" role="button">Warna: Red-001 &ensp;<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
                                 <div id="popupWrapper">
                                     <div id="popup">
@@ -58,7 +56,7 @@
                                         <button id="closeBtn" class="button-9" role="button" style="font-size: 16px">KONFIRMASI</button>
                                     </div>
                                 </div>
-                            </td>
+                            </td> --}}
                             <td class="align-middle">{{ $item['produk']['harga_produk'] }}</td>
                             <td class="align-middle">
                                 <div>
@@ -67,7 +65,7 @@
                                     <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus btn btn-secondary btn-plus plus"><i class="fa fa-plus"></i></button>
                                 </div>
                             </td>
-                            <td class="align-middle"></td>
+                            <td class="align-middle">{{ $item['produk']['harga_produk'] }}</td>
                             <td class="align-middle actions" data-th="">
                                 <button class="btn btn-danger btn-sm remove-from-cart"><i class="fa fa-trash-o"></i></button>
                             </td>
@@ -84,11 +82,26 @@
                     <h5 class="section-title position-relative text-uppercase"><span class="pr-3">Pesanan</span></h5>
                     <div class="bg-light p-30 mt-30">
                         <!-- PILIH SEMUA -->
-                        <div class="pb-2">
+                        {{-- <div class="pb-2">
                             <div class="d-flex justify-content-between">
                                 <p><input type="checkbox" style="width: 20px; height: 20px;">&ensp; PILIH SEMUA</p>
                             </div>
+                        </div> --}}
+                        <!-- TABLE -->
+                        <div class="border-bottom pb-2">
+                            <div class="d-flex justify-content-between">
+                                <p class="text-dark"><b>PRODUK</b></p>
+                                <p class="text-dark"><b>TOTAL HARGA</b></p>
+                            </div>
                         </div>
+                        @foreach ($getCartItem as $item)
+                            <div class="d-flex justify-content-between border-bottom">
+                                <p class="text-dark">{{ $item['produk']['nama_produk'] }}</p>
+                                <p class="text-dark">{{ $item['produk']['harga_produk'] }}</p>
+                            </div>
+                        @endforeach
+                        
+                        <!-- TABLE END -->
                         <!-- TOTAL PRODUK -->
                         <div class="border-bottom pb-2">
                             <div class="d-flex justify-content-between">

@@ -64,10 +64,10 @@
                 <div class="user-login-info">
                     <a href="#"><img src="assets_reseller/img/core-img/user.svg" alt=""></a>
                 </div>
-                {{-- <!-- KERANJANG -->
-                <div class="cart-area">
-                    <a href="#" id="essenceCartBtn"><img src="assets_reseller/img/core-img/bag.svg" alt=""> <span>3</span></a>
-                </div> --}}
+                <!-- KERANJANG -->
+                <div class="user-login-info">
+                    <a href="reseller-keranjang"><i class="fa fa-shopping-cart fa-lg"  style="color: #ffffff;"></i></a>
+                </div>
             </div>
         </div>
     </header>
