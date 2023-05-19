@@ -59,6 +59,9 @@
                         <!-- SISA STOK -->
                         <p class="text-dark"><b style="font-family: ubuntu">Stok Tersedia : {{$produk->total_stok_produk}}</b> </p>
                         <!-- POST DATA -->
+                        <form action="{{url('cart/add')}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id_produk" value="{{$produk->id}}">
                             <!-- KUANTITAS -->
                             <div>
                                 <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="btn essence1-btn bg-info"><i class="fa fa-minus"></i></button>
@@ -116,10 +119,10 @@
                                         <button type="submit" name="addtocart" value="5" class="btn essence-btn bg-primary">Buy Now</button>
                                     </div> --}}
                                     <div>
-                                        <a href="{{ route('add.to.cart', $produk->id) }}"><button type="submit" class="btn essence-btn bg-warning"><i class="fa fa-shopping-cart" style="font-size: 14px"></i> Add to Cart + </button></a>
-                                        
+                                        <button type="submit" class="btn essence-btn bg-warning"><i class="fa fa-shopping-cart" style="font-size: 14px"></i> Add to Cart + </button>
                                     </div>
                             </div>
+                        </form>
                         <!-- POST DATA END -->
                     </div>
                     
