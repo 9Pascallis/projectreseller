@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
+// use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -11,33 +16,26 @@ class LoginController extends Controller
         return view ('auth/login');
     }
 
-    public function create()
-    {
-        //
-    }
-
     public function store(Request $request)
     {
-        //
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ]);
+ 
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/admin');
+        }
+ 
+        return back()->with('loginError', 'Login failed');
     }
 
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-    
-    public function destroy($id)
-    {
-        //
-    }
+    public function logout()
+{
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect('/');
+}
 }

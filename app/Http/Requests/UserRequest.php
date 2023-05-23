@@ -21,14 +21,14 @@ class UserRequest extends FormRequest
                 'required',
                 'date'
             ],
-            'email_user' => [
+            'email' => [
                 'required',
                 'unique:user',
             ],
             'no_telp_user' => [
                 'required',
             ],
-            'password_user' => [
+            'password' => [
                 'required',
             ],
             'alamat_user' => [

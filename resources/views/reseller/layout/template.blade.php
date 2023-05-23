@@ -62,7 +62,7 @@
                 </div> --}}
                 <!-- USER LOGIN -->
                 <div class="user-login-info">
-                    <a href="#"><img src="assets_reseller/img/core-img/user.svg" alt=""></a>
+                    <a href="{{route('profil')}}"><img src="assets_reseller/img/core-img/user.svg" alt=""></a>
                 </div>
                 <!-- KERANJANG -->
                 <div class="user-login-info">

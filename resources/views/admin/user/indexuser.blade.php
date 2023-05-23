@@ -36,7 +36,7 @@
 							<tr>
 								<td>{{ $no++}}</td>
 								<td>{{ $item->nama_lengkap_user}}</td>
-								<td>{{ $item->email_user}}</td>
+								<td>{{ $item->email}}</td>
 								<td>{{ $item->no_telp_user}}</td>
 								<td>{{ $item->created_at->format('d-m-Y') }}</td>
 								<td class="text-center">

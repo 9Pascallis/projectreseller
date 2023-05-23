@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JenisProdukController;
 use App\Http\Controllers\BelanjaController;
@@ -12,13 +13,26 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\IndexAdminController;
 use App\Http\Controllers\IndexResellerController;
 
+
+// Route::get('/', [IndexResellerController::class, 'index']) ->name('index');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', [IndexAdminController::class, 'index']) ->name('admin');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    //PROFIL
+    Route::get('/reseller-profil', [ProfilController::class, 'show']) ->name('profil');
+    Route::get('/reseller-editprofil', [ProfilController::class, 'edit']) ->name('editprofil');
+});
+
 //LOGIN
-Route::get('/login', [LoginController::class, 'index']) ->name('login');
+Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/loginauth', [LoginController::class, 'store']);
 
 //ADMIN
 
     //INDEX
-    Route::get('/admin', [IndexAdminController::class, 'index']) ->name('admin');
+  
+    // Route::get('/admin', [IndexAdminController::class, 'index']) ->name('admin');
 
     //JENIS PRODUK
     Route::get('/indexjenisproduk', [JenisProdukController::class, 'index']) ->name('indexjenisproduk');
@@ -74,11 +88,5 @@ Route::get('/login', [LoginController::class, 'index']) ->name('login');
         return view('/reseller/belanja/checkout');
     });
 
-    //PROFIL
-    Route::get('/reseller-profil', function () {
-        return view('/reseller/profil/profil');
-    });
-    Route::get('/reseller-editprofil', function () {
-        return view('/reseller/profil/editprofil');
-    });
+
     

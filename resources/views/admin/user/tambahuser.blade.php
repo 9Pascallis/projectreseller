@@ -35,8 +35,8 @@
 				<div class="row mb-3">
 					<label for="inputText" class="col-sm-3 col-form-label">Email</label>
 					<div class="col-sm-9">
-					<input type="text" class="form-control @error('email_user') is-invalid @enderror me-2" name="email_user" value="{{old('email_user')}}" required>
-					@error('email_user')
+					<input type="text" class="form-control @error('email') is-invalid @enderror me-2" name="email" value="{{old('email')}}" required>
+					@error('email')
 						<span class="invalid-feedback">{{ $message}}</span>
 					@enderror
 					</div>
@@ -53,8 +53,8 @@
 				<div class="row mb-3">
 					<label for="inputText" class="col-sm-3 col-form-label">Password</label>
 					<div class="col-sm-9">
-					<input type="text" class="form-control" name="password_user" value="{{old('password_user')}}" required>
-					@error('password_user')
+					<input type="text" class="form-control" name="password" value="{{old('password')}}" required>
+					@error('password')
 						<span class="invalid-feedback">{{ $message}}</span>
 					@enderror
 					</div>
