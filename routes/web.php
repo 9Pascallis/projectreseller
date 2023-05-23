@@ -8,6 +8,7 @@ use App\Http\Controllers\JenisProdukController;
 use App\Http\Controllers\BelanjaController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\IndexAdminController;
@@ -17,11 +18,28 @@ use App\Http\Controllers\IndexResellerController;
 // Route::get('/', [IndexResellerController::class, 'index']) ->name('index');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin', [IndexAdminController::class, 'index']) ->name('admin');
+    
+
+
+    //INDEX
+    Route::get('/reseller-index', [IndexResellerController::class, 'index']) ->name('reseller-index');
+    Route::get('/reseller-belanja', [BelanjaController::class, 'index']) ->name('reseller-belanja');
+    Route::get('/reseller-keranjang', [CartController::class, 'index']) ->name('reseller-keranjang');
+    Route::get('/reseller-checkout', [CheckoutController::class, 'index']) ->name('reseller-checkout');
+    Route::get('/admin-index', [IndexAdminController::class, 'index']) ->name('admin-index');
+
+    //EDIT
+    Route::get('/reseller-editprofil', [ProfilController::class, 'edit']) ->name('reseller-editprofil');
+
+    //SHOW
+    Route::get('/reseller-profil', [ProfilController::class, 'show']) ->name('reseller-profil');
+    Route::get('/reseller-detail-{id}', [DetailController::class, 'show']) ->name('reseller-detail');
+
+    //STORE
+    Route::post('cart/add', [CartController::class, 'store']) ->name('cart/add');
+
+    //LOGOUT
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-    //PROFIL
-    Route::get('/reseller-profil', [ProfilController::class, 'show']) ->name('profil');
-    Route::get('/reseller-editprofil', [ProfilController::class, 'edit']) ->name('editprofil');
 });
 
 //LOGIN
@@ -31,8 +49,6 @@ Route::post('/loginauth', [LoginController::class, 'store']);
 //ADMIN
 
     //INDEX
-  
-    // Route::get('/admin', [IndexAdminController::class, 'index']) ->name('admin');
 
     //JENIS PRODUK
     Route::get('/indexjenisproduk', [JenisProdukController::class, 'index']) ->name('indexjenisproduk');
@@ -55,6 +71,7 @@ Route::post('/loginauth', [LoginController::class, 'store']);
     Route::get('/indexuser', [UserController::class, 'index']) ->name('indexuser');
     Route::get('/tambahuser', [UserController::class, 'create']) ->name('tambahuser');
     Route::post('/insertdatauser', [UserController::class, 'store']) ->name('insertdatauser');
+    Route::get('/detailuser-{id}', [UserController::class, 'show']) ->name('detailuser');
     Route::get('/edituser-{id}', [UserController::class, 'edit']) ->name('edituser');
     Route::post('/updateuser-{id}', [UserController::class, 'update']) ->name('updateuser');
     Route::get('/deleteuser-{id}', [UserController::class, 'destroy']) ->name('deleteuser');
@@ -74,19 +91,7 @@ Route::post('/loginauth', [LoginController::class, 'store']);
 
     
 
-//RESELLER
 
-    //INDEX
-    Route::get('/reseller', [IndexResellerController::class, 'index']) ->name('reseller');
-
-    //BELANJA
-    Route::get('/reseller-belanja', [BelanjaController::class, 'index']) ->name('reseller-belanja');
-    Route::get('/reseller-detail-{id}', [DetailController::class, 'show']) ->name('reseller-detail');
-    Route::post('cart/add', [CartController::class, 'store']) ->name('cart/add');
-    Route::get('reseller-keranjang', [CartController::class, 'index']) ->name('reseller-keranjang');
-    Route::get('/reseller-checkout', function () {
-        return view('/reseller/belanja/checkout');
-    });
 
 
     

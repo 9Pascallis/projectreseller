@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JenisProduk;
 use Illuminate\Http\Request;
 
 class IndexResellerController extends Controller
 {
     public function index()
     {
-        return view ('reseller/index');
+        $jenis_produk = JenisProduk::all();
+        return view ('reseller/index', compact('jenis_produk'));
     }
 
     public function create()

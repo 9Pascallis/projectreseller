@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="en" class="light-theme">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- loader-->
-	  <link href="assets_admin/css/pace.min.css" rel="stylesheet" />
-	  <script src="assets_admin/js/pace.min.js"></script>
+    <link href="assets_admin/css/pace.min.css" rel="stylesheet" />
+    <script src="assets_admin/js/pace.min.js"></script>
 
     <!--plugins-->
     <link href="assets_admin/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
@@ -24,7 +25,8 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 
     <!-- Favicon  -->
@@ -36,34 +38,37 @@
     <link href="assets_admin/css/header-colors.css" rel="stylesheet" />
     @yield('header')
     <title>@yield('title')</title>
-  </head>
-  <body>
-    
+</head>
 
- <!--start wrapper-->
+<body>
+
+
+    <!--start wrapper-->
     <div class="wrapper">
-       <!--start sidebar -->
-       <aside class="sidebar-wrapper" data-simplebar="true">
-        <div class="sidebar-header">
-          <div>
-            <img src="assets_admin/images/logoorangecrop.png" class="logo-icon" alt="logo icon">
-          </div>
-          <div>
-            <img src="assets_admin/images/respiro.jpg" class="logo-text" width="150px" height="25px">
-          </div>
-          <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
-          </div>
-        </div>
-        <!--navigation-->
-        <ul class="metismenu" id="menu">
-          <li>
-            <a href="admin">
-              <div class="parent-icon"><ion-icon name="home-sharp"></ion-icon>
-              </div>
-              <div class="menu-title">Dashboard</div>
-            </a>
-          </li>
-          {{-- <li class="menu-label">Pesanan</li>
+        <!--start sidebar -->
+        <aside class="sidebar-wrapper" data-simplebar="true">
+            <div class="sidebar-header">
+                <div>
+                    <img src="assets_admin/images/logoorangecrop.png" class="logo-icon" alt="logo icon">
+                </div>
+                <div>
+                    <img src="assets_admin/images/respiro.jpg" class="logo-text" width="150px" height="25px">
+                </div>
+                <div class="toggle-icon ms-auto">
+                    <ion-icon name="menu-sharp"></ion-icon>
+                </div>
+            </div>
+            <!--navigation-->
+            <ul class="metismenu" id="menu">
+                <li>
+                    <a href="admin">
+                        <div class="parent-icon">
+                            <ion-icon name="home-sharp"></ion-icon>
+                        </div>
+                        <div class="menu-title">Dashboard</div>
+                    </a>
+                </li>
+                {{-- <li class="menu-label">Pesanan</li>
           <li>
             <a href="javascript:;" class="has-arrow">
               <div class="parent-icon"><ion-icon name="briefcase-sharp"></ion-icon>
@@ -134,89 +139,101 @@
               </li>
             </ul>
           </li> --}}
-          <li class="menu-label">MASTER</li>
-          <!-- USER -->
-          <li>
-            <a href="indexuser">
-              <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
-              </div>
-              <div class="menu-title">User</div>
-            </a>
-          </li>
-          <!-- ADMIN -->
-            <li>
-              <a href="indexadmin">
-                <div class="parent-icon"><ion-icon name="key-outline"></ion-icon>
-                </div>
-                <div class="menu-title">Admin</div>
-              </a>
-            </li>
-          <li class="menu-label">DATA</li>
-          <!-- PRODUK -->
-          <li>
-            <a href="indexjenisproduk">
-              <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
-              </div>
-              <div class="menu-title">Jenis Produk</div>
-            </a>
-          </li>
-          <!-- PRODUK -->
-            <li>
-              <a href="indexproduk">
-                <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
-                </div>
-                <div class="menu-title">Produk</div>
-              </a>
-            </li>
-          <li class="menu-label">HISTORI</li>
-          <!-- PEMESANAN -->
-            <li>
-              <a href="admin-viewpemesanan">
-                <div class="parent-icon"><ion-icon name="receipt-sharp"></ion-icon>
-                </div>
-                <div class="menu-title">Pemesanan</div>
-              </a>
-            </li>
-          <!-- PEMBAYARAN -->
-            <li>
-              <a href="pages-invoices.html">
-                <div class="parent-icon"><ion-icon name="receipt-sharp"></ion-icon>
-                </div>
-                <div class="menu-title">Pembayaran</div>
-              </a>
-            </li>
-        </ul>
-        <!--end navigation-->
-     </aside>
-     <!--end sidebar -->
+                <li class="menu-label">MASTER</li>
+                <!-- USER -->
+                <li>
+                    <a href="indexuser">
+                        <div class="parent-icon">
+                            <ion-icon name="person-circle-sharp"></ion-icon>
+                        </div>
+                        <div class="menu-title">User</div>
+                    </a>
+                </li>
+                <!-- ADMIN -->
+                <li>
+                    <a href="indexadmin">
+                        <div class="parent-icon">
+                            <ion-icon name="key-outline"></ion-icon>
+                        </div>
+                        <div class="menu-title">Admin</div>
+                    </a>
+                </li>
+                <li class="menu-label">DATA</li>
+                <!-- PRODUK -->
+                <li>
+                    <a href="indexjenisproduk">
+                        <div class="parent-icon">
+                            <ion-icon name="create-sharp"></ion-icon>
+                        </div>
+                        <div class="menu-title">Jenis Produk</div>
+                    </a>
+                </li>
+                <!-- PRODUK -->
+                <li>
+                    <a href="indexproduk">
+                        <div class="parent-icon">
+                            <ion-icon name="create-sharp"></ion-icon>
+                        </div>
+                        <div class="menu-title">Produk</div>
+                    </a>
+                </li>
+                <li class="menu-label">HISTORI</li>
+                <!-- PEMESANAN -->
+                <li>
+                    <a href="admin-viewpemesanan">
+                        <div class="parent-icon">
+                            <ion-icon name="receipt-sharp"></ion-icon>
+                        </div>
+                        <div class="menu-title">Pemesanan</div>
+                    </a>
+                </li>
+                <!-- PEMBAYARAN -->
+                <li>
+                    <a href="pages-invoices.html">
+                        <div class="parent-icon">
+                            <ion-icon name="receipt-sharp"></ion-icon>
+                        </div>
+                        <div class="menu-title">Pembayaran</div>
+                    </a>
+                </li>
+            </ul>
+            <!--end navigation-->
+        </aside>
+        <!--end sidebar -->
 
         <!--start top header-->
-          <header class="top-header">
+        <header class="top-header">
             <nav class="navbar navbar-expand gap-3">
-              <div class="mobile-menu-button"><ion-icon name="menu-sharp"></ion-icon></div>
-              <form class="searchbar">
-                <div class="position-absolute top-50 translate-middle-y search-icon ms-3"><ion-icon name="search-sharp"></ion-icon></div>
-                <input class="form-control" type="text" placeholder="Search for anything">
-                <div class="position-absolute top-50 translate-middle-y search-close-icon"><ion-icon name="close-sharp"></ion-icon></div>
-             </form>
-             <div class="top-navbar-right ms-auto">
-
-              <ul class="navbar-nav align-items-center">
-                <li class="nav-item mobile-search-button">
-                  <a class="nav-link" href="javascript:;">
-                    <div class="">
-                      <ion-icon name="search-sharp"></ion-icon>
+                <div class="mobile-menu-button">
+                    <ion-icon name="menu-sharp"></ion-icon>
+                </div>
+                <form class="searchbar">
+                    <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
+                        <ion-icon name="search-sharp"></ion-icon>
                     </div>
-                  </a>
-                </li>
-                {{-- <li class="nav-item">
+                    <input class="form-control" type="text" placeholder="Search for anything">
+                    <div class="position-absolute top-50 translate-middle-y search-close-icon">
+                        <ion-icon name="close-sharp"></ion-icon>
+                    </div>
+                </form>
+                <div class="top-navbar-right ms-auto">
+
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item mobile-search-button">
+                            <a class="nav-link" href="javascript:;">
+                                <div class="">
+                                    <ion-icon name="search-sharp"></ion-icon>
+                                </div>
+                            </a>
+                        </li>
+                        {{-- <li class="nav-item">
                   <a class="nav-link dark-mode-icon" href="javascript:;">
                     <div class="mode-icon">
                       <ion-icon name="moon-sharp"></ion-icon> 
                     </div>
                   </a>
                 </li> --}}
-                {{-- <li class="nav-item dropdown dropdown-large dropdown-apps">
+                        {{-- <li class="nav-item dropdown dropdown-large dropdown-apps">
                   <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                     <div class="">
                       <ion-icon name="apps-sharp"></ion-icon>
@@ -378,17 +395,18 @@
                     </a>
                   </div>
                 </li> --}}
-                {{-- Halo, {{Auth::user()->nama_lengkap_user}} --}}
-                <li class="nav-item dropdown dropdown-user-setting">
-                  <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                    <div class="user-setting">
-                      <ion-icon name="person-sharp"></ion-icon>
-                      <i class="fa fa-sort-desc" aria-hidden="true"></i>
-                    </div>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-end">
-                    <li>
-                       {{-- <a class="dropdown-item" href="#">
+                        {{-- Halo, {{Auth::user()->nama_lengkap_user}} --}}
+                        <li class="nav-item dropdown dropdown-user-setting">
+                            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
+                                data-bs-toggle="dropdown">
+                                <div class="user-setting">
+                                    <ion-icon name="person-sharp"></ion-icon>
+                                    <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    {{-- <a class="dropdown-item" href="#">
                          <div class="d-flex flex-row align-items-center gap-2">
                             <img src="assets_admin/images/avatars/06.png" alt="" class="rounded-circle" width="54" height="54">
                             <div class="">
@@ -397,55 +415,63 @@
                             </div>
                          </div>
                        </a> --}}
-                     </li>
-                     {{-- <li><hr class="dropdown-divider"></li> --}}
-                     <li>
-                        <a class="dropdown-item" href="pages-user-profile.html">
-                           <div class="d-flex align-items-center">
-                             <div class=""><ion-icon name="person-outline"></ion-icon></div>
-                             <div class="ms-3"><span>Profile</span></div>
-                           </div>
-                         </a>
-                      </li>
-                        <a class="dropdown-item" href="index2.html">
-                           <div class="d-flex align-items-center">
-                             <div class=""><ion-icon name="home-outline"></ion-icon></div>
-                             <div class="ms-3"><span>Dashboard</span></div>
-                           </div>
-                         </a>
-                      </li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li>
-                        <form action="{{route('logout')}}" method="POST">        
-                          @csrf
-                         <button class="dropdown-item">
-                          <div class="d-flex align-items-center">
-                            <div class=""><ion-icon name="log-out-outline"></ion-icon></div>
-                              <div class="ms-3"><span>Logout</span></div>
-                          </div>
-                         </button>
-                        </form>
-                      </li>
-                  </ul>
-                </li>
+                                </li>
+                                {{-- <li><hr class="dropdown-divider"></li> --}}
+                                <li>
+                                    <a class="dropdown-item" href="pages-user-profile.html">
+                                        <div class="d-flex align-items-center">
+                                            <div class="">
+                                                <ion-icon name="person-outline"></ion-icon>
+                                            </div>
+                                            <div class="ms-3"><span>Profile</span></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <a class="dropdown-item" href="index2.html">
+                                    <div class="d-flex align-items-center">
+                                        <div class="">
+                                            <ion-icon name="home-outline"></ion-icon>
+                                        </div>
+                                        <div class="ms-3"><span>Dashboard</span></div>
+                                    </div>
+                                </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <form action="{{route('logout')}}" method="POST">
+                                @csrf
+                                <button class="dropdown-item">
+                                    <div class="d-flex align-items-center">
+                                        <div class="">
+                                            <ion-icon name="log-out-outline"></ion-icon>
+                                        </div>
+                                        <div class="ms-3"><span>Logout</span></div>
+                                    </div>
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                    </li>
 
-               </ul>
+                    </ul>
 
-              </div>
+                </div>
             </nav>
-          </header>
+        </header>
         <!--end top header-->
-      <!-- start page content wrapper-->
-      <div class="page-content-wrapper">
-        <!-- start page content-->
-      <div class="page-content">
-        @yield('content')
-      </div>
-      <!-- end page content-->
-     </div>
-     <!--end page content wrapper-->
+        <!-- start page content wrapper-->
+        <div class="page-content-wrapper">
+            <!-- start page content-->
+            <div class="page-content">
+                @yield('content')
+            </div>
+            <!-- end page content-->
+        </div>
+        <!--end page content wrapper-->
 
-           {{-- <!--start footer-->
+        {{-- <!--start footer-->
            <footer class="footer">
             <div class="footer-text">
                Copyright © 2021. All right reserved.
@@ -453,11 +479,13 @@
             </footer>
           <!--end footer--> --}}
 
-         <!--Start Back To Top Button-->
-		     <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
-         <!--End Back To Top Button-->
-  
-         {{-- <!--start switcher-->
+        <!--Start Back To Top Button-->
+        <a href="javaScript:;" class="back-to-top">
+            <ion-icon name="arrow-up-outline"></ion-icon>
+        </a>
+        <!--End Back To Top Button-->
+
+        {{-- <!--start switcher-->
          <div class="switcher-body">
           <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><ion-icon name="color-palette-sharp" class="me-0"></ion-icon></button>
           <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling">
@@ -518,13 +546,13 @@
          <!--end switcher--> --}}
 
 
-         <!--start overlay-->
-          <div class="overlay"></div>
-         <!--end overlay-->
+        <!--start overlay-->
+        <div class="overlay"></div>
+        <!--end overlay-->
 
-     </div>
-  <!--end wrapper-->
--
+    </div>
+    <!--end wrapper-->
+    -
     <!-- JS Files-->
     <script src="assets_admin/js/jquery.min.js"></script>
     <script src="assets_admin/plugins/simplebar/js/simplebar.min.js"></script>
@@ -537,10 +565,11 @@
     <script src="assets_admin/js/index3.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets_admin/js/alertcrud.js"></script>
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <!-- Main JS-->
     <script src="assets_admin/js/main.js"></script>
     @yield('javascript');
-  </body>
+</body>
+
 </html>

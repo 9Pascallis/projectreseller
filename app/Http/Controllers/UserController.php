@@ -42,7 +42,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->update($request->all());
-        return redirect('/indexuser')->with('update', 'Data Berhasil diupdate!');
+        return redirect('reseller-profil')->with('update', 'Data Berhasil diupdate!');
     }
 
     public function destroy($id)

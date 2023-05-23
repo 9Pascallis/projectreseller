@@ -3,57 +3,43 @@
 
 @section('content')
 <br><br>
-<!-- BREADCRUMB -->
-<div class="container-fluid">
-    <div class="row px-xl-5">
+<!-- SECTION -->
+<div class="checkout_area mb-100">
+    <div class="container">
         <div class="col-12">
             <nav class="breadcrumb bg-light">
-                <a class="breadcrumb-item text-dark" href="reseller"
-                    style="font-size: 14px; font-family: ubuntu">Home</a>
-                <a class="breadcrumb-item text-dark" href="reseller-belanja"
+                <a class="breadcrumb-item text-dark" href="{{route('reseller-belanja')}}"
                     style="font-size: 14px; font-family: ubuntu">Belanja</a>
                 <span class="breadcrumb-item text-dark active"
                     style="font-size: 14px; font-family: ubuntu">Detail</span>
             </nav>
         </div>
-    </div>
-</div>
-<!-- BREADCRUMB END-->
-
-<!-- SECTION -->
-<div class="checkout_area" style="padding-top:unset;">
-    <div class="container">
         <!-- KONTEN ATAS -->
         <div class="row mb-100">
             <!-- FOTO PRODUK -->
-            <div class="col-lg-5 mb-50 mt-50">
+            <div class="col-lg-5 mb-50">
                 <div class="product-image col-md-12">
-                    <!-- ZOOM -->
                     <div class="product-image-main mb-30 shadow">
                         <figure class="zoom" onmousemove="zoom(event)"
                             style="background-image: url({{asset('storage/'.$produk->foto_utama_produk)}})">
                             <img src="{{asset('storage/'.$produk->foto_utama_produk)}}" alt="">
                         </figure>
-                        {{-- <img src="{{asset('storage/'.$produk->foto_utama_produk)}}" alt=""> --}}
                     </div>
-
-                    <!-- LIST FOTO -->
-                    {{-- <div class="product-image-slider">
-                                <img src="assets_reseller/img/product-img/product-big-1.jpg" alt=""  class="image-list">
-                                <img src="assets_reseller/img/product-img/product-big-2.jpg" alt=""  class="image-list">
-                                <img src="assets_reseller/img/product-img/product-big-3.jpg" alt=""  class="image-list">
-                                <img src="assets_reseller/img/product-img/product-big-1.jpg" alt=""  class="image-list">
-                        </div> --}}
+                    {{-- <!-- LIST FOTO -->
+                    <div class="product-image-slider">
+                        <img src="assets_reseller/img/product-img/product-big-1.jpg" alt=""  class="image-list">
+                        <img src="assets_reseller/img/product-img/product-big-2.jpg" alt=""  class="image-list">
+                        <img src="assets_reseller/img/product-img/product-big-3.jpg" alt=""  class="image-list">
+                        <img src="assets_reseller/img/product-img/product-big-1.jpg" alt=""  class="image-list">
+                    </div> --}}
                 </div>
             </div>
-            <!-- FOTO PRODUK END -->
 
             <!-- DESKRIPSI -->
-            <div class="col-lg-7 h-auto mb-50 mt-50" style="padding-right: 50px">
+            <div class="col-lg-7 h-auto mb-50" style="padding-right: 50px">
                 <div class="single_product_desc clearfix">
                     <!-- KATEGORI -->
-                    <span
-                        style="font-family: ubuntu; font-size:medium"><b>{{ $produk->jenis_produk->nama_jenis_produk}}</b></span>
+                    <span style="font-family: ubuntu; font-size:medium"><b>{{ $produk->jenis_produk->nama_jenis_produk}}</b></span>
                     <!-- NAMA PRODUK -->
                     <h4 style="font-family: ubuntu">{{$produk->nama_produk}}</h4>
                     <!-- HARGA -->
@@ -138,13 +124,9 @@
                             </div>
                         </div>
                     </form>
-                    <!-- POST DATA END -->
                 </div>
-
             </div>
-            <!-- DESKRIPSI END -->
         </div>
-        <!-- KONTEN ATAS END -->
 
         {{-- <!-- DETAIL PRODUK -->
             <div class="row mb-30">
@@ -309,7 +291,6 @@
 </div>
 </div>
 <!-- SECTION END -->
-
 
 <style>
     /* ZOOM */
