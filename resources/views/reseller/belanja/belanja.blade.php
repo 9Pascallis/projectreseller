@@ -100,7 +100,7 @@
                                     <a href="/reseller-detail-{{ $item->id }}">
                                         <h6>{{ $item->nama_produk}}</h6>
                                     </a>
-                                    <b class="product-price text-danger">{{ $item->harga_produk}}</b>
+                                    <b class="product-price text-danger">Rp. {{ number_format($item->harga_produk)}}</b>
                                     <div class="hover-content">
                                         <!-- TAMBAH KERANJANG -->
                                         <div class="add-to-cart-btn">

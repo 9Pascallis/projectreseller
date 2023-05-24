@@ -40,15 +40,15 @@
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-3 col-form-label">Harga Produk</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="harga_produk" id="dengan-rupiah"
-                            value="{{$produk->harga_produk}}" disabled>
+                        <input type="text" class="form-control" name="harga_produk"
+                            value="Rp. {{ number_format($produk->harga_produk)}}" disabled>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-3 col-form-label">Total Stok Produk</label>
                     <div class="col-sm-8">
-                        <input type="number" class="form-control" name="total_stok_produk"
-                            value="{{$produk->total_stok_produk}}" disabled>
+                        <input type="text" class="form-control" name="total_stok_produk"
+                            value="{{ number_format($produk->total_stok_produk)}}" disabled>
                     </div>
                 </div>
                 <div class="row mb-3">

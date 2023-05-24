@@ -60,7 +60,8 @@
                 </div>
                 <!-- KERANJANG -->
                 <div class="user-login-info">
-                    <a href="{{route('reseller-keranjang')}}"><i class="fa fa-shopping-cart fa-lg"
+                    <a href="{{route('reseller-keranjang')}}">
+                        <i class="fa fa-shopping-cart fa-lg"
                             style="color: #ffffff;"></i></a>
                 </div>
             </div>
@@ -154,6 +155,8 @@
     <script src="assets_reseller/js/plugins.js"></script>
     <script src="assets_reseller/js/classy-nav.min.js"></script>
     <script src="assets_reseller/js/active.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets_admin/js/alertcrud.js"></script>
 </body>
 
 </html>

@@ -44,9 +44,9 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputText" class="col-sm-3 col-form-label">Harga Sebelum Diskon</label>
+                    <label for="inputText" class="col-sm-3 col-form-label">Harga Produk</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="harga_produk" id="dengan-rupiah"
+                        <input type="number" class="form-control" name="harga_produk"
                             value="{{$produk->harga_produk}}" required>
                         @error('harga_produk')
                         <span class="invalid-feedback">{{ $message}}</span>

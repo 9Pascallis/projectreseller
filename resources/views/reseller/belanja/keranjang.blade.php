@@ -30,12 +30,12 @@
                     @php
                     $no = 1;
                     @endphp
-                    @foreach ($getCartItem as $item)
+                    @foreach ($detail_keranjang as $item)
                     <tr>
                         <td class="align-middle">{{ $no++}}</td>
                         <td class="align-middle"><img src="{{asset('storage/'.$item['produk']['foto_utama_produk'])}}"
                                 alt="" style="width: 100px;"></td>
-                        <td class="align-middle">{{ $item['produk']['nama_produk'] }}</td>
+                        <td class="align-middle">{{ $item->produk->nama_produk }}</td>
                         <td class="align-middle">WARNA: RED | UKURAN: S</td>
                         {{-- <td class="align-middle">
                                 <button id="popupBtn" class="button-60" role="button">Warna: Red-001 &ensp;<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
@@ -53,8 +53,9 @@
                                     </div>
                                 </div>
                             </td> --}}
-                        <td class="align-middle">{{ $item['produk']['harga_produk'] }}</td>
-                        <td class="align-middle">
+                        <td class="align-middle">Rp. {{ number_format($item->produk->harga_produk) }}</td>
+                        <td class="align-middle">{{ $item->kuantitas }}</td>
+                        {{-- <td class="align-middle">
                             <div>
                                 <button type="button"
                                     onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
@@ -66,11 +67,16 @@
                                     onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
                                     class="plus btn btn-secondary btn-plus plus"><i class="fa fa-plus"></i></button>
                             </div>
-                        </td>
-                        <td class="align-middle">{{ $item['produk']['harga_produk'] }}</td>
+                        </td> --}}
+                        <td class="align-middle">Rp. {{ number_format($item->jumlah_harga) }}</td>
                         <td class="align-middle actions" data-th="">
-                            <button class="btn btn-danger btn-sm remove-from-cart"><i
+                            <form action="{{url('reseller-delete-keranjang')}}/{{$item->id}}" method="POST">
+                                @csrf
+                                {{method_field('DELETE')}}
+                                <button class="btn btn-danger btn-sm remove-from-cart"><i
                                     class="fa fa-trash-o"></i></button>
+                            </form>
+                            
                         </td>
                     </tr>
                     @endforeach
@@ -82,41 +88,14 @@
         <!-- PESANAN -->
         <div class="col-lg-12">
             <div class="bg-light" style="padding: 20px">
-                <h5 class="section-title position-relative text-uppercase"><span class="pr-3">Pesanan</span></h5>
-                <div class="bg-light p-30 mt-30">
-                    <!-- PILIH SEMUA -->
-                    {{-- <div class="pb-2">
-                            <div class="d-flex justify-content-between">
-                                <p><input type="checkbox" style="width: 20px; height: 20px;">&ensp; PILIH SEMUA</p>
-                            </div>
-                        </div> --}}
-                    <!-- TABLE -->
-                    <div class="border-bottom pb-2">
-                        <div class="d-flex justify-content-between">
-                            <p class="text-dark"><b>PRODUK</b></p>
-                            <p class="text-dark"><b>TOTAL HARGA</b></p>
-                        </div>
-                    </div>
-                    @foreach ($getCartItem as $item)
-                    <div class="d-flex justify-content-between border-bottom">
-                        <p class="text-dark">{{ $item['produk']['nama_produk'] }}</p>
-                        <p class="text-dark">{{ $item['produk']['harga_produk'] }}</p>
-                    </div>
-                    @endforeach
+                {{-- <h5 class="section-title position-relative text-uppercase"><span class="pr-3">Pesanan</span></h5> --}}
+                <div class="bg-light p-30">
 
-                    <!-- TABLE END -->
-                    <!-- TOTAL PRODUK -->
-                    <div class="border-bottom pb-2">
-                        <div class="d-flex justify-content-between">
-                            <p class="text-dark">TOTAL PRODUK</p>
-                            <p class="text-dark">5 PRODUK</p>
-                        </div>
-                    </div>
                     <!-- TOTAL -->
                     <div class="pt-2 mb-3">
                         <div class="d-flex justify-content-between mt-2">
-                            <h6>TOTAL:</h6>
-                            <h6>Rp. 1.916.000</h6>
+                            <h6>TOTAL HARGA:</h6>
+                            <h6>Rp. {{ number_format($keranjang->total_harga_keranjang) }}</h6>
                         </div>
                         <hr>
                     </div>

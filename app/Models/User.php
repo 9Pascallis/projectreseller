@@ -20,4 +20,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->attributes['password'] = bcrypt($value);
     }
+
+    //Many to one (user-keranjang)
+    public function keranjang()
+    {
+        return $this->hasMany(Keranjang::class, 'id_user', 'id');
+    }
 }

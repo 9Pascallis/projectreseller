@@ -18,9 +18,6 @@ use App\Http\Controllers\IndexResellerController;
 // Route::get('/', [IndexResellerController::class, 'index']) ->name('index');
 
 Route::middleware(['auth'])->group(function () {
-    
-
-
     //INDEX
     Route::get('/reseller-index', [IndexResellerController::class, 'index']) ->name('reseller-index');
     Route::get('/reseller-belanja', [BelanjaController::class, 'index']) ->name('reseller-belanja');
@@ -36,8 +33,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/reseller-detail-{id}', [DetailController::class, 'show']) ->name('reseller-detail');
 
     //STORE
-    Route::post('cart/add', [CartController::class, 'store']) ->name('cart/add');
+    // Route::post('cart/add', [CartController::class, 'store']) ->name('cart/add');
+    Route::post('pesan/{id}', [CartController::class, 'store']) ->name('pesan/{id}');
 
+    //DELETE
+    Route::delete('/reseller-delete-keranjang/{id}', [CartController::class, 'delete']);
+    
     //LOGOUT
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });

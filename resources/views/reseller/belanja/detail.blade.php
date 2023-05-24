@@ -44,16 +44,16 @@
                     <h4 style="font-family: ubuntu">{{$produk->nama_produk}}</h4>
                     <!-- HARGA -->
                     <p class="product-price" style="font-family: ubuntu; font-size:large"><b
-                            class="text-danger">{{$produk->harga_produk}}</b></p>
+                            class="text-danger">Rp. {{ number_format($produk->harga_produk)}}</b></p>
                     <!-- DESKRIPSI PRODUK -->
                     <hr>
                     <p class="text-dark"><b>DETAIL PRODUK {{$produk->nama_produk}}</b></p>
                     <p class="product-desc text-dark" style="font-family: ubuntu">{{$produk->deskripsi_produk}}</p>
                     <!-- SISA STOK -->
                     <p class="text-dark"><b style="font-family: ubuntu">Stok Tersedia :
-                            {{$produk->total_stok_produk}}</b> </p>
+                            {{number_format($produk->total_stok_produk)}}</b> </p>
                     <!-- POST DATA -->
-                    <form action="{{url('cart/add')}}" method="POST">
+                    <form action="{{url('pesan')}}/{{$produk->id}}" method="POST">
                         @csrf
                         <input type="hidden" name="id_produk" value="{{$produk->id}}">
                         <!-- KUANTITAS -->
@@ -119,7 +119,7 @@
                                 </a>
                             </div> --}}
                             <div>
-                                <button type="submit" class="btn essence-btn bg-warning"><i class="fa fa-shopping-cart"
+                                <button type="submit" class="btn essence-btn bg-warning tambahkeranjang"><i class="fa fa-shopping-cart"
                                         style="font-size: 14px"></i> Add to Cart + </button>
                             </div>
                         </div>

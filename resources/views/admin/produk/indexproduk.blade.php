@@ -58,8 +58,8 @@
                             <img src="{{asset('storage/'.$item->foto_utama_produk)}}" alt="" style="width: 200px">
                         </td>
                         <td>{{ $item->jenis_produk->nama_jenis_produk}}</td>
-                        <td>{{ $item->harga_produk}}</td>
-                        <td>{{ $item->total_stok_produk}}</td>
+                        <td>Rp. {{ number_format($item->harga_produk)}}</td>
+                        <td>{{ number_format($item->total_stok_produk)}}</td>
                         <td class="text-center">
                             <a class="btn btn-sm btn-outline-info px-2" href="/detailproduk-{{ $item->id }}"><i
                                     class="fa fa-eye"></i></a>

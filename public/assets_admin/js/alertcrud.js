@@ -116,3 +116,17 @@ $('.deleteproduk').click(function() {
         }
     });
 });
+
+$('.tambahkeranjang').click(function() {
+    var id = $(this).attr('data-id');
+    var nama = $(this).attr('data-nama');
+    Swal.fire({
+        title: 'Berhasil!',
+        text: 'Produk berhasil masuk keranjang!',
+        icon: 'success',
+        timer: 5000,
+        onClose: () => {
+            window.location = "/tambahkeranjang-" + id + "";
+        }
+    });
+});

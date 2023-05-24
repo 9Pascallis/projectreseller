@@ -18,7 +18,7 @@ class CreateUserTable extends Migration
             $table->string('nama_lengkap_user');
             $table->date('tanggal_lahir_user');
             $table->string('email')->unique();
-            $table->biginteger('no_telp_user');
+            $table->string('no_telp_user');
             $table->string('password');
             $table->string('alamat_user');
             $table->string('provinsi_user');
