@@ -22,7 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/reseller-index', [IndexResellerController::class, 'index']) ->name('reseller-index');
     Route::get('/reseller-belanja', [BelanjaController::class, 'index']) ->name('reseller-belanja');
     Route::get('/reseller-keranjang', [CartController::class, 'index']) ->name('reseller-keranjang');
-    Route::get('/reseller-checkout', [CheckoutController::class, 'index']) ->name('reseller-checkout');
+    Route::get('/reseller-checkout', [CartController::class, 'konfirmasikeranjang']) ->name('reseller-checkout');
     Route::get('/admin-index', [IndexAdminController::class, 'index']) ->name('admin-index');
 
     //EDIT
@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
 
     //DELETE
     Route::delete('/reseller-delete-keranjang/{id}', [CartController::class, 'delete']);
-    
+
     //LOGOUT
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });

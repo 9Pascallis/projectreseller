@@ -15,16 +15,19 @@ class CartController extends Controller
 {
     public function index()
     {
-        
-        
         $jenis_produk = JenisProduk::all();
         $keranjang = Keranjang::where('id_user', Auth::user()->id)->where('status',0)->first();
         //masih bingung cart terbaca saat keranjang juga kosong
         if(empty($keranjang))
         {
-            return redirect()->back();
+            return view ('reseller/belanja/keranjang')->with(compact('jenis_produk'));
+            // return redirect()->back();
         }
-        $detail_keranjang = DetailKeranjang::where('id_keranjang', $keranjang->id)->get();
+        else
+        {
+            $detail_keranjang = DetailKeranjang::where('id_keranjang', $keranjang->id)->get();
+        }
+        
         return view ('reseller/belanja/keranjang')->with(compact('jenis_produk', 'keranjang', 'detail_keranjang'));
     }
 
@@ -80,7 +83,7 @@ class CartController extends Controller
         $keranjang = Keranjang::where('id_user', Auth::user()->id)->where('status',0)->first();
         $keranjang->total_harga_keranjang = $keranjang->total_harga_keranjang+$produk->harga_produk*$request->kuantitas;
         $keranjang->update();
-        return redirect('/reseller-belanja');
+        return redirect('/reseller-keranjang');
 
     }
 
@@ -94,4 +97,22 @@ class CartController extends Controller
         $detail_keranjang->delete();
         return redirect('reseller-keranjang');
     }
+
+    public function konfirmasikeranjang()
+        {
+            $keranjang = Keranjang::where('id_user', Auth::user()->id)->where('status',0)->first();
+            $id_keranjang = $keranjang->id;
+            $keranjang->status = 1;
+            $keranjang->update();
+    
+            $detail_keranjang = DetailKeranjang::where('id_keranjang', $id_keranjang)->get();
+            foreach ($detail_keranjang as $detail_keranjang) {
+                $produk = Produk::where('id', $detail_keranjang->id_produk)->first();
+                $produk->total_stok_produk = $produk->total_stok_produk-$detail_keranjang->kuantitas;
+                $produk->update();
+            }
+    
+            $jenis_produk = JenisProduk::all();
+            return view ('reseller/belanja/checkout', compact('jenis_produk'));
+        }
 }

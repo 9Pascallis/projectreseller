@@ -12,6 +12,7 @@
         </div>
         <!-- TABLE -->
         <div class="col-lg-12 table-responsive mb-5">
+           
             <table class="table table-light table-borderless table-hover text-center mb-0">
                 <thead class="thead" style="background-color: rgb(248, 248, 248)">
                     <tr>
@@ -27,6 +28,7 @@
                     </tr>
                 </thead>
                 <tbody class="align-middle">
+                    @if (!empty($keranjang))
                     @php
                     $no = 1;
                     @endphp
@@ -80,11 +82,15 @@
                         </td>
                     </tr>
                     @endforeach
+                    @endif
                 </tbody>
+                
             </table>
+
         </div>
         <!-- TABLE END -->
 
+        @if (!empty($keranjang))
         <!-- PESANAN -->
         <div class="col-lg-12">
             <div class="bg-light" style="padding: 20px">
@@ -98,15 +104,18 @@
                             <h6>Rp. {{ number_format($keranjang->total_harga_keranjang) }}</h6>
                         </div>
                         <hr>
-                    </div>
+                    </div>                        
+                    
                     <!-- CHECKOUT PESANAN -->
                     <div class="d-flex justify-content-end mt-30">
-                        <a href="#" class="btn essence-btn bg-success">Checkout pesanan</a>
+                        <a href="{{url('reseller-checkout')}}" class="btn essence-btn bg-success">Checkout pesanan</a>
                     </div>
+
                 </div>
             </div>
         </div>
         <!-- PESANAN END-->
+        @endif
     </div>
 </div>
 <!-- SECTION END-->

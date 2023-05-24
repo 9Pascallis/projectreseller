@@ -119,7 +119,7 @@
                                 </a>
                             </div> --}}
                             <div>
-                                <button type="submit" class="btn essence-btn bg-warning tambahkeranjang"><i class="fa fa-shopping-cart"
+                                <button type="submit" class="btn essence-btn bg-warning"><i class="fa fa-shopping-cart"
                                         style="font-size: 14px"></i> Add to Cart + </button>
                             </div>
                         </div>
