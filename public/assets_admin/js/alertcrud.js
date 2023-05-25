@@ -93,6 +93,54 @@ $('.deletejenisproduk').click(function() {
     });
 });
 
+$('.deletewarna').click(function() {
+    var id = $(this).attr('data-id');
+    var nama = $(this).attr('data-nama');
+    Swal.fire({
+        title: 'Apakah anda yakin?',
+        text: "Data " + nama + " akan terhapus!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Deleted!',
+                'Data berhasil dihapus!',
+                'success'
+            );
+            window.location = "/deletewarna-" + id + ""
+
+        }
+    });
+});
+
+$('.deleteukuran').click(function() {
+    var id = $(this).attr('data-id');
+    var nama = $(this).attr('data-nama');
+    Swal.fire({
+        title: 'Apakah anda yakin?',
+        text: "Data " + nama + " akan terhapus!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Deleted!',
+                'Data berhasil dihapus!',
+                'success'
+            );
+            window.location = "/deleteukuran-" + id + ""
+
+        }
+    });
+});
+
 $('.deleteproduk').click(function() {
     var id = $(this).attr('data-id');
     var nama = $(this).attr('data-nama');

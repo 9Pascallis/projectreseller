@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JenisProdukController;
+use App\Http\Controllers\WarnaController;
+use App\Http\Controllers\UkuranController;
 use App\Http\Controllers\BelanjaController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\CartController;
@@ -55,15 +57,26 @@ Route::post('/loginauth', [LoginController::class, 'store']);
     Route::get('/indexjenisproduk', [JenisProdukController::class, 'index']) ->name('indexjenisproduk');
     Route::get('/tambahjenisproduk', [JenisProdukController::class, 'create']) ->name('tambahjenisproduk');
     Route::post('/insertdatajenisproduk', [JenisProdukController::class, 'store']) ->name('insertdatajenisproduk');
-    Route::get('/editjenisproduk-{id}', [JenisProdukController::class, 'edit']) ->name('editjenisproduk');
-    Route::post('/updatejenisproduk-{id}', [JenisProdukController::class, 'update']) ->name('updatejenisproduk');
     Route::get('/deletejenisproduk-{id}', [JenisProdukController::class, 'destroy']) ->name('deletejenisproduk');
+
+    //UKURAN
+    Route::get('/indexukuran', [UkuranController::class, 'index']) ->name('indexukuran');
+    Route::get('/tambahukuran', [UkuranController::class, 'create']) ->name('tambahukuran');
+    Route::post('/insertdataukuran', [UkuranController::class, 'store']) ->name('insertdataukuran');
+    Route::get('/deleteukuran-{id}', [UkuranController::class, 'destroy']) ->name('deleteukuran');
+
+    //WARNA
+    Route::get('/indexwarna', [WarnaController::class, 'index']) ->name('indexwarna');
+    Route::get('/tambahwarna', [WarnaController::class, 'create']) ->name('tambahwarna');
+    Route::post('/insertdatawarna', [WarnaController::class, 'store']) ->name('insertdatawarna');
+    Route::get('/deletewarna-{id}', [WarnaController::class, 'destroy']) ->name('deletewarna');
 
     //PRODUK
     Route::get('/indexproduk', [ProdukController::class, 'index']) ->name('indexproduk');
     Route::get('/tambahproduk', [ProdukController::class, 'create']) ->name('tambahproduk');
     Route::post('/insertdataproduk', [ProdukController::class, 'store']) ->name('insertdataproduk');
     Route::get('/detailproduk-{id}', [ProdukController::class, 'show']) ->name('detailproduk');
+    Route::get('/tambahitemproduk-{id}', [ProdukController::class, 'createitem']) ->name('tambahitemproduk');
     Route::get('/editproduk-{id}', [ProdukController::class, 'edit']) ->name('editproduk');
     Route::post('/updateproduk-{id}', [ProdukController::class, 'update']) ->name('updateproduk');
     Route::get('/deleteproduk-{id}', [ProdukController::class, 'destroy']) ->name('deleteproduk');

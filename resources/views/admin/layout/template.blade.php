@@ -65,7 +65,7 @@
                         <div class="parent-icon">
                             <ion-icon name="home-sharp"></ion-icon>
                         </div>
-                        <div class="menu-title">Dashboard</div>
+                        <div class="menu-title">Dashboard Admin</div>
                     </a>
                 </li>
                 {{-- <li class="menu-label">Pesanan</li>
@@ -139,31 +139,31 @@
               </li>
             </ul>
           </li> --}}
-                <li class="menu-label">MASTER</li>
-                <!-- USER -->
+                <li class="menu-label">HISTORI</li>
+                <!-- PEMESANAN -->
                 <li>
-                    <a href="indexuser">
+                    <a href="admin-viewpemesanan">
                         <div class="parent-icon">
-                            <ion-icon name="person-circle-sharp"></ion-icon>
+                          <ion-icon name='storefront'></ion-icon>
                         </div>
-                        <div class="menu-title">User</div>
+                        <div class="menu-title">Histori Pemesanan</div>
                     </a>
                 </li>
-                <!-- ADMIN -->
+                <!-- PEMBAYARAN -->
                 <li>
-                    <a href="indexadmin">
+                    <a href="pages-invoices.html">
                         <div class="parent-icon">
-                            <ion-icon name="key-outline"></ion-icon>
+                          <ion-icon name='wallet'></ion-icon>
                         </div>
-                        <div class="menu-title">Admin</div>
+                        <div class="menu-title">Histori Pembayaran</div>
                     </a>
                 </li>
-                <li class="menu-label">DATA</li>
-                <!-- PRODUK -->
+                <li class="menu-label">DATA MASTER</li>
+                <!-- JENIS PRODUK -->
                 <li>
                     <a href="indexjenisproduk">
                         <div class="parent-icon">
-                            <ion-icon name="create-sharp"></ion-icon>
+                          <ion-icon name='prism'></ion-icon>
                         </div>
                         <div class="menu-title">Jenis Produk</div>
                     </a>
@@ -172,30 +172,49 @@
                 <li>
                     <a href="indexproduk">
                         <div class="parent-icon">
-                            <ion-icon name="create-sharp"></ion-icon>
+                          <ion-icon name='cube'></ion-icon>
                         </div>
                         <div class="menu-title">Produk</div>
                     </a>
                 </li>
-                <li class="menu-label">HISTORI</li>
-                <!-- PEMESANAN -->
+                <!-- UKURAN -->
                 <li>
-                    <a href="admin-viewpemesanan">
+                  <a href="indexukuran">
+                      <div class="parent-icon">
+                        <ion-icon name='shirt'></ion-icon>
+                      </div>
+                      <div class="menu-title">Ukuran</div>
+                  </a>
+                </li>
+                <!-- WARNA -->
+                <li>
+                  <a href="indexwarna">
+                      <div class="parent-icon">
+                          <ion-icon name='color-palette'></ion-icon>
+                      </div>
+                      <div class="menu-title">Warna</div>
+                  </a>
+                </li>
+                <li class="menu-label">ROLE</li>
+                <!-- USER -->
+                <li>
+                    <a href="indexuser">
                         <div class="parent-icon">
-                            <ion-icon name="receipt-sharp"></ion-icon>
+                          <ion-icon name='person-sharp'></ion-icon>
                         </div>
-                        <div class="menu-title">Pemesanan</div>
+                        <div class="menu-title">Role User</div>
                     </a>
                 </li>
-                <!-- PEMBAYARAN -->
+                <!-- ADMIN -->
                 <li>
-                    <a href="pages-invoices.html">
+                    <a href="indexadmin">
                         <div class="parent-icon">
-                            <ion-icon name="receipt-sharp"></ion-icon>
+                          <ion-icon name='key-sharp'></ion-icon>
                         </div>
-                        <div class="menu-title">Pembayaran</div>
+                        <div class="menu-title">Role Admin</div>
                     </a>
                 </li>
+                
             </ul>
             <!--end navigation-->
         </aside>

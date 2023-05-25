@@ -1,5 +1,5 @@
 @extends('admin.layout.template')
-@section('title', 'Admin | View Jenis Produk')
+@section('title', 'Admin | View Warna')
 @section('header')
 <link href="assets_admin/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 @endsection
@@ -7,12 +7,12 @@
 <div class="card">
     <div class="card-body">
         <!-- JUDUL -->
-        <h5 class="mb-0 text-uppercase text-center">Jenis Produk</h5>
+        <h5 class="mb-0 text-uppercase text-center">Warna</h5>
         <hr><br>
         <!-- JUDUL END -->
 
         <div class="col-12">
-            <a href="tambahjenisproduk" class="btn btn-success" role="button" aria-pressed="true">+ Jenis Produk</a>
+            <a href="tambahwarna" class="btn btn-success" role="button" aria-pressed="true">+ Warna</a>
         </div><br>
 
         <!-- ISI -->
@@ -21,7 +21,7 @@
                 <thead>
                     <tr>
                         <th>NO</th>
-                        <th>NAMA JENIS PRODUK</th>
+                        <th>NAMA WARNA</th>
                         <th>TGL UPLOAD</th>
                         <th class="text-center">ACTION</th>
                     </tr>
@@ -30,14 +30,14 @@
                     @php
                     $no = 1;
                     @endphp
-                    @foreach ( $jenis_produk as $item)
+                    @foreach ( $warna as $item)
                     <tr>
                         <td>{{ $no++}}</td>
-                        <td>{{ $item->nama_jenis_produk}}</td>
+                        <td>{{ $item->nama_warna}}</td>
                         <td>{{ $item->created_at->format('d-m-Y') }}</td>
                         <td class="text-center">
-                            <a class="btn btn-sm btn-outline-danger px-2 deletejenisproduk" data-id="{{ $item->id }}"
-                                data-nama="{{ $item->nama_jenis_produk}}"><i class="fa fa-trash"></i></a>
+                            <a class="btn btn-sm btn-outline-danger px-2 deletewarna" data-id="{{ $item->id }}"
+                                data-nama="{{ $item->nama_warna}}"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     @endforeach

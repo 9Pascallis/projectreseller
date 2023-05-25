@@ -14,37 +14,17 @@ class JenisProdukController extends Controller
         return view ('admin/jenisproduk/indexjenisproduk', compact('jenis_produk'));
     }
 
-
     public function create()
     {
         return view ('admin/jenisproduk/tambahjenisproduk');
     }
 
-
     public function store(JenisProdukRequest $request)
     {
-
         $jenis_produk = $request->validated();
         JenisProduk::create($jenis_produk);
         return redirect('/indexjenisproduk')->with('create', 'Data Berhasil ditambah!');
-
     }
-
-    
-    public function edit($id)
-    {
-        $jenis_produk = JenisProduk::find($id);
-        return view ('/admin/jenisproduk/editjenisproduk', compact('jenis_produk'));
-    }
-
-
-    public function update(JenisProdukRequest $request, $id)
-    {
-        $jenis_produk = JenisProduk::find($id);
-        $jenis_produk->update($request->all());
-        return redirect('/indexjenisproduk')->with('update', 'Data Berhasil diupdate!');
-    }
-
 
     public function destroy($id)
     {
