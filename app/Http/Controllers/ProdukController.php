@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\JenisProduk;
 use App\Models\Produk;
+use App\Models\ItemProduk;
+use App\Models\Warna;
+use App\Models\Ukuran;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProdukRequest;
 class ProdukController extends Controller
@@ -42,7 +45,8 @@ class ProdukController extends Controller
     {
         $produk = Produk::find($id);
         $jenis_produk = JenisProduk::all();
-        return view ('/admin/produk/detailproduk', compact('jenis_produk','produk'));
+        $item_produk = ItemProduk::all();
+        return view ('/admin/produk/detailproduk', compact('jenis_produk','produk','item_produk'));
     }
 
     public function edit($id)

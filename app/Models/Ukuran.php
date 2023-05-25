@@ -11,4 +11,9 @@ class Ukuran extends Model
 
     protected $table = 'ukuran';
     protected $guarded = ['id'];
+
+    public function item_produk()
+    {
+        return $this->hasMany(ItemProduk::class, 'id_ukuran', 'id');
+    }
 }

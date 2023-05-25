@@ -17,6 +17,11 @@ class Produk extends Model
     {
         return $this->belongsTo(JenisProduk::class, 'id_jenis_produk', 'id');
     }
+    
+    public function item_produk()
+    {
+        return $this->hasMany(ItemProduk::class, 'id_produk', 'id');
+    }
 
     //Many to one (detailkeranjang-produk)
     public function detail_keranjang()
