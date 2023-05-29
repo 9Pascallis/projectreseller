@@ -9,7 +9,7 @@
                 <div class="regular-page-content-wrapper">
                     <div class="regular-page-text">
                         <div class="order-details-confirmation">
-                            <form action="/updateuser-{{ $user->id }}" method="POST">
+                            <form action="/updateuser/{{ $user->id }}" method="POST">
                                 @csrf
                                 <div class="checkout_details_area clearfix">
                                     <div class="row">
@@ -83,7 +83,7 @@
                                         
                                     </div>
                                     <div class="row justify-content-end">
-                                        <div style="padding-right: 5px; padding-bottom: 10px"><a href="reseller-profil"
+                                        <div style="padding-right: 5px; padding-bottom: 10px"><a href="profil"
                                                 class="btn essence-btn bg-warning" role="button"
                                                 aria-pressed="true">Cancel</a></div>
                                         <div><button type="submit"

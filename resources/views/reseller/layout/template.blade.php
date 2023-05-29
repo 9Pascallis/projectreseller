@@ -6,9 +6,9 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="assets_reseller/img/core-img/logoorangecrop.png">
-    <link rel="stylesheet" href="assets_reseller/css/core-style.css">
-    <link rel="stylesheet" href="assets_reseller/style.css">
+    <link rel="icon" href="{{asset('assets_reseller/img/core-img/logoorangecrop.png')}}">
+    <link rel="stylesheet" href="{{asset('assets_reseller/css/core-style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets_reseller/style.css')}}">
     @yield('header')
     <!-- JUDUL  -->
     <title>@yield('title')</title>
@@ -23,7 +23,7 @@
             <nav class="classy-navbar" id="essenceNav">
                 <!-- LOGO -->
                 <div style="padding-right: 10px">
-                    <img src="assets_reseller/img/core-img/logoputih.png" width="180px" style="padding-bottom: 10px" alt="">
+                    <img src="{{asset('assets_reseller/img/core-img/logoputih.png')}}" width="180px" style="padding-bottom: 10px" alt="">
 
                 </div>
                 {{-- <a class="nav-brand" href="{{route('reseller-index')}}"><img
@@ -33,18 +33,18 @@
                 <div class="classy-menu">
                     <div class="classynav">
                         <ul>
-                            <li><a href="{{route('reseller-belanja')}}"
+                            <li><a href="{{route('belanja')}}"
                                     style="font-weight: 600; color: #ffffff; font-family: ubuntu">Belanja</a></li>
                             <li><a href="#" style="font-weight: 600; color: #ffffff; font-family: ubuntu">Produk</a>
                                 <ul class="dropdown btn-light">
                                     @foreach ( $jenis_produk as $item)
                                     <li><a
-                                            href="{{route('reseller-belanja', ['jenis_kategori' => $item->nama_jenis_produk])}}">{{ $item->nama_jenis_produk}}</a>
+                                            href="{{route('belanja', ['jenis_kategori' => $item->nama_jenis_produk])}}">{{ $item->nama_jenis_produk}}</a>
                                     </li>
                                     @endforeach
                                 </ul>
                             </li>
-                            <li><a href="{{route('admin-index')}}"
+                            <li><a href="{{route('indexadmin')}}"
                                     style="font-weight: 600; color: #ffffff; font-family: ubuntu">Dashboard</a>
                             </li>
                         </ul>
@@ -56,11 +56,11 @@
             <div class="header-meta d-flex clearfix justify-content-end">
                 <!-- PROFIL -->
                 <div class="user-login-info">
-                    <a href="{{route('reseller-profil')}}"><img src="assets_reseller/img/core-img/user.svg" alt=""></a>
+                    <a href="{{route('profil')}}"><img src="{{asset('assets_reseller/img/core-img/user.svg')}}" alt=""></a>
                 </div>
                 <!-- KERANJANG -->
                 <div class="user-login-info">
-                    <a href="{{route('reseller-keranjang')}}">
+                    <a href="{{route('keranjang')}}">
                         <i class="fa fa-shopping-cart fa-lg"
                             style="color: #ffffff;"></i></a>
                 </div>
@@ -149,14 +149,13 @@
 
     <!-- JAVASCRIPT -->
     @yield('javascript')
-    <script src="assets_reseller/js/jquery/jquery-2.2.4.min.js"></script>
-    <script src="assets_reseller/js/popper.min.js"></script>
-    <script src="assets_reseller/js/bootstrap.min.js"></script>
-    <script src="assets_reseller/js/plugins.js"></script>
-    <script src="assets_reseller/js/classy-nav.min.js"></script>
-    <script src="assets_reseller/js/active.js"></script>
+    <script src="{{asset('assets_reseller/js/jquery/jquery-2.2.4.min.js')}}"></script>
+    <script src="{{asset('assets_reseller/js/popper.min.js')}}"></script>
+    <script src="{{asset('assets_reseller/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets_reseller/js/plugins.js')}}"></script>
+    <script src="{{asset('assets_reseller/js/classy-nav.min.js')}}"></script>
+    <script src="{{asset('assets_reseller/js/active.js')}}"></script>
+    <script src="{{asset('assets_admin/js/alertcrud.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="assets_admin/js/alertcrud.js"></script>
 </body>
-
 </html>

@@ -26,25 +26,25 @@ use App\Http\Controllers\Admin\IndexAdminController;
     Route::middleware(['auth'])->group(function () {
         
         //INDEX
-        Route::get('/reseller-index', [IndexResellerController::class, 'index']) ->name('reseller-index');
-        Route::get('/reseller-belanja', [BelanjaController::class, 'index']) ->name('reseller-belanja');
-        Route::get('/reseller-keranjang', [CartController::class, 'index']) ->name('reseller-keranjang');
-        Route::get('/reseller-checkout', [CartController::class, 'konfirmasikeranjang']) ->name('reseller-checkout');
-        Route::get('/admin-index', [IndexAdminController::class, 'index']) ->name('admin-index');
+        Route::get('/indexreseller', [IndexResellerController::class, 'index']) ->name('indexreseller');
+        Route::get('/belanja', [BelanjaController::class, 'index']) ->name('belanja');
+        Route::get('/keranjang', [CartController::class, 'index']) ->name('keranjang');
+        Route::get('/checkout', [CartController::class, 'konfirmasikeranjang']) ->name('checkout');
+        Route::get('/indexadmin', [IndexAdminController::class, 'index']) ->name('indexadmin');
 
         //EDIT
-        Route::get('/reseller-editprofil', [ProfilController::class, 'edit']) ->name('reseller-editprofil');
+        Route::get('/editprofil', [ProfilController::class, 'edit']) ->name('editprofil');
 
         //SHOW
-        Route::get('/reseller-profil', [ProfilController::class, 'show']) ->name('reseller-profil');
-        Route::get('/reseller-detail-{id}', [DetailController::class, 'show']) ->name('reseller-detail');
+        Route::get('/profil', [ProfilController::class, 'show']) ->name('profil');
+        Route::get('/detail/{id}', [DetailController::class, 'show']) ->name('detail');
 
         //STORE
         Route::post('pesan/{id}', [CartController::class, 'store']) ->name('pesan/{id}');
         // Route::post('cart/add', [CartController::class, 'store']) ->name('cart/add');
 
         //DELETE
-        Route::delete('/reseller-delete-keranjang/{id}', [CartController::class, 'delete']);
+        Route::delete('/deletekeranjang/{id}', [CartController::class, 'delete']);
 
         //LOGOUT
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

@@ -58,7 +58,7 @@
                         </div><br>
                         <div class="row justify-content-between">
                             <div class="col-md-3" style="padding-right: 5px; padding-bottom: 10px">
-                                <a href="{{route('reseller-editprofil')}}" class="btn essence-btn bg-secondary">GANTI PROFIL</a>
+                                <a href="{{route('editprofil')}}" class="btn essence-btn bg-secondary">GANTI PROFIL</a>
                             </div>
                             <div class="col-md-3">
                                 <form action="{{route('logout')}}" method="POST">

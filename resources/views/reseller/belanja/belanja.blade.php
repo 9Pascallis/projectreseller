@@ -20,7 +20,7 @@
                                         <div style="padding-right: 50px">
                                             <hr>
                                         </div>
-                                        <li><a href="reseller-belanja"><b class="text-dark"
+                                        <li><a href="belanja"><b class="text-dark"
                                                     style="font-family: ubuntu; font-weight: 600">&#8226; SEMUA</b></a>
                                         </li>
                                         <div style="padding-right: 50px">
@@ -28,7 +28,7 @@
                                         </div>
                                         @foreach ( $jenis_produk as $item)
                                         <li><a
-                                                href="{{route('reseller-belanja', ['jenis_kategori' => $item->nama_jenis_produk])}}"><b
+                                                href="{{route('belanja', ['jenis_kategori' => $item->nama_jenis_produk])}}"><b
                                                     class="text-dark"
                                                     style="font-family: ubuntu; font-weight: 600">&#8226;
                                                     {{ $item->nama_jenis_produk}}</b></a></li>
@@ -53,7 +53,7 @@
                             <h5 class="text-uppercase">DAFTAR PRODUK</h5>
                             <hr>
                             <!-- SEARCH -->
-                            <form method="GET" action="{{route('reseller-belanja')}}">
+                            <form method="GET" action="{{route('belanja')}}">
                                 <div class="input-group mb-3">
                                     <input type="text" name="keyword" value="{{$keyword}}" style="font-family: ubuntu"
                                         class="form-control" placeholder="Search Produk">
@@ -90,21 +90,21 @@
                             <div class="single-product-wrapper">
                                 <!-- FOTO PRODUK -->
                                 <div class="product-img">
-                                    <a href="/reseller-detail-{{ $item->id }}">
+                                    <a href="/detail/{{ $item->id }}">
                                         <img src="{{asset('storage/'.$item->foto_utama_produk)}}" alt="">
                                     </a>
                                 </div>
                                 <!-- DESKRIPSI PRODUK -->
                                 <div class="product-description">
                                     <span>{{ $item->jenis_produk->nama_jenis_produk}}</span>
-                                    <a href="/reseller-detail-{{ $item->id }}">
+                                    <a href="/detail/{{ $item->id }}">
                                         <h6>{{ $item->nama_produk}}</h6>
                                     </a>
                                     <b class="product-price text-danger">Rp. {{ number_format($item->harga_produk)}}</b>
                                     <div class="hover-content">
                                         <!-- TAMBAH KERANJANG -->
                                         <div class="add-to-cart-btn">
-                                            <a href="/reseller-detail-{{ $item->id }}" class="btn essence-btn"
+                                            <a href="/detail/{{ $item->id }}" class="btn essence-btn"
                                                 style="background-color: #ff4a00">Detail</a>
                                         </div>
                                     </div>

@@ -50,7 +50,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->update($request->all());
-        return redirect('reseller-profil')->with('update', 'Data Berhasil diupdate!');
+        return redirect('profil')->with('update', 'Data Berhasil diupdate!');
     }
 
 

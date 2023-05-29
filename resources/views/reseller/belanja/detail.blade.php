@@ -8,7 +8,7 @@
     <div class="container">
         <div class="col-12">
             <nav class="breadcrumb bg-light">
-                <a class="breadcrumb-item text-dark" href="{{route('reseller-belanja')}}"
+                <a class="breadcrumb-item text-dark" href="{{route('belanja')}}"
                     style="font-size: 14px; font-family: ubuntu">Belanja</a>
                 <span class="breadcrumb-item text-dark active"
                     style="font-size: 14px; font-family: ubuntu">Detail</span>

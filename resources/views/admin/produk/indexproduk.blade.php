@@ -55,7 +55,7 @@
                         <td>{{ $no++}}</td>
                         <td>{{ $item->nama_produk}}</td>
                         <td class="text-center">
-                            <img src="{{asset('storage/'.$item->foto_utama_produk)}}" alt="" style="width: 200px">
+                            <img src="{{asset('storage/'.$item->foto_utama_produk)}}" alt="" style="width: 100px">
                         </td>
                         <td>{{ $item->jenis_produk->nama_jenis_produk}}</td>
                         <td>Rp. {{ number_format($item->harga_produk)}}</td>
