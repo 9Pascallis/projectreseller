@@ -46,7 +46,7 @@
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-3 col-form-label">Password</label>
                     <div class="col-sm-9">
-                        <input type="text" name="password_admin" class="form-control" required>
+                        <input type="password" name="password_admin" class="form-control" required>
                         @error('password_admin')
                         <span class="invalid-feedback">{{ $message}}</span>
                         @enderror

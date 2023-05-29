@@ -19,7 +19,6 @@ class CreateProdukTable extends Migration
             $table->string('nama_produk')->unique();
             $table->longText('deskripsi_produk');
             $table->integer('harga_produk');
-            $table->integer('total_stok_produk');
             $table->string('foto_utama_produk');
             $table->timestamps();
             

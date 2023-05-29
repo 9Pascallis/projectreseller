@@ -58,7 +58,7 @@
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-3 col-form-label">Password</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="password" value="{{old('password')}}" required>
+                        <input  type="password" class="form-control" name="password" value="{{old('password')}}" required>
                         @error('password')
                         <span class="invalid-feedback">{{ $message}}</span>
                         @enderror
@@ -114,16 +114,6 @@
                         @enderror
                     </div>
                 </div>
-                {{-- <hr>
-
-				<div class="row mb-3">
-					<label for="inputText" class="col-sm-3 col-form-label">Password</label>
-					<div class="col-sm-9">
-						<input type="password" class="form-control mb-2" id="myInput" >
-						<input class="form-check-input" type="checkbox" value="" onclick="password()" required>
-						<label class="form-check-label">Show Password</label>
-					</div>
-				</div>   --}}
             </div>
             <br><br>
             <div class="d-flex justify-content-end">
@@ -132,11 +122,7 @@
                 <div><button type="submit" class="btn btn-success">Tambah</button></div>
             </div>
         </form>
-        <!-- ISI END -->
+
     </div>
 </div>
-@endsection
-
-@section('javascript')
-<script src="assets_admin/js/password.js"></script>
 @endsection

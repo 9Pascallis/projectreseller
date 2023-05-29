@@ -1,16 +1,19 @@
 @extends('admin.layout.template')
-@section('title', 'Admin | View Warna')
+@section('title', 'Admin | Warna')
+
 @section('header')
 <link href="assets_admin/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 @endsection
+
 @section('content')
 <div class="card">
     <div class="card-body">
+
         <!-- JUDUL -->
         <h5 class="mb-0 text-uppercase text-center">Warna</h5>
         <hr><br>
-        <!-- JUDUL END -->
 
+        <!-- TAMBAH WARNA -->
         <div class="col-12">
             <a href="tambahwarna" class="btn btn-success" role="button" aria-pressed="true">+ Warna</a>
         </div><br>
@@ -23,7 +26,7 @@
                         <th>NO</th>
                         <th>NAMA WARNA</th>
                         <th>TGL UPLOAD</th>
-                        <th class="text-center">ACTION</th>
+                        <th class="text-center">HAPUS</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,7 +47,7 @@
                 </tbody>
             </table>
         </div>
-        <!-- ISI END-->
+
     </div>
 </div>
 @endsection
@@ -62,14 +65,6 @@
     toastr.success("{{ session('create') }}");
     @endif
 
-    @if(Session::has('update'))
-    toastr.options = {
-        "closeButton": true,
-        "progressBar": true
-    }
-    toastr.success("{{ session('update') }}");
-    @endif
-
     @if(Session::has('destroy'))
     toastr.options = {
         "closeButton": true,
@@ -77,6 +72,5 @@
     }
     toastr.success("{{ session('destroy') }}");
     @endif
-
 </script>
 @endsection

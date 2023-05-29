@@ -66,25 +66,16 @@
                             <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
                                 class="btn essence1-btn bg-info"><i class="fa fa-plus"></i></button>
                         </div>
-                        {{-- <div>
+                        <div>
                                 <!-- UKURAN -->
                                 <div class="product-size">
                                     <h4 style="padding-top: 10px">Ukuran</h4>
                                     <div class="size-layout">
+                                        {{-- @foreach ($collection as $item)
                                         <input type="radio" name="size" value="S" id="1" class="size-input">
                                         <label for="1" class="size">S</label>
-        
-                                        <input type="radio" name="size" value="M" id="2" class="size-input">
-                                        <label for="2" class="size">M</label>
-        
-                                        <input type="radio" name="size" value="L" id="3" class="size-input">
-                                        <label for="3" class="size">L</label>
-        
-                                        <input type="radio" name="size" value="XL" id="4" class="size-input">
-                                        <label for="4" class="size">XL</label>
-        
-                                        <input type="radio" name="size" value="XXL" id="5" class="size-input">
-                                        <label for="5" class="size">XXL</label>
+                                        @endforeach --}}
+                                       
                                     </div>
                                 </div>
                                 <!-- WARNA -->
@@ -93,12 +84,6 @@
                                     <div class="color-layout">
                                         <input type="radio" name="color" value="S" id="6" class="color-input">
                                         <label for="6" class="color">Red</label>
-        
-                                        <input type="radio" name="color" value="M" id="7" class="color-input">
-                                        <label for="7" class="color">Blue</label>
-        
-                                        <input type="radio" name="color" value="L" id="8" class="color-input">
-                                        <label for="8" class="color">Black</label>
                                     </div>
                                 </div>
                                 <span class="divider"></span>
@@ -108,7 +93,7 @@
                                 
                                 <!-- ADD TO CART -->
                                 
-                            </div> --}}
+                            </div>
 
                         <!-- CHECKOUT -->
                         <br>

@@ -7,52 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- loader-->
-    <link href="assets_admin/css/pace.min.css" rel="stylesheet" />
-    <script src="assets_admin/js/pace.min.js"></script>
+    <link href="{{ asset('assets_admin/css/pace.min.css') }}" rel="stylesheet" />
+    <script src="{{ asset('assets_admin/js/pace.min.js') }}"></script>
 
     <!--plugins-->
-    <link href="assets_admin/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
-    <link href="assets_admin/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
-    <link href="assets_admin/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+    <link href="{{ asset('assets_admin/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets_admin/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets_admin/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
 
     <!-- CSS Files -->
-    <link href="assets_admin/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets_admin/css/bootstrap-extended.css" rel="stylesheet">
-    <link href="assets_admin/css/style.css" rel="stylesheet">
-    <link href="assets_admin/css/icons.css" rel="stylesheet">
+    <link href="{{ asset('assets_admin/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/css/bootstrap-extended.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/css/icons.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 
     <!-- Favicon  -->
-    <link rel="icon" href="assets_admin/images/logoorangecrop.png">
+    <link rel="icon" href="{{ asset('assets_admin/images/logoorangecrop.png') }}">
 
-    <!--Theme Styles-->
-    <link href="assets_admin/css/dark-theme.css" rel="stylesheet" />
-    <link href="assets_admin/css/semi-dark.css" rel="stylesheet" />
-    <link href="assets_admin/css/header-colors.css" rel="stylesheet" />
     @yield('header')
     <title>@yield('title')</title>
 </head>
 
 <body>
-
-
     <!--start wrapper-->
     <div class="wrapper">
         <!--start sidebar -->
         <aside class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
                 <div>
-                    <img src="assets_admin/images/logoorangecrop.png" class="logo-icon" alt="logo icon">
+                    <img src="{{ asset('assets_admin/images/logoorangecrop.png') }}" class="logo-icon" alt="logo icon">
                 </div>
                 <div>
-                    <img src="assets_admin/images/respiro.jpg" class="logo-text" width="150px" height="25px">
+                    <img src="{{ asset('assets_admin/images/respiro.jpg') }}" class="logo-text" width="150px"
+                        height="25px">
                 </div>
                 <div class="toggle-icon ms-auto">
                     <ion-icon name="menu-sharp"></ion-icon>
@@ -61,99 +53,29 @@
             <!--navigation-->
             <ul class="metismenu" id="menu">
                 <li>
-                    <a href="admin">
+                    <a href="/admin">
                         <div class="parent-icon">
                             <ion-icon name="home-sharp"></ion-icon>
                         </div>
                         <div class="menu-title">Dashboard Admin</div>
                     </a>
                 </li>
-                {{-- <li class="menu-label">Pesanan</li>
-          <li>
-            <a href="javascript:;" class="has-arrow">
-              <div class="parent-icon"><ion-icon name="briefcase-sharp"></ion-icon>
-              </div>
-              <div class="menu-title">Pesanan</div>
-            </a>
-            <ul>
-              <li> <a href="widgets-static-widgets.html"><ion-icon name="ellipse-outline"></ion-icon>Semua Pesanan</a>
-              </li>
-              <li> <a href="widgets-data-widgets.html"><ion-icon name="ellipse-outline"></ion-icon>Pesanan Baru</a>
-              </li>
-              <li> <a href="widgets-data-widgets.html"><ion-icon name="ellipse-outline"></ion-icon>Pesanan Diproses</a>
-              </li>
-              <li> <a href="widgets-data-widgets.html"><ion-icon name="ellipse-outline"></ion-icon>Pesanan Dikirim</a>
-              </li>
-              <li> <a href="widgets-data-widgets.html"><ion-icon name="ellipse-outline"></ion-icon>Pesanan Sampai</a>
-              </li>
-              <li> <a href="widgets-data-widgets.html"><ion-icon name="ellipse-outline"></ion-icon>Pesanan Selesai</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a class="has-arrow" href="javascript:;">
-              <div class="parent-icon"><ion-icon name="list-sharp"></ion-icon>
-              </div>
-              <div class="menu-title">Produk</div>
-            </a>
-            <ul>
-              <li> <a class="has-arrow" href="javascript:;"><ion-icon name="ellipse-outline"></ion-icon>Daftar Produk</a>
-                <ul>
-                  <li> <a href="javascript:;"><ion-icon name="ellipse-outline"></ion-icon>Semua Produk</a>
-                  </li>
-                  <li> <a href="javascript:;"><ion-icon name="ellipse-outline"></ion-icon>Produk Aktif</a>
-                  </li>
-                  <li> <a href="javascript:;"><ion-icon name="ellipse-outline"></ion-icon>Produk Non Aktif</a>
-                  </li>
-                </ul>
-              </li>
-              <li> <a href="component-accordions.html"><ion-icon name="ellipse-outline"></ion-icon>Tambah Produk</a>
-              </li>
-              <li> <a href="component-badges.html"><ion-icon name="ellipse-outline"></ion-icon>Kelola Stok Produk</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a class="has-arrow" href="javascript:;">
-              <div class="parent-icon"><ion-icon name="bar-chart-sharp"></ion-icon>
-              </div>
-              <div class="menu-title">Pelanggan</div>
-            </a>
-            <ul>
-              <li> <a href="admin-datareseller"><ion-icon name="ellipse-outline"></ion-icon>Data Reseller</a>
-              </li>
-              <li> <a href="admin-datapembeli"><ion-icon name="ellipse-outline"></ion-icon>Data Pembeli</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a class="has-arrow" href="javascript:;">
-              <div class="parent-icon"><ion-icon name="map-sharp"></ion-icon>
-              </div>
-              <div class="menu-title">Promosi</div>
-            </a>
-            <ul>
-              <li> <a href="map-google-maps.html"><ion-icon name="ellipse-outline"></ion-icon>Diskon Produk</a>
-              </li>
-              <li> <a href="map-vector-maps.html"><ion-icon name="ellipse-outline"></ion-icon>Diskon Reseller</a>
-              </li>
-            </ul>
-          </li> --}}
+
                 <li class="menu-label">HISTORI</li>
                 <!-- PEMESANAN -->
                 <li>
-                    <a href="admin-viewpemesanan">
+                    <a href="/admin-viewpemesanan">
                         <div class="parent-icon">
-                          <ion-icon name='storefront'></ion-icon>
+                            <ion-icon name='storefront'></ion-icon>
                         </div>
                         <div class="menu-title">Histori Pemesanan</div>
                     </a>
                 </li>
                 <!-- PEMBAYARAN -->
                 <li>
-                    <a href="pages-invoices.html">
+                    <a href="/pages-invoices.html">
                         <div class="parent-icon">
-                          <ion-icon name='wallet'></ion-icon>
+                            <ion-icon name='wallet'></ion-icon>
                         </div>
                         <div class="menu-title">Histori Pembayaran</div>
                     </a>
@@ -161,60 +83,60 @@
                 <li class="menu-label">DATA MASTER</li>
                 <!-- JENIS PRODUK -->
                 <li>
-                    <a href="indexjenisproduk">
+                    <a href="/indexjenisproduk">
                         <div class="parent-icon">
-                          <ion-icon name='prism'></ion-icon>
+                            <ion-icon name='prism'></ion-icon>
                         </div>
                         <div class="menu-title">Jenis Produk</div>
                     </a>
                 </li>
                 <!-- PRODUK -->
                 <li>
-                    <a href="indexproduk">
+                    <a href="/indexproduk">
                         <div class="parent-icon">
-                          <ion-icon name='cube'></ion-icon>
+                            <ion-icon name='cube'></ion-icon>
                         </div>
                         <div class="menu-title">Produk</div>
                     </a>
                 </li>
                 <!-- UKURAN -->
                 <li>
-                  <a href="indexukuran">
-                      <div class="parent-icon">
-                        <ion-icon name='shirt'></ion-icon>
-                      </div>
-                      <div class="menu-title">Ukuran</div>
-                  </a>
+                    <a href="/indexukuran">
+                        <div class="parent-icon">
+                            <ion-icon name='shirt'></ion-icon>
+                        </div>
+                        <div class="menu-title">Ukuran</div>
+                    </a>
                 </li>
                 <!-- WARNA -->
                 <li>
-                  <a href="indexwarna">
-                      <div class="parent-icon">
-                          <ion-icon name='color-palette'></ion-icon>
-                      </div>
-                      <div class="menu-title">Warna</div>
-                  </a>
+                    <a href="/indexwarna">
+                        <div class="parent-icon">
+                            <ion-icon name='color-palette'></ion-icon>
+                        </div>
+                        <div class="menu-title">Warna</div>
+                    </a>
                 </li>
                 <li class="menu-label">ROLE</li>
                 <!-- USER -->
                 <li>
-                    <a href="indexuser">
+                    <a href="/indexuser">
                         <div class="parent-icon">
-                          <ion-icon name='person-sharp'></ion-icon>
+                            <ion-icon name='person-sharp'></ion-icon>
                         </div>
                         <div class="menu-title">Role User</div>
                     </a>
                 </li>
                 <!-- ADMIN -->
                 <li>
-                    <a href="indexadmin">
+                    <a href="/indexadmin">
                         <div class="parent-icon">
-                          <ion-icon name='key-sharp'></ion-icon>
+                            <ion-icon name='key-sharp'></ion-icon>
                         </div>
                         <div class="menu-title">Role Admin</div>
                     </a>
                 </li>
-                
+
             </ul>
             <!--end navigation-->
         </aside>
@@ -245,175 +167,6 @@
                                 </div>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
-                  <a class="nav-link dark-mode-icon" href="javascript:;">
-                    <div class="mode-icon">
-                      <ion-icon name="moon-sharp"></ion-icon> 
-                    </div>
-                  </a>
-                </li> --}}
-                        {{-- <li class="nav-item dropdown dropdown-large dropdown-apps">
-                  <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                    <div class="">
-                      <ion-icon name="apps-sharp"></ion-icon>
-                    </div>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                    <div class="row row-cols-3 g-3 p-3">
-                      <div class="col text-center">
-                        <div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
-                        </div>
-                        <div class="app-title">Orders</div>
-                      </div>
-                      <div class="col text-center">
-                        <div class="app-box mx-auto bg-gradient-info text-white"><ion-icon name="people-sharp"></ion-icon>
-                        </div>
-                        <div class="app-title">Teams</div>
-                      </div>
-                      <div class="col text-center">
-                        <div class="app-box mx-auto bg-gradient-success text-white"><ion-icon name="shield-checkmark-sharp"></ion-icon>
-                        </div>
-                        <div class="app-title">Tasks</div>
-                      </div>
-                      <div class="col text-center">
-                        <div class="app-box mx-auto bg-gradient-danger text-white"><ion-icon name="videocam-sharp"></ion-icon>
-                        </div>
-                        <div class="app-title">Media</div>  
-                      </div>
-                      <div class="col text-center">
-                        <div class="app-box mx-auto bg-gradient-warning text-white"><ion-icon name="file-tray-sharp"></ion-icon>
-                        </div>
-                        <div class="app-title">Files</div>
-                      </div>
-                      <div class="col text-center">
-                        <div class="app-box mx-auto bg-gradient-branding text-white"><ion-icon name="notifications-sharp"></ion-icon>
-                        </div>
-                        <div class="app-title">Alerts</div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="nav-item dropdown dropdown-large">
-                  <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                    <div class="position-relative">
-                      <span class="notify-badge">8</span>
-                      <ion-icon name="notifications-sharp"></ion-icon>
-                    </div>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-end">
-                    <a href="javascript:;">
-                      <div class="msg-header">
-                        <p class="msg-header-title">Notifications</p>
-                        <p class="msg-header-clear ms-auto">Marks all as read</p>
-                      </div>
-                    </a>
-                    <div class="header-notifications-list">
-                      <a class="dropdown-item" href="javascript:;">
-                        <div class="d-flex align-items-center">
-                          <div class="notify text-primary"><ion-icon name="cart-outline"></ion-icon>
-                          </div>
-                          <div class="flex-grow-1">
-                            <h6 class="msg-name">New Orders <span class="msg-time float-end">2 min
-                          ago</span></h6>
-                            <p class="msg-info">You have recived new orders</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a class="dropdown-item" href="javascript:;">
-                        <div class="d-flex align-items-center">
-                          <div class="notify text-danger"><ion-icon name="person-outline"></ion-icon>
-                          </div>
-                          <div class="flex-grow-1">
-                            <h6 class="msg-name">New Customers<span class="msg-time float-end">14 Sec
-                           ago</span></h6>
-                            <p class="msg-info">5 new user registered</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a class="dropdown-item" href="javascript:;">
-                        <div class="d-flex align-items-center">
-                          <div class="notify text-success"><ion-icon name="document-outline"></ion-icon>
-                          </div>
-                          <div class="flex-grow-1">
-                            <h6 class="msg-name">24 PDF File<span class="msg-time float-end">19 min
-                          ago</span></h6>
-                            <p class="msg-info">The pdf files generated</p>
-                          </div>
-                        </div>
-                      </a>
-                      
-                      <a class="dropdown-item" href="javascript:;">
-                        <div class="d-flex align-items-center">
-                          <div class="notify text-info"><ion-icon name="checkmark-done-outline"></ion-icon>
-                          </div>
-                          <div class="flex-grow-1">
-                            <h6 class="msg-name">New Product Approved <span
-                          class="msg-time float-end">2 hrs ago</span></h6>
-                            <p class="msg-info">Your new product has approved</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a class="dropdown-item" href="javascript:;">
-                        <div class="d-flex align-items-center">
-                          <div class="notify text-warning"><ion-icon name="send-outline"></ion-icon>
-                          </div>
-                          <div class="flex-grow-1">
-                            <h6 class="msg-name">Time Response <span class="msg-time float-end">28 min
-                          ago</span></h6>
-                            <p class="msg-info">5.1 min avarage time response</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a class="dropdown-item" href="javascript:;">
-                        <div class="d-flex align-items-center">
-                          <div class="notify text-danger"><ion-icon name="chatbox-ellipses-outline"></ion-icon>
-                          </div>
-                          <div class="flex-grow-1">
-                            <h6 class="msg-name">New Comments <span class="msg-time float-end">4 hrs
-                          ago</span></h6>
-                            <p class="msg-info">New customer comments recived</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a class="dropdown-item" href="javascript:;">
-                        <div class="d-flex align-items-center">
-                          <div class="notify text-primary"><ion-icon name="albums-outline"></ion-icon>
-                          </div>
-                          <div class="flex-grow-1">
-                            <h6 class="msg-name">New 24 authors<span class="msg-time float-end">1 day
-                          ago</span></h6>
-                            <p class="msg-info">24 new authors joined last week</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a class="dropdown-item" href="javascript:;">
-                        <div class="d-flex align-items-center">
-                          <div class="notify text-success"><ion-icon name="shield-outline"></ion-icon>
-                          </div>
-                          <div class="flex-grow-1">
-                            <h6 class="msg-name">Your item is shipped <span class="msg-time float-end">5 hrs
-                          ago</span></h6>
-                            <p class="msg-info">Successfully shipped your item</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a class="dropdown-item" href="javascript:;">
-                        <div class="d-flex align-items-center">
-                          <div class="notify text-warning"><ion-icon name="cafe-outline"></ion-icon>
-                          </div>
-                          <div class="flex-grow-1">
-                            <h6 class="msg-name">Defense Alerts <span class="msg-time float-end">2 weeks
-                          ago</span></h6>
-                            <p class="msg-info">45% less alerts last 4 weeks</p>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                    <a href="javascript:;">
-                      <div class="text-center msg-footer">View All Notifications</div>
-                    </a>
-                  </div>
-                </li> --}}
                         {{-- Halo, {{Auth::user()->nama_lengkap_user}} --}}
                         <li class="nav-item dropdown dropdown-user-setting">
                             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
@@ -425,55 +178,20 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
-                                    {{-- <a class="dropdown-item" href="#">
-                         <div class="d-flex flex-row align-items-center gap-2">
-                            <img src="assets_admin/images/avatars/06.png" alt="" class="rounded-circle" width="54" height="54">
-                            <div class="">
-                              <h6 class="mb-0 dropdown-user-name">Jhon Deo</h6>
-                              <small class="mb-0 dropdown-user-designation text-secondary">UI Developer</small>
-                            </div>
-                         </div>
-                       </a> --}}
-                                </li>
-                                {{-- <li><hr class="dropdown-divider"></li> --}}
-                                <li>
-                                    <a class="dropdown-item" href="pages-user-profile.html">
-                                        <div class="d-flex align-items-center">
-                                            <div class="">
-                                                <ion-icon name="person-outline"></ion-icon>
+                                    <form action="{{route('logout')}}" method="POST">
+                                        @csrf
+                                        <button class="dropdown-item">
+                                            <div class="d-flex align-items-center">
+                                                <div class="">
+                                                    <ion-icon name="log-out-outline"></ion-icon>
+                                                </div>
+                                                <div class="ms-3"><span>Logout</span></div>
                                             </div>
-                                            <div class="ms-3"><span>Profile</span></div>
-                                        </div>
-                                    </a>
+                                        </button>
+                                    </form>
                                 </li>
-                                <a class="dropdown-item" href="index2.html">
-                                    <div class="d-flex align-items-center">
-                                        <div class="">
-                                            <ion-icon name="home-outline"></ion-icon>
-                                        </div>
-                                        <div class="ms-3"><span>Dashboard</span></div>
-                                    </div>
-                                </a>
+                            </ul>
                         </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <form action="{{route('logout')}}" method="POST">
-                                @csrf
-                                <button class="dropdown-item">
-                                    <div class="d-flex align-items-center">
-                                        <div class="">
-                                            <ion-icon name="log-out-outline"></ion-icon>
-                                        </div>
-                                        <div class="ms-3"><span>Logout</span></div>
-                                    </div>
-                                </button>
-                            </form>
-                        </li>
-                    </ul>
-                    </li>
-
                     </ul>
 
                 </div>
@@ -490,80 +208,11 @@
         </div>
         <!--end page content wrapper-->
 
-        {{-- <!--start footer-->
-           <footer class="footer">
-            <div class="footer-text">
-               Copyright © 2021. All right reserved.
-            </div>
-            </footer>
-          <!--end footer--> --}}
-
         <!--Start Back To Top Button-->
         <a href="javaScript:;" class="back-to-top">
             <ion-icon name="arrow-up-outline"></ion-icon>
         </a>
         <!--End Back To Top Button-->
-
-        {{-- <!--start switcher-->
-         <div class="switcher-body">
-          <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><ion-icon name="color-palette-sharp" class="me-0"></ion-icon></button>
-          <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling">
-            <div class="offcanvas-header border-bottom">
-              <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
-              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-            </div>
-            <div class="offcanvas-body">
-              <h6 class="mb-0">Theme Variation</h6>
-              <hr>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1" checked>
-                <label class="form-check-label" for="LightTheme">Light</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
-                <label class="form-check-label" for="DarkTheme">Dark</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3">
-                <label class="form-check-label" for="SemiDark">Semi Dark</label>
-              </div>
-              <hr/>
-              <h6 class="mb-0">Header Colors</h6>
-              <hr/>
-              <div class="header-colors-indigators">
-                <div class="row row-cols-auto g-3">
-                  <div class="col">
-                    <div class="indigator headercolor1" id="headercolor1"></div>
-                  </div>
-                  <div class="col">
-                    <div class="indigator headercolor2" id="headercolor2"></div>
-                  </div>
-                  <div class="col">
-                    <div class="indigator headercolor3" id="headercolor3"></div>
-                  </div>
-                  <div class="col">
-                    <div class="indigator headercolor4" id="headercolor4"></div>
-                  </div>
-                  <div class="col">
-                    <div class="indigator headercolor5" id="headercolor5"></div>
-                  </div>
-                  <div class="col">
-                    <div class="indigator headercolor6" id="headercolor6"></div>
-                  </div>
-                  <div class="col">
-                    <div class="indigator headercolor7" id="headercolor7"></div>
-                  </div>
-                  <div class="col">
-                    <div class="indigator headercolor8" id="headercolor8"></div>
-                  </div>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-         </div>
-         <!--end switcher--> --}}
-
 
         <!--start overlay-->
         <div class="overlay"></div>
@@ -573,21 +222,21 @@
     <!--end wrapper-->
     -
     <!-- JS Files-->
-    <script src="assets_admin/js/jquery.min.js"></script>
-    <script src="assets_admin/plugins/simplebar/js/simplebar.min.js"></script>
-    <script src="assets_admin/plugins/metismenu/js/metisMenu.min.js"></script>
-    <script src="assets_admin/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets_admin/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets_admin/plugins/simplebar/js/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets_admin/plugins/metismenu/js/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('assets_admin/js/bootstrap.bundle.min.js') }}"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!--plugins-->
-    <script src="assets_admin/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-    <script src="assets_admin/plugins/chartjs/chart.min.js"></script>
-    <script src="assets_admin/js/index3.js"></script>
+    <script src="{{ asset('assets_admin/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('assets_admin/plugins/chartjs/chart.min.js') }}"></script>
+    <script src="{{ asset('assets_admin/js/index3.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="assets_admin/js/alertcrud.js"></script>
+    <script src="{{ asset('assets_admin/js/alertcrud.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <!-- Main JS-->
-    <script src="assets_admin/js/main.js"></script>
+    <script src="{{ asset('assets_admin/js/main.js') }}"></script>
     @yield('javascript');
 </body>
 

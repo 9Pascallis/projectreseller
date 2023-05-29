@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Reseller;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 use App\Models\JenisProduk;
 use App\Models\Produk;
-use Illuminate\Http\Request;
 use App\Http\Requests\ProdukRequest;
 
 class BelanjaController extends Controller
 {
+
     public function index(Request $request)
     {
         $keyword = $request->keyword;
@@ -18,4 +20,5 @@ class BelanjaController extends Controller
         $produk->appends($request->all());
         return view ('reseller/belanja/belanja', compact('produk','jenis_produk', 'keyword'));
     }
+    
 }

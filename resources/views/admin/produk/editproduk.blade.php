@@ -13,7 +13,7 @@
         <!-- JUDUL END -->
 
         <!-- ISI -->
-        <form action="/updateproduk-{{$produk->id}}" method="POST" enctype="multipart/form-data">
+        <form action="/updateproduk/{{$produk->id}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row" style="margin-left: 20px; margin-right: 20px">
                 <div class="row mb-3">
@@ -53,16 +53,6 @@
                         @enderror
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <label for="inputText" class="col-sm-3 col-form-label">Total Stok Produk</label>
-                    <div class="col-sm-8">
-                        <input type="number" class="form-control" name="total_stok_produk"
-                            value="{{$produk->total_stok_produk}}" required>
-                        @error('total_stok_produk')
-                        <span class="invalid-feedback">{{ $message}}</span>
-                        @enderror
-                    </div>
-                </div>
                 {{-- <div class="row mb-3">
 						<label for="image" class="col-sm-3 col-form-label">Foto Utama Produk</label>
 						<div class="col-sm-8">
@@ -75,7 +65,7 @@
     </div> --}}
     <br><br>
     <div class="d-flex justify-content-end">
-        <div style="padding-right: 5px"><a href="indexproduk" class="btn btn-secondary" role="button"
+        <div style="padding-right: 5px"><a href="/indexproduk" class="btn btn-secondary" role="button"
                 aria-pressed="true">Cancel</a></div>
         <div><button type="submit" class="btn btn-success">Simpan</button></div>
     </div>

@@ -1,12 +1,13 @@
 @extends('admin.layout.template')
-@section('title', 'Admin | Tambah Kategori')
+@section('title', 'Admin | Tambah Jenis Produk')
+
 @section('content')
 <div class="card">
     <div class="card-body">
+        
         <!--JUDUL-->
         <h5 class="mb-0 text-uppercase text-center">Tambah Jenis Produk</h5>
         <hr><br>
-        <!--JUDUL END-->
 
         <!-- ISI -->
         <form action="/insertdatajenisproduk" method="POST">
@@ -30,7 +31,7 @@
                 <div><button type="submit" class="btn btn-success">Tambah</button></div>
             </div>
         </form>
-        <!-- ISI END -->
+
     </div>
 </div>
 @endsection

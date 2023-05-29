@@ -1,5 +1,6 @@
 @extends('admin.layout.template')
-@section('title', 'Admin | View User')
+@section('title', 'Admin | User')
+
 @section('header')
 	<link href="assets_admin/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 @endsection
@@ -7,10 +8,11 @@
 @section('content')
 	<div class="card">
 		<div class="card-body">
+
 			<!-- JUDUL -->
 				<h5 class="mb-0 text-uppercase text-center">User</h5><hr><br>
-			<!-- JUDUL END -->
 
+			<!-- TAMBAH USER -->
 				<div class="col-12">
 					<a href="tambahuser" class="btn btn-success" role="button" aria-pressed="true">+ User</a>
 				</div><br>
@@ -40,7 +42,7 @@
 								<td>{{ $item->no_telp_user}}</td>
 								<td>{{ $item->created_at->format('d-m-Y') }}</td>
 								<td class="text-center">
-									<a class="btn btn-sm btn-outline-info px-2" href="/detailuser-{{ $item->id }}"><i
+									<a class="btn btn-sm btn-outline-info px-2" href="/detailuser/{{ $item->id }}"><i
 										class="fa fa-eye"></i></a>
 									{{-- <a class="btn btn-sm btn-outline-warning px-2" href="/edituser-{{ $item->id }}"><i class="fa fa-pencil"></i></a> --}}
 									<a class="btn btn-sm btn-outline-danger px-2 deleteuser" data-id="{{ $item->id }}" data-nama="{{ $item->nama_lengkap_user}}"><i class="fa fa-trash"></i></a>
@@ -50,7 +52,7 @@
 						</tbody>
 					</table>
 				</div>
-			<!-- ISI END -->
+
 		</div>
 	</div>
 @endsection

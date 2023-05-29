@@ -17,12 +17,6 @@
             <form action="/insertdataitemproduk" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id_produk" value="{{$produk->id}}">
-                    <div class="row mb-3">
-                        <label for="inputText" class="col-sm-3 col-form-label">Nama Produk</label>
-                        <div class="col-sm-8 ">
-                            <div class="form-control">{{ $produk->nama_produk}}</div>
-                        </div>
-                    </div>
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-3 col-form-label">Pilih Ukuran</label>
                     <div class="col-sm-8">
@@ -50,16 +44,6 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputText" class="col-sm-3 col-form-label">Total Stok Item Produk</label>
-                    <div class="col-sm-8">
-                        <input type="number" class="form-control" name="total_stok_item_produk"
-                            value="{{old('total_stok_item_produk')}}" required>
-                        @error('total_stok_item_produk')
-                        <span class="invalid-feedback">{{ $message}}</span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="row mb-3">
                     <label for="image" class="col-sm-3 col-form-label">Foto Item Produk</label>
                     <div class="col-sm-8">
                         <input type="file" id="foto_item_produk" class="form-control" name="foto_item_produk" required>
@@ -69,7 +53,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <div style="padding-right: 5px"><a href="/detailproduk-{{ $produk->id }}" class="btn btn-secondary" role="button"
+                    <div style="padding-right: 5px"><a href="/indexitemproduk/{{ $produk->id }}" class="btn btn-secondary" role="button"
                             aria-pressed="true">Cancel</a></div>
                     <div><button type="submit" class="btn btn-success">Tambah</button></div>
                 </div>
@@ -87,4 +71,30 @@
 <script src="assets_admin/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
 <script src="assets_admin/js/table-datatable.js"></script>
 <script src="assets_admin/js/rupiah.js"></script>
+<script>
+    @if(Session::has('create'))
+    toastr.options = {
+        "closeButton": true,
+        "progressBar": true
+    }
+    toastr.success("{{ session('create') }}");
+    @endif
+
+    @if(Session::has('destroy'))
+    toastr.options = {
+        "closeButton": true,
+        "progressBar": true
+    }
+    toastr.success("{{ session('destroy') }}");
+    @endif
+
+    @if(Session::has('error'))
+    toastr.options = {
+        "closeButton": true,
+        "progressBar": true
+    }
+    toastr.error("{{ session('error') }}");
+    @endif
+
+</script>
 @endsection

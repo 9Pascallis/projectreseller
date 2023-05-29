@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 use App\Models\Admin;
-use Illuminate\Http\Request;
 use App\Http\Requests\AdminRequest;
 
 class AdminController extends Controller
@@ -51,4 +52,5 @@ class AdminController extends Controller
         $admin->delete();
         return redirect('/indexadmin')->with('destroy', 'Data Berhasil dihapus!');
     }
+    
 }

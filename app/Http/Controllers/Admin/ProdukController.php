@@ -1,16 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 use App\Models\JenisProduk;
-use App\Models\Produk;
 use App\Models\ItemProduk;
 use App\Models\Warna;
 use App\Models\Ukuran;
-use Illuminate\Http\Request;
+use App\Models\Produk;
 use App\Http\Requests\ProdukRequest;
+
 class ProdukController extends Controller
 {
+
     public function index()
     {
         $produk = Produk::all();
@@ -28,7 +31,6 @@ class ProdukController extends Controller
     public function store(ProdukRequest $request)
     {
         $produk = $request->validated();
-        
         if ($request->hasFile('foto_utama_produk')) {
             $file = $request->file('foto_utama_produk');
             $file_extension = $file->getClientOriginalName();
@@ -41,13 +43,14 @@ class ProdukController extends Controller
         return redirect('/indexproduk')->with('create', 'Data Berhasil ditambah!');
     }
 
+    
     public function show($id)
     {
         $produk = Produk::find($id);
         $jenis_produk = JenisProduk::all();
-        $item_produk = ItemProduk::all();
-        return view ('/admin/produk/detailproduk', compact('jenis_produk','produk','item_produk'));
+        return view ('/admin/produk/detailproduk', compact('jenis_produk','produk'));
     }
+
 
     public function edit($id)
     {
@@ -71,4 +74,5 @@ class ProdukController extends Controller
         $produk->delete();
         return redirect('/indexproduk')->with('destroy', 'Data Berhasil dihapus!');
     }
+    
 }

@@ -1,5 +1,5 @@
 @extends('admin.layout.template')
-@section('title', 'Admin | View Admin')
+@section('title', 'Admin | Admin')
 @section('header')
 <link href="assets_admin/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 @endsection
@@ -41,7 +41,7 @@
                         <td>{{ $item->no_telp_admin}}</td>
                         <td>{{ $item->created_at->format('d-m-Y') }}</td>
                         <td class="text-center">
-                            <a class="btn btn-sm btn-outline-warning px-2" href="/editadmin-{{ $item->id }}"><i
+                            <a class="btn btn-sm btn-outline-warning px-2" href="/editadmin/{{ $item->id }}"><i
                                     class="fa fa-pencil"></i></a>
                             <a class="btn btn-sm btn-outline-danger px-2 deleteadmin" data-id="{{ $item->id }}"
                                 data-nama="{{ $item->nama_lengkap_admin}}"><i class="fa fa-trash"></i></a>
@@ -58,7 +58,6 @@
 @endsection
 
 @section('javascript')
-{{-- <script src="https://code.jquery.com/jquery-3.6.4.slim.js" integrity="sha256-dWvV84T6BhzO4vG6gWhsWVKVoa4lVmLnpBOZh/CAHU4=" crossorigin="anonymous"></script> --}}
 <script src="assets_admin/plugins/datatable/js/jquery.dataTables.min.js"></script>
 <script src="assets_admin/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
 <script src="assets_admin/js/table-datatable.js"></script>

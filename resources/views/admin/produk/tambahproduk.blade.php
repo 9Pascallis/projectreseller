@@ -60,16 +60,6 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputText" class="col-sm-3 col-form-label">Total Stok Produk</label>
-                    <div class="col-sm-8">
-                        <input type="number" class="form-control" name="total_stok_produk"
-                            value="{{old('total_stok_produk')}}" required>
-                        @error('total_stok_produk')
-                        <span class="invalid-feedback">{{ $message}}</span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="row mb-3">
                     <label for="image" class="col-sm-3 col-form-label">Foto Utama Produk</label>
                     <div class="col-sm-8">
                         <input type="file" id="foto_utama_produk" class="form-control" name="foto_utama_produk"
@@ -81,7 +71,7 @@
                 </div>
                 <br><br>
                 <div class="d-flex justify-content-end">
-                    <div style="padding-right: 5px"><a href="indexjenisproduk" class="btn btn-secondary" role="button"
+                    <div style="padding-right: 5px"><a href="indexproduk" class="btn btn-secondary" role="button"
                             aria-pressed="true">Cancel</a></div>
                     <div><button type="submit" class="btn btn-success">Tambah</button></div>
                 </div>

@@ -27,9 +27,6 @@ class ProdukRequest extends FormRequest
             'harga_produk' => [
                 'required',
             ],
-            'total_stok_produk' => [
-                'required',
-            ],
             'foto_utama_produk' => [
                 'file',
                 'mimes:png,jpg,jpeg'

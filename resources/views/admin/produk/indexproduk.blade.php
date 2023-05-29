@@ -42,8 +42,8 @@
                         <th class="text-center">FOTO PRODUK</th>
                         <th>JENIS PRODUK</th>
                         <th>HARGA</th>
-                        <th>STOK</th>
                         <th class="text-center">ACTION</th>
+                        <th class="text-center">TAMBAH ITEM</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,14 +59,17 @@
                         </td>
                         <td>{{ $item->jenis_produk->nama_jenis_produk}}</td>
                         <td>Rp. {{ number_format($item->harga_produk)}}</td>
-                        <td>{{ number_format($item->total_stok_produk)}}</td>
                         <td class="text-center">
-                            <a class="btn btn-sm btn-outline-info px-2" href="/detailproduk-{{ $item->id }}"><i
-                                    class="fa fa-eye"></i></a>
-                            <a class="btn btn-sm btn-outline-warning px-2" href="/editproduk-{{ $item->id }}"><i
+                            <a class="btn btn-sm btn-outline-info px-2" href="/detailproduk/{{ $item->id }}"><i
+                                class="fa fa-eye"></i></a>
+                            <a class="btn btn-sm btn-outline-warning px-2" href="/editproduk/{{ $item->id }}"><i
                                     class="fa fa-pencil"></i></a>
                             <a class="btn btn-sm btn-outline-danger px-2 deleteproduk" data-id="{{ $item->id }}"
                                 data-nama="{{ $item->nama_produk}}"><i class="fa fa-trash"></i></a>
+                        </td>
+                        <td class="text-center">
+                            <a class="btn btn-sm btn-outline-info px-2" href="/indexitemproduk/{{ $item->id }}"><i
+                                    class="fa fa-plus"></i></a>
                         </td>
                     </tr>
                     @endforeach

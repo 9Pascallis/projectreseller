@@ -1,24 +1,28 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
+
     public function index()
     {
         $user = User::all();
         return view ('/admin/user/indexuser', compact('user'));
     }
 
+
     public function create()
     {
         return view ('/admin/user/tambahuser');
     }
+
 
     public function store(UserRequest $request)
     {
@@ -27,17 +31,20 @@ class UserController extends Controller
         return redirect('/indexuser')->with('create', 'Data Berhasil ditambah!');
     }
 
+
     public function show($id)
     {
         $user = User::find($id);
         return view ('/admin/user/detailuser', compact('user'));
     }
 
+
     public function edit($id)
     {
         $user = User::find($id);
         return view ('/admin/user/edituser', compact('user'));
     }
+
 
     public function update(UpdateUserRequest $request, $id)
     {
@@ -46,10 +53,12 @@ class UserController extends Controller
         return redirect('reseller-profil')->with('update', 'Data Berhasil diupdate!');
     }
 
+
     public function destroy($id)
     {
         $user = User::find($id);
         $user->delete();
         return redirect('/indexuser')->with('destroy', 'Data Berhasil dihapus!');
     }
+
 }

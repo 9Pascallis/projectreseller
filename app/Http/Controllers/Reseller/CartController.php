@@ -1,18 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Reseller;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 use App\Models\JenisProduk;
 use App\Models\Produk;
 use App\Models\Keranjang;
 use App\Models\DetailKeranjang;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
-use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+
     public function index()
     {
         $jenis_produk = JenisProduk::all();
@@ -27,15 +29,14 @@ class CartController extends Controller
         {
             $detail_keranjang = DetailKeranjang::where('id_keranjang', $keranjang->id)->get();
         }
-        
         return view ('reseller/belanja/keranjang')->with(compact('jenis_produk', 'keranjang', 'detail_keranjang'));
     }
+
 
     public function store(Request $request, $id)
     {
         $produk = Produk::where('id',$id)->first();
         $tanggal_keranjang= Carbon::now();
-
 
         //validasi apakah melebihi stok
         if($request->kuantitas>$produk->total_stok_produk)
@@ -45,6 +46,7 @@ class CartController extends Controller
 
         //cek validasi
         $cek_keranjang= Keranjang::where('id_user', Auth::user()->id)->where('status',0)->first();
+
         //simpan ke database keranjang
         if(empty($cek_keranjang))
         {
@@ -79,13 +81,14 @@ class CartController extends Controller
             $detail_keranjang->jumlah_harga = $detail_keranjang->jumlah_harga+$harga_detail_keranjang_baru;
             $detail_keranjang->update();
         }
+
         //jumlah total
         $keranjang = Keranjang::where('id_user', Auth::user()->id)->where('status',0)->first();
         $keranjang->total_harga_keranjang = $keranjang->total_harga_keranjang+$produk->harga_produk*$request->kuantitas;
         $keranjang->update();
         return redirect('/reseller-keranjang');
-
     }
+
 
     public function delete($id)
     {
@@ -97,6 +100,7 @@ class CartController extends Controller
         $detail_keranjang->delete();
         return redirect('reseller-keranjang');
     }
+
 
     public function konfirmasikeranjang()
         {
@@ -111,8 +115,8 @@ class CartController extends Controller
                 $produk->total_stok_produk = $produk->total_stok_produk-$detail_keranjang->kuantitas;
                 $produk->update();
             }
-    
             $jenis_produk = JenisProduk::all();
             return view ('reseller/belanja/checkout', compact('jenis_produk'));
         }
+        
 }

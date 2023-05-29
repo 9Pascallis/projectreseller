@@ -39,7 +39,7 @@ $('.deleteadmin').click(function() {
                 'Data berhasil dihapus!',
                 'success'
             );
-            window.location = "/deleteadmin-" + id + ""
+            window.location = "/deleteadmin/" + id + ""
 
         }
     });
@@ -63,7 +63,7 @@ $('.deleteuser').click(function() {
                 'Data berhasil dihapus!',
                 'success'
             );
-            window.location = "/deleteuser-" + id + ""
+            window.location = "/deleteuser/" + id + ""
 
         }
     });
@@ -87,7 +87,7 @@ $('.deletejenisproduk').click(function() {
                 'Data berhasil dihapus!',
                 'success'
             );
-            window.location = "/deletejenisproduk-" + id + ""
+            window.location = "/deletejenisproduk/" + id + ""
 
         }
     });
@@ -111,7 +111,7 @@ $('.deletewarna').click(function() {
                 'Data berhasil dihapus!',
                 'success'
             );
-            window.location = "/deletewarna-" + id + ""
+            window.location = "/deletewarna/" + id + ""
 
         }
     });
@@ -135,7 +135,7 @@ $('.deleteukuran').click(function() {
                 'Data berhasil dihapus!',
                 'success'
             );
-            window.location = "/deleteukuran-" + id + ""
+            window.location = "/deleteukuran/" + id + ""
 
         }
     });
@@ -159,7 +159,31 @@ $('.deleteproduk').click(function() {
                 'Data berhasil dihapus!',
                 'success'
             );
-            window.location = "/deleteproduk-" + id + ""
+            window.location = "/deleteproduk/" + id + ""
+
+        }
+    });
+});
+
+$('.deleteitemproduk').click(function() {
+    var id = $(this).attr('data-id');
+    var nama = $(this).attr('data-nama');
+    Swal.fire({
+        title: 'Apakah anda yakin?',
+        text: "Data akan terhapus!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Deleted!',
+                'Data berhasil dihapus!',
+                'success'
+            );
+            window.location = "/deleteitemproduk/" + id + ""
 
         }
     });
@@ -178,3 +202,17 @@ $('.tambahkeranjang').click(function() {
         }
     });
 });
+
+// $('.tambahitemproduk').click(function() {
+//     var id = $(this).attr('data-id');
+//     var nama = $(this).attr('data-nama');
+//     Swal.fire({
+//         title: 'Berhasil!',
+//         text: 'Produk berhasil masuk keranjang!',
+//         icon: 'success',
+//         timer: 5000,
+//         onClose: () => {
+//             window.location = "/detailproduk/" + id + "";
+//         }
+//     });
+// });

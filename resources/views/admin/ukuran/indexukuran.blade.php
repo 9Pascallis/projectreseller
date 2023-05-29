@@ -1,16 +1,19 @@
 @extends('admin.layout.template')
-@section('title', 'Admin | View Ukuran')
+@section('title', 'Admin | Ukuran')
+
 @section('header')
 <link href="assets_admin/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 @endsection
+
 @section('content')
 <div class="card">
     <div class="card-body">
+
         <!-- JUDUL -->
         <h5 class="mb-0 text-uppercase text-center">Ukuran</h5>
         <hr><br>
-        <!-- JUDUL END -->
 
+        <!-- TAMBAH UKURAN -->
         <div class="col-12">
             <a href="tambahukuran" class="btn btn-success" role="button" aria-pressed="true">+ Ukuran</a>
         </div><br>
@@ -44,7 +47,7 @@
                 </tbody>
             </table>
         </div>
-        <!-- ISI END-->
+
     </div>
 </div>
 @endsection
@@ -60,14 +63,6 @@
         "progressBar": true
     }
     toastr.success("{{ session('create') }}");
-    @endif
-
-    @if(Session::has('update'))
-    toastr.options = {
-        "closeButton": true,
-        "progressBar": true
-    }
-    toastr.success("{{ session('update') }}");
     @endif
 
     @if(Session::has('destroy'))

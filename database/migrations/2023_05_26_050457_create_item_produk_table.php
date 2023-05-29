@@ -18,7 +18,6 @@ class CreateItemProdukTable extends Migration
             $table->unsignedBigInteger('id_produk');
             $table->unsignedBigInteger('id_ukuran');
             $table->unsignedBigInteger('id_warna');
-            $table->integer('total_stok_item_produk');
             $table->string('foto_item_produk');
             $table->timestamps();
 

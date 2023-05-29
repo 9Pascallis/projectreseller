@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 use App\Models\JenisProduk;
-use Illuminate\Http\Request;
 use App\Http\Requests\JenisProdukRequest;
+
 class JenisProdukController extends Controller
 {
 
@@ -14,10 +16,12 @@ class JenisProdukController extends Controller
         return view ('admin/jenisproduk/indexjenisproduk', compact('jenis_produk'));
     }
 
+
     public function create()
     {
         return view ('admin/jenisproduk/tambahjenisproduk');
     }
+
 
     public function store(JenisProdukRequest $request)
     {
@@ -26,10 +30,12 @@ class JenisProdukController extends Controller
         return redirect('/indexjenisproduk')->with('create', 'Data Berhasil ditambah!');
     }
 
+
     public function destroy($id)
     {
         $jenis_produk = JenisProduk::find($id);
         $jenis_produk->delete();
         return redirect('/indexjenisproduk')->with('destroy', 'Data Berhasil dihapus!');
     }
+    
 }
