@@ -8,6 +8,7 @@ use Carbon\Carbon;
 
 use App\Models\JenisProduk;
 use App\Models\Produk;
+use App\Models\ItemProduk;
 use App\Models\Keranjang;
 use App\Models\DetailKeranjang;
 use App\Models\Cart;
@@ -32,24 +33,32 @@ class CartController extends Controller
         return view ('reseller/belanja/keranjang')->with(compact('jenis_produk', 'keranjang', 'detail_keranjang'));
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function store(Request $request, $id)
     {
-        $produk = Produk::where('id',$id)->first();
+        $id_item_produk = $request->input('id_item_produk');
+
+        $item_produk = ItemProduk::leftJoin('stok', 'item_produk.id', '=', 'stok.id_item_produk')
+        ->select('item_produk.*', 'stok.jumlah_stok')
+        ->where('item_produk.id', $id_item_produk)
+        ->first();
         $tanggal_keranjang= Carbon::now();
 
         //validasi apakah melebihi stok
-        if($request->kuantitas>$produk->total_stok_produk)
+        if($request->kuantitas>$item_produk->jumlah_stok)
         {
-            return redirect ('reseller-detail-'.$id);
+            return redirect ('detail/'.$id);
         }
-
+        
         //cek validasi
         $cek_keranjang= Keranjang::where('id_user', Auth::user()->id)->where('status',0)->first();
-
-        //simpan ke database keranjang
         if(empty($cek_keranjang))
         {
+            //Simpan ke database keranjang
             $keranjang = new Keranjang;
             $keranjang->id_user = Auth::user()->id;
             $keranjang->tanggal_keranjang = $tanggal_keranjang;
@@ -57,36 +66,37 @@ class CartController extends Controller
             $keranjang->status = 0;
             $keranjang->save();
         }
-        
-        //simpan ke database detail keranjang
+
+        //Simpan ke database detail keranjang
         $keranjang_baru = Keranjang::where('id_user', Auth::user()->id)->where('status',0)->first();
 
         //cek detail keranjang
-        $cek_detail_keranjang = DetailKeranjang::where('id_produk', $produk->id)->where('id_keranjang', $keranjang_baru->id)->first();
+        $cek_detail_keranjang = DetailKeranjang::where('id_item_produk', $item_produk->id)->where('id_keranjang', $keranjang_baru->id)->first();
         if(empty($cek_detail_keranjang))
         {
             $detail_keranjang = new DetailKeranjang;
-            $detail_keranjang->id_produk = $produk->id;
+            $detail_keranjang->id_item_produk = $item_produk->id;
             $detail_keranjang->id_keranjang = $keranjang_baru->id;
             $detail_keranjang->kuantitas = $request->kuantitas;
-            $detail_keranjang->jumlah_harga = $produk->harga_produk*$request->kuantitas;
+            $detail_keranjang->jumlah_harga = $item_produk->produk->harga_produk*$request->kuantitas;
             $detail_keranjang->save();
-        }else
+        } else
         {
-            $detail_keranjang = DetailKeranjang::where('id_produk', $produk->id)->where('id_keranjang', $keranjang_baru->id)->first();
+            $detail_keranjang = DetailKeranjang::where('id_item_produk', $item_produk->id)->where('id_keranjang', $keranjang_baru->id)->first();
             $detail_keranjang->kuantitas = $detail_keranjang->kuantitas+$request->kuantitas;
    
             //harga sekarang
-            $harga_detail_keranjang_baru = $produk->harga_produk*$request->kuantitas;
+            $harga_detail_keranjang_baru = $item_produk->produk->harga_produk*$request->kuantitas;
             $detail_keranjang->jumlah_harga = $detail_keranjang->jumlah_harga+$harga_detail_keranjang_baru;
             $detail_keranjang->update();
         }
 
         //jumlah total
         $keranjang = Keranjang::where('id_user', Auth::user()->id)->where('status',0)->first();
-        $keranjang->total_harga_keranjang = $keranjang->total_harga_keranjang+$produk->harga_produk*$request->kuantitas;
+        $keranjang->total_harga_keranjang = $keranjang->total_harga_keranjang+$item_produk->produk->harga_produk*$request->kuantitas;
         $keranjang->update();
-        return redirect('/reseller-keranjang');
+        return redirect ('keranjang');
+
     }
 
 
@@ -98,7 +108,7 @@ class CartController extends Controller
         $keranjang->total_harga_keranjang = $keranjang->total_harga_keranjang-$detail_keranjang->jumlah_harga;
         $keranjang->update();
         $detail_keranjang->delete();
-        return redirect('reseller-keranjang');
+        return redirect('keranjang');
     }
 
 

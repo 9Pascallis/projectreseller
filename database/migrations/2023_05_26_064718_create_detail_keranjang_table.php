@@ -15,14 +15,14 @@ class CreateDetailKeranjangTable extends Migration
     {
         Schema::create('detail_keranjang', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_produk');
+            $table->unsignedBigInteger('id_item_produk');
             $table->unsignedBigInteger('id_keranjang');
             $table->integer('kuantitas');
             $table->integer('jumlah_harga');
             $table->timestamps();
 
-            $table->foreign('id_produk')->references('id')->on('produk');
-            $table->foreign('id_keranjang')->references('id')->on('keranjang');
+            $table->foreign('id_item_produk')->references('id')->on('item_produk')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_keranjang')->references('id')->on('keranjang')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

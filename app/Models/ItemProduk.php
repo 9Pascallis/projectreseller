@@ -31,4 +31,10 @@ class ItemProduk extends Model
     {
         return $this->hasOne(Stok::class, 'id_stok', 'id');
     }
+
+    //Many to one (detailkeranjang-item_produk)
+    public function detail_keranjang()
+    {
+        return $this->hasMany(DetailKeranjang::class, 'id_item_produk', 'id');
+    }
 }

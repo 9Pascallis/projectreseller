@@ -24,7 +24,7 @@ class CartRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'id_produk' => [
+            'id_item_produk' => [
                 'required',
             ],
             'kuantitas' => [

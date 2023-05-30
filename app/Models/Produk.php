@@ -22,11 +22,4 @@ class Produk extends Model
     {
         return $this->hasMany(ItemProduk::class, 'id_produk', 'id');
     }
-
-    //Many to one (detailkeranjang-produk)
-    public function detail_keranjang()
-    {
-        return $this->hasMany(DetailKeranjang::class, 'id_produk', 'id');
-    }
-
 }

@@ -11,7 +11,7 @@
                 <a class="breadcrumb-item text-dark" href="{{route('belanja')}}"
                     style="font-size: 14px; font-family: ubuntu">Belanja</a>
                 <span class="breadcrumb-item text-dark active"
-                    style="font-size: 14px; font-family: ubuntu">Detail</span>
+                    style="font-size: 14px; font-family: ubuntu">{{$produk->nama_produk}}</span>
             </nav>
         </div>
         <!-- KONTEN ATAS -->
@@ -38,25 +38,40 @@
             <!-- DESKRIPSI -->
             <div class="col-lg-7 h-auto mb-50" style="padding-right: 50px">
                 <div class="single_product_desc clearfix">
-                    <!-- KATEGORI -->
                     <span style="font-family: ubuntu; font-size:medium"><b>{{ $produk->jenis_produk->nama_jenis_produk}}</b></span>
-                    <!-- NAMA PRODUK -->
                     <h4 style="font-family: ubuntu">{{$produk->nama_produk}}</h4>
-                    <!-- HARGA -->
                     <p class="product-price" style="font-family: ubuntu; font-size:large"><b
-                            class="text-danger">Rp. {{ number_format($produk->harga_produk)}}</b></p>
-                    <!-- DESKRIPSI PRODUK -->
-                    <hr>
+                            class="text-danger">Rp. {{ number_format($produk->harga_produk)}}</b></p><hr>
                     <p class="text-dark"><b>DETAIL PRODUK {{$produk->nama_produk}}</b></p>
-                    <p class="product-desc text-dark" style="font-family: ubuntu">{{$produk->deskripsi_produk}}</p>
-                    <!-- SISA STOK -->
-                    <p class="text-dark"><b style="font-family: ubuntu">Stok Tersedia :
-                            {{number_format($produk->total_stok_produk)}}</b> </p>
+                    <p class="text-dark" style="font-family: ubuntu">{{$produk->deskripsi_produk}}</p>
+                    <p class="text-dark" style="font-family: ubuntu"><b>Stok Tersedia :</b> {{number_format($produk->total_stok_produk)}}</p>
+
                     <!-- POST DATA -->
                     <form action="{{url('pesan')}}/{{$produk->id}}" method="POST">
                         @csrf
-                        <input type="hidden" name="id_produk" value="{{$produk->id}}">
-                        <!-- KUANTITAS -->
+                        
+                        {{-- <!-- PRODUK -->
+                        <input type="hidden" name="id_produk" value="{{$produk->id}}"> --}}
+
+                        <!-- ITEM PRODUK -->
+                        <div class="row mb-3">
+                            <div class="col col-md-1">
+                                <label for="inputText" style="font-family: ubuntu" class="col-form-label"><b>Varian</b>:</label>
+                            </div>
+                            <div class="col col-md-11">
+                                <select class="form-select" name="id_item_produk" required>
+                                    @foreach ($item_produk as $item)
+                                    <option value="{{$item->id}}">{{$item->warna->nama_warna}} | {{$item->ukuran->nama_ukuran}} </option>
+                                    @endforeach
+                                    @error('id_item_produk')
+                                    <span class="invalid-feedback">{{ $message}}</span>
+                                    @enderror
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- JUMLAH PEMBELIAN -->
+                        <p class="text-dark" style="font-family: ubuntu"><b>Jumlah Pembelian: </b></p>
                         <div>
                             <button type="button"
                                 onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
@@ -65,48 +80,20 @@
                                 type="number" style="width: 70px;" style="color: black">
                             <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
                                 class="btn essence1-btn bg-info"><i class="fa fa-plus"></i></button>
-                        </div>
-                        <div>
-                                <!-- UKURAN -->
-                                <div class="product-size">
-                                    <h4 style="padding-top: 10px">Ukuran</h4>
-                                    <div class="size-layout">
-                                        {{-- @foreach ($collection as $item)
-                                        <input type="radio" name="size" value="S" id="1" class="size-input">
-                                        <label for="1" class="size">S</label>
-                                        @endforeach --}}
-                                       
-                                    </div>
-                                </div>
-                                <!-- WARNA -->
-                                <div class="product-color">
-                                    <h4 style="padding-top: 10px">Warna</h4>
-                                    <div class="color-layout">
-                                        <input type="radio" name="color" value="S" id="6" class="color-input">
-                                        <label for="6" class="color">Red</label>
-                                    </div>
-                                </div>
-                                <span class="divider"></span>
-                                <!-- JUMLAH PEMBELIAN -->
-                                <p class="text-dark" style="font-family: ubuntu"><b>Jumlah Pembelian: </b></p>
-                                <div class="product-btn-group">
-                                
-                                <!-- ADD TO CART -->
-                                
-                            </div>
+                        </div><hr><br>
 
                         <!-- CHECKOUT -->
-                        <br>
                         <div class="cart-fav-box d-flex align-items-center">
+                            <div>
+                                <button type="submit" class="btn essence-btn bg-warning"><i class="fa fa-shopping-cart"
+                                        style="font-size: 14px"></i> Add to Cart + </button>
+                            </div>
                             {{-- <div style="padding-right: 15px">
                                 <a href="reseller-keranjang">
                                     <button type="submit" class="btn essence-btn bg-primary">Buy Now</button>
                                 </a>
                             </div> --}}
-                            <div>
-                                <button type="submit" class="btn essence-btn bg-warning"><i class="fa fa-shopping-cart"
-                                        style="font-size: 14px"></i> Add to Cart + </button>
-                            </div>
+
                         </div>
                     </form>
                 </div>

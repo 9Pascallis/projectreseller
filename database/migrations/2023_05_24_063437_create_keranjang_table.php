@@ -21,7 +21,7 @@ class CreateKeranjangTable extends Migration
             $table->string('status');
             $table->timestamps();
 
-            $table->foreign('id_user')->references('id')->on('user');
+            $table->foreign('id_user')->references('id')->on('user')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -35,10 +35,10 @@
                     @foreach ($detail_keranjang as $item)
                     <tr>
                         <td class="align-middle">{{ $no++}}</td>
-                        <td class="align-middle"><img src="{{asset('storage/'.$item['produk']['foto_utama_produk'])}}"
+                        <td class="align-middle"><img src="{{asset('storage/'.$item['item_produk']['foto_item_produk'])}}"
                                 alt="" style="width: 100px;"></td>
-                        <td class="align-middle">{{ $item->produk->nama_produk }}</td>
-                        <td class="align-middle">WARNA: RED | UKURAN: S</td>
+                        <td class="align-middle">{{ $item->item_produk->produk->nama_produk }}</td>
+                        <td class="align-middle">{{ $item->item_produk->warna->nama_warna }} | {{ $item->item_produk->ukuran->nama_ukuran }}</td>
                         {{-- <td class="align-middle">
                                 <button id="popupBtn" class="button-60" role="button">Warna: Red-001 &ensp;<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
                                 <div id="popupWrapper">
@@ -55,7 +55,7 @@
                                     </div>
                                 </div>
                             </td> --}}
-                        <td class="align-middle">Rp. {{ number_format($item->produk->harga_produk) }}</td>
+                        <td class="align-middle">Rp. {{ number_format($item->item_produk->produk->harga_produk) }}</td>
                         <td class="align-middle">{{ $item->kuantitas }}</td>
                         {{-- <td class="align-middle">
                             <div>
@@ -72,7 +72,7 @@
                         </td> --}}
                         <td class="align-middle">Rp. {{ number_format($item->jumlah_harga) }}</td>
                         <td class="align-middle actions" data-th="">
-                            <form action="{{url('reseller-delete-keranjang')}}/{{$item->id}}" method="POST">
+                            <form action="{{url('deletekeranjang')}}/{{$item->id}}" method="POST">
                                 @csrf
                                 {{method_field('DELETE')}}
                                 <button class="btn btn-danger btn-sm remove-from-cart"><i

@@ -11,10 +11,15 @@ class DetailKeranjang extends Model
     protected $table = 'detail_keranjang';
     protected $guarded = ['id'];
 
-    //One to Many (detailkeranjang-produk)
-    public function produk()
+    // //One to Many (detailkeranjang-produk)
+    // public function produk()
+    // {
+    //     return $this->belongsTo(Produk::class, 'id_produk', 'id');
+    // }
+    //One to Many (detailkeranjang-item_produk)
+    public function item_produk()
     {
-        return $this->belongsTo(Produk::class, 'id_produk', 'id');
+        return $this->belongsTo(ItemProduk::class, 'id_item_produk', 'id');
     }
 
     //One to Many (detailkeranjang-keranjang)
