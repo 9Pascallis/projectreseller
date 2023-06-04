@@ -29,11 +29,16 @@ use App\Http\Controllers\Admin\IndexAdminController;
         Route::get('/indexreseller', [IndexResellerController::class, 'index']) ->name('indexreseller');
         Route::get('/belanja', [BelanjaController::class, 'index']) ->name('belanja');
         Route::get('/keranjang', [CartController::class, 'index']) ->name('keranjang');
-        Route::get('/checkout', [CartController::class, 'konfirmasikeranjang']) ->name('checkout');
+        // Route::get('/checkout', [CartController::class, 'konfirmasikeranjang']) ->name('checkout');
+        Route::get('/checkout', [CheckoutController::class, 'index']) ->name('checkout');
+
         Route::get('/indexadmin', [IndexAdminController::class, 'index']) ->name('indexadmin');
 
         //EDIT
-        Route::get('/editprofil', [ProfilController::class, 'edit']) ->name('editprofil');
+        Route::get('/tambahalamat', [ProfilController::class, 'createalamat']) ->name('tambahalamat');
+        Route::get('/editalamat/{id}', [ProfilController::class, 'editalamat']) ->name('editalamat/{id}');
+        Route::post('tambahalamat/{id}', [ProfilController::class, 'storealamat']) ->name('tambahalamat/{id}');
+        Route::post('updatealamat/{id}', [ProfilController::class, 'updatealamat']) ->name('updatealamat/{id}');
 
         //SHOW
         Route::get('/profil', [ProfilController::class, 'show']) ->name('profil');
@@ -41,6 +46,7 @@ use App\Http\Controllers\Admin\IndexAdminController;
 
         //STORE
         Route::post('pesan/{id}', [CartController::class, 'store']) ->name('pesan/{id}');
+        // Route::post('checkout/{id}', [CheckoutController::class, 'store']) ->name('checkout/{id}');
         // Route::post('cart/add', [CartController::class, 'store']) ->name('cart/add');
 
         //DELETE
@@ -101,20 +107,23 @@ use App\Http\Controllers\Admin\IndexAdminController;
 
     //USER
     Route::get('/indexuser', [UserController::class, 'index']) ->name('indexuser');
+    Route::get('/indexadmin', [UserController::class, 'indexadmin']) ->name('indexadmin');
+    Route::get('/indexuser', [UserController::class, 'index']) ->name('indexuser');
     Route::get('/tambahuser', [UserController::class, 'create']) ->name('tambahuser');
+    Route::get('/tambahadmin', [UserController::class, 'createadmin']) ->name('tambahadmin');
     Route::post('/insertdatauser', [UserController::class, 'store']) ->name('insertdatauser');
-    Route::get('/detailuser/{id}', [UserController::class, 'show']) ->name('detailuser');
+    Route::post('/insertdataadmin', [UserController::class, 'storeadmin']) ->name('insertdataadmin');
     Route::get('/edituser/{id}', [UserController::class, 'edit']) ->name('edituser');
     Route::post('/updateuser/{id}', [UserController::class, 'update']) ->name('updateuser');
     Route::get('/deleteuser/{id}', [UserController::class, 'destroy']) ->name('deleteuser');
 
     //ADMIN
-    Route::get('/indexadmin', [AdminController::class, 'index']) ->name('indexadmin');
-    Route::get('/tambahadmin', [AdminController::class, 'create']) ->name('tambahadmin');
-    Route::post('/insertdataadmin', [AdminController::class, 'store']) ->name('insertdataadmin');
-    Route::get('/editadmin/{id}', [AdminController::class, 'edit']) ->name('editadmin');
-    Route::post('/updateadmin/{id}', [AdminController::class, 'update']) ->name('updateadmin');
-    Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy']) ->name('deleteadmin');
+    // Route::get('/indexadmin', [AdminController::class, 'index']) ->name('indexadmin');
+    // Route::get('/tambahadmin', [AdminController::class, 'create']) ->name('tambahadmin');
+    // Route::post('/insertdataadmin', [AdminController::class, 'store']) ->name('insertdataadmin');
+    // Route::get('/editadmin/{id}', [AdminController::class, 'edit']) ->name('editadmin');
+    // Route::post('/updateadmin/{id}', [AdminController::class, 'update']) ->name('updateadmin');
+    // Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy']) ->name('deleteadmin');
 
     //PEMESANAN
     Route::get('/admin-viewpemesanan', function () {

@@ -1,5 +1,5 @@
 @extends('admin.layout.template')
-@section('title', 'Admin | Tambah User')
+@section('title', 'Admin | Tambah Admin')
 @section('header')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 @endsection
@@ -7,15 +7,15 @@
 <div class="card">
     <div class="card-body">
         <!-- JUDUL -->
-        <h5 class="mb-0 text-uppercase text-center">Tambah User</h5>
+        <h5 class="mb-0 text-uppercase text-center">Tambah Admin</h5>
         <hr><br>
         <!-- JUDUL END-->
 
         <!-- ISI -->
-        <form action="/insertdatauser" method="POST">
+        <form action="/insertdataadmin" method="POST">
             @csrf
             <div class="row" style="margin-left: 20px; margin-right: 20px">
-                <input type="hidden" name="id_role" value="2">
+                <input type="hidden" name="id_role" value="1">
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-3 col-form-label">Nama Lengkap</label>
                     <div class="col-sm-9">

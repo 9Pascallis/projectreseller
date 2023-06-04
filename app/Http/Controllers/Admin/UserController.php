@@ -17,10 +17,21 @@ class UserController extends Controller
         return view ('/admin/user/indexuser', compact('user'));
     }
 
+    public function indexadmin()
+    {
+        $user = User::all();
+        return view ('/admin/user/indexadmin', compact('user'));
+    }
+
 
     public function create()
     {
         return view ('/admin/user/tambahuser');
+    }
+
+    public function createadmin()
+    {
+        return view ('/admin/user/tambahadmin');
     }
 
 
@@ -31,11 +42,11 @@ class UserController extends Controller
         return redirect('/indexuser')->with('create', 'Data Berhasil ditambah!');
     }
 
-
-    public function show($id)
+    public function storeadmin(UserRequest $request)
     {
-        $user = User::find($id);
-        return view ('/admin/user/detailuser', compact('user'));
+        $user = $request->validated();
+        User::create($user);
+        return redirect('/indexadmin')->with('create', 'Data Berhasil ditambah!');
     }
 
 
@@ -50,7 +61,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->update($request->all());
-        return redirect('profil')->with('update', 'Data Berhasil diupdate!');
+        return redirect('/indexuser')->with('update', 'Data Berhasil diupdate!');
     }
 
 

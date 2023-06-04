@@ -3,126 +3,139 @@
 @section('content')
 <br><br>
 <!-- ##### Blog Wrapper Area Start ##### -->
-<div class="single-blog-wrapper mb-100">
+<div class="single-blog-wrapper mb-30">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-10">
+            <div class="col-12 col-md-8">
+                @foreach($user as $user)
                 <div class="order-details-confirmation">
                     <div class="col">
                         <div class="col-md-12 mb-3 mb-30 text-center">
-                            <h4 class="text-center">DETAIL PROFIL</h4>
+                            <h5 class="text-center">PROFIL</h5>
                             <hr>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="col-md-12">
-                                    <label for="first_name">Nama Lengkap</label>
-                                    <h6>{{ $user->nama_lengkap_user }}</h6>
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="company">Nomor Telp</label>
-                                    <h6>{{ $user->no_telp_user }}</h6>
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="company">Provinsi</label>
-                                    <h6>{{ $user->provinsi_user }}</h6>
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="company">Kecamatan</label>
-                                    <h6>{{ $user->kecamatan_user }}</h6>
-                                </div>
+                        <div class="row" style="padding-bottom: 10px">
+                            <div class="col-md-2">
+                                <p class="text-dark"><b>Nama:</b></p>
                             </div>
-                            <div class="col-md-6">
-                                <div class="col-md-12">
-                                    <label for="last_name">Email</label>
-                                    <h6>{{ $user->email }}</h6>
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="company">Alamat</label>
-                                    <h6>{{ $user->alamat_user }}</h6>
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="company">Kota</label>
-                                    <h6>{{ $user->kota_user }}</h6>
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="company">Kode Pos</label>
-                                    <h6>{{ $user->kode_pos_user }}</h6>
-                                </div>
-                            </div>
-
-
-                            {{-- <div class="col-12 text-right">
-                                    <a href="{{route('editprofil')}}" class="btn essence-btn bg-warning">Edit
-                            Profil</a> --}}
-                        </div><br>
-                        <div class="row justify-content-between">
-                            <div class="col-md-3" style="padding-right: 5px; padding-bottom: 10px">
-                                <a href="{{route('editprofil')}}" class="btn essence-btn bg-secondary">GANTI PROFIL</a>
-                            </div>
-                            <div class="col-md-3">
-                                <form action="{{route('logout')}}" method="POST">
-                                    @csrf
-                                    <button class="btn essence-btn bg-danger">
-                                        LOGOUT
-                                    </button>
-                                </form>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" value="{{ $user->nama_lengkap_user }}" disabled>
                             </div>
                         </div>
-
-                    </div>
-                    <br>
-                    {{-- <form action="#" method="post">
-                            <div class="row">
-                                <div class="col-md-12 mb-3">
-                                    <label for="first_name">Alamat <span>*</span></label>
-                                    <input type="text" class="form-control" id="first_name" value="" required>
-                                </div>
-                                <div class="col-12 mb-3">
-                                    <label for="country">Provinsi <span>*</span></label>
-                                    <select class="w-100" id="country">
-                                        <option value="usa">-</option>
-                                        <option value="usa">United States</option>
-                                        <option value="uk">United Kingdom</option>
-                                        <option value="ger">Germany</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 mb-3">
-                                    <label for="country">Kota <span>*</span></label>
-                                    <select class="w-100" id="country">
-                                        <option value="usa">-</option>
-                                        <option value="usa">United States</option>
-                                        <option value="uk">United Kingdom</option>
-                                        <option value="ger">Germany</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 mb-3">
-                                    <label for="country">Kecamatan <span>*</span></label>
-                                    <select class="w-100" id="country">
-                                        <option value="usa">-</option>
-                                        <option value="usa">United States</option>
-                                        <option value="uk">United Kingdom</option>
-                                        <option value="ger">Germany</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 mb-3">
-                                    <label for="country">Kode Pos <span>*</span></label>
-                                    <select class="w-100" id="country">
-                                        <option value="usa">-</option>
-                                        <option value="usa">United States</option>
-                                        <option value="uk">United Kingdom</option>
-                                        <option value="ger">Germany</option>
-                                    </select>
+                        <div class="row" style="padding-bottom: 10px">
+                            <div class="col-md-2">
+                                <p class="text-dark"><b>Email:</b></p>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" value="{{ $user->email }}" disabled>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 10px">
+                            <div class="col-md-2">
+                                <p class="text-dark"><b>No Telp:</b></p>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" value="{{ $user->no_telp_user }}" disabled>
+                            </div>
+                        </div>
+                        <p>*Jika email atau no telp berganti, harap untuk segera menghubungi admin.</p>
+                        @if ($user->alamat ==null)
+                            <div class="row justify-content-between mt-30">
+                                <div class="col-md-3" style="padding-right: 5px;">
+                                    <a href="{{route('tambahalamat')}}" class="btn essence-btn bg-success">TAMBAH ALAMAT</a>
                                 </div>
                             </div>
-                        </form> --}}
+                        @else
+                            <div class="col-md-12 mb-3 mb-30 text-center mt-30">
+                                <h5 class="text-center">ALAMAT</h5>
+                                <hr>
+                            </div>
+                            <div class="row" style="padding-bottom: 10px">
+                                <div class="col-md-2">
+                                    <p class="text-dark"><b>Alamat:</b></p>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" value="{{ $user->alamat }}" disabled>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom: 10px">
+                                <div class="col-md-2">
+                                    <p class="text-dark"><b>Provinsi:</b></p>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" value="{{ $user->provinsi }}" disabled>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom: 10px">
+                                <div class="col-md-2">
+                                    <p class="text-dark"><b>Kota:</b></p>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" value="{{ $user->kota }}" disabled>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom: 10px">
+                                <div class="col-md-2">
+                                    <p class="text-dark"><b>Kecamatan:</b></p>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" value="{{ $user->kecamatan }}" disabled>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom: 10px">
+                                <div class="col-md-2">
+                                    <p class="text-dark"><b>Kode Pos:</b></p>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" value="{{ $user->kode_pos }}" disabled>
+                                </div>
+                            </div>
+                            <div class="row justify-content-between mt-30">
+                                <div class="col-md-3" style="padding-right: 5px;">
+                                    <a href="editalamat/{{ $user->id }}" class="btn essence-btn bg-secondary">EDIT
+                                        ALAMAT</a>
+                                </div>
+                            </div>
+                        @endif
+                            <div class="row justify-content-end mt-30 mb-30">
+                                <div class="col-md-3">
+                                    <form action="{{route('logout')}}" method="POST">
+                                        @csrf
+                                        <button class="btn essence-btn bg-danger">
+                                            LOGOUT
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                    </div>
 
                 </div>
-
+                @endforeach
             </div>
         </div>
     </div>
 </div>
 </div>
 <!-- ##### Blog Wrapper Area End ##### -->
+@endsection
+
+@section('javascript')
+<script>
+    @if(Session::has('create'))
+    toastr.options = {
+        "closeButton": true,
+        "progressBar": true
+    }
+    toastr.success("{{ session('create') }}");
+    @endif
+
+    @if(Session::has('update'))
+    toastr.options = {
+        "closeButton": true,
+        "progressBar": true
+    }
+    toastr.success("{{ session('update') }}");
+    @endif
+
+</script>
 @endsection

@@ -1,5 +1,5 @@
 @extends('admin.layout.template')
-@section('title', 'Admin | User')
+@section('title', 'Admin | Admin')
 
 @section('header')
 <link href="assets_admin/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
@@ -10,12 +10,12 @@
     <div class="card-body">
 
         <!-- JUDUL -->
-        <h5 class="mb-0 text-uppercase text-center">User</h5>
+        <h5 class="mb-0 text-uppercase text-center">Admin</h5>
         <hr><br>
 
         <!-- TAMBAH USER -->
         <div class="col-12">
-            <a href="tambahuser" class="btn btn-success" role="button" aria-pressed="true">+ User</a>
+            <a href="tambahadmin" class="btn btn-success" role="button" aria-pressed="true">+ Admin</a>
         </div><br>
 
         <!-- ISI -->
@@ -29,7 +29,6 @@
                         <th>NO TELP</th>
                         <th>TGL BERGABUNG</th>
                         <th class="text-center">HAPUS</th>
-                        {{-- <th class="text-center">ALAMAT</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -37,7 +36,7 @@
                     $no = 1;
                     @endphp
                     @foreach ( $user as $item)
-                    @if ($item->role->nama_role == 'user')
+                    @if ($item->role->nama_role == 'admin')
                     <tr>
                         <td>{{ $no++}}</td>
                         <td>{{ $item->nama_lengkap_user}}</td>
@@ -50,11 +49,6 @@
                             <a class="btn btn-sm btn-outline-danger px-2 deleteuser" data-id="{{ $item->id }}"
                                 data-nama="{{ $item->nama_lengkap_user}}"><i class="fa fa-trash"></i></a>
                         </td>
-                        {{-- <td class="text-center">
-									<a class="btn btn-sm btn-outline-info px-2" href="/tambahalamatuser/{{ $item->id }}"><i
-                            class="fa fa-eye"></i></a>
-                        </td> --}}
-
                     </tr>
                     @endif
 

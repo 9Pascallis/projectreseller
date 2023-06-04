@@ -6,106 +6,105 @@
 <!-- SECTION -->
 <div class="checkout_area mb-100">
     <div class="container">
-        <div class="row">
-            <!-- CONTAINER KIRI -->
-            <div class="col-12 col-md-6">
-                <div class="checkout_details_area mt-20 clearfix">
-                    <!-- INFORMASI PEMBELI -->
-                    <div class="cart-page-heading mb-30">
-                        <h5>Alamat Pengiriman</h5>
-                    </div>
-                    <form>
-                        <div class="row">
-                            <div class="col-md-12 mb-3">
-                                <label for="first_name">Nama Lengkap <span>*</span></label>
-                                <input type="text" class="form-control" id="first_name" value="" required>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="company">Nomor Hp <span>*</span></label>
-                                <input type="text" class="form-control" id="company" value="" required>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="first_name">Alamat <span>*</span></label>
-                                <input type="text" class="form-control" id="first_name" value="" required>
-                            </div>
-                            <div class="col-12 mb-3">
-                                <label for="inputText">Provinsi <span>*</span></label>
-                                <select class="w-100" id="provinsi" value="">
-                                    <option selected="">-</option>
-                                    <option value="1">United States</option>
-                                    <option value="2">United Kingdom</option>
-                                    <option value="3">Germany</option>
-                                </select>
-                            </div>
-                            <div class="col-12 mb-3">
-                                <label for="inputText">Kota <span>*</span></label>
-                                <select class="w-100" id="kota" value="">
-                                    <option value="usa">-</option>
-                                    <option value="usa">United States</option>
-                                    <option value="uk">United Kingdom</option>
-                                    <option value="ger">Germany</option>
-                                </select>
-                            </div>
-                            <div class="col-12 mb-3">
-                                <label for="inputText">Kecamatan <span>*</span></label>
-                                <select class="w-100" id="kecamatan" value="">
-                                    <option value="usa">-</option>
-                                    <option value="usa">United States</option>
-                                    <option value="uk">United Kingdom</option>
-                                    <option value="ger">Germany</option>
-                                </select>
-                            </div>
-                            <div class="col-12 mb-3">
-                                <label for="inputText">Kode Pos <span>*</span></label>
-                                <select class="w-100" id="kode_pos" value="">
-                                    <option value="usa">-</option>
-                                    <option value="usa">United States</option>
-                                    <option value="uk">United Kingdom</option>
-                                    <option value="ger">Germany</option>
-                                </select>
-                            </div>
+        {{-- <form action="{{url('checkout')}}/{{$produk->id}}" method="POST"> --}}
+            <div class="row">
+                <!-- CONTAINER KIRI -->
+                <div class="col-12 col-md-6">
+                    <div class="checkout_details_area mt-20 clearfix">
+                        <!-- INFORMASI PEMBELI -->
+                        <div class="cart-page-heading mb-30">
+                            <h5>Alamat Pengiriman</h5>
                         </div>
-                    </form>
-                    <!-- KIRIM KE ALAMAT LAIN -->
-                    <div class="col-md-12">
-                        <button class="btn essence-btn bg-dark" style="height: 50px" type="reset" value="Reset">Kirim Ke
-                            Alamat Lain</button>
-                    </div>
-                </div>
-            </div>
-            <!-- CONTAINER KIRI END -->
 
-            <!-- CONTAINER KANAN -->
-            <div class="col-12 col-md-6 col-lg-5 ml-lg-auto">
-                <div class="order-details-confirmation">
-                    <div class="cart-page-heading">
-                        <!-- JUDUL -->
-                        <h5>Transaksi</h5>
-                        <!-- PENGIRIMAN -->
-                        <p>Pengiriman</p>
-                        <!-- JASA KURIR -->
-                        <div class="col-12 mb-12" style="padding-bottom: 70px">
-                            <select class="w-100" id="country">
-                                <option value="usa">Pilih Jasa Kurir</option>
-                                <option value="usa">JNE Ekspress</option>
-                                <option value="uk">SiCepat Ekspress</option>
-                            </select>
-                        </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="nama_lengkap_user"><b>Nama Lengkap</b> <span>*</span></label>
+                                    <input type="text" class="form-control" id="nama_lengkap_user"
+                                        value="{{ $user->nama_lengkap_user }}" required>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="no_telp_user"><b>Nomor Hp</b> <span>*</span></label>
+                                    <input type="text" class="form-control" id="no_telp_user"
+                                        value="{{ $user->no_telp_user }}" required>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="alamat"><b>Alamat</b> <span>*</span></label>
+                                    <input type="text" class="form-control" id="alamat" value="{{ $user->alamat }}"
+                                        required>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="provinsi"><b>Provinsi</b> <span>*</span></label>
+                                    <input type="text" class="form-control" id="provinsi" value="{{ $user->provinsi }}"
+                                        required>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="kota"><b>Kota</b> <span>*</span></label>
+                                    <input type="text" class="form-control" id="kota" value="{{ $user->kota }}" required>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="kecamatan"><b>Kecamatan</b> <span>*</span></label>
+                                    <input type="text" class="form-control" id="kecamatan" value="{{ $user->kecamatan }}"
+                                        required>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="kode_pos"><b>Kode Pos</b> <span>*</span></label>
+                                    <input type="text" class="form-control" id="kode_pos" value="{{ $user->kode_pos }}"
+                                        required>
+                                </div>
+                                <!-- KIRIM KE ALAMAT LAIN -->
+                                <div class="col-md-12 mt-30 mb-30">
+                                    <button class="btn essence-btn bg-dark" style="height: 50px" type="button"
+                                        onclick="resetFields()">Kirim Ke Alamat Lain</button>
+                                </div>
+                            </div>
+
                     </div>
-                    <!-- LIST PRODUK -->
-                    <ul class="order-details-form mb-4">
-                        <li><span>PRODUK</span> <span>Total</span></li>
-                        <li><span>RESPIRO TR-05 XENTRA N R1.4 RED (1)</span> <span>Rp 440.000</span></li>
-                        <li><span>VELOCITY VENT R3 (1)</span> <span>Rp 836.000</span></li>
-                        <li><span>ONGKIR JASA KIRIM</span> <span>Rp. 25.000</span></li>
-                        <li><span><b>TOTAL</b></span> <span><b>Rp.1.916.000</b></span></li>
-                    </ul>
-                    <!-- LANJUT PEMBAYARAN -->
-                    <a href="#" class="btn essence-btn bg-success">Lanjut Pembayaran</a>
+                </div>
+                <!-- CONTAINER KIRI END -->
+
+                <!-- CONTAINER KANAN -->
+                <div class="col-12 col-md-6 col-lg-5 ml-lg-auto">
+                    <div class="order-details-confirmation">
+                        <div class="cart-page-heading">
+                            <!-- JUDUL -->
+                            <h5>Transaksi</h5>
+                        </div>
+                        <!-- LIST PRODUK -->
+                        <ul class="order-details-form mb-4">
+                            <li><span>PRODUK</span> <span>Harga</span></li>
+                            @if (!empty($keranjang))
+                            @foreach ($detail_keranjang as $item)
+                            <li><span>{{ $item->item_produk->produk->nama_produk }}({{ $item->kuantitas }})</span> <span>Rp.
+                                    {{ number_format($item->jumlah_harga) }}</span></li>
+                            @endforeach
+                            <li><span><b>Total Harga</b></span> <span><b>Rp.
+                                        {{ number_format($keranjang->total_harga_keranjang) }}</b></span></li>
+                            @endif
+                        </ul>
+                        <!-- LANJUT PEMBAYARAN -->
+                        <a href="#" class="btn essence-btn bg-success">Lanjut Pembayaran</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        {{-- </form> --}}
     </div>
 </div>
 <!-- SECTION END -->
+@endsection
+
+@section('javascript')
+<script>
+    function resetFields() {
+        // Reset nilai-nilai input fields
+        document.getElementById("nama_lengkap_user").value = "";
+        document.getElementById("no_telp_user").value = "";
+        document.getElementById("alamat").value = "";
+        document.getElementById("provinsi").value = "";
+        document.getElementById("kota").value = "";
+        document.getElementById("kecamatan").value = "";
+        document.getElementById("kode_pos").value = "";
+    }
+
+</script>
+
 @endsection

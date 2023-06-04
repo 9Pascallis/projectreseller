@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class AlamatRequest extends FormRequest
 {
     public function authorize()
     {
@@ -14,19 +14,19 @@ class UserRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'id_role' => [
-            ],
-            'nama_lengkap_user' => [
+            'alamat' => [
                 'required',
             ],
-            'email' => [
-                'required',
-                'unique:user',
-            ],
-            'no_telp_user' => [
+            'provinsi' => [
                 'required',
             ],
-            'password' => [
+            'kota' => [
+                'required',
+            ],
+            'kecamatan' => [
+                'required',
+            ],
+            'kode_pos' => [
                 'required',
             ],
         ];

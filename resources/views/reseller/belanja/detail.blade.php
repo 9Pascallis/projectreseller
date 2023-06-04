@@ -85,7 +85,7 @@
                         <!-- CHECKOUT -->
                         <div class="cart-fav-box d-flex align-items-center">
                             <div>
-                                <button type="submit" class="btn essence-btn bg-warning"><i class="fa fa-shopping-cart"
+                                <button type="submit" class="btn essence-btn bg-success"><i class="fa fa-shopping-cart"
                                         style="font-size: 14px"></i> Add to Cart + </button>
                             </div>
                             {{-- <div style="padding-right: 15px">

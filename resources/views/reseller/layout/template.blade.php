@@ -22,8 +22,10 @@
             <!-- HEADER KIRI -->
             <nav class="classy-navbar" id="essenceNav">
                 <!-- LOGO -->
-                <div style="padding-right: 10px">
+                <div style="padding-right: 10px"><a href="{{route('belanja')}}">
                     <img src="{{asset('assets_reseller/img/core-img/logoputih.png')}}" width="180px" style="padding-bottom: 10px" alt="">
+
+                </a>
 
                 </div>
                 {{-- <a class="nav-brand" href="{{route('reseller-index')}}"><img
@@ -43,6 +45,9 @@
                                     </li>
                                     @endforeach
                                 </ul>
+                            </li>
+                            <li><a href="{{route('profil')}}"
+                                style="font-weight: 600; color: #ffffff; font-family: ubuntu">Histori</a>
                             </li>
                             <li><a href="{{route('indexadmin')}}"
                                     style="font-weight: 600; color: #ffffff; font-family: ubuntu">Dashboard</a>

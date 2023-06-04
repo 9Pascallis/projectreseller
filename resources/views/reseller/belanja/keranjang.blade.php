@@ -12,7 +12,7 @@
         </div>
         <!-- TABLE -->
         <div class="col-lg-12 table-responsive mb-5">
-           
+
             <table class="table table-light table-borderless table-hover text-center mb-0">
                 <thead class="thead" style="background-color: rgb(248, 248, 248)">
                     <tr>
@@ -35,56 +35,30 @@
                     @foreach ($detail_keranjang as $item)
                     <tr>
                         <td class="align-middle">{{ $no++}}</td>
-                        <td class="align-middle"><img src="{{asset('storage/'.$item['item_produk']['foto_item_produk'])}}"
-                                alt="" style="width: 100px;"></td>
+                        <td class="align-middle"><img
+                                src="{{asset('storage/'.$item['item_produk']['foto_item_produk'])}}" alt=""
+                                style="width: 100px;"></td>
                         <td class="align-middle">{{ $item->item_produk->produk->nama_produk }}</td>
-                        <td class="align-middle">{{ $item->item_produk->warna->nama_warna }} | {{ $item->item_produk->ukuran->nama_ukuran }}</td>
-                        {{-- <td class="align-middle">
-                                <button id="popupBtn" class="button-60" role="button">Warna: Red-001 &ensp;<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
-                                <div id="popupWrapper">
-                                    <div id="popup">
-                                        <h6>GANTI WARNA</h6><br>
-                                        <div class="column" style="padding: 5px">
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Red-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Green-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Grey-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Black-001</button></div>
-                                            <div style="padding-bottom: 10px"><button class="button-60" role="button" style="font-size: 16px">Blue-001</button></div>
-                                        </div>
-                                        <button id="closeBtn" class="button-9" role="button" style="font-size: 16px">KONFIRMASI</button>
-                                    </div>
-                                </div>
-                            </td> --}}
+                        <td class="align-middle">{{ $item->item_produk->warna->nama_warna }} |
+                            {{ $item->item_produk->ukuran->nama_ukuran }}</td>
                         <td class="align-middle">Rp. {{ number_format($item->item_produk->produk->harga_produk) }}</td>
                         <td class="align-middle">{{ $item->kuantitas }}</td>
-                        {{-- <td class="align-middle">
-                            <div>
-                                <button type="button"
-                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                                    class="minus btn btn-secondary btn-plus minus"><i class="fa fa-minus"></i></button>
-                                <input class="quantity text-center btn bg-light" min="0" name="kuantitas"
-                                    value="{{ $item['kuantitas'] }}" type="number" style="width: 50px;"
-                                    style="color: black">
-                                <button type="button"
-                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                    class="plus btn btn-secondary btn-plus plus"><i class="fa fa-plus"></i></button>
-                            </div>
-                        </td> --}}
                         <td class="align-middle">Rp. {{ number_format($item->jumlah_harga) }}</td>
                         <td class="align-middle actions" data-th="">
                             <form action="{{url('deletekeranjang')}}/{{$item->id}}" method="POST">
                                 @csrf
                                 {{method_field('DELETE')}}
-                                <button class="btn btn-danger btn-sm remove-from-cart"><i
-                                    class="fa fa-trash-o"></i></button>
+                                <button type="submit" class="btn btn-danger btn-sm remove-from-cart"
+                                    onclick="return confirm('Anda yakin menghapus data?');"><i
+                                        class="fa fa-trash-o"></i></button>
                             </form>
-                            
+
                         </td>
                     </tr>
                     @endforeach
                     @endif
                 </tbody>
-                
+
             </table>
 
         </div>
@@ -104,11 +78,11 @@
                             <h6>Rp. {{ number_format($keranjang->total_harga_keranjang) }}</h6>
                         </div>
                         <hr>
-                    </div>                        
-                    
+                    </div>
+
                     <!-- CHECKOUT PESANAN -->
                     <div class="d-flex justify-content-end mt-30">
-                        <a href="{{url('reseller-checkout')}}" class="btn essence-btn bg-success">Checkout pesanan</a>
+                        <a href="{{url('checkout')}}" class="btn essence-btn bg-success">Checkout pesanan</a>
                     </div>
 
                 </div>

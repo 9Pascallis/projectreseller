@@ -20,17 +20,24 @@ class CartController extends Controller
     {
         $jenis_produk = JenisProduk::all();
         $keranjang = Keranjang::where('id_user', Auth::user()->id)->where('status',0)->first();
-        //masih bingung cart terbaca saat keranjang juga kosong
-        if(empty($keranjang))
-        {
-            return view ('reseller/belanja/keranjang')->with(compact('jenis_produk'));
-            // return redirect()->back();
+
+        //cek validasi apakah keranjang null
+        if ($keranjang == null) {
+            return redirect('belanja');
         }
-        else
-        {
-            $detail_keranjang = DetailKeranjang::where('id_keranjang', $keranjang->id)->get();
+            //cek validasi apakah keranjang ada
+        else{
+            //cek validasi apakah total_harga_keranjang=0
+            if ($keranjang->total_harga_keranjang == 0) {
+                return redirect('belanja');
+            }
+            else
+            {
+                $detail_keranjang = DetailKeranjang::where('id_keranjang', $keranjang->id)->get();
+                return view ('reseller/belanja/keranjang')->with(compact('jenis_produk', 'keranjang', 'detail_keranjang'));
+            }
         }
-        return view ('reseller/belanja/keranjang')->with(compact('jenis_produk', 'keranjang', 'detail_keranjang'));
+
     }
 
     public function __construct()
@@ -108,7 +115,15 @@ class CartController extends Controller
         $keranjang->total_harga_keranjang = $keranjang->total_harga_keranjang-$detail_keranjang->jumlah_harga;
         $keranjang->update();
         $detail_keranjang->delete();
-        return redirect('keranjang');
+        if ($keranjang->total_harga_keranjang == 0) {
+            return redirect('belanja');
+        }
+        else
+        {
+            $detail_keranjang = DetailKeranjang::where('id_keranjang', $keranjang->id)->get();
+            return redirect('keranjang');
+        }
+
     }
 
 

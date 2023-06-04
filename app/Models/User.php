@@ -21,9 +21,18 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->attributes['password'] = bcrypt($value);
     }
 
-    //Many to one (user-keranjang)
     public function keranjang()
     {
         return $this->hasMany(Keranjang::class, 'id_user', 'id');
+    }
+
+    public function alamat()
+    {
+        return $this->hasMany(Alamat::class, 'id_user', 'id');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'id_role', 'id');
     }
 }

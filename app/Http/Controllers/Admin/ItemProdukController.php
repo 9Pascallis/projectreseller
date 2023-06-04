@@ -17,20 +17,14 @@ class ItemProdukController extends Controller
     public function index($id)
     {
         $jenis_produk = JenisProduk::all();
-        // $produk = Produk::find($id);
-        // $produk = Produk::leftJoin('item_produk', 'produk.id','=', 'item_produk.id_produk')
-        // ->select('produk.*', 'item_produk.id')->get();
         $produk = Produk::with('item_produk')->find($id);
 
         $item_produk = ItemProduk::leftJoin('stok', 'item_produk.id', '=', 'stok.id_item_produk')
         ->select('item_produk.*', 'stok.jumlah_stok')
         ->where('item_produk.id_produk', $id)
         ->with(['produk','ukuran','warna'])->get();
-
-
         $result = $produk->toArray();
         $result['item_produk'] = $item_produk->toArray();
-        // dd($result);
 
         return view ('/admin/produk/indexitemproduk', compact('jenis_produk','produk','item_produk'));
     }
@@ -42,6 +36,7 @@ class ItemProdukController extends Controller
         $ukuran = Ukuran::all();
         $produk = Produk::find($id);
         $jenis_produk = JenisProduk::all();
+
         return view ('/admin/produk/tambahitemproduk', compact('jenis_produk','produk','warna', 'ukuran'));
     }
 
@@ -61,8 +56,7 @@ class ItemProdukController extends Controller
                 $item_produk['foto_item_produk'] = $filename;
             }
             ItemProduk::create($item_produk);
-            return redirect()->route('indexitemproduk', ['id' => $request->id_produk])->with('create', 'Data berhasil!');
-            // return redirect()->back()->with('create', 'Data Berhasil ditambah!');
+            return redirect()->route('indexitemproduk', ['id' => $request->id_produk])->with('create', 'Item berhasil ditambah!');
         }
         else
         {
