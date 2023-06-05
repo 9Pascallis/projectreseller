@@ -11,7 +11,7 @@ use App\Http\Requests\AlamatRequest;
 
 class ProfilController extends Controller
 {    
-    public function show()
+    public function index()
     {
         $jenis_produk = JenisProduk::all();
         $user = auth()->user();

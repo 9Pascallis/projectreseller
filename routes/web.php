@@ -7,21 +7,20 @@ use App\Http\Controllers\LoginController;
 //RESELLER
 use App\Http\Controllers\Reseller\IndexResellerController;
 use App\Http\Controllers\Reseller\BelanjaController;
-use App\Http\Controllers\Reseller\DetailController;
 use App\Http\Controllers\Reseller\CartController;
 use App\Http\Controllers\Reseller\CheckoutController;
 use App\Http\Controllers\Reseller\ProfilController;
 
 //ADMIN
+use App\Http\Controllers\Admin\IndexAdminController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\JenisProdukController;
 use App\Http\Controllers\Admin\WarnaController;
 use App\Http\Controllers\Admin\UkuranController;
-use App\Http\Controllers\Admin\JenisProdukController;
-use App\Http\Controllers\Admin\StokController;
 use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Admin\ItemProdukController;
-use App\Http\Controllers\Admin\IndexAdminController;
+use App\Http\Controllers\Admin\StokController;
+
 
     Route::middleware(['auth'])->group(function () {
         
@@ -29,30 +28,31 @@ use App\Http\Controllers\Admin\IndexAdminController;
         Route::get('/reseller', [IndexResellerController::class, 'index']) ->name('reseller');
         Route::get('/admin', [IndexAdminController::class, 'index']) ->name('admin');
 
-
+        //BELANJA
         Route::get('/belanja', [BelanjaController::class, 'index']) ->name('belanja');
+        Route::get('/detail/{id}', [BelanjaController::class, 'show']) ->name('detail');
+        
+        //DETAIL PEMESANAN
         Route::get('/keranjang', [CartController::class, 'index']) ->name('keranjang');
-        // Route::get('/checkout', [CartController::class, 'konfirmasikeranjang']) ->name('checkout');
+        Route::post('pesan/{id}', [CartController::class, 'store']) ->name('pesan/{id}');
+        Route::delete('/deletekeranjang/{id}', [CartController::class, 'delete']);
+
+        //PEMESANAN
         Route::get('/checkout', [CheckoutController::class, 'index']) ->name('checkout');
 
-        
-        //EDIT
+        //PROFIL
+        Route::get('/profil', [ProfilController::class, 'index']) ->name('profil');
+
+        //ALAMAT
         Route::get('/tambahalamat', [ProfilController::class, 'createalamat']) ->name('tambahalamat');
         Route::get('/editalamat/{id}', [ProfilController::class, 'editalamat']) ->name('editalamat/{id}');
         Route::post('tambahalamat/{id}', [ProfilController::class, 'storealamat']) ->name('tambahalamat/{id}');
         Route::post('updatealamat/{id}', [ProfilController::class, 'updatealamat']) ->name('updatealamat/{id}');
 
-        //SHOW
-        Route::get('/profil', [ProfilController::class, 'show']) ->name('profil');
-        Route::get('/detail/{id}', [DetailController::class, 'show']) ->name('detail');
-
-        //STORE
-        Route::post('pesan/{id}', [CartController::class, 'store']) ->name('pesan/{id}');
+        
+        // Route::get('/checkout', [CartController::class, 'konfirmasikeranjang']) ->name('checkout');
         // Route::post('checkout/{id}', [CheckoutController::class, 'store']) ->name('checkout/{id}');
         // Route::post('cart/add', [CartController::class, 'store']) ->name('cart/add');
-
-        //DELETE
-        Route::delete('/deletekeranjang/{id}', [CartController::class, 'delete']);
 
         //LOGOUT
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -109,26 +109,20 @@ use App\Http\Controllers\Admin\IndexAdminController;
 
     //USER
     Route::get('/indexuser', [UserController::class, 'index']) ->name('indexuser');
-    Route::get('/indexadmin', [UserController::class, 'indexadmin']) ->name('indexadmin');
     Route::get('/indexuser', [UserController::class, 'index']) ->name('indexuser');
     Route::get('/tambahuser', [UserController::class, 'create']) ->name('tambahuser');
-    Route::get('/tambahadmin', [UserController::class, 'createadmin']) ->name('tambahadmin');
     Route::post('/insertdatauser', [UserController::class, 'store']) ->name('insertdatauser');
-    Route::post('/insertdataadmin', [UserController::class, 'storeadmin']) ->name('insertdataadmin');
     Route::get('/edituser/{id}', [UserController::class, 'edit']) ->name('edituser');
-    Route::get('/editadmin/{id}', [UserController::class, 'editadmin']) ->name('editadmin');
     Route::post('/updateuser/{id}', [UserController::class, 'update']) ->name('updateuser');
-    Route::post('/updateadmin/{id}', [UserController::class, 'updateadmin']) ->name('updateadmin');
     Route::get('/deleteuser/{id}', [UserController::class, 'destroy']) ->name('deleteuser');
-    Route::get('/deleteadmin/{id}', [UserController::class, 'destroyadmin']) ->name('deleteadmin');
-
+    
     //ADMIN
-    // Route::get('/indexadmin', [AdminController::class, 'index']) ->name('indexadmin');
-    // Route::get('/tambahadmin', [AdminController::class, 'create']) ->name('tambahadmin');
-    // Route::post('/insertdataadmin', [AdminController::class, 'store']) ->name('insertdataadmin');
-    // Route::get('/editadmin/{id}', [AdminController::class, 'edit']) ->name('editadmin');
-    // Route::post('/updateadmin/{id}', [AdminController::class, 'update']) ->name('updateadmin');
-    // Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy']) ->name('deleteadmin');
+    Route::get('/indexadmin', [UserController::class, 'indexadmin']) ->name('indexadmin');
+    Route::get('/tambahadmin', [UserController::class, 'createadmin']) ->name('tambahadmin');
+    Route::post('/insertdataadmin', [UserController::class, 'storeadmin']) ->name('insertdataadmin');
+    Route::get('/editadmin/{id}', [UserController::class, 'editadmin']) ->name('editadmin');
+    Route::post('/updateadmin/{id}', [UserController::class, 'updateadmin']) ->name('updateadmin');
+    Route::get('/deleteadmin/{id}', [UserController::class, 'destroyadmin']) ->name('deleteadmin');
 
     //PEMESANAN
     Route::get('/admin-viewpemesanan', function () {

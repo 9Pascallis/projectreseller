@@ -14,35 +14,5 @@ class IndexResellerController extends Controller
         $jenis_produk = JenisProduk::all();
         return view ('reseller/index', compact('jenis_produk'));
     }
-
-    public function create()
-    {
-      
-    }
-
-    public function store(Request $request)
-    {
-        
-    }
-
-    public function show($id)
-    {
-        
-    }
-
-    public function edit($id)
-    {
-        
-    }
-
-    public function update(Request $request, $id)
-    {
-        
-    }
-    
-    public function destroy($id)
-    {
-        
-    }
     
 }
