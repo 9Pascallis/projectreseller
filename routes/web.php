@@ -26,14 +26,16 @@ use App\Http\Controllers\Admin\IndexAdminController;
     Route::middleware(['auth'])->group(function () {
         
         //INDEX
-        Route::get('/indexreseller', [IndexResellerController::class, 'index']) ->name('indexreseller');
+        Route::get('/reseller', [IndexResellerController::class, 'index']) ->name('reseller');
+        Route::get('/admin', [IndexAdminController::class, 'index']) ->name('admin');
+
+
         Route::get('/belanja', [BelanjaController::class, 'index']) ->name('belanja');
         Route::get('/keranjang', [CartController::class, 'index']) ->name('keranjang');
         // Route::get('/checkout', [CartController::class, 'konfirmasikeranjang']) ->name('checkout');
         Route::get('/checkout', [CheckoutController::class, 'index']) ->name('checkout');
 
-        Route::get('/indexadmin', [IndexAdminController::class, 'index']) ->name('indexadmin');
-
+        
         //EDIT
         Route::get('/tambahalamat', [ProfilController::class, 'createalamat']) ->name('tambahalamat');
         Route::get('/editalamat/{id}', [ProfilController::class, 'editalamat']) ->name('editalamat/{id}');
@@ -114,8 +116,11 @@ use App\Http\Controllers\Admin\IndexAdminController;
     Route::post('/insertdatauser', [UserController::class, 'store']) ->name('insertdatauser');
     Route::post('/insertdataadmin', [UserController::class, 'storeadmin']) ->name('insertdataadmin');
     Route::get('/edituser/{id}', [UserController::class, 'edit']) ->name('edituser');
+    Route::get('/editadmin/{id}', [UserController::class, 'editadmin']) ->name('editadmin');
     Route::post('/updateuser/{id}', [UserController::class, 'update']) ->name('updateuser');
+    Route::post('/updateadmin/{id}', [UserController::class, 'updateadmin']) ->name('updateadmin');
     Route::get('/deleteuser/{id}', [UserController::class, 'destroy']) ->name('deleteuser');
+    Route::get('/deleteadmin/{id}', [UserController::class, 'destroyadmin']) ->name('deleteadmin');
 
     //ADMIN
     // Route::get('/indexadmin', [AdminController::class, 'index']) ->name('indexadmin');
@@ -130,4 +135,3 @@ use App\Http\Controllers\Admin\IndexAdminController;
         return view('/admin/pemesanan/viewpemesanan');
     });
 
-    // Route::get('/', [IndexResellerController::class, 'index']) ->name('index');

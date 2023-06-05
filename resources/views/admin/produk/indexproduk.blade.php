@@ -1,5 +1,5 @@
 @extends('admin.layout.template')
-@section('title', 'Admin | View Produk')
+@section('title', 'Admin | Produk')
 @section('header')
 <link href="assets_admin/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 @endsection
@@ -16,7 +16,7 @@
             <a href="tambahproduk" class="btn btn-success" role="button" aria-pressed="true">+ Produk</a>
         </div><br>
 
-        <div class="row mb-3">
+        {{-- <div class="row mb-3">
             <label for="inputText" class="col-sm-2 col-form-label">PILIH JENIS</label>
             <div class="col-sm-10">
                 <select class="form-select mb-3" style="width: 100%;">
@@ -30,7 +30,7 @@
                     <option>AKSESORIS KEPALA</option>
                 </select>
             </div>
-        </div>
+        </div> --}}
 
         <!-- ISI -->
         <div class="table-responsive">

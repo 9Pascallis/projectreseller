@@ -5,9 +5,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\JenisProduk;
-use App\Models\ItemProduk;
-use App\Models\Warna;
-use App\Models\Ukuran;
 use App\Models\Produk;
 use App\Http\Requests\ProdukRequest;
 
@@ -46,16 +43,16 @@ class ProdukController extends Controller
     
     public function show($id)
     {
-        $produk = Produk::find($id);
         $jenis_produk = JenisProduk::all();
+        $produk = Produk::find($id);
         return view ('/admin/produk/detailproduk', compact('jenis_produk','produk'));
     }
 
 
     public function edit($id)
     {
-        $produk = Produk::find($id);
         $jenis_produk = JenisProduk::all();
+        $produk = Produk::find($id);
         return view ('/admin/produk/editproduk', compact('jenis_produk','produk'));
     }
 

@@ -32,18 +32,20 @@ class ItemProdukController extends Controller
 
     public function create($id)
     {
-        $warna = Warna::all();
         $ukuran = Ukuran::all();
+        $warna = Warna::all();
         $produk = Produk::find($id);
-        $jenis_produk = JenisProduk::all();
 
-        return view ('/admin/produk/tambahitemproduk', compact('jenis_produk','produk','warna', 'ukuran'));
+        return view ('/admin/produk/tambahitemproduk', compact('produk','warna', 'ukuran'));
     }
 
 
     public function store(ItemProdukRequest $request)
     {
-        $stok= ItemProduk::where('id_warna',$request->id_warna)->where('id_ukuran',$request->id_ukuran)->where('id_produk', $request->id_produk)->first();
+        $stok= ItemProduk::where('id_warna',$request->id_warna)
+        ->where('id_ukuran',$request->id_ukuran)
+        ->where('id_produk', $request->id_produk)
+        ->first();
 
         if($stok==null){
             $item_produk = $request->validated();

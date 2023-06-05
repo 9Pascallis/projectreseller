@@ -44,9 +44,9 @@
                         <td>{{ $item->no_telp_user}}</td>
                         <td>{{ $item->created_at->format('d-m-Y') }}</td>
                         <td class="text-center">
-                            <a class="btn btn-sm btn-outline-warning px-2" href="/edituser/{{ $item->id }}"><i
+                            <a class="btn btn-sm btn-outline-warning px-2" href="/editadmin/{{ $item->id }}"><i
                                     class="fa fa-pencil"></i></a>
-                            <a class="btn btn-sm btn-outline-danger px-2 deleteuser" data-id="{{ $item->id }}"
+                            <a class="btn btn-sm btn-outline-danger px-2 deleteadmin" data-id="{{ $item->id }}"
                                 data-nama="{{ $item->nama_lengkap_user}}"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>

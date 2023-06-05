@@ -36,7 +36,7 @@ class StokController extends Controller
         {
             $stok->jumlah_stok = $request->jumlah_stok+$stok->jumlah_stok;
             $stok->update();
-            return redirect()->back()->with('update', 'Data Berhasil diupdate!');
+            return redirect()->back()->with('update', 'Stok Berhasil diupdate!');
         }
     }
     

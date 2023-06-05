@@ -23,7 +23,7 @@ class UkuranController extends Controller
     }
 
 
-    public function store(ukuranRequest $request)
+    public function store(UkuranRequest $request)
     {
         $ukuran = $request->validated();
         Ukuran::create($ukuran);

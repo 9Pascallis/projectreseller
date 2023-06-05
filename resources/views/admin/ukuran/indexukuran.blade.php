@@ -26,7 +26,7 @@
                         <th>NO</th>
                         <th>NAMA UKURAN</th>
                         <th>TGL UPLOAD</th>
-                        <th class="text-center">ACTION</th>
+                        <th class="text-center">HAPUS</th>
                     </tr>
                 </thead>
                 <tbody>

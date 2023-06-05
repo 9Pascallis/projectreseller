@@ -26,7 +26,9 @@
                     </div>
                     <div class="col-12 col-lg-7">
                         <div class="product-info-section p-3">
-                            <h3 class="mt-3 mt-lg-0 mb-0">{{$produk->nama_produk}}</h3>
+                            <h6 class="mt-3 mt-lg-0 mb-30">{{$produk->jenis_produk->nama_jenis_produk}}</h6>
+                            <h4 class="mt-3 mt-lg-0 mb-0"><b>{{$produk->nama_produk}}</b></h4><hr>
+
                             <div class="d-flex align-items-center mt-3 gap-2">
                                 <h5 class="mb-0" style="color: red">Rp. {{ number_format($produk->harga_produk)}}</h5>
                             </div>
