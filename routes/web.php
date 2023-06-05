@@ -9,6 +9,8 @@ use App\Http\Controllers\Reseller\IndexResellerController;
 use App\Http\Controllers\Reseller\BelanjaController;
 use App\Http\Controllers\Reseller\CartController;
 use App\Http\Controllers\Reseller\CheckoutController;
+use App\Http\Controllers\Reseller\DetailPemesananController;
+use App\Http\Controllers\Reseller\PemesananController;
 use App\Http\Controllers\Reseller\ProfilController;
 
 //ADMIN
@@ -32,13 +34,21 @@ use App\Http\Controllers\Admin\StokController;
         Route::get('/belanja', [BelanjaController::class, 'index']) ->name('belanja');
         Route::get('/detail/{id}', [BelanjaController::class, 'show']) ->name('detail');
         
+        // //DETAIL PEMESANAN
+        // Route::get('/keranjang', [CartController::class, 'index']) ->name('keranjang');
+        // Route::post('pesan/{id}', [CartController::class, 'store']) ->name('pesan/{id}');
+        // Route::delete('/deletekeranjang/{id}', [CartController::class, 'delete']);
+
         //DETAIL PEMESANAN
-        Route::get('/keranjang', [CartController::class, 'index']) ->name('keranjang');
-        Route::post('pesan/{id}', [CartController::class, 'store']) ->name('pesan/{id}');
-        Route::delete('/deletekeranjang/{id}', [CartController::class, 'delete']);
+        Route::get('/keranjang', [DetailPemesananController::class, 'index']) ->name('keranjang');
+        Route::post('pesan/{id}', [DetailPemesananController::class, 'store']) ->name('pesan/{id}');
+        Route::delete('/deletekeranjang/{id}', [DetailPemesananController::class, 'delete']);
+
+        // //PEMESANAN
+        // Route::get('/checkout', [CheckoutController::class, 'index']) ->name('checkout');
 
         //PEMESANAN
-        Route::get('/checkout', [CheckoutController::class, 'index']) ->name('checkout');
+        Route::get('/checkout', [PemesananController::class, 'index']) ->name('checkout');
 
         //PROFIL
         Route::get('/profil', [ProfilController::class, 'index']) ->name('profil');

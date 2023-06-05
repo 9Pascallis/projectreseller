@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetailKeranjangTable extends Migration
+class CreateDetailPemesananTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateDetailKeranjangTable extends Migration
      */
     public function up()
     {
-        Schema::create('detail_keranjang', function (Blueprint $table) {
+        Schema::create('detail_pemesanan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_item_produk');
-            $table->unsignedBigInteger('id_keranjang');
+            $table->unsignedBigInteger('id_pemesanan');
             $table->integer('kuantitas');
             $table->integer('jumlah_harga');
             $table->timestamps();
 
             $table->foreign('id_item_produk')->references('id')->on('item_produk')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('id_keranjang')->references('id')->on('keranjang')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_pemesanan')->references('id')->on('pemesanan')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -33,6 +33,6 @@ class CreateDetailKeranjangTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_keranjang');
+        Schema::dropIfExists('detail_pemesanan');
     }
 }

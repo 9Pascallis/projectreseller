@@ -5,14 +5,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\Models\Keranjang;
-use App\Models\DetailKeranjang;
+use App\Models\Pemesanan;
+use App\Models\DetailPemesanan;
 use App\Models\JenisProduk;
 use App\Models\User;
-// use App\Models\Checkout;
-// use App\Http\Requests\CheckoutRequest;
 
-class CheckoutController extends Controller
+class PemesananController extends Controller
 {
 
     public function index()
@@ -25,7 +23,7 @@ class CheckoutController extends Controller
         ->get();
         // dd($user);
         $jenis_produk = JenisProduk::all();
-        $keranjang = Keranjang::where('id_user', Auth::user()->id)->where('status',0)->first();
+        $pemesanan = Pemesanan::where('id_user', Auth::user()->id)->where('status',0)->first();
         //cek validasi apakah alamat null
         foreach ($user as $user) {
             if ($user->alamat == null) {
@@ -33,20 +31,20 @@ class CheckoutController extends Controller
             }
         }
 
-        //cek validasi apakah keranjang null
-        if ($keranjang == null) {
+        //cek validasi apakah pemesanan null
+        if ($pemesanan == null) {
             return redirect('belanja');
         }
-            //cek validasi apakah keranjang ada
+            //cek validasi apakah pemesanan ada
         else{
-            //cek validasi apakah total_harga_keranjang=0
-            if ($keranjang->total_harga_keranjang == 0) {
+            //cek validasi apakah total_harga_pemesanan=0
+            if ($pemesanan->total_harga_pemesanan == 0) {
                 return redirect('belanja');
             }
             else
             {
-                $detail_keranjang = DetailKeranjang::where('id_keranjang', $keranjang->id)->get();
-                return view ('reseller/belanja/checkout')->with(compact('jenis_produk', 'keranjang', 'detail_keranjang', 'user'));
+                $detail_pemesanan = DetailPemesanan::where('id_pemesanan', $pemesanan->id)->get();
+                return view ('reseller/belanja/checkout')->with(compact('jenis_produk', 'pemesanan', 'detail_pemesanan', 'user'));
             }
         }
     }
@@ -60,12 +58,12 @@ class CheckoutController extends Controller
     // {
     //     $user = auth()->user();
     //     $jenis_produk = JenisProduk::all();
-    //     $keranjang = Keranjang::where('id_user', Auth::user()->id)->where('status',0)->first();
-    //     $detail_keranjang = DetailKeranjang::where('id_keranjang', $keranjang->id)->get();
+    //     $pemesanan = Pemesanan::where('id_user', Auth::user()->id)->where('status',0)->first();
+    //     $detail_pemesanan = DetailPemesanan::where('id_pemesanan', $pemesanan->id)->get();
 
     //     $checkout = $request->validated();
     //     Checkout::create($checkout);
-    //     return redirect('/profil')->with('create', 'Silakan Melakukan Pembayaran!')->with(compact('jenis_produk', 'keranjang', 'detail_keranjang', 'user', 'checkout'));
+    //     return redirect('/profil')->with('create', 'Silakan Melakukan Pembayaran!')->with(compact('jenis_produk', 'pemesanan', 'detail_pemesanan', 'user', 'checkout'));
 
     // }
     

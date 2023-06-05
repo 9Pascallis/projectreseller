@@ -37,4 +37,10 @@ class ItemProduk extends Model
     {
         return $this->hasMany(DetailKeranjang::class, 'id_item_produk', 'id');
     }
+
+    //Many to one (detailpemesanan-item_produk)
+    public function detail_pemesanan()
+    {
+        return $this->hasMany(DetailPemesanan::class, 'id_item_produk', 'id');
+    }
 }

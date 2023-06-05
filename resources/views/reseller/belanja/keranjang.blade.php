@@ -28,11 +28,11 @@
                     </tr>
                 </thead>
                 <tbody class="align-middle">
-                    @if (!empty($keranjang))
+                    @if (!empty($pemesanan))
                     @php
                     $no = 1;
                     @endphp
-                    @foreach ($detail_keranjang as $item)
+                    @foreach ($detail_pemesanan as $item)
                     <tr>
                         <td class="align-middle">{{ $no++}}</td>
                         <td class="align-middle"><img
@@ -64,7 +64,7 @@
         </div>
         <!-- TABLE END -->
 
-        @if (!empty($keranjang))
+        @if (!empty($pemesanan))
         <!-- PESANAN -->
         <div class="col-lg-12">
             <div class="bg-light" style="padding: 20px">
@@ -75,7 +75,7 @@
                     <div class="pt-2 mb-3">
                         <div class="d-flex justify-content-between mt-2">
                             <h6>TOTAL HARGA:</h6>
-                            <h6>Rp. {{ number_format($keranjang->total_harga_keranjang) }}</h6>
+                            <h6>Rp. {{ number_format($pemesanan->total_harga_pemesanan) }}</h6>
                         </div>
                         <hr>
                     </div>
