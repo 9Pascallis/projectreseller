@@ -11,6 +11,7 @@ use App\Http\Controllers\Reseller\CartController;
 use App\Http\Controllers\Reseller\CheckoutController;
 use App\Http\Controllers\Reseller\DetailPemesananController;
 use App\Http\Controllers\Reseller\PemesananController;
+use App\Http\Controllers\Reseller\PembayaranController;
 use App\Http\Controllers\Reseller\ProfilController;
 
 //ADMIN
@@ -33,22 +34,18 @@ use App\Http\Controllers\Admin\StokController;
         //BELANJA
         Route::get('/belanja', [BelanjaController::class, 'index']) ->name('belanja');
         Route::get('/detail/{id}', [BelanjaController::class, 'show']) ->name('detail');
-        
-        // //DETAIL PEMESANAN
-        // Route::get('/keranjang', [CartController::class, 'index']) ->name('keranjang');
-        // Route::post('pesan/{id}', [CartController::class, 'store']) ->name('pesan/{id}');
-        // Route::delete('/deletekeranjang/{id}', [CartController::class, 'delete']);
 
         //DETAIL PEMESANAN
         Route::get('/keranjang', [DetailPemesananController::class, 'index']) ->name('keranjang');
         Route::post('pesan/{id}', [DetailPemesananController::class, 'store']) ->name('pesan/{id}');
         Route::delete('/deletekeranjang/{id}', [DetailPemesananController::class, 'delete']);
 
-        // //PEMESANAN
-        // Route::get('/checkout', [CheckoutController::class, 'index']) ->name('checkout');
-
         //PEMESANAN
         Route::get('/checkout', [PemesananController::class, 'index']) ->name('checkout');
+        Route::post('checkout/{id}', [PemesananController::class, 'store']) ->name('checkout/{id}');
+
+        //PEMBAYARAN
+        Route::get('/pesanpembayaran', [PembayaranController::class, 'index']) ->name('pesanpembayaran');
 
         //PROFIL
         Route::get('/profil', [ProfilController::class, 'index']) ->name('profil');
@@ -58,11 +55,6 @@ use App\Http\Controllers\Admin\StokController;
         Route::get('/editalamat/{id}', [ProfilController::class, 'editalamat']) ->name('editalamat/{id}');
         Route::post('tambahalamat/{id}', [ProfilController::class, 'storealamat']) ->name('tambahalamat/{id}');
         Route::post('updatealamat/{id}', [ProfilController::class, 'updatealamat']) ->name('updatealamat/{id}');
-
-        
-        // Route::get('/checkout', [CartController::class, 'konfirmasikeranjang']) ->name('checkout');
-        // Route::post('checkout/{id}', [CheckoutController::class, 'store']) ->name('checkout/{id}');
-        // Route::post('cart/add', [CartController::class, 'store']) ->name('cart/add');
 
         //LOGOUT
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

@@ -16,6 +16,12 @@ use App\Models\DetailPemesanan;
 class DetailPemesananController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
         $jenis_produk = JenisProduk::all();
@@ -25,9 +31,8 @@ class DetailPemesananController extends Controller
         if ($pemesanan == null) {
             return redirect('belanja');
         }
-            //cek validasi apakah pemesanan ada
         else{
-            //cek validasi apakah total_harga_pemesanan=0
+            //cek validasi apakah total_harga_pemesanan = 0
             if ($pemesanan->total_harga_pemesanan == 0) {
                 return redirect('belanja');
             }
@@ -37,12 +42,6 @@ class DetailPemesananController extends Controller
                 return view ('reseller/belanja/keranjang')->with(compact('jenis_produk', 'pemesanan', 'detail_pemesanan'));
             }
         }
-
-    }
-
-    public function __construct()
-    {
-        $this->middleware('auth');
     }
 
     public function store(Request $request, $id)
@@ -55,26 +54,22 @@ class DetailPemesananController extends Controller
         ->first();
         $tanggal_pemesanan= Carbon::now();
 
-        //validasi apakah melebihi stok
+        //cek validasi apakah kuantitas melebihi stok yang ada
         if($request->kuantitas>$item_produk->jumlah_stok)
         {
             return redirect ('detail/'.$id);
         }
         
-        //cek validasi
+        //cek validasi apakah pemesanan is null
         $cek_pemesanan= Pemesanan::where('id_user', Auth::user()->id)->where('status',0)->first();
         if(empty($cek_pemesanan))
         {
-            //Simpan ke database pemesanan
+            //simpan ke database pemesanan
             $pemesanan = new pemesanan;
             $pemesanan->id_user = Auth::user()->id;
             $pemesanan->tanggal_pemesanan = $tanggal_pemesanan;
-
             //str number random
-            $randomNumber = str_pad(mt_rand(0, 999999999999), 12, '0', STR_PAD_LEFT);
-            $pemesanan->invoice = $randomNumber;
-
-            // $pemesanan->invoice = Str::random(12);
+            $pemesanan->invoice = 0;
             $pemesanan->total_harga_pemesanan = 0;
             $pemesanan->status = 0;
             $pemesanan->save();
