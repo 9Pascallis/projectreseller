@@ -46,7 +46,7 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li><a href="{{route('profil')}}"
+                            <li><a href="{{route('histori')}}"
                                 style="font-weight: 600; color: #ffffff; font-family: ubuntu">Histori</a>
                             </li>
                             <li><a href="{{route('indexadmin')}}"

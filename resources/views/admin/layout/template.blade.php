@@ -64,7 +64,7 @@
                 <li class="menu-label">HISTORI</li>
                 <!-- PEMESANAN -->
                 <li>
-                    <a href="/admin-viewpemesanan">
+                    <a href="/indexhistoripemesanan">
                         <div class="parent-icon">
                             <ion-icon name='storefront'></ion-icon>
                         </div>
@@ -73,7 +73,7 @@
                 </li>
                 <!-- PEMBAYARAN -->
                 <li>
-                    <a href="/pages-invoices.html">
+                    <a href="/indexhistoripembayaran">
                         <div class="parent-icon">
                             <ion-icon name='wallet'></ion-icon>
                         </div>

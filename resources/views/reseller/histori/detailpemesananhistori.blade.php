@@ -112,8 +112,8 @@
         
                     <div class="card-body">
                         <div class="d-flex justify-content-end">
-                            <div style="padding-right: 5px"><a href="{{route('belanja')}}" class="btn essence-btn bg-info"
-                                    role="button" aria-pressed="true">Kembali Ke Home</a></div>
+                            <div style="padding-right: 5px"><a href="{{route('histori')}}" class="btn essence-btn bg-info"
+                                    role="button" aria-pressed="true">Kembali</a></div>
                         </div>
                     </div>
                 </div>

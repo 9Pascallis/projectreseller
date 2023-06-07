@@ -33,4 +33,9 @@ class Pemesanan extends Model
         return $this->hasMany(MetodePengiriman::class, 'id_pemesanan', 'id');
     }
 
+    public function pembayaran()
+    {
+        return $this->hasMany(Pembayaran::class, 'id_pemesanan', 'id');
+    }
+
 }

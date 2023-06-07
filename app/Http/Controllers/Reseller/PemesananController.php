@@ -96,7 +96,7 @@ class PemesananController extends Controller
         $pemesanan->status = 1;
         $pemesanan->update();
 
-        return redirect ('pesanpembayaran');
+        return redirect ('pesanpembayaran/'.$id);
 
     }
     

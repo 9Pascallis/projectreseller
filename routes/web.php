@@ -13,6 +13,7 @@ use App\Http\Controllers\Reseller\DetailPemesananController;
 use App\Http\Controllers\Reseller\PemesananController;
 use App\Http\Controllers\Reseller\PembayaranController;
 use App\Http\Controllers\Reseller\ProfilController;
+use App\Http\Controllers\Reseller\HistoriController;
 
 //ADMIN
 use App\Http\Controllers\Admin\IndexAdminController;
@@ -23,6 +24,8 @@ use App\Http\Controllers\Admin\UkuranController;
 use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Admin\ItemProdukController;
 use App\Http\Controllers\Admin\StokController;
+use App\Http\Controllers\Admin\HistoriPemesananController;
+use App\Http\Controllers\Admin\HistoriPembayaranController;
 
 
     Route::middleware(['auth'])->group(function () {
@@ -45,7 +48,7 @@ use App\Http\Controllers\Admin\StokController;
         Route::post('checkout/{id}', [PemesananController::class, 'store']) ->name('checkout/{id}');
 
         //PEMBAYARAN
-        Route::get('/pesanpembayaran', [PembayaranController::class, 'index']) ->name('pesanpembayaran');
+        Route::get('/pesanpembayaran/{id}', [PembayaranController::class, 'index']) ->name('pesanpembayaran/{id}');
 
         //PROFIL
         Route::get('/profil', [ProfilController::class, 'index']) ->name('profil');
@@ -55,6 +58,11 @@ use App\Http\Controllers\Admin\StokController;
         Route::get('/editalamat/{id}', [ProfilController::class, 'editalamat']) ->name('editalamat/{id}');
         Route::post('tambahalamat/{id}', [ProfilController::class, 'storealamat']) ->name('tambahalamat/{id}');
         Route::post('updatealamat/{id}', [ProfilController::class, 'updatealamat']) ->name('updatealamat/{id}');
+
+        //HISTORI
+        Route::get('/histori', [HistoriController::class, 'index']) ->name('histori');
+        Route::get('/historipemesanan/{id}', [HistoriController::class, 'showpemesanan']) ->name('historipemesanan/{id}');
+        Route::get('/historipembayaran/{id}', [HistoriController::class, 'showpembayaran']) ->name('historipembayaran/{id}');
 
         //LOGOUT
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -101,6 +109,14 @@ use App\Http\Controllers\Admin\StokController;
     Route::get('/tambahstokitemproduk/{id}', [StokController::class, 'create']) ->name('tambahstokitemproduk');
     Route::post('/insertdatastokitemproduk', [StokController::class, 'store']) ->name('insertdatastokitemproduk');
 
+    //HISTORI PEMESANAN
+    Route::get('/indexhistoripemesanan', [HistoriPemesananController::class, 'index']) ->name('indexhistoripemesanan');
+    Route::get('/konfirmasipembayaran/{id}', [HistoriPemesananController::class, 'edit']) ->name('konfirmasipembayaran/{id}');
+    Route::post('konfirmasi/{id}', [HistoriPemesananController::class, 'update']) ->name('konfirmasi/{id}');
+
+    //HISTORI PEMBAYARAN
+    Route::get('/indexhistoripembayaran', [HistoriPembayaranController::class, 'index']) ->name('indexhistoripembayaran');
+    Route::get('/detailhistoripembayaran/{id}', [HistoriPembayaranController::class, 'show']) ->name('detailhistoripembayaran/{id}');
 
 
 //ROUTE LOGIN & ROLE
@@ -126,8 +142,4 @@ use App\Http\Controllers\Admin\StokController;
     Route::post('/updateadmin/{id}', [UserController::class, 'updateadmin']) ->name('updateadmin');
     Route::get('/deleteadmin/{id}', [UserController::class, 'destroyadmin']) ->name('deleteadmin');
 
-    //PEMESANAN
-    Route::get('/admin-viewpemesanan', function () {
-        return view('/admin/pemesanan/viewpemesanan');
-    });
 

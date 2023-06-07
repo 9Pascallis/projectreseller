@@ -15,7 +15,7 @@ use App\Models\User;
 
 class PembayaranController extends Controller
 {
-    public function index()
+    public function index($id)
     {
 
         $user = auth()->user();
@@ -44,11 +44,11 @@ class PembayaranController extends Controller
             'metode_pengiriman.nama_jenis_layanan',
             'metode_pengiriman.no_resi',
             )
-        ->latest('pemesanan.created_at')
+        ->where('pemesanan.id', $id)
         ->first();
         // dd($pemesanan);
         //cek validasi apakah pemesanan null
-        if ($pemesanan == null) {
+        if ($pemesanan == null || $pemesanan->status == 2) {
             return redirect('belanja');
         }
             //cek validasi apakah pemesanan ada
@@ -60,7 +60,7 @@ class PembayaranController extends Controller
             else
             {
                 $detail_pemesanan = DetailPemesanan::where('id_pemesanan', $pemesanan->id)->get();
-                // dd($detail_pemesanan);
+                // dd($pemesanan);
                 return view ('reseller/belanja/pesanpembayaran')->with(compact('jenis_produk', 'pemesanan', 'detail_pemesanan', 'user'));
             }
         }
