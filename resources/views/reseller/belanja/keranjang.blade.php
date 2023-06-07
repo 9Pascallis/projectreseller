@@ -2,6 +2,47 @@
 @section('title', 'Reseller | Keranjang')
 
 @section('content')
+@if ($pemesanan == null || $pemesanan->total_harga_pemesanan == 0  )
+<br><br>
+<!-- SECTION -->
+<div class="container-fluid mb-100">
+    <div class="row px-xl-5">
+        <div class="col-12 text-center">
+            <h5 style="font-family: ubuntu">KERANJANG</h5>
+            <br>
+        </div>
+        <!-- TABLE -->
+        <div class="col-lg-12 table-responsive mb-5">
+
+            <table class="table table-light table-borderless table-hover text-center mb-0">
+                <thead class="thead" style="background-color: rgb(248, 248, 248)">
+                    <tr>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">No</th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Foto</th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Produk</th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Variasi</th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga Satuan
+                        </th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Jumlah</th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Total</th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Hapus</th>
+                    </tr>
+                </thead>
+
+
+            </table>
+            <div class="d-flex justify-content-center mt-30 mb-50">
+                <p>TIDAK ADA PRODUK!</p>
+            </div>
+            <div class="d-flex justify-content-center mt-50">
+                <a href="{{url('belanja')}}" class="btn essence-btn bg-info">SILAKAN BELANJA</a>
+            </div>
+        </div>
+        <!-- TABLE END -->
+    </div>
+</div>
+<!-- SECTION END-->
+@else
 <br><br>
 <!-- SECTION -->
 <div class="container-fluid mb-100">
@@ -93,6 +134,8 @@
     </div>
 </div>
 <!-- SECTION END-->
+@endif
+
 
 <style>
     /* KUANTITAS */

@@ -29,12 +29,12 @@ class DetailPemesananController extends Controller
 
         //cek validasi apakah pemesanan null
         if ($pemesanan == null) {
-            return redirect()->back();
+            return view ('reseller/belanja/keranjang')->with(compact('jenis_produk', 'pemesanan'));
         }
         else{
             //cek validasi apakah total_harga_pemesanan = 0
             if ($pemesanan->total_harga_pemesanan == 0) {
-                return redirect()->back();
+                return view ('reseller/belanja/keranjang')->with(compact('jenis_produk', 'pemesanan'));
             }
             else
             {

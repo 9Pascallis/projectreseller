@@ -13,6 +13,7 @@ use App\Models\DetailPemesanan;
 use App\Models\JenisProduk;
 use App\Models\User;
 use App\Models\Pembayaran;
+use App\Models\Stok;
 
 class HistoriPemesananController extends Controller
 {
@@ -40,7 +41,8 @@ class HistoriPemesananController extends Controller
                 // dd($pemesanan);
         // cek validasi apakah pemesanan kosong
         if ($pemesanan->isEmpty()) {
-            return redirect()->back();
+            return view('/admin/histori/historipemesanan')->with(compact('jenis_produk', 'pemesanan'));
+            // return redirect()->back();
         } else {
             $detail_pemesanan = DetailPemesanan::whereIn('id_pemesanan', $pemesanan->pluck('id'))->get();
             return view('/admin/histori/historipemesanan')->with(compact('jenis_produk', 'pemesanan', 'detail_pemesanan'));
@@ -73,18 +75,37 @@ class HistoriPemesananController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $pemesanan = Pemesanan::find($id);
-        $pemesanan->status = 2;
-        $pemesanan->update();
+{
+    $pemesanan = Pemesanan::find($id);
+    $pemesanan->status = 2;
+    $pemesanan->update();
 
-        $pembayaran = new Pembayaran;
-        $pembayaran->id_pemesanan = $pemesanan->id;
-        $tanggal_pembayaran= Carbon::now();
-        $pembayaran->tanggal_pembayaran = $tanggal_pembayaran;
-        $pembayaran->save();
+    $pembayaran = new Pembayaran;
+    $pembayaran->id_pemesanan = $pemesanan->id;
+    $tanggal_pembayaran= Carbon::now();
+    $pembayaran->tanggal_pembayaran = $tanggal_pembayaran;
+    $pembayaran->save();
 
-        return redirect('indexhistoripemesanan');
+    $detail_pemesanan = DetailPemesanan::where('id_pemesanan', $pemesanan->id)
+        ->join('item_produk', 'detail_pemesanan.id_item_produk', '=', 'item_produk.id')
+        ->leftJoin('stok', 'item_produk.id', '=', 'stok.id_item_produk')
+        ->select('detail_pemesanan.*', 'item_produk.foto_item_produk', 'stok.jumlah_stok')
+        ->get();
 
+    foreach ($detail_pemesanan as $detail) {
+        $stok = Stok::where('id_item_produk', $detail->id_item_produk)->first();
+        if ($stok) {
+            if ($stok->jumlah_stok >= $detail->kuantitas) {
+                $stok->jumlah_stok -= $detail->kuantitas;
+                $stok->update();
+            } else {
+                // Handle jika stok tidak mencukupi
+                // Misalnya dengan memberikan pesan error atau mengubah status pemesanan menjadi gagal
+            }
+        }
     }
+
+    return redirect('indexhistoripembayaran');
+}
+ 
 }

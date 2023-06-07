@@ -44,7 +44,7 @@
                             class="text-danger">Rp. {{ number_format($produk->harga_produk)}}</b></p><hr>
                     <p class="text-dark"><b>DETAIL PRODUK {{$produk->nama_produk}}</b></p>
                     <p class="text-dark" style="font-family: ubuntu">{{$produk->deskripsi_produk}}</p>
-                    <p class="text-dark" style="font-family: ubuntu"><b>Stok Tersedia :</b> {{number_format($produk->total_stok_produk)}}</p>
+                    {{-- <p class="text-dark" style="font-family: ubuntu"><b>Stok Tersedia :</b> {{number_format($produk->total_stok_produk)}}</p> --}}
 
                     <!-- POST DATA -->
                     <form action="{{url('pesan')}}/{{$produk->id}}" method="POST">
@@ -61,7 +61,10 @@
                             <div class="col col-md-11">
                                 <select class="form-select" name="id_item_produk" required>
                                     @foreach ($item_produk as $item)
-                                    <option value="{{$item->id}}">{{$item->warna->nama_warna}} | {{$item->ukuran->nama_ukuran}} </option>
+                                        @if ($item->jumlah_stok == 0)
+                                        @else
+                                        <option value="{{$item->id}}">{{$item->warna->nama_warna}} | {{$item->ukuran->nama_ukuran}} </option>
+                                        @endif
                                     @endforeach
                                     @error('id_item_produk')
                                     <span class="invalid-feedback">{{ $message}}</span>

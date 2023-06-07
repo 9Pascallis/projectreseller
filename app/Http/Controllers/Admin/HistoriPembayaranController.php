@@ -39,7 +39,7 @@ class HistoriPembayaranController extends Controller
                 // dd($pemesanan);
         // cek validasi apakah pemesanan kosong
         if ($pemesanan->isEmpty()) {
-            return redirect()->back();
+            return view('/admin/histori/historipembayaran')->with(compact('jenis_produk', 'pemesanan'));
         } else {
             $detail_pemesanan = DetailPemesanan::whereIn('id_pemesanan', $pemesanan->pluck('id'))->get();
             return view('/admin/histori/historipembayaran')->with(compact('jenis_produk', 'pemesanan', 'detail_pemesanan'));

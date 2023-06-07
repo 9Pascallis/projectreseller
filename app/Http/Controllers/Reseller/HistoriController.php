@@ -45,12 +45,13 @@ class HistoriController extends Controller
         // dd($user);
         //cek validasi apakah pemesanan null
         if ($pemesanan == null) {
-            return redirect()->back();
+            return view ('reseller/histori/historipemesanan')->with(compact('jenis_produk', 'pemesanan', 'user'));
+            // return redirect()->back();
         }
         else{
             //cek validasi apakah total_harga_pemesanan = 0
             if ($pemesanan->invoice == 0) {
-                return redirect()->back();
+                return view ('reseller/histori/historipemesanan')->with(compact('jenis_produk', 'pemesanan', 'user'));
             }
             else
             {
