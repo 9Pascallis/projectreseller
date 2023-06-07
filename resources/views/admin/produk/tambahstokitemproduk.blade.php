@@ -32,16 +32,16 @@
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-3 col-form-label">Stok Item Produk</label>
                     <div class="col-sm-8">
-                        <input type="number" class="form-control" name="jumlah_stok"
-                            value="{{old('jumlah_stok')}}" required>
+                        <input type="number" class="form-control" name="jumlah_stok" value="{{old('jumlah_stok')}}"
+                            required>
                         @error('jumlah_stok')
                         <span class="invalid-feedback">{{ $message}}</span>
                         @enderror
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <div style="padding-right: 5px"><a href="/indexitemproduk/{{ $item_produk->produk->id }}" class="btn btn-secondary" role="button"
-                            aria-pressed="true">Cancel</a></div>
+                    <div style="padding-right: 5px"><a href="/indexitemproduk/{{ $item_produk->produk->id }}"
+                            class="btn btn-secondary" role="button" aria-pressed="true">Cancel</a></div>
                     <div><button type="submit" class="btn btn-success">Tambah</button></div>
                 </div>
             </form>

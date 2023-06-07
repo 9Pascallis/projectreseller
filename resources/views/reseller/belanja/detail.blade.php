@@ -38,33 +38,38 @@
             <!-- DESKRIPSI -->
             <div class="col-lg-7 h-auto mb-50" style="padding-right: 50px">
                 <div class="single_product_desc clearfix">
-                    <span style="font-family: ubuntu; font-size:medium"><b>{{ $produk->jenis_produk->nama_jenis_produk}}</b></span>
+                    <span
+                        style="font-family: ubuntu; font-size:medium"><b>{{ $produk->jenis_produk->nama_jenis_produk}}</b></span>
                     <h4 style="font-family: ubuntu">{{$produk->nama_produk}}</h4>
-                    <p class="product-price" style="font-family: ubuntu; font-size:large"><b
-                            class="text-danger">Rp. {{ number_format($produk->harga_produk)}}</b></p><hr>
+                    <p class="product-price" style="font-family: ubuntu; font-size:large"><b class="text-danger">Rp.
+                            {{ number_format($produk->harga_produk)}}</b></p>
+                    <hr>
                     <p class="text-dark"><b>DETAIL PRODUK {{$produk->nama_produk}}</b></p>
                     <p class="text-dark" style="font-family: ubuntu">{{$produk->deskripsi_produk}}</p>
-                    {{-- <p class="text-dark" style="font-family: ubuntu"><b>Stok Tersedia :</b> {{number_format($produk->total_stok_produk)}}</p> --}}
+                    {{-- <p class="text-dark" style="font-family: ubuntu"><b>Stok Tersedia :</b> {{number_format($produk->total_stok_produk)}}
+                    </p> --}}
 
                     <!-- POST DATA -->
                     <form action="{{url('pesan')}}/{{$produk->id}}" method="POST">
                         @csrf
-                        
+
                         {{-- <!-- PRODUK -->
                         <input type="hidden" name="id_produk" value="{{$produk->id}}"> --}}
 
                         <!-- ITEM PRODUK -->
                         <div class="row mb-3">
                             <div class="col col-md-1">
-                                <label for="inputText" style="font-family: ubuntu" class="col-form-label"><b>Varian</b>:</label>
+                                <label for="inputText" style="font-family: ubuntu"
+                                    class="col-form-label"><b>Varian</b>:</label>
                             </div>
                             <div class="col col-md-11">
                                 <select class="form-select" name="id_item_produk" required>
                                     @foreach ($item_produk as $item)
-                                        @if ($item->jumlah_stok == 0)
-                                        @else
-                                        <option value="{{$item->id}}">{{$item->warna->nama_warna}} | {{$item->ukuran->nama_ukuran}} </option>
-                                        @endif
+                                    @if ($item->jumlah_stok == 0)
+                                    @else
+                                    <option value="{{$item->id}}">{{$item->warna->nama_warna}} |
+                                        {{$item->ukuran->nama_ukuran}} </option>
+                                    @endif
                                     @endforeach
                                     @error('id_item_produk')
                                     <span class="invalid-feedback">{{ $message}}</span>
@@ -72,7 +77,7 @@
                                 </select>
                             </div>
                         </div>
-                        
+
                         <!-- JUMLAH PEMBELIAN -->
                         <p class="text-dark" style="font-family: ubuntu"><b>Jumlah Pembelian: </b></p>
                         <div>
@@ -83,7 +88,8 @@
                                 type="number" style="width: 70px;" style="color: black">
                             <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
                                 class="btn essence1-btn bg-info"><i class="fa fa-plus"></i></button>
-                        </div><hr><br>
+                        </div>
+                        <hr><br>
 
                         <!-- CHECKOUT -->
                         <div class="cart-fav-box d-flex align-items-center">

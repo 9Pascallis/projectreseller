@@ -72,5 +72,6 @@
     }
     toastr.success("{{ session('destroy') }}");
     @endif
+
 </script>
 @endsection

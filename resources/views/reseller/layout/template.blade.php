@@ -23,9 +23,10 @@
             <nav class="classy-navbar" id="essenceNav">
                 <!-- LOGO -->
                 <div style="padding-right: 10px"><a href="{{route('belanja')}}">
-                    <img src="{{asset('assets_reseller/img/core-img/logoputih.png')}}" width="180px" style="padding-bottom: 10px" alt="">
+                        <img src="{{asset('assets_reseller/img/core-img/logoputih.png')}}" width="180px"
+                            style="padding-bottom: 10px" alt="">
 
-                </a>
+                    </a>
 
                 </div>
                 {{-- <a class="nav-brand" href="{{route('reseller-index')}}"><img
@@ -47,7 +48,7 @@
                                 </ul>
                             </li>
                             <li><a href="{{route('histori')}}"
-                                style="font-weight: 600; color: #ffffff; font-family: ubuntu">Histori</a>
+                                    style="font-weight: 600; color: #ffffff; font-family: ubuntu">Histori</a>
                             </li>
                             <li><a href="{{route('indexadmin')}}"
                                     style="font-weight: 600; color: #ffffff; font-family: ubuntu">Dashboard</a>
@@ -61,13 +62,13 @@
             <div class="header-meta d-flex clearfix justify-content-end">
                 <!-- PROFIL -->
                 <div class="user-login-info">
-                    <a href="{{route('profil')}}"><img src="{{asset('assets_reseller/img/core-img/user.svg')}}" alt=""></a>
+                    <a href="{{route('profil')}}"><img src="{{asset('assets_reseller/img/core-img/user.svg')}}"
+                            alt=""></a>
                 </div>
                 <!-- KERANJANG -->
                 <div class="user-login-info">
                     <a href="{{route('keranjang')}}">
-                        <i class="fa fa-shopping-cart fa-lg"
-                            style="color: #ffffff;"></i></a>
+                        <i class="fa fa-shopping-cart fa-lg" style="color: #ffffff;"></i></a>
                 </div>
             </div>
         </div>
@@ -163,4 +164,5 @@
     <script src="{{asset('assets_admin/js/alertcrud.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
+
 </html>

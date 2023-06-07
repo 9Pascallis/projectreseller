@@ -12,8 +12,9 @@
                     <div class="col-6">
                         <div class="col">
                             <h5 class="mb-1"><b>Detail Pembayaran</b></h5>
-                        Tanggal Pembayaran: <b><?php echo date('d-m-Y', strtotime($pemesanan->tanggal_pembayaran));?></b>
-                            
+                            Tanggal Pembayaran:
+                            <b><?php echo date('d-m-Y', strtotime($pemesanan->tanggal_pembayaran));?></b>
+
                         </div>
                     </div>
                     <div class="col-6 text-md-end">
@@ -106,15 +107,15 @@
                         <div class="col d-flex justify-content-end">
                             <div>
                                 <small>No Resi :</small>
-                            <address class="m-t-5 m-b-5">
-                                <strong class="text-inverse">{{ $pemesanan->no_resi }}</strong><br>
-                                Jasa Kurir: {{ $pemesanan->nama_jasa_kurir }}<br>
-                                Layanan: {{ $pemesanan->nama_jenis_layanan }}<br>
-                            </address>
+                                <address class="m-t-5 m-b-5">
+                                    <strong class="text-inverse">{{ $pemesanan->no_resi }}</strong><br>
+                                    Jasa Kurir: {{ $pemesanan->nama_jasa_kurir }}<br>
+                                    Layanan: {{ $pemesanan->nama_jenis_layanan }}<br>
+                                </address>
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 

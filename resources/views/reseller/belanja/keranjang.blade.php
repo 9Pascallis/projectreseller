@@ -2,7 +2,7 @@
 @section('title', 'Reseller | Keranjang')
 
 @section('content')
-@if ($pemesanan == null || $pemesanan->total_harga_pemesanan == 0  )
+@if ($pemesanan == null || $pemesanan->total_harga_pemesanan == 0 )
 <br><br>
 <!-- SECTION -->
 <div class="container-fluid mb-100">

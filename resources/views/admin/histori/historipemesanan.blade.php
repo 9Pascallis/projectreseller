@@ -18,12 +18,12 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                                <th>NO INVOICE</th>
-                                <th>TGL PEMESANAN</th>
-                                <th>NAMA RESELLER</th>
-                                <th>TOTAL HARGA</th>
-                                <th class="text-center">STATUS</th>
-                                <th class="text-center">CONFIRM</th>
+                        <th>NO INVOICE</th>
+                        <th>TGL PEMESANAN</th>
+                        <th>NAMA RESELLER</th>
+                        <th>TOTAL HARGA</th>
+                        <th class="text-center">STATUS</th>
+                        <th class="text-center">CONFIRM</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,8 +39,8 @@
                         <td>Rp. {{ number_format($item->total_harga_pemesanan) }}</td>
                         <td class="text-center"><span class="badge bg-warning text-light">BELUM DIBAYAR</span></td>
                         <td class="text-center">
-                            <a class="btn btn-sm btn-outline-warning px-2" href="/konfirmasipembayaran/{{ $item->id }}"><i
-                                class="fa fa-pencil"></i></a>
+                            <a class="btn btn-sm btn-outline-warning px-2"
+                                href="/konfirmasipembayaran/{{ $item->id }}"><i class="fa fa-pencil"></i></a>
                         </td>
                     </tr>
                     @endforeach

@@ -52,8 +52,8 @@
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-3 col-form-label">Harga Produk</label>
                     <div class="col-sm-8">
-                        <input type="number" class="form-control" name="harga_produk"
-                            value="{{old('harga_produk')}}" required>
+                        <input type="number" class="form-control" name="harga_produk" value="{{old('harga_produk')}}"
+                            required>
                         @error('harga_produk')
                         <span class="invalid-feedback">{{ $message}}</span>
                         @enderror

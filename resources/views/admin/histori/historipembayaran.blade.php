@@ -33,20 +33,20 @@
                     @foreach ($pemesanan as $item)
                     <tr>
                         <td>{{ $no++}}</td>
-                                <td>{{$item->invoice}}</td>
-                                <td><?php echo date('d-m-Y', strtotime($item->tanggal_pemesanan)); ?></td>
-                                <td>{{$item->user->nama_lengkap_user}}</td>
-                                <td>Rp. {{ number_format($item->total_harga_pemesanan) }}</td>
-                                
-                                <td class="text-center"><span class="badge bg-success text-light">SUDAH DIBAYAR</span></td>
-                                <td class="text-center">
-                                    <a class="btn btn-sm btn-outline-info px-2" href="/detailhistoripembayaran/{{ $item->id }}"><i
-                                            class="fa fa-eye"></i></a>
-                                </td>
+                        <td>{{$item->invoice}}</td>
+                        <td><?php echo date('d-m-Y', strtotime($item->tanggal_pemesanan)); ?></td>
+                        <td>{{$item->user->nama_lengkap_user}}</td>
+                        <td>Rp. {{ number_format($item->total_harga_pemesanan) }}</td>
+
+                        <td class="text-center"><span class="badge bg-success text-light">SUDAH DIBAYAR</span></td>
+                        <td class="text-center">
+                            <a class="btn btn-sm btn-outline-info px-2"
+                                href="/detailhistoripembayaran/{{ $item->id }}"><i class="fa fa-eye"></i></a>
+                        </td>
                     </tr>
                     @endforeach
-                    
-                    
+
+
                 </tbody>
             </table>
         </div>

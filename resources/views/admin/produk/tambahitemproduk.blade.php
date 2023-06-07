@@ -53,8 +53,8 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <div style="padding-right: 5px"><a href="/indexitemproduk/{{ $produk->id }}" class="btn btn-secondary" role="button"
-                            aria-pressed="true">Cancel</a></div>
+                    <div style="padding-right: 5px"><a href="/indexitemproduk/{{ $produk->id }}"
+                            class="btn btn-secondary" role="button" aria-pressed="true">Cancel</a></div>
                     <div><button type="submit" class="btn btn-success">Tambah</button></div>
                 </div>
             </form>

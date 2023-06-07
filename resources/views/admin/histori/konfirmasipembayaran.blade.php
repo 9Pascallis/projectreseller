@@ -42,7 +42,7 @@
                     </address>
                 </div>
             </div>
-            
+
         </div>
     </div>
 
@@ -61,7 +61,9 @@
                     @foreach ($detail_pemesanan as $item)
                     <tr>
                         <td>
-                            <p>{{ $item->item_produk->produk->nama_produk }} ({{ $item->item_produk->warna->nama_warna }} | {{ $item->item_produk->ukuran->nama_ukuran }})</p>
+                            <p>{{ $item->item_produk->produk->nama_produk }}
+                                ({{ $item->item_produk->warna->nama_warna }} |
+                                {{ $item->item_produk->ukuran->nama_ukuran }})</p>
                         </td>
                         <td class="text-center">Rp. {{ number_format($item->item_produk->produk->harga_produk) }}</td>
                         <td class="text-center">{{ $item->kuantitas }}</td>
@@ -76,7 +78,8 @@
 
     <div class="card-header py-2">
         <div class="">
-            <h6 class="text-end">Total Harga:<b style="color: red"> Rp. {{ number_format($pemesanan->total_harga_pemesanan) }}</b></h6>
+            <h6 class="text-end">Total Harga:<b style="color: red"> Rp.
+                    {{ number_format($pemesanan->total_harga_pemesanan) }}</b></h6>
         </div><br><br>
         <div class="row row-cols-12 row-cols-lg-12">
             <div class="col">
@@ -117,13 +120,13 @@
 
     <div class="card-body">
         <div class="d-flex justify-content-end">
-            <div style="padding-right: 5px"><a href="{{route('indexhistoripemesanan')}}" class="btn btn-secondary" role="button"
-                    aria-pressed="true">Cancel</a></div>
+            <div style="padding-right: 5px"><a href="{{route('indexhistoripemesanan')}}" class="btn btn-secondary"
+                    role="button" aria-pressed="true">Cancel</a></div>
             <form action="/konfirmasi/{{ $pemesanan->id }}" method="POST">
                 @csrf
                 <div><button type="submit" class="btn btn-success">Konfirmasi</button></div>
             </form>
-            
+
         </div>
     </div>
 </div>

@@ -29,7 +29,7 @@
                     <div class=""><b> {{ $pemesanan->invoice }}</b></div>
                     <div class="invoice-detail">
                         Tgl Pemesanan: <?php echo date('d-m-Y', strtotime($pemesanan->tanggal_pemesanan));?><br>
-                        
+
                         <span class="badge bg-success text-light">SUDAH DIBAYAR</span>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                     </address>
                 </div>
             </div>
-            
+
         </div>
     </div>
     {{-- @endforeach --}}
@@ -64,7 +64,9 @@
                     @foreach ($detail_pemesanan as $item)
                     <tr>
                         <td>
-                            <p>{{ $item->item_produk->produk->nama_produk }} ({{ $item->item_produk->warna->nama_warna }} | {{ $item->item_produk->ukuran->nama_ukuran }})</p>
+                            <p>{{ $item->item_produk->produk->nama_produk }}
+                                ({{ $item->item_produk->warna->nama_warna }} |
+                                {{ $item->item_produk->ukuran->nama_ukuran }})</p>
                         </td>
                         <td class="text-center">Rp. {{ number_format($item->item_produk->produk->harga_produk) }}</td>
                         <td class="text-center">{{ $item->kuantitas }}</td>
@@ -79,7 +81,8 @@
 
     <div class="card-header py-2">
         <div class="">
-            <h6 class="text-end">Total Harga:<b style="color: red"> Rp. {{ number_format($pemesanan->total_harga_pemesanan) }}</b></h6>
+            <h6 class="text-end">Total Harga:<b style="color: red"> Rp.
+                    {{ number_format($pemesanan->total_harga_pemesanan) }}</b></h6>
         </div><br><br>
         <div class="row row-cols-12 row-cols-lg-12">
             <div class="col">
@@ -120,8 +123,8 @@
 
     <div class="card-body">
         <div class="d-flex justify-content-end">
-            <div style="padding-right: 5px"><a href="{{route('indexhistoripembayaran')}}" class="btn btn-info text-light" role="button"
-                    aria-pressed="true">Kembali</a></div>
+            <div style="padding-right: 5px"><a href="{{route('indexhistoripembayaran')}}"
+                    class="btn btn-info text-light" role="button" aria-pressed="true">Kembali</a></div>
         </div>
     </div>
 </div>

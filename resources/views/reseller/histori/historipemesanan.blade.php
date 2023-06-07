@@ -2,14 +2,16 @@
 @section('title', 'Reseller | Histori')
 
 @section('content')
-@if ($pemesanan == null || $pemesanan->invoice == 0  )
+@if ($pemesanan == null || $pemesanan->invoice == 0 )
 <br><br>
 <!-- SECTION -->
 <div class="checkout_area mb-100">
     <div class="container">
         <div class="card-body">
             <!-- JUDUL -->
-            <h5 class="mb-0 text-uppercase text-center mb-50">Histori Pemesanan<hr></h5>
+            <h5 class="mb-0 text-uppercase text-center mb-50">Histori Pemesanan
+                <hr>
+            </h5>
             <!-- JUDUL END -->
             <div class="table-responsive">
                 <table id="example2" class="table table-striped table-bordered">
@@ -45,7 +47,9 @@
     <div class="container">
         <div class="card-body">
             <!-- JUDUL -->
-            <h5 class="mb-0 text-uppercase text-center mb-50">Histori Pemesanan<hr></h5>
+            <h5 class="mb-0 text-uppercase text-center mb-50">Histori Pemesanan
+                <hr>
+            </h5>
             <!-- JUDUL END -->
             <div class="table-responsive">
                 <table id="example2" class="table table-striped table-bordered">
@@ -77,7 +81,7 @@
                             <td class="text-center"><span class="badge bg-warning text-light">BELUM DIBAYAR</span></td>
                             <td class="text-center">
                                 <a class="btn btn-sm btn-outline-warning" href="/historipemesanan/{{ $item->id }}"><i
-                                    class="fa fa-eye"></i></a>
+                                        class="fa fa-eye"></i></a>
                             </td>
                             @else
                             <td class="text-center"><span class="badge bg-success text-light">SUDAH DIBAYAR</span></td>

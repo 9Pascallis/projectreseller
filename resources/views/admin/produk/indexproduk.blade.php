@@ -61,7 +61,7 @@
                         <td>Rp. {{ number_format($item->harga_produk)}}</td>
                         <td class="text-center">
                             <a class="btn btn-sm btn-outline-info px-2" href="/detailproduk/{{ $item->id }}"><i
-                                class="fa fa-eye"></i></a>
+                                    class="fa fa-eye"></i></a>
                             <a class="btn btn-sm btn-outline-warning px-2" href="/editproduk/{{ $item->id }}"><i
                                     class="fa fa-pencil"></i></a>
                             <a class="btn btn-sm btn-outline-danger px-2 deleteproduk" data-id="{{ $item->id }}"

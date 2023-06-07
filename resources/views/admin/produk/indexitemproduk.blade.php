@@ -7,15 +7,18 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <a href="/indexproduk" class="btn btn-secondary" role="button" aria-pressed="true">Kembali</a><hr>
-        
+        <a href="/indexproduk" class="btn btn-secondary" role="button" aria-pressed="true">Kembali</a>
+        <hr>
+
         <!-- JUDUL -->
-        <h5 class="mb-0 text-uppercase text-center" style="padding-top: 30px">Item Produk {{ $produk->nama_produk}}</h5><br><br>
+        <h5 class="mb-0 text-uppercase text-center" style="padding-top: 30px">Item Produk {{ $produk->nama_produk}}</h5>
+        <br><br>
         <!-- JUDUL END -->
 
         <div class="row" style="margin-left: 20px; margin-right: 20px">
             <div class="col-12">
-                <a href="/tambahitemproduk/{{ $produk->id }}" class="btn btn-success" role="button" aria-pressed="true">+ Item Produk</a>
+                <a href="/tambahitemproduk/{{ $produk->id }}" class="btn btn-success" role="button"
+                    aria-pressed="true">+ Item Produk</a>
             </div><br>
             <!-- ISI -->
             <div class="table-responsive" style="padding-top: 30px">
@@ -45,11 +48,12 @@
                             <td class="text-center">{{ $item->warna->nama_warna}}</td>
                             <td class="text-center">{{ $item->jumlah_stok ?? '-' }}</td>
                             <td class="text-center">
-                                <a class="btn btn-sm btn-outline-danger px-2 deleteitemproduk" data-id="{{ $item->id }}"><i class="fa fa-trash"></i></a>
+                                <a class="btn btn-sm btn-outline-danger px-2 deleteitemproduk"
+                                    data-id="{{ $item->id }}"><i class="fa fa-trash"></i></a>
                             </td>
                             <td class="text-center">
-                                <a class="btn btn-sm btn-outline-info px-2" href="/tambahstokitemproduk/{{ $item->id }}"><i
-                                        class="fa fa-plus"></i></a>
+                                <a class="btn btn-sm btn-outline-info px-2"
+                                    href="/tambahstokitemproduk/{{ $item->id }}"><i class="fa fa-plus"></i></a>
                             </td>
                         </tr>
                         @endforeach

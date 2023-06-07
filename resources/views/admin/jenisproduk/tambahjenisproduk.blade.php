@@ -4,7 +4,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        
+
         <!--JUDUL-->
         <h5 class="mb-0 text-uppercase text-center">Tambah Jenis Produk</h5>
         <hr><br>

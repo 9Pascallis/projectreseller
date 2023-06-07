@@ -40,73 +40,73 @@
                         </div>
                         <p>*Jika email atau no telp berganti, harap untuk segera menghubungi admin.</p>
                         @if ($user->alamat ==null)
-                            <div class="row justify-content-between mt-30">
-                                <div class="col-md-3" style="padding-right: 5px;">
-                                    <a href="{{route('tambahalamat')}}" class="btn essence-btn bg-success">TAMBAH ALAMAT</a>
-                                </div>
+                        <div class="row justify-content-between mt-30">
+                            <div class="col-md-3" style="padding-right: 5px;">
+                                <a href="{{route('tambahalamat')}}" class="btn essence-btn bg-success">TAMBAH ALAMAT</a>
                             </div>
+                        </div>
                         @else
-                            <div class="col-md-12 mb-3 mb-30 text-center mt-30">
-                                <h5 class="text-center">ALAMAT</h5>
-                                <hr>
+                        <div class="col-md-12 mb-3 mb-30 text-center mt-30">
+                            <h5 class="text-center">ALAMAT</h5>
+                            <hr>
+                        </div>
+                        <div class="row" style="padding-bottom: 10px">
+                            <div class="col-md-2">
+                                <p class="text-dark"><b>Alamat:</b></p>
                             </div>
-                            <div class="row" style="padding-bottom: 10px">
-                                <div class="col-md-2">
-                                    <p class="text-dark"><b>Alamat:</b></p>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" value="{{ $user->alamat }}" disabled>
-                                </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" value="{{ $user->alamat }}" disabled>
                             </div>
-                            <div class="row" style="padding-bottom: 10px">
-                                <div class="col-md-2">
-                                    <p class="text-dark"><b>Provinsi:</b></p>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" value="{{ $user->provinsi }}" disabled>
-                                </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 10px">
+                            <div class="col-md-2">
+                                <p class="text-dark"><b>Provinsi:</b></p>
                             </div>
-                            <div class="row" style="padding-bottom: 10px">
-                                <div class="col-md-2">
-                                    <p class="text-dark"><b>Kota:</b></p>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" value="{{ $user->kota }}" disabled>
-                                </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" value="{{ $user->provinsi }}" disabled>
                             </div>
-                            <div class="row" style="padding-bottom: 10px">
-                                <div class="col-md-2">
-                                    <p class="text-dark"><b>Kecamatan:</b></p>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" value="{{ $user->kecamatan }}" disabled>
-                                </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 10px">
+                            <div class="col-md-2">
+                                <p class="text-dark"><b>Kota:</b></p>
                             </div>
-                            <div class="row" style="padding-bottom: 10px">
-                                <div class="col-md-2">
-                                    <p class="text-dark"><b>Kode Pos:</b></p>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" value="{{ $user->kode_pos }}" disabled>
-                                </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" value="{{ $user->kota }}" disabled>
                             </div>
-                            <div class="row justify-content-between mt-30">
-                                <div class="col-md-3" style="padding-right: 5px;">
-                                    <a href="editalamat/{{ $user->id }}" class="btn essence-btn bg-secondary">EDIT
-                                        ALAMAT</a>
-                                </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 10px">
+                            <div class="col-md-2">
+                                <p class="text-dark"><b>Kecamatan:</b></p>
                             </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" value="{{ $user->kecamatan }}" disabled>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 10px">
+                            <div class="col-md-2">
+                                <p class="text-dark"><b>Kode Pos:</b></p>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" value="{{ $user->kode_pos }}" disabled>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between mt-30">
+                            <div class="col-md-3" style="padding-right: 5px;">
+                                <a href="editalamat/{{ $user->id }}" class="btn essence-btn bg-secondary">EDIT
+                                    ALAMAT</a>
+                            </div>
+                        </div>
                         @endif
-                            <div class="row justify-content-end mt-30 mb-30">
-                                <div class="col-md-3">
-                                    <form action="{{route('logout')}}" method="POST">
-                                        @csrf
-                                        <button class="btn essence-btn bg-danger">
-                                            LOGOUT
-                                        </button>
-                                    </form>
-                                </div>
+                        <div class="row justify-content-end mt-30 mb-30">
+                            <div class="col-md-3">
+                                <form action="{{route('logout')}}" method="POST">
+                                    @csrf
+                                    <button class="btn essence-btn bg-danger">
+                                        LOGOUT
+                                    </button>
+                                </form>
                             </div>
+                        </div>
                     </div>
 
                 </div>
