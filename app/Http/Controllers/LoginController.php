@@ -22,14 +22,24 @@ class LoginController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required']
         ]);
- 
+    
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/belanja');
+    
+            // Mendapatkan peran (role) pengguna yang berhasil login
+            $user = Auth::user();
+            $idRole = $user->id_role;
+    
+            if ($idRole === 1) {
+                return redirect('/admin');
+            } elseif ($idRole === 2) {
+                return redirect('/belanja');
+            }
         }
- 
+    
         return back()->with('loginError', 'Login failed');
     }
+    
 
     public function logout()
 {

@@ -148,7 +148,7 @@
                 <div class="mobile-menu-button">
                     <ion-icon name="menu-sharp"></ion-icon>
                 </div>
-                <form class="searchbar">
+                {{-- <form class="searchbar">
                     <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
                         <ion-icon name="search-sharp"></ion-icon>
                     </div>
@@ -156,18 +156,18 @@
                     <div class="position-absolute top-50 translate-middle-y search-close-icon">
                         <ion-icon name="close-sharp"></ion-icon>
                     </div>
-                </form>
+                </form> --}}
                 <div class="top-navbar-right ms-auto">
 
                     <ul class="navbar-nav align-items-center">
-                        <li class="nav-item mobile-search-button">
+                        {{-- <li class="nav-item mobile-search-button">
                             <a class="nav-link" href="javascript:;">
                                 <div class="">
                                     <ion-icon name="search-sharp"></ion-icon>
                                 </div>
                             </a>
-                        </li>
-                        {{-- Halo, {{Auth::user()->nama_lengkap_user}} --}}
+                        </li> --}}
+                        
                         <li class="nav-item dropdown dropdown-user-setting">
                             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
                                 data-bs-toggle="dropdown">
