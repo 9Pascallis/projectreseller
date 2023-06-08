@@ -59,4 +59,14 @@
 <script src="assets_admin/plugins/datatable/js/jquery.dataTables.min.js"></script>
 <script src="assets_admin/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
 <script src="assets_admin/js/table-datatable.js"></script>
+<script>
+    @if(Session::has('create'))
+    toastr.options = {
+        "closeButton": true,
+        "progressBar": true
+    }
+    toastr.success("{{ session('create') }}");
+    @endif
+</script>
+
 @endsection

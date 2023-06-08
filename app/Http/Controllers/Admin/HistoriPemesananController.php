@@ -105,7 +105,7 @@ class HistoriPemesananController extends Controller
         }
     }
 
-    return redirect('indexhistoripembayaran');
+    return redirect('indexhistoripembayaran')->with('create', 'Berhasil di konfirmasi!');;
 }
  
 }
