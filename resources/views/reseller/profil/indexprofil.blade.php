@@ -38,11 +38,12 @@
                                 <input type="text" class="form-control" value="{{ $user->no_telp_user }}" disabled>
                             </div>
                         </div>
-                        <p>*Jika email atau no telp berganti, harap untuk segera menghubungi admin.</p>
+                        <p>*Jika no telp berganti, harap untuk segera menghubungi admin (08112125900)</p>
                         @if ($user->alamat ==null)
-                        <div class="row justify-content-between mt-30">
-                            <div class="col-md-3" style="padding-right: 5px;">
-                                <a href="{{route('tambahalamat')}}" class="btn essence-btn bg-success">TAMBAH ALAMAT</a>
+                        <div class="col mt-30">
+                            <p class="text-center" style="color: orange"><b>ANDA BELUM MEMASUKKAN ALAMAT</b></p>
+                            <div class="text-center">
+                                <a href="{{route('tambahalamat')}}" class="btn essence-btn bg-info">TAMBAH ALAMAT</a>
                             </div>
                         </div>
                         @else

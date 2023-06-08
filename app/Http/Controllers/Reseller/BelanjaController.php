@@ -18,7 +18,16 @@ class BelanjaController extends Controller
         $produk = Produk::where('nama_produk', 'LIKE', '%'.$keyword.'%')->paginate(9);
         $produk->withPath('belanja');
         $produk->appends($request->all());
-        return view ('reseller/belanja/belanja', compact('produk','jenis_produk', 'keyword'));
+
+        if ($request->jenis_produk) {
+            $jenisProduk = JenisProduk::where('nama_jenis_produk', $request->jenis_produk)->firstOrFail();
+            $produk = $jenisProduk->produk()->paginate(3);
+
+        }
+        $totalProduk = $produk->count();
+
+        
+        return view ('reseller/belanja/belanja', compact('produk','jenis_produk', 'keyword', 'totalProduk'));
     }
 
     public function show($id)

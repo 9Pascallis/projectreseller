@@ -24,21 +24,21 @@
                 <!-- LOGO -->
                 <div style="padding-right: 10px"><a href="{{route('belanja')}}">
                         <img src="{{asset('assets_reseller/img/core-img/logoputih.png')}}" width="180px"
-                            style="padding-bottom: 10px" alt="">
-
-                    </a>
-
+                            style="padding-bottom: 10px" alt=""></a>
                 </div>
-                {{-- <a class="nav-brand" href="{{route('reseller-index')}}"><img
-                    src="assets_reseller/img/core-img/logoputih.png" width="180px" style="padding-bottom: 10px"
-                    alt=""></a> --}}
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
                 <!-- NAVIGASI -->
                 <div class="classy-menu">
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top" style="background-color: white;"></span><span class="bottom" style="background-color: white;"></span></div>
+                    </div>
                     <div class="classynav">
                         <ul>
                             <li><a href="{{route('belanja')}}"
                                     style="font-weight: 600; color: #ffffff; font-family: ubuntu">Belanja</a></li>
-                            <li><a href="#" style="font-weight: 600; color: #ffffff; font-family: ubuntu">Produk</a>
+                            {{-- <li><a href="#" style="font-weight: 600; color: #ffffff; font-family: ubuntu">Produk</a>
                                 <ul class="dropdown btn-light">
                                     @foreach ( $jenis_produk as $item)
                                     <li><a
@@ -46,13 +46,13 @@
                                     </li>
                                     @endforeach
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li><a href="{{route('histori')}}"
                                     style="font-weight: 600; color: #ffffff; font-family: ubuntu">Histori</a>
                             </li>
-                            <li><a href="{{route('indexadmin')}}"
-                                    style="font-weight: 600; color: #ffffff; font-family: ubuntu">Dashboard</a>
-                            </li>
+                            <li><a href="{{route('profil')}}"
+                                style="font-weight: 600; color: #ffffff; font-family: ubuntu">Profil</a>
+                        </li>
                         </ul>
                     </div>
                 </div>
@@ -60,15 +60,21 @@
 
             <!-- HEADER KANAN -->
             <div class="header-meta d-flex clearfix justify-content-end">
+                {{-- <!-- PROFIL -->
+                <div class="user-login-info">
+                    <a href="{{route('belanja')}}"><i class="fa fa-lg fa-shopping-bag" style="color: white" aria-hidden="true"></i></a>
+                </div>
                 <!-- PROFIL -->
                 <div class="user-login-info">
-                    <a href="{{route('profil')}}"><img src="{{asset('assets_reseller/img/core-img/user.svg')}}"
-                            alt=""></a>
+                    <a href="{{route('histori')}}"><i class="fa fa-lg fa-history" style="color: white" aria-hidden="true"></i></a>
                 </div>
+                <!-- PROFIL -->
+                <div class="user-login-info">
+                    <a href="{{route('profil')}}"><i class="fa fa-lg fa-user" style="color: white" aria-hidden="true"></i></a>
+                </div> --}}
                 <!-- KERANJANG -->
                 <div class="user-login-info">
-                    <a href="{{route('keranjang')}}">
-                        <i class="fa fa-shopping-cart fa-lg" style="color: #ffffff;"></i></a>
+                    <a href="{{route('keranjang')}}"><i class="fa fa-shopping-cart fa-lg" style="color: #ffffff;"></i></a>
                 </div>
             </div>
         </div>

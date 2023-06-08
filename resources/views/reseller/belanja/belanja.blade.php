@@ -27,15 +27,16 @@
                                             <hr>
                                         </div>
                                         @foreach ( $jenis_produk as $item)
-                                        <li><a
-                                                href="{{route('belanja', ['jenis_kategori' => $item->nama_jenis_produk])}}"><b
-                                                    class="text-dark"
-                                                    style="font-family: ubuntu; font-weight: 600">&#8226;
-                                                    {{ $item->nama_jenis_produk}}</b></a></li>
-                                        <div style="padding-right: 50px">
-                                            <hr>
-                                        </div>
+                                            <li>
+                                                <a href="{{ route('belanja', ['jenis_produk' => $item->nama_jenis_produk]) }}">
+                                                    <b class="text-dark" style="font-family: ubuntu; font-weight: 600">&#8226; {{ $item->nama_jenis_produk}}</b>
+                                                </a>
+                                            </li>
+                                            <div style="padding-right: 50px">
+                                                <hr>
+                                            </div>
                                         @endforeach
+
                                     </ul>
                                 </li>
                             </ul>
@@ -65,7 +66,7 @@
                             <div class="product-topbar d-flex align-items-center justify-content-between">
                                 <!-- TOTAL PRODUK -->
                                 <div class="total-products">
-                                    <p><span style="color: #ff4a00">186</span> Produk Ditemukan</p>
+                                    <p><span style="color: #ff4a00">{{ $totalProduk }}</span> Produk Ditemukan</p>
                                 </div>
                                 <!-- TAMPILKAN -->
                                 <div class="product-sorting d-flex">
