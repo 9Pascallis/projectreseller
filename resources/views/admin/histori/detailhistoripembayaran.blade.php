@@ -68,9 +68,9 @@
                                 ({{ $item->item_produk->warna->nama_warna }} |
                                 {{ $item->item_produk->ukuran->nama_ukuran }})</p>
                         </td>
-                        <td class="text-center">Rp. {{ number_format($item->item_produk->produk->harga_produk) }}</td>
+                        <td class="text-center">Rp. {{ number_format($item->item_produk->produk->harga_produk, 0, ',', '.') }}</td>
                         <td class="text-center">{{ $item->kuantitas }}</td>
-                        <td class="text-center">Rp. {{ number_format($item->jumlah_harga) }}</td>
+                        <td class="text-center">Rp. {{ number_format($item->jumlah_harga, 0, ',', '.') }}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -82,7 +82,7 @@
     <div class="card-header py-2">
         <div class="">
             <h6 class="text-end">Total Harga:<b style="color: red"> Rp.
-                    {{ number_format($pemesanan->total_harga_pemesanan) }}</b></h6>
+                    {{ number_format($pemesanan->total_harga_pemesanan, 0, ',', '.') }}</b></h6>
         </div><br><br>
         <div class="row row-cols-12 row-cols-lg-12">
             <div class="col">

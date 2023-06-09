@@ -76,7 +76,7 @@
                             <td><?php echo date('d-m-Y', strtotime($pemesanan->tanggal_pemesanan)); ?></td>
                             <td>{{$item->nama_lengkap}}</td>
                             <td>{{$item->nomor_hp}}</td>
-                            <td>Rp. {{ number_format($item->total_harga_pemesanan) }}</td>
+                            <td>Rp. {{ number_format($item->total_harga_pemesanan, 0, ',', '.') }}</td>
                             @if ($item->status == 1)
                             <td class="text-center"><span class="badge bg-warning text-light">BELUM DIBAYAR</span></td>
                             <td class="text-center">

@@ -36,7 +36,7 @@
                         <td>{{$item->invoice}}</td>
                         <td><?php echo date('d-m-Y', strtotime($item->tanggal_pemesanan)); ?></td>
                         <td>{{$item->user->nama_lengkap_user}}</td>
-                        <td>Rp. {{ number_format($item->total_harga_pemesanan) }}</td>
+                        <td>Rp. {{ number_format($item->total_harga_pemesanan, 0, ',', '.') }}</td>
                         <td class="text-center"><span class="badge bg-warning text-light">BELUM DIBAYAR</span></td>
                         <td class="text-center">
                             <a class="btn btn-sm btn-outline-warning px-2"

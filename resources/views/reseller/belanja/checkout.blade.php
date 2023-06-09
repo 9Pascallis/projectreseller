@@ -80,10 +80,10 @@
                                     {{ $item->item_produk->warna->nama_warna }} |
                                     {{ $item->item_produk->ukuran->nama_ukuran }} ({{ $item->kuantitas }})
                                 </span><span>Rp.
-                                    {{ number_format($item->jumlah_harga) }}</span></li>
+                                    {{ number_format($item->jumlah_harga, 0, ',', '.') }}</span></li>
                             @endforeach
                             <li><span><b>Total Harga</b></span> <span><b>Rp.
-                                        {{ number_format($pemesanan->total_harga_pemesanan) }}</b></span></li>
+                                        {{ number_format($pemesanan->total_harga_pemesanan, 0, ',', '.') }}</b></span></li>
                             @endif
 
                         </ul>

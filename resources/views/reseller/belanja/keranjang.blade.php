@@ -82,9 +82,9 @@
                         <td class="align-middle">{{ $item->item_produk->produk->nama_produk }}</td>
                         <td class="align-middle">{{ $item->item_produk->warna->nama_warna }} |
                             {{ $item->item_produk->ukuran->nama_ukuran }}</td>
-                        <td class="align-middle">Rp. {{ number_format($item->item_produk->produk->harga_produk) }}</td>
+                        <td class="align-middle">Rp. {{ number_format($item->item_produk->produk->harga_produk, 0, ',', '.') }}</td>
                         <td class="align-middle">{{ $item->kuantitas }}</td>
-                        <td class="align-middle">Rp. {{ number_format($item->jumlah_harga) }}</td>
+                        <td class="align-middle">Rp. {{ number_format($item->jumlah_harga, 0, ',', '.') }}</td>
                         <td class="align-middle actions" data-th="">
                             <form action="{{url('deletekeranjang')}}/{{$item->id}}" method="POST">
                                 @csrf
@@ -116,7 +116,7 @@
                     <div class="pt-2 mb-3">
                         <div class="d-flex justify-content-between mt-2">
                             <h6>TOTAL HARGA:</h6>
-                            <h6>Rp. {{ number_format($pemesanan->total_harga_pemesanan) }}</h6>
+                            <h6>Rp. {{ number_format($pemesanan->total_harga_pemesanan, 0, ',', '.') }}</h6>
                         </div>
                         <hr>
                     </div>

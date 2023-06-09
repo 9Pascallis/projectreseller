@@ -42,7 +42,7 @@
                         style="font-family: ubuntu; font-size:medium"><b>{{ $produk->jenis_produk->nama_jenis_produk}}</b></span>
                     <h4 style="font-family: ubuntu">{{$produk->nama_produk}}</h4>
                     <p class="product-price" style="font-family: ubuntu; font-size:large"><b class="text-danger">Rp.
-                            {{ number_format($produk->harga_produk)}}</b></p>
+                            {{ number_format($produk->harga_produk, 0, ',', '.')}}</b></p>
                     <hr>
                     <p class="text-dark"><b>DETAIL PRODUK {{$produk->nama_produk}}</b></p>
                     <p class="text-dark" style="font-family: ubuntu">{{$produk->deskripsi_produk}}</p>

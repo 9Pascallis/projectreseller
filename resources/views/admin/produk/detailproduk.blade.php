@@ -31,7 +31,7 @@
                             <hr>
 
                             <div class="d-flex align-items-center mt-3 gap-2">
-                                <h5 class="mb-0" style="color: red">Rp. {{ number_format($produk->harga_produk)}}</h5>
+                                <h5 class="mb-0" style="color: red">Rp. {{ number_format($produk->harga_produk, 0, ',', '.')}}</h5>
                             </div>
                             <div class="mt-3">
                                 <h6>Deskripsi :</h6>
