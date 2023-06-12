@@ -42,7 +42,7 @@
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-3 col-form-label">Deskripsi Produk</label>
                     <div class="col-sm-8">
-                        <textarea class="form-control" name="deskripsi_produk"
+                        <textarea class="form-control" name="deskripsi_produk" rows="7"
                             required>{{{ Request::old('deskripsi_produk') }}}</textarea>
                         @error('deskripsi_produk')
                         <span class="invalid-feedback">{{ $message}}</span>
