@@ -16,12 +16,13 @@ class CreateMetodePengirimanTable extends Migration
         Schema::create('metode_pengiriman', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_pemesanan');
-            $table->string('nama_jasa_kurir');
+            $table->unsignedBigInteger('id_jasa_pengiriman');
             $table->string('nama_jenis_layanan');
             $table->string('no_resi');
             $table->timestamps();
 
             $table->foreign('id_pemesanan')->references('id')->on('pemesanan')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_jasa_pengiriman')->references('id')->on('jasa_pengiriman')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -72,6 +72,13 @@ class DetailPemesananController extends Controller
             $pemesanan->invoice = 0;
             $pemesanan->total_harga_pemesanan = 0;
             $pemesanan->status = 0;
+            $pemesanan->nama_lengkap_penerima = '-';
+            $pemesanan->nomor_hp_penerima = '-';
+            $pemesanan->alamat_penerima = '-';
+            $pemesanan->provinsi_penerima = '-';
+            $pemesanan->kota_penerima = '-';
+            $pemesanan->kecamatan_penerima = '-';
+            $pemesanan->kode_pos_penerima = 0;
             $pemesanan->save();
         }
 

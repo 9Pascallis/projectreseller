@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\JenisProdukController;
 use App\Http\Controllers\Admin\WarnaController;
 use App\Http\Controllers\Admin\UkuranController;
+use App\Http\Controllers\Admin\JasaPengirimanController;
 use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Admin\ItemProdukController;
 use App\Http\Controllers\Admin\StokController;
@@ -53,6 +54,13 @@ use App\Http\Controllers\Admin\HistoriPembayaranController;
             Route::post('/insertdataukuran', [UkuranController::class, 'store']) ->name('insertdataukuran');
             Route::get('/deleteukuran/{id}', [UkuranController::class, 'destroy']) ->name('deleteukuran');
 
+            //UKURAN
+            Route::get('/indexjasapengiriman', [JasaPengirimanController::class, 'index']) ->name('indexjasapengiriman');
+            Route::get('/tambahjasapengiriman', [JasaPengirimanController::class, 'create']) ->name('tambahjasapengiriman');
+            Route::post('/insertdatajasapengiriman', [JasaPengirimanController::class, 'store']) ->name('insertdatajasapengiriman');
+            Route::get('/deletejasapengiriman/{id}', [JasaPengirimanController::class, 'destroy']) ->name('deletejasapengiriman');
+
+
             //WARNA
             Route::get('/indexwarna', [WarnaController::class, 'index']) ->name('indexwarna');
             Route::get('/tambahwarna', [WarnaController::class, 'create']) ->name('tambahwarna');
@@ -78,22 +86,9 @@ use App\Http\Controllers\Admin\HistoriPembayaranController;
             Route::get('/indexhistoripembayaran', [HistoriPembayaranController::class, 'index']) ->name('indexhistoripembayaran');
             Route::get('/detailhistoripembayaran/{id}', [HistoriPembayaranController::class, 'show']) ->name('detailhistoripembayaran/{id}');
 
-            //USER
-            Route::get('/indexuser', [UserController::class, 'index']) ->name('indexuser');
-            Route::get('/indexuser', [UserController::class, 'index']) ->name('indexuser');
-            Route::get('/tambahuser', [UserController::class, 'create']) ->name('tambahuser');
-            Route::post('/insertdatauser', [UserController::class, 'store']) ->name('insertdatauser');
-            Route::get('/edituser/{id}', [UserController::class, 'edit']) ->name('edituser');
-            Route::post('/updateuser/{id}', [UserController::class, 'update']) ->name('updateuser');
-            Route::get('/deleteuser/{id}', [UserController::class, 'destroy']) ->name('deleteuser');
             
-            //ADMIN
-            Route::get('/indexadmin', [UserController::class, 'indexadmin']) ->name('indexadmin');
-            Route::get('/tambahadmin', [UserController::class, 'createadmin']) ->name('tambahadmin');
-            Route::post('/insertdataadmin', [UserController::class, 'storeadmin']) ->name('insertdataadmin');
-            Route::get('/editadmin/{id}', [UserController::class, 'editadmin']) ->name('editadmin');
-            Route::post('/updateadmin/{id}', [UserController::class, 'updateadmin']) ->name('updateadmin');
-            Route::get('/deleteadmin/{id}', [UserController::class, 'destroyadmin']) ->name('deleteadmin');
+            
+            
         });
 
         Route::middleware(['auth', 'cekrole:2'])->group(function () {
@@ -125,6 +120,7 @@ use App\Http\Controllers\Admin\HistoriPembayaranController;
             Route::get('/editalamat/{id}', [ProfilController::class, 'editalamat']) ->name('editalamat/{id}');
             Route::post('tambahalamat/{id}', [ProfilController::class, 'storealamat']) ->name('tambahalamat/{id}');
             Route::post('updatealamat/{id}', [ProfilController::class, 'updatealamat']) ->name('updatealamat/{id}');
+            Route::get('/hapusalamat/{id}', [ProfilController::class, 'hapusalamat'])->name('hapusalamat');
 
             //HISTORI
             Route::get('/histori', [HistoriController::class, 'index']) ->name('histori');
@@ -135,6 +131,23 @@ use App\Http\Controllers\Admin\HistoriPembayaranController;
     Route::middleware(['auth'])->group(function () {
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     });
+
+    //USER
+    Route::get('/indexuser', [UserController::class, 'index']) ->name('indexuser');
+    Route::get('/indexuser', [UserController::class, 'index']) ->name('indexuser');
+    Route::get('/tambahuser', [UserController::class, 'create']) ->name('tambahuser');
+    Route::post('/insertdatauser', [UserController::class, 'store']) ->name('insertdatauser');
+    Route::get('/edituser/{id}', [UserController::class, 'edit']) ->name('edituser');
+    Route::post('/updateuser/{id}', [UserController::class, 'update']) ->name('updateuser');
+    Route::get('/deleteuser/{id}', [UserController::class, 'destroy']) ->name('deleteuser');
+
+    //ADMIN
+    Route::get('/indexadmin', [UserController::class, 'indexadmin']) ->name('indexadmin');
+    Route::get('/tambahadmin', [UserController::class, 'createadmin']) ->name('tambahadmin');
+    Route::post('/insertdataadmin', [UserController::class, 'storeadmin']) ->name('insertdataadmin');
+    Route::get('/editadmin/{id}', [UserController::class, 'editadmin']) ->name('editadmin');
+    Route::post('/updateadmin/{id}', [UserController::class, 'updateadmin']) ->name('updateadmin');
+    Route::get('/deleteadmin/{id}', [UserController::class, 'destroyadmin']) ->name('deleteadmin');
 
     //LOGIN
     Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');

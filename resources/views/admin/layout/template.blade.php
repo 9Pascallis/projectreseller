@@ -117,6 +117,15 @@
                         <div class="menu-title">Warna</div>
                     </a>
                 </li>
+                <!-- JASA PENGIRIMAN -->
+                <li>
+                    <a href="/indexjasapengiriman">
+                        <div class="parent-icon">
+                            <ion-icon name='briefcase-sharp'></ion-icon>
+                        </div>
+                        <div class="menu-title">Jasa Pengiriman</div>
+                    </a>
+                </li>
                 <li class="menu-label">ROLE</li>
                 <!-- USER -->
                 <li>
@@ -167,7 +176,7 @@
                                 </div>
                             </a>
                         </li> --}}
-                        <div class="align-items-center">Halo, {{ auth()->user()->nama_lengkap_user }}</div>
+                        {{-- <div class="align-items-center">Halo, {{ auth()->user()->nama_lengkap_user }}</div> --}}
                         <li class="nav-item dropdown dropdown-user-setting">
                             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
                                 data-bs-toggle="dropdown">

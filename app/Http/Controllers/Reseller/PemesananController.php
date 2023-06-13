@@ -14,6 +14,8 @@ use App\Models\AlamatPengiriman;
 use App\Models\MetodePengiriman;
 use App\Models\JenisProduk;
 use App\Models\User;
+use App\Models\Alamat;
+use App\Models\JasaPengiriman;
 
 class PemesananController extends Controller
 {
@@ -28,6 +30,7 @@ class PemesananController extends Controller
         ->get();
         // dd($user);
         $jenis_produk = JenisProduk::all();
+        $jasa_pengiriman = JasaPengiriman::all();
         $pemesanan = Pemesanan::where('id_user', Auth::user()->id)->where('status',0)->first();
         //cek validasi apakah alamat null
         foreach ($user as $user) {
@@ -49,8 +52,15 @@ class PemesananController extends Controller
             else
             {
                 $detail_pemesanan = DetailPemesanan::where('id_pemesanan', $pemesanan->id)->get();
+                    
+                $alamat = User::leftJoin('alamat', 'user.id', '=', 'alamat.id_user')
+                ->select('alamat.*','user.nama_lengkap_user','user.no_telp_user')
+                ->where('user.id', $user->id)
+                ->get();
+                // dd($alamat);
+                // $alamat = Alamat::where('id_user', $user->id)->get();
                 // dd($detail_pemesanan);
-                return view ('reseller/belanja/checkout')->with(compact('jenis_produk', 'pemesanan', 'detail_pemesanan', 'user'));
+                return view ('reseller/belanja/checkout')->with(compact('jenis_produk', 'pemesanan', 'detail_pemesanan', 'user', 'alamat', 'jasa_pengiriman'));
             }
         }
     }
@@ -67,22 +77,16 @@ class PemesananController extends Controller
         $jenis_produk = JenisProduk::all();
 
         $cek_pemesanan = Pemesanan::where('id_user', Auth::user()->id)->where('status',0)->first();
-        //membuat alamat pengiriman
-        $alamat_pengiriman = new AlamatPengiriman;
-        $alamat_pengiriman->id_pemesanan = $cek_pemesanan->id;
-        $alamat_pengiriman->nama_lengkap = $request->nama_lengkap;
-        $alamat_pengiriman->nomor_hp = $request->nomor_hp;
-        $alamat_pengiriman->alamat = $request->alamat;
-        $alamat_pengiriman->provinsi = $request->provinsi;
-        $alamat_pengiriman->kota = $request->kota;
-        $alamat_pengiriman->kecamatan = $request->kecamatan;
-        $alamat_pengiriman->kode_pos = $request->kode_pos;
-        $alamat_pengiriman->save();
+
+        // Mendapatkan data jasa pengiriman berdasarkan nama jasa pengiriman yang dipilih
+        // $jasa_pengiriman = JasaPengiriman::all();
+        $jasa_pengiriman = JasaPengiriman::where('nama_jasa_pengiriman', $request->nama_jasa_pengiriman)->first();
+        // dd($jasa_pengiriman);
 
         //membuat metode pengiriman
         $metode_pengiriman = new MetodePengiriman;
         $metode_pengiriman->id_pemesanan = $cek_pemesanan->id;
-        $metode_pengiriman->nama_jasa_kurir = $request->nama_jasa_kurir;
+        $metode_pengiriman->id_jasa_pengiriman = $request->id_jasa_pengiriman;
         $metode_pengiriman->nama_jenis_layanan = $request->nama_jenis_layanan;
         $metode_pengiriman->no_resi = $request->no_resi;
         $metode_pengiriman->save();
@@ -94,6 +98,13 @@ class PemesananController extends Controller
         $randomNumber = str_pad(mt_rand(0, 999999999999), 12, '0', STR_PAD_LEFT);
         $pemesanan->invoice = $randomNumber;
         $pemesanan->status = 1;
+        $pemesanan->nama_lengkap_penerima = $request->nama_lengkap_penerima;
+        $pemesanan->nomor_hp_penerima = $request->nomor_hp_penerima;
+        $pemesanan->alamat_penerima = $request->alamat_penerima;
+        $pemesanan->provinsi_penerima = $request->provinsi_penerima;
+        $pemesanan->kota_penerima = $request->kota_penerima;
+        $pemesanan->kecamatan_penerima = $request->kecamatan_penerima;
+        $pemesanan->kode_pos_penerima = $request->kode_pos_penerima;
         $pemesanan->update();
 
         return redirect ('pesanpembayaran/'.$id);

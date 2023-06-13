@@ -33,7 +33,7 @@ class IndexAdminController extends Controller
         $totalPemesanan2 = $totalPemesanan2->count();
 
         $item_produk = ItemProduk::leftJoin('stok', 'item_produk.id', '=', 'stok.id_item_produk')
-        ->where('stok.jumlah_stok', '<', 5)
+        ->where('stok.jumlah_stok', '<', 10)
         ->select('item_produk.*','stok.jumlah_stok')
         ->get();
                 // dd($item_produk);

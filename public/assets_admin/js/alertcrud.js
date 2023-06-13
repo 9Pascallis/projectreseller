@@ -141,6 +141,30 @@ $('.deleteukuran').click(function() {
     });
 });
 
+$('.deletejasapengiriman').click(function() {
+    var id = $(this).attr('data-id');
+    var nama = $(this).attr('data-nama');
+    Swal.fire({
+        title: 'Apakah anda yakin?',
+        text: "Data " + nama + " akan terhapus!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Deleted!',
+                'Data berhasil dihapus!',
+                'success'
+            );
+            window.location = "/deletejasapengiriman/" + id + ""
+
+        }
+    });
+});
+
 $('.deleteproduk').click(function() {
     var id = $(this).attr('data-id');
     var nama = $(this).attr('data-nama');
@@ -188,6 +212,31 @@ $('.deleteitemproduk').click(function() {
         }
     });
 });
+
+$('.deletealamat').click(function() {
+    var id = $(this).attr('data-id');
+    var nama = $(this).attr('data-nama');
+    Swal.fire({
+        title: 'Apakah anda yakin?',
+        text: "Data " + nama + " akan terhapus!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Deleted!',
+                'Data berhasil dihapus!',
+                'success'
+            );
+            window.location = "/hapusalamat/" + id + ""
+
+        }
+    });
+});
+
 
 $('.tambahkeranjang').click(function() {
     var id = $(this).attr('data-id');

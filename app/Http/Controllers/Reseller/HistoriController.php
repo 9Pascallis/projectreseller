@@ -22,23 +22,17 @@ class HistoriController extends Controller
         $pemesanan = Pemesanan::where('id_user', Auth::user()->id)->first();
         $jenis_produk = JenisProduk::all();
         $user = User::leftJoin('pemesanan', 'user.id', '=', 'pemesanan.id_user')
-        ->join('alamat_pengiriman', 'pemesanan.id', '=', 'alamat_pengiriman.id_pemesanan')
         ->join('metode_pengiriman', 'pemesanan.id', '=', 'metode_pengiriman.id_pemesanan')
+        ->join('jasa_pengiriman', 'jasa_pengiriman.id', '=', 'metode_pengiriman.id_jasa_pengiriman')
         ->where('pemesanan.id_user', Auth::user()->id)
         // ->where('pemesanan.status', 1)
         ->select(
             'user.*', 
             'pemesanan.*', 
-            'alamat_pengiriman.nama_lengkap', 
-            'alamat_pengiriman.nomor_hp', 
-            'alamat_pengiriman.alamat', 
-            'alamat_pengiriman.provinsi', 
-            'alamat_pengiriman.kota', 
-            'alamat_pengiriman.kecamatan', 
-            'alamat_pengiriman.kode_pos', 
-            'metode_pengiriman.nama_jasa_kurir',
+            'metode_pengiriman.id_jasa_pengiriman',
             'metode_pengiriman.nama_jenis_layanan',
             'metode_pengiriman.no_resi',
+            'jasa_pengiriman.nama_jasa_pengiriman'
         )
         ->where('user.id', $user->id)
         ->get();
@@ -65,20 +59,14 @@ class HistoriController extends Controller
     {
         $jenis_produk = JenisProduk::all();
         $pemesanan = Pemesanan::find($id)
-        ->join('alamat_pengiriman', 'pemesanan.id', '=', 'alamat_pengiriman.id_pemesanan')
         ->join('metode_pengiriman', 'pemesanan.id', '=', 'metode_pengiriman.id_pemesanan')
+        ->join('jasa_pengiriman', 'jasa_pengiriman.id', '=', 'metode_pengiriman.id_jasa_pengiriman')
         ->select(
             'pemesanan.*', 
-            'alamat_pengiriman.nama_lengkap', 
-            'alamat_pengiriman.nomor_hp', 
-            'alamat_pengiriman.alamat', 
-            'alamat_pengiriman.provinsi', 
-            'alamat_pengiriman.kota', 
-            'alamat_pengiriman.kecamatan', 
-            'alamat_pengiriman.kode_pos', 
-            'metode_pengiriman.nama_jasa_kurir',
+            'metode_pengiriman.id_jasa_pengiriman',
             'metode_pengiriman.nama_jenis_layanan',
             'metode_pengiriman.no_resi',
+            'jasa_pengiriman.nama_jasa_pengiriman'
         )
         ->where('pemesanan.id', $id)
         ->first();
@@ -92,26 +80,20 @@ class HistoriController extends Controller
     {
         $jenis_produk = JenisProduk::all();
         $pemesanan = Pemesanan::find($id)
-        ->join('alamat_pengiriman', 'pemesanan.id', '=', 'alamat_pengiriman.id_pemesanan')
         ->join('metode_pengiriman', 'pemesanan.id', '=', 'metode_pengiriman.id_pemesanan')
+        ->join('jasa_pengiriman', 'jasa_pengiriman.id', '=', 'metode_pengiriman.id_jasa_pengiriman')
         ->join('pembayaran', 'pemesanan.id', '=', 'pembayaran.id_pemesanan')
         ->select(
             'pemesanan.*', 
-            'alamat_pengiriman.nama_lengkap', 
-            'alamat_pengiriman.nomor_hp', 
-            'alamat_pengiriman.alamat', 
-            'alamat_pengiriman.provinsi', 
-            'alamat_pengiriman.kota', 
-            'alamat_pengiriman.kecamatan', 
-            'alamat_pengiriman.kode_pos', 
-            'metode_pengiriman.nama_jasa_kurir',
+            'metode_pengiriman.id_jasa_pengiriman',
             'metode_pengiriman.nama_jenis_layanan',
             'metode_pengiriman.no_resi',
-            'pembayaran.tanggal_pembayaran'
+            'pembayaran.tanggal_pembayaran',
+            'jasa_pengiriman.nama_jasa_pengiriman'
         )
         ->where('pemesanan.id', $id)
         ->first();
-        
+        // dd($pemesanan);
         $detail_pemesanan = DetailPemesanan::where('id_pemesanan', $pemesanan->id)->get();
 
         // dd($detail_pemesanan);

@@ -95,11 +95,11 @@
                         <div class="col">
                             <small>Kepada :</small>
                             <address class="m-t-5 m-b-5">
-                                <strong class="text-inverse">{{ $pemesanan->nama_lengkap }}</strong><br>
-                                {{ $pemesanan->alamat }}<br>
-                                {{ $pemesanan->kota }}, {{ $pemesanan->kode_pos }}<br>
-                                {{ $pemesanan->provinsi }}<br>
-                                No Telp: {{ $pemesanan->nomor_hp }}<br>
+                                <strong class="text-inverse">{{ $pemesanan->nama_lengkap_penerima }}</strong><br>
+                                {{ $pemesanan->alamat_penerima }}<br>
+                                {{ $pemesanan->kota_penerima }}, {{ $pemesanan->kode_pos_penerima }}<br>
+                                {{ $pemesanan->provinsi_penerima }}<br>
+                                No Telp: {{ $pemesanan->nomor_hp_penerima }}<br>
                             </address>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                                 <small>No Resi :</small>
                                 <address class="m-t-5 m-b-5">
                                     <strong class="text-inverse">{{ $pemesanan->no_resi }}</strong><br>
-                                    Jasa Kurir: {{ $pemesanan->nama_jasa_kurir }}<br>
+                                    Jasa Kurir: {{ $pemesanan->nama_jasa_pengiriman }}<br>
                                     Layanan: {{ $pemesanan->nama_jenis_layanan }}<br>
                                 </address>
                             </div>

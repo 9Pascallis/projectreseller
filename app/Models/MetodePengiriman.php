@@ -15,5 +15,10 @@ class MetodePengiriman extends Model
     {
         return $this->belongsTo(Pemesanan::class, 'id_pemesanan', 'id');
     }
+
+    public function jasa_pengiriman()
+    {
+        return $this->belongsTo(JasaPengiriman::class, 'id_jasa_pengiriman', 'id');
+    }
     
 }

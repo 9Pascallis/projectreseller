@@ -20,6 +20,13 @@ class CreatePemesananTable extends Migration
             $table->string('invoice');
             $table->integer('total_harga_pemesanan');
             $table->string('status');
+            $table->string('nama_lengkap_penerima');
+            $table->string('nomor_hp_penerima');
+            $table->string('alamat_penerima');
+            $table->string('provinsi_penerima');
+            $table->string('kota_penerima');
+            $table->string('kecamatan_penerima');
+            $table->integer('kode_pos_penerima');
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('user')->onUpdate('cascade')->onDelete('cascade');

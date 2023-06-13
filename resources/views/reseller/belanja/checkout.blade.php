@@ -20,37 +20,37 @@
                         <div class="row">
                             <div class="col-md-11 mb-3">
                                 <label for="nama_lengkap_user"><b>Nama Lengkap</b> <span>*</span></label>
-                                <input type="text" name="nama_lengkap" class="form-control" id="nama_lengkap_user"
+                                <input type="text" name="nama_lengkap_penerima" class="form-control" id="nama_lengkap_user"
                                     value="{{ $user->nama_lengkap_user }}" required>
                             </div>
                             <div class="col-md-11 mb-3">
                                 <label for="no_telp_user"><b>Nomor Hp</b> <span>*</span></label>
-                                <input type="number" name="nomor_hp" class="form-control" id="no_telp_user"
+                                <input type="number" name="nomor_hp_penerima" class="form-control" id="no_telp_user"
                                     value="{{ $user->no_telp_user }}" required>
                             </div>
                             <div class="col-md-11 mb-3">
                                 <label for="alamat"><b>Alamat</b> <span>*</span></label>
-                                <input type="text" name="alamat" class="form-control" id="alamat"
+                                <input type="text" name="alamat_penerima" class="form-control" id="alamat"
                                     value="{{ $user->alamat }}" required>
                             </div>
                             <div class="col-md-11 mb-3">
                                 <label for="provinsi"><b>Provinsi</b> <span>*</span></label>
-                                <input type="text" name="provinsi" class="form-control" id="provinsi"
+                                <input type="text" name="provinsi_penerima" class="form-control" id="provinsi"
                                     value="{{ $user->provinsi }}" required>
                             </div>
                             <div class="col-md-11 mb-3">
                                 <label for="kota"><b>Kota</b> <span>*</span></label>
-                                <input type="text" name="kota" class="form-control" id="kota" value="{{ $user->kota }}"
+                                <input type="text" name="kota_penerima" class="form-control" id="kota" value="{{ $user->kota }}"
                                     required>
                             </div>
                             <div class="col-md-11 mb-3">
                                 <label for="kecamatan"><b>Kecamatan</b> <span>*</span></label>
-                                <input type="text" name="kecamatan" class="form-control" id="kecamatan"
+                                <input type="text" name="kecamatan_penerima" class="form-control" id="kecamatan"
                                     value="{{ $user->kecamatan }}" required>
                             </div>
                             <div class="col-md-11 mb-3">
                                 <label for="kode_pos"><b>Kode Pos</b> <span>*</span></label>
-                                <input type="text" name="kode_pos" class="form-control" id="kode_pos"
+                                <input type="text" name="kode_pos_penerima" class="form-control" id="kode_pos"
                                     value="{{ $user->kode_pos }}" required>
                             </div>
                             <!-- KIRIM KE ALAMAT LAIN -->
@@ -94,7 +94,11 @@
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="input_jasa_kurir"><b>Nama Jasa Kurir </b><span>*</span></label>
-                            <input type="text" name="nama_jasa_kurir" class="form-control" required>
+                            <select class="w-100 mb-3" id="id_jasa_pengiriman" name="id_jasa_pengiriman" required>
+                                @foreach ($jasa_pengiriman as $item)
+                                <option value="{{$item->id}}">{{$item->nama_jasa_pengiriman}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="input_jenis_layanan"><b>Nama Jenis Layanan </b><span>*</span></label>

@@ -138,7 +138,7 @@
 <div class="card radius-10">
     <div class="card-body">
       <div class="text-center">
-        <h5 class="mb-0 text-dark text-center">STOK ITEM PRODUK KURANG DARI 5</h5>
+        <h5 class="mb-0 text-dark text-center">STOK ITEM PRODUK KURANG DARI 10</h5>
        </div><br>
        <div class="table-responsive mt-2">
         <table class="table align-middle mb-0">

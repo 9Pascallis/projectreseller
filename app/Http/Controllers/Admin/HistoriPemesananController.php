@@ -21,20 +21,14 @@ class HistoriPemesananController extends Controller
     {
         $user = auth()->user();
         $jenis_produk = JenisProduk::all();
-        $pemesanan = Pemesanan::join('alamat_pengiriman', 'pemesanan.id', '=', 'alamat_pengiriman.id_pemesanan')
-            ->join('metode_pengiriman', 'pemesanan.id', '=', 'metode_pengiriman.id_pemesanan')
+        $pemesanan = Pemesanan::join('metode_pengiriman', 'pemesanan.id', '=', 'metode_pengiriman.id_pemesanan')
+        ->join('jasa_pengiriman', 'jasa_pengiriman.id', '=', 'metode_pengiriman.id_jasa_pengiriman')
             ->select(
                 'pemesanan.*', 
-                'alamat_pengiriman.nama_lengkap', 
-                'alamat_pengiriman.nomor_hp', 
-                'alamat_pengiriman.alamat', 
-                'alamat_pengiriman.provinsi', 
-                'alamat_pengiriman.kota', 
-                'alamat_pengiriman.kecamatan', 
-                'alamat_pengiriman.kode_pos', 
-                'metode_pengiriman.nama_jasa_kurir',
+                'metode_pengiriman.id_jasa_pengiriman',
                 'metode_pengiriman.nama_jenis_layanan',
                 'metode_pengiriman.no_resi',
+                'jasa_pengiriman.nama_jasa_pengiriman'
             )
             ->where('status',1)
             ->get();
@@ -52,20 +46,14 @@ class HistoriPemesananController extends Controller
     public function edit($id)
     {
         $pemesanan = Pemesanan::find($id)
-        ->join('alamat_pengiriman', 'pemesanan.id', '=', 'alamat_pengiriman.id_pemesanan')
         ->join('metode_pengiriman', 'pemesanan.id', '=', 'metode_pengiriman.id_pemesanan')
+        ->join('jasa_pengiriman', 'jasa_pengiriman.id', '=', 'metode_pengiriman.id_jasa_pengiriman')
         ->select(
             'pemesanan.*', 
-            'alamat_pengiriman.nama_lengkap', 
-            'alamat_pengiriman.nomor_hp', 
-            'alamat_pengiriman.alamat', 
-            'alamat_pengiriman.provinsi', 
-            'alamat_pengiriman.kota', 
-            'alamat_pengiriman.kecamatan', 
-            'alamat_pengiriman.kode_pos', 
-            'metode_pengiriman.nama_jasa_kurir',
+            'metode_pengiriman.id_jasa_pengiriman',
             'metode_pengiriman.nama_jenis_layanan',
             'metode_pengiriman.no_resi',
+            'jasa_pengiriman.nama_jasa_pengiriman'
         )
         ->where('pemesanan.id', $id)
         ->first();

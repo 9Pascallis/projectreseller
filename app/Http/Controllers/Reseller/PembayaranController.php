@@ -12,6 +12,7 @@ use App\Models\Pemesanan;
 use App\Models\DetailPemesanan;
 use App\Models\JenisProduk;
 use App\Models\User;
+use App\Models\JasaPengiriman;
 
 class PembayaranController extends Controller
 {
@@ -27,25 +28,20 @@ class PembayaranController extends Controller
         // ->latest('created_at')
         // ->first();
 
-        $pemesanan = Pemesanan::join('alamat_pengiriman', 'pemesanan.id', '=', 'alamat_pengiriman.id_pemesanan')
-        ->join('metode_pengiriman', 'pemesanan.id', '=', 'metode_pengiriman.id_pemesanan')
-        ->where('pemesanan.id_user', Auth::user()->id)
-        ->where('pemesanan.status', 1)
-        ->select(
-            'pemesanan.*', 
-            'alamat_pengiriman.nama_lengkap', 
-            'alamat_pengiriman.nomor_hp', 
-            'alamat_pengiriman.alamat', 
-            'alamat_pengiriman.provinsi', 
-            'alamat_pengiriman.kota', 
-            'alamat_pengiriman.kecamatan', 
-            'alamat_pengiriman.kode_pos', 
-            'metode_pengiriman.nama_jasa_kurir',
-            'metode_pengiriman.nama_jenis_layanan',
-            'metode_pengiriman.no_resi',
+        $pemesanan = Pemesanan::join('metode_pengiriman', 'pemesanan.id', '=', 'metode_pengiriman.id_pemesanan')
+            ->join('jasa_pengiriman', 'jasa_pengiriman.id', '=', 'metode_pengiriman.id_jasa_pengiriman')
+            ->where('pemesanan.id_user', Auth::user()->id)
+            ->where('pemesanan.status', 1)
+            ->select(
+                'pemesanan.*',
+                'metode_pengiriman.id_jasa_pengiriman',
+                'metode_pengiriman.nama_jenis_layanan',
+                'metode_pengiriman.no_resi',
+                'jasa_pengiriman.nama_jasa_pengiriman'
             )
-        ->where('pemesanan.id', $id)
-        ->first();
+            ->where('pemesanan.id', $id)
+            ->first();
+
         // dd($pemesanan);
         //cek validasi apakah pemesanan null
         if ($pemesanan == null || $pemesanan->status == 2) {
@@ -59,6 +55,7 @@ class PembayaranController extends Controller
             }
             else
             {
+                // $pemesanan =JasaPengiriman::find($pemesanan->id_jasa_pengiriman)->nama_jasa_pengiriman;
                 $detail_pemesanan = DetailPemesanan::where('id_pemesanan', $pemesanan->id)->get();
                 // dd($pemesanan);
                 return view ('reseller/belanja/pesanpembayaran')->with(compact('jenis_produk', 'pemesanan', 'detail_pemesanan', 'user'));
