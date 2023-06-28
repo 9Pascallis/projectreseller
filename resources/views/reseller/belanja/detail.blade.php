@@ -20,18 +20,20 @@
             <div class="col-lg-5 mb-50">
                 <div class="product-image col-md-12">
                     <div class="product-image-main mb-30 shadow">
-                        <figure class="zoom" onmousemove="zoom(event)"
-                            style="background-image: url({{asset('storage/'.$produk->foto_utama_produk)}})">
-                            <img src="{{asset('storage/'.$produk->foto_utama_produk)}}" alt="">
+                        <figure class="zoom" onmousemove="zoom(event)">
+                            <img id="product-main-image" src="{{asset('storage/'.$produk->foto_utama_produk)}}" alt="">
                         </figure>
                     </div>
-                    {{-- <!-- LIST FOTO -->
-                    <div class="product-image-slider">
-                        <img src="assets_reseller/img/product-img/product-big-1.jpg" alt=""  class="image-list">
-                        <img src="assets_reseller/img/product-img/product-big-2.jpg" alt=""  class="image-list">
-                        <img src="assets_reseller/img/product-img/product-big-3.jpg" alt=""  class="image-list">
-                        <img src="assets_reseller/img/product-img/product-big-1.jpg" alt=""  class="image-list">
-                    </div> --}}
+                    <!-- LIST FOTO -->
+                    <div class="col-md-12 product-image-slider">
+                        {{-- @foreach ($item_produk as $item)
+                        <img class="item" src="{{asset('storage/'.$item->foto_item_produk)}}" alt="">
+                        @endforeach --}}
+                        @foreach ($groupedPhotos as $warna => $foto)
+                        <img class="item" src="{{ asset('storage/' . $foto) }}" alt="{{ $warna }}">
+                        @endforeach
+
+                    </div>
                 </div>
             </div>
 
@@ -55,6 +57,8 @@
 
                         {{-- <!-- PRODUK -->
                         <input type="hidden" name="id_produk" value="{{$produk->id}}"> --}}
+
+  
 
                         <!-- ITEM PRODUK -->
                         <div class="row mb-3">
@@ -275,23 +279,20 @@
 
 <style>
     /* ZOOM */
-    figure.zoom {
-        background-position: 50% 50%;
-        position: relative;
+    .zoom {
+  position: relative;
+  overflow: hidden;
+}
 
-        overflow: hidden;
-        cursor: zoom-in;
-    }
+.zoom img {
+  display: block;
+  max-width: 100%;
+  transition: transform 0.3s ease;
+}
 
-    figure.zoom img:hover {
-        opacity: 0;
-    }
-
-    figure.zoom img {
-        transition: opacity .5s;
-        display: block;
-        width: 100%;
-    }
+.zoom:hover img {
+  transform: scale(1.2);
+}
 
     /* KUANTITAS */
     input[type="number"]::-webkit-outer-spin-button,
@@ -325,7 +326,6 @@
     }
 
     .product-image-slider {
-        display: flex;
         gap: 10px;
         margin: 10px 0;
     }
@@ -511,37 +511,24 @@
     /* ZOOM */
     function zoom(e) {
         var zoomer = e.currentTarget;
-        e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
-        e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
-        x = offsetX / zoomer.offsetWidth * 100
-        y = offsetY / zoomer.offsetHeight * 100
-        zoomer.style.backgroundPosition = x + '% ' + y + '%';
+        var mainImage = document.getElementById("product-main-image");
+        var bounds = mainImage.getBoundingClientRect();
+        var offsetX = e.offsetX ? e.offsetX : e.touches[0].pageX - bounds.left;
+        var offsetY = e.offsetY ? e.offsetY : e.touches[0].pageY - bounds.top;
+        var x = (offsetX / bounds.width) * 100;
+        var y = (offsetY / bounds.height) * 100;
+        zoomer.style.backgroundPosition = x + "% " + y + "%";
     }
 
     /* SLIDER */
-    const sliderMainImage = document.getElementById("product-main-image"); //product container image
-    const sliderImageList = document.getElementsByClassName("image-list"); // image thumblian group selection
-    console.log(sliderImageList);
+    const sliderMainImage = document.getElementById("product-main-image"); // product container image
+    const sliderItems = document.getElementsByClassName("item"); // image item selection
 
-    sliderImageList[0].onclick = function () {
-        sliderMainImage.src = sliderImageList[0].src;
-        console.log(sliderMainImage.src);
-    };
-
-    sliderImageList[1].onclick = function () {
-        sliderMainImage.src = sliderImageList[1].src;
-        console.log(sliderMainImage.src);
-    };
-
-    sliderImageList[2].onclick = function () {
-        sliderMainImage.src = sliderImageList[2].src;
-        console.log(sliderMainImage.src);
-    };
-
-    sliderImageList[3].onclick = function () {
-        sliderMainImage.src = sliderImageList[3].src;
-        console.log(sliderMainImage.src);
-    };
-
+    for (let i = 0; i < sliderItems.length; i++) {
+        sliderItems[i].addEventListener("click", function () {
+            sliderMainImage.src = this.src;
+        });
+    }
 </script>
+
 @endsection

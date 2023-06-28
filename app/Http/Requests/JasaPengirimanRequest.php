@@ -16,6 +16,7 @@ class JasaPengirimanRequest extends FormRequest
         $rules = [
             'nama_jasa_pengiriman' => [
                 'required',
+                'unique:jasa_pengiriman',
             ],
         ];
         return $rules;

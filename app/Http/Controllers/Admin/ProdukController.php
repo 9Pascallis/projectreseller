@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\JenisProduk;
 use App\Models\Produk;
 use App\Http\Requests\ProdukRequest;
+use App\Http\Requests\EditProdukRequest;
 
 class ProdukController extends Controller
 {
@@ -57,7 +58,7 @@ class ProdukController extends Controller
     }
 
 
-    public function update(ProdukRequest $request, $id)
+    public function update(EditProdukRequest $request, $id)
     {
         $produk = Produk::find($id);
         $produk->update($request->all());

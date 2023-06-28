@@ -26,7 +26,7 @@
                     <thead>
                         <tr>
                             <th class="text-center">NO</th>
-                            <th class="text-center">FOTO PRODUK</th>
+                            <th class="text-center">FOTO ITEM</th>
                             <th class="text-center">UKURAN</th>
                             <th class="text-center">WARNA</th>
                             <th class="text-center">STOK</th>
@@ -42,7 +42,7 @@
                         <tr>
                             <td class="text-center">{{ $no++}}</td>
                             <td class="text-center">
-                                <img src="{{asset('storage/'.$item->foto_item_produk)}}" alt="" style="width: 75px">
+                                <img src="{{asset('storage/'.$item->foto_item_produk)}}" alt="" style="width: 50px">
                             </td>
                             <td class="text-center">{{ $item->ukuran->nama_ukuran}}</td>
                             <td class="text-center">{{ $item->warna->nama_warna}}</td>

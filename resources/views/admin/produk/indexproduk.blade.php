@@ -38,9 +38,9 @@
                 <thead>
                     <tr>
                         <th>NO</th>
+                        <th>JENIS PRODUK</th>
                         <th>NAMA PRODUK</th>
                         <th class="text-center">FOTO PRODUK</th>
-                        <th>JENIS PRODUK</th>
                         <th>HARGA</th>
                         <th class="text-center">ACTION</th>
                         <th class="text-center">TAMBAH ITEM</th>
@@ -53,11 +53,11 @@
                     @foreach ( $produk as $item)
                     <tr>
                         <td>{{ $no++}}</td>
+                        <td>{{ $item->jenis_produk->nama_jenis_produk}}</td>
                         <td>{{ $item->nama_produk}}</td>
                         <td class="text-center">
-                            <img src="{{asset('storage/'.$item->foto_utama_produk)}}" alt="" style="width: 100px">
+                            <img src="{{asset('storage/'.$item->foto_utama_produk)}}" alt="" style="width:50px">
                         </td>
-                        <td>{{ $item->jenis_produk->nama_jenis_produk}}</td>
                         <td>Rp. {{ number_format($item->harga_produk, 0, ',', '.')}}</td>
                         <td class="text-center">
                             <a class="btn btn-sm btn-outline-info px-2" href="/detailproduk/{{ $item->id }}"><i
