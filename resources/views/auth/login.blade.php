@@ -30,20 +30,32 @@
 </head>
 
 <body>
-
+<style>
+        .error-message {
+            background-color: #cc0000;
+            color: #cc0000;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+</style>
     <div class="limiter">
         <div class="container-login100" style="background-image: url('assets_login/images/bg-03.jpg');">
             <div class="wrap-login100 p-t-30 p-b-50">
                 <span class="login100-form-title p-b-41">
                     <img src="assets_admin/images/logoorange.png" style="height:50px" alt="">
                 </span>
+                    @if($errors->any())
+                    <div class="error-message color- text-center text-white">
+                        {{ $errors->first('loginError') }}
+                    </div>
+                    @endif
                 <form class="login100-form validate-form p-b-33 p-t-5" action="/loginauth" method="POST">
                     @csrf
                     <div class="wrap-input100 validate-input" data-validate="Enter username">
                         <input class="input100" type="email" name="email" placeholder="Email">
                         <span class="focus-input100" data-placeholder="&#xe82a;"></span>
                     </div>
-
                     <div class="wrap-input100 validate-input" data-validate="Enter password">
                         <input class="input100" type="password" name="password" placeholder="Password">
                         <span class="focus-input100" data-placeholder="&#xe80f;"></span>

@@ -36,9 +36,10 @@ class LoginController extends Controller
                 return redirect('/belanja');
             }
         }
-    
-        return back()->with('loginError', 'Login failed');
-    }
+        // Jika autentikasi gagal, kirimkan pesan error
+        return redirect()->back()->withInput()->withErrors([
+            'loginError' => 'Email atau Password anda salah!',]);
+        }
     
 
     public function logout()
