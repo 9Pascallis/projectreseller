@@ -12,8 +12,8 @@ class JasaPengiriman extends Model
     protected $table = 'jasa_pengiriman';
     protected $guarded = ['id'];
 
-    public function metode_pengiriman()
+    public function pengiriman()
     {
-        return $this->hasMany(MetodePengiriman::class, 'id_jasa_pengiriman', 'id');
+        return $this->hasMany(Pengiriman::class, 'id_jasa_pengiriman', 'id');
     }
 }

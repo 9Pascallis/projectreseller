@@ -16,14 +16,18 @@ class CreateAlamatTable extends Migration
         Schema::create('alamat', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user');
+            $table->char('id_provinsi', 2);
+            $table->char('id_kabupaten', 4);
+            $table->char('id_kecamatan', 7);
+            
             $table->string('alamat');
-            $table->string('provinsi');
-            $table->string('kota');
-            $table->string('kecamatan');
             $table->string('kode_pos');
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('user')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_provinsi')->references('id')->on('provinces')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('id_kabupaten')->references('id')->on('regencies')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('id_kecamatan')->references('id')->on('districts')->onUpdate('cascade')->onDelete('restrict');
         });
     }
 

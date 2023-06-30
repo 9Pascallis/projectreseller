@@ -16,4 +16,20 @@ class Alamat extends Model
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
     }
+
+    public function provinces()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function regencies()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function districts()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

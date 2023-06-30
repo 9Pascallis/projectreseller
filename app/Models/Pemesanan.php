@@ -23,14 +23,9 @@ class Pemesanan extends Model
         return $this->hasMany(DetailPemesanan::class, 'id_pemesanan', 'id');
     }
 
-    public function alamat_pengiriman()
+    public function pengiriman()
     {
-        return $this->hasMany(AlamatPengiriman::class, 'id_pemesanan', 'id');
-    }
-
-    public function metode_pengiriman()
-    {
-        return $this->hasMany(MetodePengiriman::class, 'id_pemesanan', 'id');
+        return $this->belongsTo(Pengiriman::class);
     }
 
     public function pembayaran()

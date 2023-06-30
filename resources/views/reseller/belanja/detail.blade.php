@@ -29,6 +29,8 @@
                         {{-- @foreach ($item_produk as $item)
                         <img class="item" src="{{asset('storage/'.$item->foto_item_produk)}}" alt="">
                         @endforeach --}}
+                        <img class="item" src="{{asset('storage/'.$produk->foto_utama_produk)}}">
+                        {{-- <img id="product-main-image" src="{{asset('storage/'.$produk->foto_utama_produk)}}" alt=""> --}}
                         @foreach ($groupedPhotos as $warna => $foto)
                         <img class="item" src="{{ asset('storage/' . $foto) }}" alt="{{ $warna }}">
                         @endforeach

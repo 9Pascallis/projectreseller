@@ -19,14 +19,27 @@ class HistoriPembayaranController extends Controller
     {
         $user = auth()->user();
         $jenis_produk = JenisProduk::all();
-        $pemesanan = Pemesanan::join('metode_pengiriman', 'pemesanan.id', '=', 'metode_pengiriman.id_pemesanan')
-        ->join('jasa_pengiriman', 'jasa_pengiriman.id', '=', 'metode_pengiriman.id_jasa_pengiriman')
-            ->select(
-                'pemesanan.*', 
-                'metode_pengiriman.id_jasa_pengiriman',
-                'metode_pengiriman.nama_jenis_layanan',
-                'metode_pengiriman.no_resi',
-                'jasa_pengiriman.nama_jasa_pengiriman'
+        $pemesanan = Pemesanan::join('pengiriman', 'pemesanan.id', '=', 'pengiriman.id_pemesanan')
+        ->join('jasa_pengiriman', 'jasa_pengiriman.id', '=', 'pengiriman.id_jasa_pengiriman')
+        ->leftJoin('provinces', 'pengiriman.id_provinsi', '=', 'provinces.id')
+            ->leftJoin('regencies', 'pengiriman.id_kabupaten', '=', 'regencies.id')
+            ->leftJoin('districts', 'pengiriman.id_kecamatan', '=', 'districts.id')    
+        ->select(
+            'pemesanan.*',
+            'pengiriman.id_jasa_pengiriman',
+            'pengiriman.nama_jenis_layanan',
+            'pengiriman.no_resi',
+            'pengiriman.nama_lengkap_penerima',
+            'pengiriman.nomor_hp_penerima',
+            'pengiriman.alamat_penerima',
+            'pengiriman.id_provinsi',
+            'pengiriman.id_kabupaten',
+            'pengiriman.id_kecamatan',
+            'pengiriman.kode_pos_penerima',
+            'jasa_pengiriman.nama_jasa_pengiriman',
+            'provinces.name as nama_provinsi', 
+            'regencies.name as nama_kabupaten', 
+            'districts.name as nama_kecamatan',
             )
             ->where('status',2)
             ->get();
@@ -43,16 +56,30 @@ class HistoriPembayaranController extends Controller
     public function show($id)
     {
         $pemesanan = Pemesanan::find($id)
-        ->join('metode_pengiriman', 'pemesanan.id', '=', 'metode_pengiriman.id_pemesanan')
-        ->join('jasa_pengiriman', 'jasa_pengiriman.id', '=', 'metode_pengiriman.id_jasa_pengiriman')
+        ->join('pengiriman', 'pemesanan.id', '=', 'pengiriman.id_pemesanan')
+        ->join('jasa_pengiriman', 'jasa_pengiriman.id', '=', 'pengiriman.id_jasa_pengiriman')
         ->join('pembayaran', 'pemesanan.id', '=', 'pembayaran.id_pemesanan')
+        ->leftJoin('provinces', 'pengiriman.id_provinsi', '=', 'provinces.id')
+            ->leftJoin('regencies', 'pengiriman.id_kabupaten', '=', 'regencies.id')
+            ->leftJoin('districts', 'pengiriman.id_kecamatan', '=', 'districts.id')
         ->select(
-            'pemesanan.*',  
-            'metode_pengiriman.id_jasa_pengiriman',
-            'metode_pengiriman.nama_jenis_layanan',
-            'metode_pengiriman.no_resi',
-            'pembayaran.tanggal_pembayaran',
-            'jasa_pengiriman.nama_jasa_pengiriman'
+            'pemesanan.*',
+                'pengiriman.id_jasa_pengiriman',
+                'pengiriman.nama_jenis_layanan',
+                'pengiriman.no_resi',
+                'pengiriman.nama_lengkap_penerima',
+                'pengiriman.nomor_hp_penerima',
+                'pengiriman.alamat_penerima',
+                'pengiriman.id_provinsi',
+                'pengiriman.id_kabupaten',
+                'pengiriman.id_kecamatan',
+                'pengiriman.kode_pos_penerima',
+                'jasa_pengiriman.nama_jasa_pengiriman',
+                'provinces.name as nama_provinsi', 
+                'regencies.name as nama_kabupaten', 
+                'districts.name as nama_kecamatan',
+                'pembayaran.tanggal_pembayaran',
+            
         )
         ->where('pemesanan.id', $id)
         ->first();

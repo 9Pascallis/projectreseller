@@ -95,12 +95,12 @@
             </div>
             <div class="col">
                 <div class="">
-                    <small>Kepada :</small>
+                    <small>Tujuan :</small>
                     <address class="m-t-5 m-b-5">
                         <strong class="text-inverse">{{ $pemesanan->nama_lengkap_penerima }}</strong><br>
                         {{ $pemesanan->alamat_penerima }}<br>
-                        {{ $pemesanan->kota_penerima }}, {{ $pemesanan->kode_pos_penerima }}<br>
-                        {{ $pemesanan->provinsi_penerima }}<br>
+                        {{ $pemesanan->nama_kabupaten }}, {{ $pemesanan->nama_kecamatan }}<br>
+                        {{ $pemesanan->nama_provinsi }}, {{ $pemesanan->kode_pos_penerima }}<br>
                         No Telp: {{ $pemesanan->nomor_hp_penerima }}<br>
                     </address>
                 </div>

@@ -107,6 +107,8 @@ use App\Http\Controllers\Admin\HistoriPembayaranController;
 
             //PEMESANAN
             Route::get('/checkout', [PemesananController::class, 'index']) ->name('checkout');
+            Route::post('/getkabupaten', [PemesananController::class, 'getkabupaten'])->name('getkabupaten');
+            Route::post('/getkecamatan', [PemesananController::class, 'getkecamatan'])->name('getkecamatan');
             Route::post('checkout/{id}', [PemesananController::class, 'store']) ->name('checkout/{id}');
 
             //PEMBAYARAN
@@ -117,6 +119,8 @@ use App\Http\Controllers\Admin\HistoriPembayaranController;
 
             //ALAMAT
             Route::get('/tambahalamat', [ProfilController::class, 'createalamat']) ->name('tambahalamat');
+            Route::post('/getkabupaten', [ProfilController::class, 'getkabupaten'])->name('getkabupaten');
+            Route::post('/getkecamatan', [ProfilController::class, 'getkecamatan'])->name('getkecamatan');
             Route::get('/editalamat/{id}', [ProfilController::class, 'editalamat']) ->name('editalamat/{id}');
             Route::post('tambahalamat/{id}', [ProfilController::class, 'storealamat']) ->name('tambahalamat/{id}');
             Route::post('updatealamat/{id}', [ProfilController::class, 'updatealamat']) ->name('updatealamat/{id}');

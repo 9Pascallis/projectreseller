@@ -64,7 +64,7 @@
                                 <p class="text-dark"><b>Provinsi:</b></p>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" value="{{ $user->provinsi }}" disabled>
+                                <input type="text" class="form-control" value="{{ $user->nama_provinsi }}" disabled>
                             </div>
                         </div>
                         <div class="row" style="padding-bottom: 10px">
@@ -72,7 +72,7 @@
                                 <p class="text-dark"><b>Kota:</b></p>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" value="{{ $user->kota }}" disabled>
+                                <input type="text" class="form-control" value="{{ $user->nama_kabupaten }}" disabled>
                             </div>
                         </div>
                         <div class="row" style="padding-bottom: 10px">
@@ -80,7 +80,7 @@
                                 <p class="text-dark"><b>Kecamatan:</b></p>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" value="{{ $user->kecamatan }}" disabled>
+                                <input type="text" class="form-control" value="{{ $user->nama_kecamatan }}" disabled>
                             </div>
                         </div>
                         <div class="row" style="padding-bottom: 10px">

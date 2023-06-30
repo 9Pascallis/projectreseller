@@ -12,10 +12,15 @@ use App\Models\Pemesanan;
 use App\Models\DetailPemesanan;
 use App\Models\AlamatPengiriman;
 use App\Models\MetodePengiriman;
+use App\Models\Pengiriman;
 use App\Models\JenisProduk;
 use App\Models\User;
 use App\Models\Alamat;
 use App\Models\JasaPengiriman;
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\District;
+use App\Models\Village;
 
 class PemesananController extends Controller
 {
@@ -23,9 +28,27 @@ class PemesananController extends Controller
     public function index()
     {
 
+        $provinces = Province::all();
+        $user = auth()->user();
+    
+        $userWithAddress = User::leftJoin('alamat', 'user.id', '=', 'alamat.id_user')
+            ->select('user.*', 'alamat.alamat', 'alamat.id_provinsi', 'alamat.id_kabupaten', 'alamat.id_kecamatan', 'alamat.kode_pos')
+            ->where('user.id', $user->id)
+            ->first();
+    
+        if ($userWithAddress->alamat == null) {
+            return redirect('profil');
+        }
+
+        $selectedProvinceId = $userWithAddress->id_provinsi;
+        $selectedRegencyId = $userWithAddress->id_kabupaten;
+        $selectedDistrictId = $userWithAddress->id_kecamatan;
+        $regencies = Regency::where('province_id', $selectedProvinceId)->get();
+        $districts = District::where('regency_id', $selectedRegencyId)->get();
+
         $user = auth()->user();
         $user = User::leftJoin('alamat', 'user.id', '=', 'alamat.id_user')
-        ->select('user.*', 'alamat.alamat', 'alamat.provinsi', 'alamat.kota', 'alamat.kecamatan', 'alamat.kode_pos')
+        ->select('user.*', 'alamat.alamat', 'alamat.id_provinsi', 'alamat.id_kabupaten', 'alamat.id_kecamatan', 'alamat.kode_pos')
         ->where('user.id', $user->id)
         ->get();
         // dd($user);
@@ -60,10 +83,33 @@ class PemesananController extends Controller
                 // dd($alamat);
                 // $alamat = Alamat::where('id_user', $user->id)->get();
                 // dd($detail_pemesanan);
-                return view ('reseller/belanja/checkout')->with(compact('jenis_produk', 'pemesanan', 'detail_pemesanan', 'user', 'alamat', 'jasa_pengiriman'));
+                return view('reseller/belanja/checkout', compact('pemesanan','detail_pemesanan','jasa_pengiriman', 'user','provinces', 'regencies', 'districts', 'selectedProvinceId', 'selectedRegencyId', 'selectedDistrictId'));
             }
         }
     }
+
+    public function getkabupaten(Request $request)
+    {
+        $id_provinsi = $request->id_provinsi;
+        $kabupatens = Regency::where('province_id', $id_provinsi)->get();
+        $option = "";
+        foreach ($kabupatens as $kabupaten) {
+            $option.= "<option value='$kabupaten->id'>$kabupaten->name</option>";
+        }
+        echo $option;
+    }
+
+    public function getkecamatan(Request $request)
+    {
+        $id_kabupaten = $request->id_kabupaten;
+        $kecamatans = District::where('regency_id', $id_kabupaten)->get();
+        $option = "";
+        foreach ($kecamatans as $kecamatan) {
+            $option.= "<option value='$kecamatan->id'>$kecamatan->name</option>";
+        }
+        echo $option;
+    }
+    
 
     public function __construct()
     {
@@ -79,18 +125,23 @@ class PemesananController extends Controller
         $cek_pemesanan = Pemesanan::where('id_user', Auth::user()->id)->where('status',0)->first();
 
         // Mendapatkan data jasa pengiriman berdasarkan nama jasa pengiriman yang dipilih
-        // $jasa_pengiriman = JasaPengiriman::all();
         $jasa_pengiriman = JasaPengiriman::where('nama_jasa_pengiriman', $request->nama_jasa_pengiriman)->first();
         // dd($jasa_pengiriman);
 
-        //membuat metode pengiriman
-        $metode_pengiriman = new MetodePengiriman;
-        $metode_pengiriman->id_pemesanan = $cek_pemesanan->id;
-        $metode_pengiriman->id_jasa_pengiriman = $request->id_jasa_pengiriman;
-        $metode_pengiriman->nama_jenis_layanan = $request->nama_jenis_layanan;
-        $metode_pengiriman->no_resi = $request->no_resi;
-        $metode_pengiriman->save();
-
+        //membuat pengiriman
+        $pengiriman = new Pengiriman;
+        $pengiriman->id_pemesanan = $cek_pemesanan->id;
+        $pengiriman->id_jasa_pengiriman = $request->id_jasa_pengiriman;
+        $pengiriman->nama_jenis_layanan = $request->nama_jenis_layanan;
+        $pengiriman->no_resi = $request->no_resi;
+        $pengiriman->nama_lengkap_penerima = $request->nama_lengkap_penerima;
+        $pengiriman->nomor_hp_penerima = $request->nomor_hp_penerima;
+        $pengiriman->alamat_penerima = $request->alamat_penerima;
+        $pengiriman->id_provinsi = $request->id_provinsi;
+        $pengiriman->id_kabupaten = $request->id_kabupaten;
+        $pengiriman->id_kecamatan = $request->id_kecamatan;
+        $pengiriman->kode_pos_penerima = $request->kode_pos_penerima;
+        $pengiriman->save();
 
         $pemesanan = Pemesanan::where('id_user', Auth::user()->id)->where('status',0)->first();
         $tanggal_pemesanan= Carbon::now();
@@ -98,13 +149,6 @@ class PemesananController extends Controller
         $randomNumber = str_pad(mt_rand(0, 999999999999), 12, '0', STR_PAD_LEFT);
         $pemesanan->invoice = $randomNumber;
         $pemesanan->status = 1;
-        $pemesanan->nama_lengkap_penerima = $request->nama_lengkap_penerima;
-        $pemesanan->nomor_hp_penerima = $request->nomor_hp_penerima;
-        $pemesanan->alamat_penerima = $request->alamat_penerima;
-        $pemesanan->provinsi_penerima = $request->provinsi_penerima;
-        $pemesanan->kota_penerima = $request->kota_penerima;
-        $pemesanan->kecamatan_penerima = $request->kecamatan_penerima;
-        $pemesanan->kode_pos_penerima = $request->kode_pos_penerima;
         $pemesanan->update();
 
         return redirect ('pesanpembayaran/'.$id);
