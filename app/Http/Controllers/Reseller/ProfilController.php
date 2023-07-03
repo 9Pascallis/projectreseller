@@ -73,18 +73,13 @@ class ProfilController extends Controller
         $user = Auth::user();
 
         $alamat = new Alamat;
-        $alamat->id_user = $user->id; // Ganti $user->id dengan nilai yang sesuai
-        $alamat->id_provinsi = $request->id_provinsi; // Ganti $request->id_provinsi dengan nilai yang sesuai
-        $alamat->id_kabupaten = $request->id_kabupaten; // Ganti $request->id_kabupaten dengan nilai yang sesuai
-        $alamat->id_kecamatan = $request->id_kecamatan; // Ganti $request->id_kecamatan dengan nilai yang sesuai
-        $alamat->alamat = $request->alamat; // Ganti $request->alamat dengan nilai yang sesuai
-        $alamat->kode_pos = $request->kode_pos; // Ganti $request->kode_pos dengan nilai yang sesuai
+        $alamat->id_user = $user->id;
+        $alamat->id_provinsi = $request->id_provinsi;
+        $alamat->id_kabupaten = $request->id_kabupaten;
+        $alamat->id_kecamatan = $request->id_kecamatan;
+        $alamat->alamat = $request->alamat;
+        $alamat->kode_pos = $request->kode_pos;
         $alamat->save();
-        
-
-        // $user = auth()->user();
-        // $alamat['id_user'] = $user->id;
-        // Alamat::create($alamat);
 
         return redirect('/profil')->with('create', 'Alamat Berhasil di Tambah!')->with(compact('user', 'jenis_produk', 'provinces'));
     }
@@ -92,28 +87,40 @@ class ProfilController extends Controller
 
     public function editalamat($id)
     {
+        $provinces = Province::all();
         $jenis_produk = JenisProduk::all();
         $user = auth()->user();
-
-        $user = User::leftJoin('alamat', 'user.id', '=', 'alamat.id_user')
-        ->select('user.*', 'alamat.alamat', 'alamat.provinsi', 'alamat.kota', 'alamat.kecamatan', 'alamat.kode_pos')
-        ->where('user.id', $user->id)
-        ->get();
-
-        return view ('/reseller/profil/editalamat', compact('user', 'jenis_produk'));
+    
+        $userWithAddress = User::leftJoin('alamat', 'user.id', '=', 'alamat.id_user')
+            ->select('user.*', 'alamat.alamat', 'alamat.id_provinsi', 'alamat.id_kabupaten', 'alamat.id_kecamatan', 'alamat.kode_pos')
+            ->where('user.id', $user->id)
+            ->first();
+    
+        $selectedProvinceId = $userWithAddress->id_provinsi;
+        $selectedRegencyId = $userWithAddress->id_kabupaten;
+        $selectedDistrictId = $userWithAddress->id_kecamatan;
+        $regencies = Regency::where('province_id', $selectedProvinceId)->get();
+        $districts = District::where('regency_id', $selectedRegencyId)->get();
+    
+        return view('/reseller/profil/editalamat', compact('userWithAddress', 'jenis_produk', 'provinces', 'regencies', 'districts', 'selectedProvinceId', 'selectedRegencyId', 'selectedDistrictId'));
     }
-
-
-    public function updatealamat(AlamatRequest $request)
+    
+    public function updatealamat(Request $request)
     {
+        $provinces = Province::all();
         $jenis_produk = JenisProduk::all();
-        $validatedData = $request->validated();
-        $user = auth()->user();
-        $alamat = Alamat::where('id_user', $user->id)->first();
-        $alamat->update($validatedData);
-        
+        $user = Auth::user();
+    
+        $alamat = Alamat::findOrFail($request->alamat_id);
+        $alamat->fill($request->all());
+        $alamat->save();
+    
+        $jenis_produk = JenisProduk::all();
+    
         return redirect('/profil')->with('create', 'Alamat Berhasil di Update!')->with(compact('user', 'jenis_produk'));
     }
+    
+    
 
 
 }

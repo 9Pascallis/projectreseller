@@ -46,27 +46,6 @@
                                             <select class="w-100" id="kecamatan" name="id_kecamatan" required> 
                                             </select>
                                         </div>
-                                        {{-- <div class="col-md-12 mb-3">
-                                            <label for="inputText">Provinsi <span>*</span></label>
-                                            <input type="text" name="provinsi" class="form-control" required>
-                                            @error('provinsi')
-                                            <span class="invalid-feedback">{{ $message}}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="inputText">Kota <span>*</span></label>
-                                            <input type="text" name="kota" class="form-control" required>
-                                            @error('kota')
-                                            <span class="invalid-feedback">{{ $message}}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="inputText">Kecamatan <span>*</span></label>
-                                            <input type="text" name="kecamatan" class="form-control" required>
-                                            @error('kecamatan')
-                                            <span class="invalid-feedback">{{ $message}}</span>
-                                            @enderror
-                                        </div> --}}
                                         <div class="col-md-12 mb-3">
                                             <label for="inputText">Kode Pos <span>*</span></label>
                                             <input type="text" name="kode_pos" class="form-control" required>
