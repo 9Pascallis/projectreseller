@@ -27,9 +27,8 @@
                         <th>NAMA LENGKAP</th>
                         <th>EMAIL</th>
                         <th>NO TELP</th>
-                        <th>TGL BERGABUNG</th>
-                        <th class="text-center">HAPUS</th>
-                        {{-- <th class="text-center">ALAMAT</th> --}}
+                        <th>ASAL KOTA</th>
+                        <th class="text-center">ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,21 +39,18 @@
                     @if ($item->role->nama_role == 'user')
                     <tr>
                         <td>{{ $no++}}</td>
-                        <td>{{ $item->nama_lengkap_user}}</td>
+                        <td>{{ $item->nama_lengkap}}</td>
                         <td>{{ $item->email}}</td>
-                        <td>{{ $item->no_telp_user}}</td>
-                        <td>{{ $item->created_at->format('d-m-Y') }}</td>
+                        <td>{{ $item->no_telp}}</td>
+                        <td>{{ $item->nama_kabupaten}}</td>
                         <td class="text-center">
+                            <a class="btn btn-sm btn-outline-info px-2" href="/detailuser/{{ $item->id }}"><i
+                                class="fa fa-eye"></i></a>
                             <a class="btn btn-sm btn-outline-warning px-2" href="/edituser/{{ $item->id }}"><i
                                     class="fa fa-pencil"></i></a>
                             <a class="btn btn-sm btn-outline-danger px-2 deleteuser" data-id="{{ $item->id }}"
-                                data-nama="{{ $item->nama_lengkap_user}}"><i class="fa fa-trash"></i></a>
+                                data-nama="{{ $item->nama_lengkap}}"><i class="fa fa-trash"></i></a>
                         </td>
-                        {{-- <td class="text-center">
-									<a class="btn btn-sm btn-outline-info px-2" href="/tambahalamatuser/{{ $item->id }}"><i
-                            class="fa fa-eye"></i></a>
-                        </td> --}}
-
                     </tr>
                     @endif
 

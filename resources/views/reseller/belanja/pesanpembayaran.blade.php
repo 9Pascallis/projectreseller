@@ -139,8 +139,8 @@
 <script>
     function resetFields() {
         // Reset nilai-nilai input fields
-        document.getElementById("nama_lengkap_user").value = "";
-        document.getElementById("no_telp_user").value = "";
+        document.getElementById("nama_lengkap").value = "";
+        document.getElementById("no_telp").value = "";
         document.getElementById("alamat").value = "";
         document.getElementById("provinsi").value = "";
         document.getElementById("kota").value = "";

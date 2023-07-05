@@ -116,15 +116,10 @@ use App\Http\Controllers\Admin\HistoriPembayaranController;
 
             //PROFIL
             Route::get('/profil', [ProfilController::class, 'index']) ->name('profil');
-
-            //ALAMAT
-            Route::get('/tambahalamat', [ProfilController::class, 'createalamat']) ->name('tambahalamat');
             Route::post('/getkabupaten', [ProfilController::class, 'getkabupaten'])->name('getkabupaten');
             Route::post('/getkecamatan', [ProfilController::class, 'getkecamatan'])->name('getkecamatan');
-            Route::get('/editalamat/{id}', [ProfilController::class, 'editalamat']) ->name('editalamat/{id}');
-            Route::post('tambahalamat/{id}', [ProfilController::class, 'storealamat']) ->name('tambahalamat/{id}');
-            Route::post('updatealamat/{id}', [ProfilController::class, 'updatealamat']) ->name('updatealamat/{id}');
-            Route::get('/hapusalamat/{id}', [ProfilController::class, 'hapusalamat'])->name('hapusalamat');
+            Route::get('/editprofil/{id}', [ProfilController::class, 'edit']) ->name('editprofil/{id}');
+            Route::post('updateprofil/{id}', [ProfilController::class, 'update']) ->name('updateprofil/{id}');
 
             //HISTORI
             Route::get('/histori', [HistoriController::class, 'index']) ->name('histori');
@@ -140,7 +135,10 @@ use App\Http\Controllers\Admin\HistoriPembayaranController;
     Route::get('/indexuser', [UserController::class, 'index']) ->name('indexuser');
     Route::get('/indexuser', [UserController::class, 'index']) ->name('indexuser');
     Route::get('/tambahuser', [UserController::class, 'create']) ->name('tambahuser');
+    Route::post('/getkabupaten', [UserController::class, 'getkabupaten'])->name('getkabupaten');
+    Route::post('/getkecamatan', [UserController::class, 'getkecamatan'])->name('getkecamatan');
     Route::post('/insertdatauser', [UserController::class, 'store']) ->name('insertdatauser');
+    Route::get('/detailuser/{id}', [UserController::class, 'show']) ->name('detailuser');
     Route::get('/edituser/{id}', [UserController::class, 'edit']) ->name('edituser');
     Route::post('/updateuser/{id}', [UserController::class, 'update']) ->name('updateuser');
     Route::get('/deleteuser/{id}', [UserController::class, 'destroy']) ->name('deleteuser');
@@ -149,6 +147,7 @@ use App\Http\Controllers\Admin\HistoriPembayaranController;
     Route::get('/indexadmin', [UserController::class, 'indexadmin']) ->name('indexadmin');
     Route::get('/tambahadmin', [UserController::class, 'createadmin']) ->name('tambahadmin');
     Route::post('/insertdataadmin', [UserController::class, 'storeadmin']) ->name('insertdataadmin');
+    Route::get('/detailadmin/{id}', [UserController::class, 'showadmin']) ->name('detailadmin');
     Route::get('/editadmin/{id}', [UserController::class, 'editadmin']) ->name('editadmin');
     Route::post('/updateadmin/{id}', [UserController::class, 'updateadmin']) ->name('updateadmin');
     Route::get('/deleteadmin/{id}', [UserController::class, 'destroyadmin']) ->name('deleteadmin');

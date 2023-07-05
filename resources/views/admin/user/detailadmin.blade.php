@@ -1,5 +1,5 @@
 @extends('admin.layout.template')
-@section('title', 'Admin | Tambah Admin')
+@section('title', 'Admin | Edit Admin')
 @section('header')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
@@ -9,71 +9,46 @@
 <div class="card">
     <div class="card-body">
         <!-- JUDUL -->
-        <h5 class="mb-0 text-uppercase text-center">Tambah Admin</h5>
+        <h5 class="mb-0 text-uppercase text-center">Detail Admin</h5>
         <hr><br>
         <!-- JUDUL END-->
 
         <!-- ISI -->
-        <form action="/insertdataadmin" method="POST">
+        <form action="/updateadmin/{{ $user->id }}" method="POST">
             @csrf
+            <input type="hidden" name="password" value="{{ $user->password}}">
             <div class="row" style="margin-left: 20px; margin-right: 20px">
-                <input type="hidden" name="id_role" value="1">
-                <div class="row mb-3">
-                    <label for="inputText" class="col-sm-3 col-form-label">Nama Lengkap</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="nama_lengkap"
-                            value="{{old('nama_lengkap')}}" required>
-                        @error('nama_lengkap')
-                        <span class="invalid-feedback">{{ $message}}</span>
-                        @enderror
-                    </div>
-                </div>
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-3 col-form-label">Email</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control @error('email') is-invalid @enderror me-2" name="email"
-                            value="{{old('email')}}" required>
-                        @error('email')
-                        <span class="invalid-feedback">{{ $message}}</span>
-                        @enderror
+                        <input type="email" name="email" class="form-control me-2" value="{{ $user->email}}" disabled>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-3 col-form-label">Nama Lengkap</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="nama_lengkap" class="form-control"
+                            value="{{ $user->nama_lengkap}}" disabled>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-3 col-form-label">No Telp</label>
                     <div class="col-sm-9">
-                        <input type="number" class="form-control" name="no_telp" value="{{old('no_telp')}}"
-                            required>
-                        @error('no_telp')
-                        <span class="invalid-feedback">{{ $message}}</span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputText" class="col-sm-3 col-form-label">Password</label>
-                    <div class="col-sm-9">
-                        <input type="password" class="form-control" name="password" value="{{old('password')}}"
-                            required>
-                        @error('password')
-                        <span class="invalid-feedback">{{ $message}}</span>
-                        @enderror
+                        <input type="number" name="no_telp" class="form-control" value="{{ $user->no_telp}}" disabled>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-3 col-form-label">Alamat</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="alamat"
-                            value="{{old('alamat')}}" required>
-                        @error('alamat')
-                        <span class="invalid-feedback">{{ $message}}</span>
-                        @enderror
+                        <input type="text" name="alamat" class="form-control" value="{{ $user->alamat}}" disabled>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="provinsi" class="col-sm-3 col-form-label">Provinsi</label>
                     <div class="col-sm-9">
-                        <select class="form-select" style="width: 100%;" id="provinsi" name="id_provinsi" required>
+                        <select class="form-select" style="width: 100%;" id="provinsi" name="id_provinsi" disabled>
                             @foreach ($provinces as $provinsi)
-                                <option value="{{$provinsi->id}}">{{$provinsi->name}}</option>
+                                <option value="{{ $provinsi->id }}" {{ $selectedProvinceId == $provinsi->id ? 'selected' : '' }}>{{ $provinsi->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -81,41 +56,39 @@
                 <div class="row mb-3">
                     <label for="kabupaten" class="col-sm-3 col-form-label">Kota</label>
                     <div class="col-sm-9">
-                        <select class="form-select" style="width: 100%;" id="kabupaten" name="id_kabupaten" required>
+                        <select class="form-select" style="width: 100%;" id="kabupaten" name="id_kabupaten" disabled>
+                            @foreach ($regencies as $kabupaten)
+                                <option value="{{ $kabupaten->id }}" {{ $selectedRegencyId == $kabupaten->id ? 'selected' : '' }}>{{ $kabupaten->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="kabupaten" class="col-sm-3 col-form-label">Kecamatan</label>
+                    <label for="kecamatan" class="col-sm-3 col-form-label">Kecamatan</label>
                     <div class="col-sm-9">
-                        <select class="form-select" style="width: 100%;" id="kecamatan" name="id_kecamatan" required>
+                        <select class="form-select" style="width: 100%;" id="kecamatan" name="id_kecamatan" disabled>
+                            @foreach ($districts as $kecamatan)
+                                <option value="{{ $kecamatan->id }}" {{ $selectedDistrictId == $kecamatan->id ? 'selected' : '' }}>{{ $kecamatan->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputText" class="col-sm-3 col-form-label">Kode Pos </label>
+                    <label for="inputText" class="col-sm-3 col-form-label">Kode Pos</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="kode_pos"
-                            value="{{old('kode_pos')}}" required>
-                        @error('kode_pos')
-                        <span class="invalid-feedback">{{ $message}}</span>
-                        @enderror
+                        <input type="number" name="kode_pos" class="form-control" value="{{ $user->kode_pos}}" disabled>
                     </div>
                 </div>
             </div>
             <br><br>
-            <div class="d-flex justify-content-end">
-                <div style="padding-right: 5px"><a href="indexuser" class="btn btn-secondary" role="button"
-                        aria-pressed="true">Cancel</a></div>
-                <div><button type="submit" class="btn btn-success">Tambah</button></div>
-            </div>
         </form>
-
+        <!-- ISI END -->
     </div>
 </div>
 @endsection
 
 @section('javascript')
+<script src="assets_admin/js/password.js"></script>
 <script>
     @if(Session::has('create'))
     toastr.options = {

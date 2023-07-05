@@ -22,14 +22,14 @@
 
                         <div class="row">
                             <div class="col-md-11 mb-3">
-                                <label for="nama_lengkap_user"><b>Nama Lengkap</b> <span>*</span></label>
-                                <input type="text" name="nama_lengkap_penerima" class="form-control" id="nama_lengkap_user"
-                                    value="{{ $user->nama_lengkap_user }}" required>
+                                <label for="nama_lengkap"><b>Nama Lengkap</b> <span>*</span></label>
+                                <input type="text" name="nama_lengkap_penerima" class="form-control" id="nama_lengkap"
+                                    value="{{ $user->nama_lengkap }}" required>
                             </div>
                             <div class="col-md-11 mb-3">
-                                <label for="no_telp_user"><b>Nomor Hp</b> <span>*</span></label>
-                                <input type="number" name="nomor_hp_penerima" class="form-control" id="no_telp_user"
-                                    value="{{ $user->no_telp_user }}" required>
+                                <label for="no_telp"><b>Nomor Hp</b> <span>*</span></label>
+                                <input type="number" name="nomor_hp_penerima" class="form-control" id="no_telp"
+                                    value="{{ $user->no_telp }}" required>
                             </div>
                             <div class="col-md-11 mb-3">
                                 <label for="alamat"><b>Alamat</b> <span>*</span></label>
@@ -62,7 +62,7 @@
                                 </select>
                             </div>
                             <div class="col-md-11 mb-3">
-                                <label for="no_telp_user"><b>Kode Pos</b> <span>*</span></label>
+                                <label for="no_telp"><b>Kode Pos</b> <span>*</span></label>
                                 <input type="number" name="kode_pos_penerima" class="form-control" id="kode_pos_penerima"
                                     value="{{ $user->kode_pos }}" required>
                             </div>
@@ -142,8 +142,8 @@
 <script>
     function resetFields() {
         // Reset nilai-nilai input fields
-        document.getElementById("nama_lengkap_user").value = "";
-        document.getElementById("no_telp_user").value = "";
+        document.getElementById("nama_lengkap").value = "";
+        document.getElementById("no_telp").value = "";
         document.getElementById("alamat").value = "";
         document.getElementById("provinsi").value = "";
         document.getElementById("kabupaten").value = "";

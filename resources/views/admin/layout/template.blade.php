@@ -176,7 +176,7 @@
                                 </div>
                             </a>
                         </li> --}}
-                        {{-- <div class="align-items-center">Halo, {{ auth()->user()->nama_lengkap_user }}</div> --}}
+                        {{-- <div class="align-items-center">Halo, {{ auth()->user()->nama_lengkap }}</div> --}}
                         <li class="nav-item dropdown dropdown-user-setting">
                             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
                                 data-bs-toggle="dropdown">

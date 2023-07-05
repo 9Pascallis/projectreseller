@@ -16,17 +16,32 @@ class UserRequest extends FormRequest
         $rules = [
             'id_role' => [
             ],
-            'nama_lengkap_user' => [
+            'nama_lengkap' => [
                 'required',
             ],
             'email' => [
                 'required',
                 'unique:user',
             ],
-            'no_telp_user' => [
+            'no_telp' => [
                 'required',
             ],
             'password' => [
+                'required',
+            ],
+            'alamat' => [
+                'required',
+            ],
+            'id_provinsi' => [
+                'required',
+            ],
+            'id_kabupaten' => [
+                'required',
+            ],
+            'id_kecamatan' => [
+                'required',
+            ],
+            'kode_pos' => [
                 'required',
             ],
         ];

@@ -36,9 +36,9 @@
                 <div class="">
                     <small>Pemesan</small>
                     <address class="m-t-5 m-b-5">
-                        <strong class="text-inverse">{{ $pemesanan->user->nama_lengkap_user }}</strong><br>
+                        <strong class="text-inverse">{{ $pemesanan->user->nama_lengkap }}</strong><br>
                         {{ $pemesanan->user->email }}<br>
-                        {{ $pemesanan->user->no_telp_user }}<br>
+                        {{ $pemesanan->user->no_telp }}<br>
                     </address>
                 </div>
             </div>

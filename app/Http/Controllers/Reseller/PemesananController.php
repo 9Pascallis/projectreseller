@@ -10,17 +10,13 @@ use App\Models\Produk;
 use App\Models\ItemProduk;
 use App\Models\Pemesanan;
 use App\Models\DetailPemesanan;
-use App\Models\AlamatPengiriman;
-use App\Models\MetodePengiriman;
 use App\Models\Pengiriman;
 use App\Models\JenisProduk;
 use App\Models\User;
-use App\Models\Alamat;
 use App\Models\JasaPengiriman;
 use App\Models\Province;
 use App\Models\Regency;
 use App\Models\District;
-use App\Models\Village;
 
 class PemesananController extends Controller
 {
@@ -30,59 +26,30 @@ class PemesananController extends Controller
 
         $provinces = Province::all();
         $user = auth()->user();
-    
-        $userWithAddress = User::leftJoin('alamat', 'user.id', '=', 'alamat.id_user')
-            ->select('user.*', 'alamat.alamat', 'alamat.id_provinsi', 'alamat.id_kabupaten', 'alamat.id_kecamatan', 'alamat.kode_pos')
-            ->where('user.id', $user->id)
-            ->first();
-    
-        if ($userWithAddress->alamat == null) {
-            return redirect('profil');
-        }
 
-        $selectedProvinceId = $userWithAddress->id_provinsi;
-        $selectedRegencyId = $userWithAddress->id_kabupaten;
-        $selectedDistrictId = $userWithAddress->id_kecamatan;
+        $selectedProvinceId = $user->id_provinsi;
+        $selectedRegencyId = $user->id_kabupaten;
+        $selectedDistrictId = $user->id_kecamatan;
         $regencies = Regency::where('province_id', $selectedProvinceId)->get();
         $districts = District::where('regency_id', $selectedRegencyId)->get();
 
-        $user = auth()->user();
-        $user = User::leftJoin('alamat', 'user.id', '=', 'alamat.id_user')
-        ->select('user.*', 'alamat.alamat', 'alamat.id_provinsi', 'alamat.id_kabupaten', 'alamat.id_kecamatan', 'alamat.kode_pos')
-        ->where('user.id', $user->id)
-        ->get();
-        // dd($user);
         $jenis_produk = JenisProduk::all();
         $jasa_pengiriman = JasaPengiriman::all();
         $pemesanan = Pemesanan::where('id_user', Auth::user()->id)->where('status',0)->first();
-        //cek validasi apakah alamat null
-        foreach ($user as $user) {
-            if ($user->alamat == null) {
-                return redirect('profil');
-            }
-        }
 
-        //cek validasi apakah pemesanan null
+        //cek pemesanan = null?
         if ($pemesanan == null) {
             return redirect('belanja');
         }
             //cek validasi apakah pemesanan ada
         else{
-            //cek validasi apakah total_harga_pemesanan=0
+            //cek total_harga_pemesanan = 0
             if ($pemesanan->total_harga_pemesanan == 0) {
                 return redirect('belanja');
             }
             else
             {
                 $detail_pemesanan = DetailPemesanan::where('id_pemesanan', $pemesanan->id)->get();
-                    
-                $alamat = User::leftJoin('alamat', 'user.id', '=', 'alamat.id_user')
-                ->select('alamat.*','user.nama_lengkap_user','user.no_telp_user')
-                ->where('user.id', $user->id)
-                ->get();
-                // dd($alamat);
-                // $alamat = Alamat::where('id_user', $user->id)->get();
-                // dd($detail_pemesanan);
                 return view('reseller/belanja/checkout', compact('pemesanan','detail_pemesanan','jasa_pengiriman', 'user','provinces', 'regencies', 'districts', 'selectedProvinceId', 'selectedRegencyId', 'selectedDistrictId'));
             }
         }

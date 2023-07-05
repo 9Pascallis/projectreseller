@@ -1,5 +1,5 @@
 @extends('reseller.layout.template')
-@section('title', 'Reseller | Edit Alamat')
+@section('title', 'Reseller | Edit Profil')
 @section('header')
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -13,18 +13,34 @@
                 <div class="regular-page-content-wrapper">
                     <div class="regular-page-text">
                         <div class="order-details-confirmation">
-                            <form action="/updatealamat/{{ $userWithAddress->id }}" method="POST">
+                            <form action="/updateprofil/{{ $user->id }}" method="POST">
                                 @csrf
-                                <input type="hidden" name="alamat_id" value="{{ $userWithAddress->id }}">
+                                <input type="hidden" name="alamat_id" value="{{ $user->id }}">
                                 <div class="checkout_details_area clearfix">
                                     <div class="row">
                                         <div class="col-md-12 mb-3 mb-30 text-center">
-                                            <h4 class="text-center">EDIT ALAMAT</h4>
+                                            <h4 class="text-center">EDIT PROFIL</h4>
                                         </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="inputText">Alamat <span>*</span></label>
+                                        <div class="col-md-11 mb-3">
+                                            <label for="inputText"><b>Nama Lengkap</b> <span>*</span></label>
+                                            <input type="text" name="nama_lengkap" class="form-control"
+                                                value="{{ $user->nama_lengkap }}" required>
+                                            @error('nama_lengkap')
+                                            <span class="invalid-feedback">{{ $message}}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-11 mb-3">
+                                            <label for="inputText"><b>No Telp</b> <span>*</span></label>
+                                            <input type="text" name="no_telp" class="form-control"
+                                                value="{{ $user->no_telp }}" required>
+                                            @error('no_telp')
+                                            <span class="invalid-feedback">{{ $message}}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-11 mb-3">
+                                            <label for="inputText"><b>Alamat</b> <span>*</span></label>
                                             <input type="text" name="alamat" class="form-control"
-                                                value="{{ $userWithAddress->alamat }}" required>
+                                                value="{{ $user->alamat }}" required>
                                             @error('alamat')
                                             <span class="invalid-feedback">{{ $message}}</span>
                                             @enderror
@@ -54,10 +70,10 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="inputText">Kode Pos <span>*</span></label>
+                                        <div class="col-md-11 mb-3">
+                                            <label for="inputText"><b>Kode Pos </b><span>*</span></label>
                                             <input type="text" name="kode_pos" class="form-control"
-                                                value="{{ $userWithAddress->kode_pos }}" required>
+                                                value="{{ $user->kode_pos }}" required>
                                             @error('kode_pos')
                                             <span class="invalid-feedback">{{ $message}}</span>
                                             @enderror

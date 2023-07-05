@@ -31,13 +31,23 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Pemesanan::class, 'id_user', 'id');
     }
 
-    public function alamat()
-    {
-        return $this->hasMany(Alamat::class, 'id_user', 'id');
-    }
-
     public function role()
     {
         return $this->belongsTo(Role::class, 'id_role', 'id');
+    }
+
+    public function provinces()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function regencies()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function districts()
+    {
+        return $this->belongsTo(User::class);
     }
 }
