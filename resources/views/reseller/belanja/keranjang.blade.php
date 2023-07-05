@@ -21,8 +21,9 @@
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Foto</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Produk</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Variasi</th>
-                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga Satuan
-                        </th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga Retail</th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Diskon</th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga Reseller</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Jumlah</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Total</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Hapus</th>
@@ -61,8 +62,9 @@
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Foto</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Produk</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Variasi</th>
-                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga Satuan
-                        </th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga Retail</th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Diskon</th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga Reseller</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Jumlah</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Total</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Hapus</th>
@@ -78,13 +80,15 @@
                         <td class="align-middle">{{ $no++}}</td>
                         <td class="align-middle"><img
                                 src="{{asset('storage/'.$item['item_produk']['foto_item_produk'])}}" alt=""
-                                style="width: 100px;"></td>
+                                style="width: 70px;"></td>
                         <td class="align-middle">{{ $item->item_produk->produk->nama_produk }}</td>
                         <td class="align-middle">{{ $item->item_produk->warna->nama_warna }} |
                             {{ $item->item_produk->ukuran->nama_ukuran }}</td>
                         <td class="align-middle">Rp. {{ number_format($item->item_produk->produk->harga_produk, 0, ',', '.') }}</td>
+                        <td class="align-middle">{{ $item->item_produk->produk->diskon_produk }}%</td>
+                        <td class="align-middle"><b>Rp. {{ number_format($item->item_produk->produk->harga_reseller, 0, ',', '.') }}</b></td>
                         <td class="align-middle">{{ $item->kuantitas }}</td>
-                        <td class="align-middle">Rp. {{ number_format($item->jumlah_harga, 0, ',', '.') }}</td>
+                        <td class="align-middle"><b>Rp. {{ number_format($item->jumlah_harga, 0, ',', '.') }}</b></td>
                         <td class="align-middle actions" data-th="">
                             <form action="{{url('deletekeranjang')}}/{{$item->id}}" method="POST">
                                 @csrf
@@ -99,7 +103,6 @@
                     @endforeach
                     @endif
                 </tbody>
-
             </table>
 
         </div>
@@ -115,7 +118,7 @@
                     <!-- TOTAL -->
                     <div class="pt-2 mb-3">
                         <div class="d-flex justify-content-between mt-2">
-                            <h6>TOTAL HARGA:</h6>
+                            <h6>TOTAL HARGA RESELLER:</h6>
                             <h6>Rp. {{ number_format($pemesanan->total_harga_pemesanan, 0, ',', '.') }}</h6>
                         </div>
                         <hr>

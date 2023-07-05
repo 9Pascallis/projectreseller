@@ -84,7 +84,7 @@ class DetailPemesananController extends Controller
             $detail_pemesanan->id_item_produk = $item_produk->id;
             $detail_pemesanan->id_pemesanan = $pemesanan_baru->id;
             $detail_pemesanan->kuantitas = $request->kuantitas;
-            $detail_pemesanan->jumlah_harga = $item_produk->produk->harga_produk*$request->kuantitas;
+            $detail_pemesanan->jumlah_harga = $item_produk->produk->harga_reseller*$request->kuantitas;
             $detail_pemesanan->save();
         } else
         {
@@ -92,14 +92,14 @@ class DetailPemesananController extends Controller
             $detail_pemesanan->kuantitas = $detail_pemesanan->kuantitas+$request->kuantitas;
    
             //harga sekarang
-            $harga_detail_pemesanan_baru = $item_produk->produk->harga_produk*$request->kuantitas;
+            $harga_detail_pemesanan_baru = $item_produk->produk->harga_reseller*$request->kuantitas;
             $detail_pemesanan->jumlah_harga = $detail_pemesanan->jumlah_harga+$harga_detail_pemesanan_baru;
             $detail_pemesanan->update();
         }
 
         //jumlah total
         $pemesanan = Pemesanan::where('id_user', Auth::user()->id)->where('status',0)->first();
-        $pemesanan->total_harga_pemesanan = $pemesanan->total_harga_pemesanan+$item_produk->produk->harga_produk*$request->kuantitas;
+        $pemesanan->total_harga_pemesanan = $pemesanan->total_harga_pemesanan+$item_produk->produk->harga_reseller*$request->kuantitas;
         $pemesanan->update();
         return redirect ('keranjang');
 

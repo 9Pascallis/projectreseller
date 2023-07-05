@@ -68,7 +68,7 @@
                                 <div class="total-products">
                                     <p><span style="color: #ff4a00">{{ $totalProduk }}</span> Produk Ditemukan</p>
                                 </div>
-                                <!-- TAMPILKAN -->
+                                {{-- <!-- TAMPILKAN -->
                                 <div class="product-sorting d-flex">
                                     <p>Tampilkan :</p>
                                     <form action="#" method="get">
@@ -79,7 +79,7 @@
                                         </select>
                                         <input type="submit" class="d-none" value="">
                                     </form>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -94,6 +94,10 @@
                                     <a href="/detail/{{ $item->id }}">
                                         <img src="{{asset('storage/'.$item->foto_utama_produk)}}" alt="">
                                     </a>
+                                    <!-- Product Badge -->
+                                    <div class="product-badge offer-badge">
+                                        <span>- {{ $item->diskon_produk}}%</span>
+                                    </div>
                                 </div>
                                 <!-- DESKRIPSI PRODUK -->
                                 <div class="product-description">
@@ -101,7 +105,8 @@
                                     <a href="/detail/{{ $item->id }}">
                                         <h6>{{ $item->nama_produk}}</h6>
                                     </a>
-                                    <b class="product-price text-danger">Rp. {{ number_format($item->harga_produk, 0, ',', '.')}}</b>
+                                    <b class="product-price" style="font-family: ubuntu;">Retail: Rp. {{ number_format($item->harga_produk, 0, ',', '.')}}</b><br>
+                                    <b class="product-price text-danger" style="font-family: ubuntu;">Reseller: Rp. {{ number_format($item->harga_reseller, 0, ',', '.')}}</b>
                                     <div class="hover-content">
                                         <!-- TAMBAH KERANJANG -->
                                         <div class="add-to-cart-btn">
