@@ -20,13 +20,7 @@ class PembayaranController extends Controller
     {
 
         $user = auth()->user();
-        // dd($user);
         $jenis_produk = JenisProduk::all();
-        
-        // $pemesanan = Pemesanan::where('id_user', Auth::user()->id)
-        // ->where('status', 1)
-        // ->latest('created_at')
-        // ->first();
 
         $pemesanan = Pemesanan::join('pengiriman', 'pemesanan.id', '=', 'pengiriman.id_pemesanan')
             ->join('jasa_pengiriman', 'jasa_pengiriman.id', '=', 'pengiriman.id_jasa_pengiriman')

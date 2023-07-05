@@ -19,9 +19,7 @@ class ItemProdukController extends Controller
         $jenis_produk = JenisProduk::all();
         $produk = Produk::with('item_produk')->find($id);
 
-        $item_produk = ItemProduk::leftJoin('stok', 'item_produk.id', '=', 'stok.id_item_produk')
-        ->select('item_produk.*', 'stok.jumlah_stok')
-        ->where('item_produk.id_produk', $id)
+        $item_produk = ItemProduk::where('item_produk.id_produk', $id)
         ->with(['produk','ukuran','warna'])->get();
         $result = $produk->toArray();
         $result['item_produk'] = $item_produk->toArray();
@@ -42,12 +40,12 @@ class ItemProdukController extends Controller
 
     public function store(ItemProdukRequest $request)
     {
-        $stok= ItemProduk::where('id_warna',$request->id_warna)
+        $item_produk= ItemProduk::where('id_warna',$request->id_warna)
         ->where('id_ukuran',$request->id_ukuran)
         ->where('id_produk', $request->id_produk)
         ->first();
 
-        if($stok==null){
+        if($item_produk==null){
             $item_produk = $request->validated();
             if ($request->hasFile('foto_item_produk')) {
                 $file = $request->file('foto_item_produk');

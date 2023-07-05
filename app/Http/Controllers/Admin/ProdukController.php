@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Models\JenisProduk;
 use App\Models\Produk;
-use App\Http\Requests\ProdukRequest;
-use App\Http\Requests\EditProdukRequest;
-
 class ProdukController extends Controller
 {
 

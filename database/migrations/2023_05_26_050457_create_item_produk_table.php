@@ -19,6 +19,7 @@ class CreateItemProdukTable extends Migration
             $table->unsignedBigInteger('id_ukuran');
             $table->unsignedBigInteger('id_warna');
             $table->string('foto_item_produk');
+            $table->integer('jumlah_stok');
             $table->timestamps();
 
             $table->foreign('id_produk')->references('id')->on('produk')->onUpdate('cascade')->onDelete('cascade');

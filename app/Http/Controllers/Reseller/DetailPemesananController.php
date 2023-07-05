@@ -48,9 +48,7 @@ class DetailPemesananController extends Controller
     {
         $id_item_produk = $request->input('id_item_produk');
 
-        $item_produk = ItemProduk::leftJoin('stok', 'item_produk.id', '=', 'stok.id_item_produk')
-        ->select('item_produk.*', 'stok.jumlah_stok')
-        ->where('item_produk.id', $id_item_produk)
+        $item_produk = ItemProduk::where('item_produk.id', $id_item_produk)
         ->first();
         $tanggal_pemesanan= Carbon::now();
 

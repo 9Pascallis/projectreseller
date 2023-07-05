@@ -27,11 +27,6 @@ class ItemProduk extends Model
         return $this->belongsTo(Warna::class, 'id_warna', 'id');
     }
 
-    public function stok()
-    {
-        return $this->hasOne(Stok::class, 'id_stok', 'id');
-    }
-
     //Many to one (detailkeranjang-item_produk)
     public function detail_keranjang()
     {

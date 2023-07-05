@@ -32,11 +32,8 @@ class IndexAdminController extends Controller
         $totalPemesanan2 = Pemesanan::where('status', 2)->get();
         $totalPemesanan2 = $totalPemesanan2->count();
 
-        $item_produk = ItemProduk::leftJoin('stok', 'item_produk.id', '=', 'stok.id_item_produk')
-        ->where('stok.jumlah_stok', '<', 10)
-        ->select('item_produk.*','stok.jumlah_stok')
+        $item_produk = ItemProduk::where('item_produk.jumlah_stok', '<', 10)
         ->get();
-                // dd($item_produk);
 
         return view('admin/index', compact('item_produk','totalHargaPemesanan','totalUser1', 'totalUser2', 'totalPemesanan', 'totalPemesanan1', 'totalPemesanan2' ));
 

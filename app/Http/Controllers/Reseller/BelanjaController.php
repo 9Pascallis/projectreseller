@@ -20,13 +20,9 @@ class BelanjaController extends Controller
     $produkQuery = Produk::query();
 
     $produkQuery->whereHas('item_produk', function ($query) {
-        $query->whereExists(function ($subQuery) {
-            $subQuery->select(DB::raw(1))
-                ->from('stok')
-                ->whereColumn('item_produk.id', 'stok.id_item_produk')
-                ->where('stok.jumlah_stok', '>', 0);
-        });
+        $query->where('jumlah_stok', '>', 0);
     });
+    
 
     if ($keyword) {
         $produkQuery->where('nama_produk', 'LIKE', '%'.$keyword.'%');
@@ -55,9 +51,7 @@ public function show($id)
     $jenis_produk = JenisProduk::all();
     $produk = Produk::with('item_produk')->find($id);
 
-    $item_produk = ItemProduk::leftJoin('stok', 'item_produk.id', '=', 'stok.id_item_produk')
-        ->select('item_produk.*', 'stok.jumlah_stok')
-        ->where('item_produk.id_produk', $id)
+    $item_produk = ItemProduk::where('item_produk.id_produk', $id)
         ->with(['produk', 'ukuran', 'warna'])
         ->get();
 

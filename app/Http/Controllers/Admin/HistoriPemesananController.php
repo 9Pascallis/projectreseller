@@ -13,7 +13,6 @@ use App\Models\DetailPemesanan;
 use App\Models\JenisProduk;
 use App\Models\User;
 use App\Models\Pembayaran;
-use App\Models\Stok;
 
 class HistoriPemesananController extends Controller
 {
@@ -89,22 +88,22 @@ class HistoriPemesananController extends Controller
 
     $detail_pemesanan = DetailPemesanan::where('id_pemesanan', $pemesanan->id)
         ->join('item_produk', 'detail_pemesanan.id_item_produk', '=', 'item_produk.id')
-        ->leftJoin('stok', 'item_produk.id', '=', 'stok.id_item_produk')
-        ->select('detail_pemesanan.*', 'item_produk.foto_item_produk', 'stok.jumlah_stok')
+        ->select('detail_pemesanan.*', 'item_produk.foto_item_produk', 'item_produk.jumlah_stok')
         ->get();
-
+        
     foreach ($detail_pemesanan as $detail) {
-        $stok = Stok::where('id_item_produk', $detail->id_item_produk)->first();
-        if ($stok) {
-            if ($stok->jumlah_stok >= $detail->kuantitas) {
-                $stok->jumlah_stok -= $detail->kuantitas;
-                $stok->update();
+        $item_produk = ItemProduk::find($detail->id_item_produk);
+        if ($item_produk) {
+            if ($item_produk->jumlah_stok >= $detail->kuantitas) {
+                $item_produk->jumlah_stok -= $detail->kuantitas;
+                $item_produk->save();
             } else {
                 // Handle jika stok tidak mencukupi
                 // Misalnya dengan memberikan pesan error atau mengubah status pemesanan menjadi gagal
             }
         }
     }
+    
 
     return redirect('indexhistoripembayaran')->with('create', 'Berhasil di konfirmasi!');;
 }

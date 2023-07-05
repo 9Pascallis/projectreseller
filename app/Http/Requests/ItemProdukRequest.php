@@ -24,6 +24,9 @@ class ItemProdukRequest extends FormRequest
                 'file',
                 'mimes:png,jpg,jpeg'
             ],
+            'jumlah_stok' => [
+                'required',
+            ],
         ];
         return $rules;
     }

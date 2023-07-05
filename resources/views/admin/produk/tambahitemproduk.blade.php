@@ -52,6 +52,17 @@
                         @enderror
                     </div>
                 </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-3 col-form-label">Stok Item</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control" name="jumlah_stok" value="{{old('jumlah_stok')}}"
+                            required>
+                        @error('jumlah_stok')
+                        <span class="invalid-feedback">{{ $message}}</span>
+                        @enderror
+                    </div>
+                </div>
+                <br>
                 <div class="d-flex justify-content-end">
                     <div style="padding-right: 5px"><a href="/indexitemproduk/{{ $produk->id }}"
                             class="btn btn-secondary" role="button" aria-pressed="true">Cancel</a></div>
