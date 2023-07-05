@@ -38,12 +38,14 @@
                 <thead>
                     <tr>
                         <th>NO</th>
-                        <th>JENIS PRODUK</th>
-                        <th>NAMA PRODUK</th>
-                        <th class="text-center">FOTO PRODUK</th>
-                        <th>HARGA</th>
+                        <th>JENIS</th>
+                        <th class="text-center">NAMA</th>
+                        <th class="text-center">FOTO</th>
+                        <th class="text-center">HARGA</th>
+                        <th class="text-center">DISKON</th>
+                        <th class="text-center">HRG RESELLER</th>
                         <th class="text-center">ACTION</th>
-                        <th class="text-center">TAMBAH ITEM</th>
+                        <th class="text-center">ITEM</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,19 +58,22 @@
                         <td>{{ $item->jenis_produk->nama_jenis_produk}}</td>
                         <td>{{ $item->nama_produk}}</td>
                         <td class="text-center">
-                            <img src="{{asset('storage/'.$item->foto_utama_produk)}}" alt="" style="width:50px">
+                            {{-- <img src="{{asset('storage/'.$produk->foto_utama_produk) }}" alt="Foto Utama Produk"> --}}
+                            <img src="{{asset('storage/'.$item->foto_utama_produk)}}" alt="" style="width:40px">
                         </td>
-                        <td>Rp. {{ number_format($item->harga_produk, 0, ',', '.')}}</td>
+                        <td class="text-center">Rp. {{ number_format($item->harga_produk, 0, ',', '.')}}</td>
+                        <td class="text-center">{{ $item->diskon_produk}}%</td>
+                        <td class="text-center text-success"><b>Rp. {{ number_format($item->harga_reseller, 0, ',', '.')}}</b></td>
                         <td class="text-center">
-                            <a class="btn btn-sm btn-outline-info px-2" href="/detailproduk/{{ $item->id }}"><i
+                            <a class="btn btn-xs btn-outline-info px-2" href="/detailproduk/{{ $item->id }}"><i
                                     class="fa fa-eye"></i></a>
-                            <a class="btn btn-sm btn-outline-warning px-2" href="/editproduk/{{ $item->id }}"><i
+                            <a class="btn btn-xs btn-outline-warning px-2" href="/editproduk/{{ $item->id }}"><i
                                     class="fa fa-pencil"></i></a>
-                            <a class="btn btn-sm btn-outline-danger px-2 deleteproduk" data-id="{{ $item->id }}"
+                            <a class="btn btn-xs btn-outline-danger px-2 deleteproduk" data-id="{{ $item->id }}"
                                 data-nama="{{ $item->nama_produk}}"><i class="fa fa-trash"></i></a>
                         </td>
                         <td class="text-center">
-                            <a class="btn btn-sm btn-outline-info px-2" href="/indexitemproduk/{{ $item->id }}"><i
+                            <a class="btn btn-xs btn-outline-info px-2" href="/indexitemproduk/{{ $item->id }}"><i
                                     class="fa fa-plus"></i></a>
                         </td>
                     </tr>

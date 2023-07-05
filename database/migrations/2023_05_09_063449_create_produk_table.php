@@ -19,7 +19,10 @@ class CreateProdukTable extends Migration
             $table->string('nama_produk')->unique();
             $table->longText('deskripsi_produk');
             $table->integer('harga_produk');
+            $table->integer('diskon_produk');
+            $table->integer('harga_reseller');
             $table->string('foto_utama_produk');
+            $table->integer('berat_produk');
             $table->timestamps();
             
             $table->foreign('id_jenis_produk')->references('id')->on('jenis_produk')->onUpdate('cascade')->onDelete('cascade');

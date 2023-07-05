@@ -60,6 +60,27 @@
                     </div>
                 </div>
                 <div class="row mb-3">
+                    <label for="inputText" class="col-sm-3 col-form-label">Diskon Produk</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control" name="diskon_produk" value="{{old('diskon_produk')}}"
+                            required>
+                        @error('diskon_produk')
+                        <span class="invalid-feedback">{{ $message}}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-3 col-form-label">Berat Produk (Gram)</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control" name="berat_produk" value="{{old('berat_produk')}}"
+                            required>
+                        @error('berat_produk')
+                        <span class="invalid-feedback">{{ $message}}</span>
+                        @enderror
+                    </div>
+                </div>
+                <input type="hidden" name="harga_reseller" value="">
+                <div class="row mb-3">
                     <label for="image" class="col-sm-3 col-form-label">Foto Utama Produk</label>
                     <div class="col-sm-8">
                         <input type="file" id="foto_utama_produk" class="form-control" name="foto_utama_produk"
@@ -69,6 +90,7 @@
                         @enderror
                     </div>
                 </div>
+                
                 <br><br>
                 <div class="d-flex justify-content-end">
                     <div style="padding-right: 5px"><a href="indexproduk" class="btn btn-secondary" role="button"
@@ -86,4 +108,27 @@
 <script src="assets_admin/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
 <script src="assets_admin/js/table-datatable.js"></script>
 <script src="assets_admin/js/rupiah.js"></script>
+<script>
+    // Ambil elemen input harga_produk, diskon_produk, dan harga_reseller
+    var inputHargaProduk = document.getElementById('harga_produk');
+    var inputDiskonProduk = document.getElementById('diskon_produk');
+    var inputHargaReseller = document.getElementById('harga_reseller');
+
+    // Tambahkan event listener untuk menghitung harga reseller saat nilai harga_produk atau diskon_produk berubah
+    inputHargaProduk.addEventListener('input', hitungHargaReseller);
+    inputDiskonProduk.addEventListener('input', hitungHargaReseller);
+
+    function hitungHargaReseller() {
+        // Ambil nilai harga_produk dan diskon_produk
+        var hargaProduk = parseInt(inputHargaProduk.value);
+        var diskonProduk = parseInt(inputDiskonProduk.value);
+
+        // Hitung harga reseller
+        var hargaReseller = hargaProduk * (100 - diskonProduk) / 100;
+
+        // Set nilai harga_reseller
+        inputHargaReseller.value = hargaReseller;
+    }
+</script>
+
 @endsection

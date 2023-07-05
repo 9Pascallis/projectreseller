@@ -50,6 +50,26 @@
                         @enderror
                     </div>
                 </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-3 col-form-label">Diskon Produk</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control" name="diskon_produk" value="{{$produk->diskon_produk}}"
+                            required>
+                        @error('diskon_produk')
+                        <span class="invalid-feedback">{{ $message}}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-3 col-form-label">Berat Produk</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control" name="berat_produk" value="{{$produk->berat_produk}}"
+                            required>
+                        @error('berat_produk')
+                        <span class="invalid-feedback">{{ $message}}</span>
+                        @enderror
+                    </div>
+                </div>
     <br><br>
     <div class="d-flex justify-content-end">
         <div style="padding-right: 5px"><a href="/indexproduk" class="btn btn-secondary" role="button"

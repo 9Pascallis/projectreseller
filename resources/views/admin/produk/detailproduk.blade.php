@@ -19,22 +19,25 @@
             <div class="product-detail-body">
                 <div class="row g-0">
 
-                    <div class="col-12 col-lg-5">
+                    <div class="col-12 col-lg-4">
                         <div class="text-center"><img src="{{asset('storage/'.$produk->foto_utama_produk)}}" alt=""
-                                style="width: 300px">
+                                style="width: 200px">
                         </div>
                     </div>
-                    <div class="col-12 col-lg-7">
+                    <div class="col-12 col-lg-8">
                         <div class="product-info-section p-3">
                             <h6 class="mt-3 mt-lg-0 mb-30">{{$produk->jenis_produk->nama_jenis_produk}}</h6>
-                            <h4 class="mt-3 mt-lg-0 mb-0"><b>{{$produk->nama_produk}}</b></h4>
+                            <h5 class="mt-3 mt-lg-0 mb-0"><b>{{$produk->nama_produk}}</b></h5>
+                            <p class="mt-1">Berat Produk: <b>{{$produk->berat_produk}} Gram</b> </p>
                             <hr>
 
                             <div class="d-flex align-items-center mt-3 gap-2">
-                                <h5 class="mb-0" style="color: red">Rp. {{ number_format($produk->harga_produk, 0, ',', '.')}}</h5>
+                                <p class="mb-0">Harga Produk: <h6>Rp. {{ number_format($produk->harga_produk, 0, ',', '.')}}</h6></p>
+                                <p class="mb-0"><b>|</b> Diskon Produk: <h6>{{$produk->diskon_produk}}%</h6></p>
+                                <p class="mb-0"><b>|</b> Harga Reseller: <h6 class="text-danger"><b>Rp. {{ number_format($produk->harga_produk, 0, ',', '.')}}</b></h6></p>
                             </div>
                             <div class="mt-3">
-                                <h6>Deskripsi :</h6>
+                                <h6>Deskripsi:</h6>
                                 <p class="mb-0">{{$produk->deskripsi_produk}}</p>
                             </div>
                         </div>
