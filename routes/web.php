@@ -74,8 +74,8 @@ use App\Http\Controllers\Admin\HistoriPembayaranController;
             Route::get('/deleteitemproduk/{id}', [ItemProdukController::class, 'destroy']) ->name('deleteitemproduk');
 
             //STOK
-            Route::get('/tambahstokitemproduk/{id}', [StokController::class, 'create']) ->name('tambahstokitemproduk');
-            Route::post('/insertdatastokitemproduk', [StokController::class, 'store']) ->name('insertdatastokitemproduk');
+            Route::get('/tambahstokitemproduk/{id}', [ItemProdukController::class, 'edit']) ->name('tambahstokitemproduk');
+            Route::post('/insertdatastokitemproduk/{id}', [ItemProdukController::class, 'update'])->name('insertdatastokitemproduk');
 
             //HISTORI PEMESANAN
             Route::get('/indexhistoripemesanan', [HistoriPemesananController::class, 'index']) ->name('indexhistoripemesanan');

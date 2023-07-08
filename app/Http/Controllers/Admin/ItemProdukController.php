@@ -10,6 +10,7 @@ use App\Models\Warna;
 use App\Models\Ukuran;
 use App\Models\ItemProduk;
 use App\Http\Requests\ItemProdukRequest;
+use App\Http\Requests\StokRequest;
 
 class ItemProdukController extends Controller
 {
@@ -64,7 +65,26 @@ class ItemProdukController extends Controller
         }
     }
 
+    public function edit($id)
+    {
+        $ukuran = Ukuran::all();
+        $warna = Warna::all();
+        $item_produk = ItemProduk::find($id);
+    
+        return view('/admin/produk/tambahstokitemproduk', compact('item_produk', 'warna', 'ukuran'));
+    }
 
+    public function update(StokRequest $request, $id)
+    {
+        $item_produk = ItemProduk::find($id);
+        $jumlah_stok_baru = $request->jumlah_stok;
+        $item_produk->jumlah_stok += $jumlah_stok_baru;
+        $item_produk->save();
+    
+        return redirect()->route('indexitemproduk', ['id' => $item_produk->produk->id])->with('update', 'Stok berhasil diperbarui!');
+    }
+    
+    
     public function destroy($id)
     {
         $item_produk = ItemProduk::find($id);

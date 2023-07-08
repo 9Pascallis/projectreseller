@@ -83,6 +83,14 @@
     toastr.success("{{ session('create') }}");
     @endif
 
+    @if(Session::has('update'))
+    toastr.options = {
+        "closeButton": true,
+        "progressBar": true
+    }
+    toastr.success("{{ session('update') }}");
+    @endif
+
     @if(Session::has('destroy'))
     toastr.options = {
         "closeButton": true,
