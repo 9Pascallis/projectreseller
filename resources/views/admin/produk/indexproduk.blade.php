@@ -58,12 +58,14 @@
                         <td>{{ $item->jenis_produk->nama_jenis_produk}}</td>
                         <td>{{ $item->nama_produk}}</td>
                         <td class="text-center">
-                            {{-- <img src="{{asset('storage/'.$produk->foto_utama_produk) }}" alt="Foto Utama Produk"> --}}
+                            {{-- <img src="{{asset('storage/'.$produk->foto_utama_produk) }}" alt="Foto Utama Produk">
+                            --}}
                             <img src="{{asset('storage/'.$item->foto_utama_produk)}}" alt="" style="width:40px">
                         </td>
                         <td class="text-center">Rp. {{ number_format($item->harga_produk, 0, ',', '.')}}</td>
                         <td class="text-center">{{ $item->diskon_produk}}%</td>
-                        <td class="text-center text-success"><b>Rp. {{ number_format($item->harga_reseller, 0, ',', '.')}}</b></td>
+                        <td class="text-center text-success"><b>Rp.
+                                {{ number_format($item->harga_reseller, 0, ',', '.')}}</b></td>
                         <td class="text-center">
                             <a class="btn btn-xs btn-outline-info px-2" href="/detailproduk/{{ $item->id }}"><i
                                     class="fa fa-eye"></i></a>

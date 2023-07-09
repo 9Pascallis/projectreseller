@@ -30,7 +30,8 @@
                         <img class="item" src="{{asset('storage/'.$item->foto_item_produk)}}" alt="">
                         @endforeach --}}
                         <img class="item" src="{{asset('storage/'.$produk->foto_utama_produk)}}">
-                        {{-- <img id="product-main-image" src="{{asset('storage/'.$produk->foto_utama_produk)}}" alt=""> --}}
+                        {{-- <img id="product-main-image" src="{{asset('storage/'.$produk->foto_utama_produk)}}" alt="">
+                        --}}
                         @foreach ($groupedPhotos as $warna => $foto)
                         <img class="item" src="{{ asset('storage/' . $foto) }}" alt="{{ $warna }}">
                         @endforeach
@@ -47,8 +48,9 @@
                     <h4 style="font-family: ubuntu">{{$produk->nama_produk}}</h4>
                     <b class="product-price" style="font-family: ubuntu; font-size:large"><b>Retail: Rp.
                             {{ number_format($produk->harga_produk, 0, ',', '.')}}</b></b><br>
-                    <b class="product-price" style="font-family: ubuntu; font-size:large"><b class="text-danger">Reseller: Rp.
-                        {{ number_format($produk->harga_reseller, 0, ',', '.')}}</b></b>
+                    <b class="product-price" style="font-family: ubuntu; font-size:large"><b
+                            class="text-danger">Reseller: Rp.
+                            {{ number_format($produk->harga_reseller, 0, ',', '.')}}</b></b>
                     <hr>
                     <p class="text-dark"><b>DETAIL PRODUK {{$produk->nama_produk}}</b></p>
                     <p class="text-dark" style="font-family: ubuntu">{{$produk->deskripsi_produk}}</p>
@@ -62,7 +64,7 @@
                         {{-- <!-- PRODUK -->
                         <input type="hidden" name="id_produk" value="{{$produk->id}}"> --}}
 
-  
+
 
                         <!-- ITEM PRODUK -->
                         <div class="row mb-3">
@@ -105,178 +107,11 @@
                                 <button type="submit" class="btn essence-btn bg-success"><i class="fa fa-shopping-cart"
                                         style="font-size: 14px"></i> Add to Cart + </button>
                             </div>
-                            {{-- <div style="padding-right: 15px">
-                                <a href="reseller-keranjang">
-                                    <button type="submit" class="btn essence-btn bg-primary">Buy Now</button>
-                                </a>
-                            </div> --}}
-
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
-        {{-- <!-- DETAIL PRODUK -->
-            <div class="row mb-30">
-                <div class="col">
-                    <h5 style="font-family: ubuntu">DETAIL PRODUK DARI RESPIRO TR-05 XENTRA N R1.4 RED</h5>
-                    <hr style="height:1px;border:none; background-color:#333;">
-                    <p class="text-dark" style="font-family: ubuntu">{{$produk->deskripsi_produk}}</p>
-        <img src="assets_reseller/img/core-img/d1.png" alt="Image" width="30%">
-
-    </div>
-</div><br>
-<!-- DETAIL PRODUK END --> --}}
-
-{{-- <!-- SIZE SPEC -->
-            <div class="row mb-30">
-                <div class="col">
-                    <h5 style="font-family: ubuntu">SIZE SPEC RESPIRO</h5>
-                    <hr style="height:1px;border:none; background-color:#333;">
-                    <div class="p-30">
-                        <div class="tab-content">
-                                <img src="assets_reseller/img/core-img/d2.jpg" alt="Image" width="100%" class="mb-30">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- SIZE SPEC END -->
-
-            <!-- PRODUK SERUPA -->
-            <div class="row mb-30">
-                <div class="col">
-                    <!-- JUDUL -->
-                    <h5 style="font-family: ubuntu">PRODUK SERUPA</h5>
-                    <hr style="height:1px;border:none; background-color:#333;">
-                    <!-- ISI KONTEN -->
-                    <div class="p-30">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="popular-products-slides owl-carousel">
-                                        <!-- Single Product -->
-                                        <div class="single-product-wrapper">
-                                            <!-- Product Image -->
-                                            <div class="product-img">
-                                                <img src="assets_reseller/img/product-img/product-1.jpg" alt="">
-                                            </div>
-                                            <!-- Product Description -->
-                                            <div class="product-description">
-                                                <span>Jaket</span>
-                                                <a href="single-product-details.html">
-                                                    <h6>RESPIRO TR-05 XENTRA N R1.4 BLACK</h6>
-                                                </a>
-                                                <p class="product-price text-dark">Rp. 440.000 <s style="color: red; font-size: 12px">Rp. 640.000</s></p>
-                                                <!-- Hover Content -->
-                                                <div class="hover-content">
-                                                    <!-- Add to Cart -->
-                                                    <div class="add-to-cart-btn">
-                                                        <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Detail</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Single Product -->
-                                        <div class="single-product-wrapper">
-                                            <!-- Product Image -->
-                                            <div class="product-img">
-                                                <img src="assets_reseller/img/product-img/product-2.jpg" alt="">
-                                            </div>
-                                            <!-- Product Description -->
-                                            <div class="product-description">
-                                                <span>Jaket</span>
-                                                <a href="single-product-details.html">
-                                                    <h6>RESPIRO TR-01 THERMOLINE N R1.5 CHARCOAL </h6>
-                                                </a>
-                                                <p class="product-price text-dark">Rp. 440.000 <s style="color: red; font-size: 12px">Rp. 640.000</s></p>
-                                                <!-- Hover Content -->
-                                                <div class="hover-content">
-                                                    <!-- Add to Cart -->
-                                                    <div class="add-to-cart-btn">
-                                                        <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Detail</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Single Product -->
-                                        <div class="single-product-wrapper">
-                                            <!-- Product Image -->
-                                            <div class="product-img">
-                                                <img src="assets_reseller/img/product-img/product-3.jpg" alt="">
-                                            </div>
-                                            <!-- Product Description -->
-                                            <div class="product-description">
-                                                <span>Jaket</span>
-                                                <a href="single-product-details.html">
-                                                    <h6>RESPIRO ESSENZO SPORTO VENT R1 NAVY </h6>
-                                                </a>
-                                                <p class="product-price text-dark">Rp. 440.000 <s style="color: red; font-size: 12px">Rp. 640.000</s></p>
-                                                <!-- Hover Content -->
-                                                <div class="hover-content">
-                                                    <!-- Add to Cart -->
-                                                    <div class="add-to-cart-btn">
-                                                        <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Detail</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Single Product -->
-                                        <div class="single-product-wrapper">
-                                            <!-- Product Image -->
-                                            <div class="product-img">
-                                                <img src="assets_reseller/img/product-img/product-4.jpg" alt="">
-                                            </div>
-                                            <!-- Product Description -->
-                                            <div class="product-description">
-                                                <span>Jaket</span>
-                                                <a href="single-product-details.html">
-                                                    <h6>RESPIRO SALVATORE URBAN CHIC </h6>
-                                                </a>
-                                                <p class="product-price text-dark">Rp. 440.000 <s style="color: red; font-size: 12px">Rp. 640.000</s></p>
-                                                <!-- Hover Content -->
-                                                <div class="hover-content">
-                                                    <!-- Add to Cart -->
-                                                    <div class="add-to-cart-btn">
-                                                        <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Detail</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Single Product -->
-                                        <div class="single-product-wrapper">
-                                            <!-- Product Image -->
-                                            <div class="product-img">
-                                                <img src="assets_reseller/img/product-img/product-5.jpg" alt="">
-                                            </div>
-                                            <!-- Product Description -->
-                                            <div class="product-description">
-                                                <span>Jaket</span>
-                                                <a href="single-product-details.html">
-                                                    <h6>RESPIRO TR-05 XENTRA N R1.4 </h6>
-                                                </a>
-                                                <p class="product-price text-dark">Rp. 440.000 <s style="color: red; font-size: 12px">Rp. 640.000</s></p>
-                                                <!-- Hover Content -->
-                                                <div class="hover-content">
-                                                    <!-- Add to Cart -->
-                                                    <div class="add-to-cart-btn">
-                                                        <a href="#" class="btn essence-btn" style="background-color: #ff4a00">Detail</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- PRODUK SERUPA END --> --}}
 </div>
 </div>
 <!-- SECTION END -->
@@ -284,19 +119,19 @@
 <style>
     /* ZOOM */
     .zoom {
-  position: relative;
-  overflow: hidden;
-}
+        position: relative;
+        overflow: hidden;
+    }
 
-.zoom img {
-  display: block;
-  max-width: 100%;
-  transition: transform 0.3s ease;
-}
+    .zoom img {
+        display: block;
+        max-width: 100%;
+        transition: transform 0.3s ease;
+    }
 
-.zoom:hover img {
-  transform: scale(1.2);
-}
+    .zoom:hover img {
+        transform: scale(1.2);
+    }
 
     /* KUANTITAS */
     input[type="number"]::-webkit-outer-spin-button,
@@ -533,6 +368,7 @@
             sliderMainImage.src = this.src;
         });
     }
+
 </script>
 
 @endsection

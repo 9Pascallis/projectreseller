@@ -21,16 +21,16 @@
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Foto</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Produk</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Variasi</th>
-                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga Retail</th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga Retail
+                        </th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Diskon</th>
-                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga Reseller</th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga
+                            Reseller</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Jumlah</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Total</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Hapus</th>
                     </tr>
                 </thead>
-
-
             </table>
             <div class="d-flex justify-content-center mt-30 mb-50">
                 <p>TIDAK ADA PRODUK!</p>
@@ -62,9 +62,11 @@
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Foto</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Produk</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Variasi</th>
-                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga Retail</th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga Retail
+                        </th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Diskon</th>
-                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga Reseller</th>
+                        <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Harga
+                            Reseller</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Jumlah</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Total</th>
                         <th class="align-middle" style="color: black; font-family: ubuntu; font-size: 14px">Hapus</th>
@@ -84,9 +86,11 @@
                         <td class="align-middle">{{ $item->item_produk->produk->nama_produk }}</td>
                         <td class="align-middle">{{ $item->item_produk->warna->nama_warna }} |
                             {{ $item->item_produk->ukuran->nama_ukuran }}</td>
-                        <td class="align-middle">Rp. {{ number_format($item->item_produk->produk->harga_produk, 0, ',', '.') }}</td>
+                        <td class="align-middle">Rp.
+                            {{ number_format($item->item_produk->produk->harga_produk, 0, ',', '.') }}</td>
                         <td class="align-middle">{{ $item->item_produk->produk->diskon_produk }}%</td>
-                        <td class="align-middle"><b>Rp. {{ number_format($item->item_produk->produk->harga_reseller, 0, ',', '.') }}</b></td>
+                        <td class="align-middle"><b>Rp.
+                                {{ number_format($item->item_produk->produk->harga_reseller, 0, ',', '.') }}</b></td>
                         <td class="align-middle">{{ $item->kuantitas }}</td>
                         <td class="align-middle"><b>Rp. {{ number_format($item->jumlah_harga, 0, ',', '.') }}</b></td>
                         <td class="align-middle actions" data-th="">
@@ -97,7 +101,6 @@
                                     onclick="return confirm('Anda yakin menghapus data?');"><i
                                         class="fa fa-trash-o"></i></button>
                             </form>
-
                         </td>
                     </tr>
                     @endforeach
@@ -112,9 +115,7 @@
         <!-- PESANAN -->
         <div class="col-lg-12">
             <div class="bg-light" style="padding: 20px">
-                {{-- <h5 class="section-title position-relative text-uppercase"><span class="pr-3">Pesanan</span></h5> --}}
                 <div class="bg-light p-30">
-
                     <!-- TOTAL -->
                     <div class="pt-2 mb-3">
                         <div class="d-flex justify-content-between mt-2">
@@ -123,12 +124,10 @@
                         </div>
                         <hr>
                     </div>
-
                     <!-- CHECKOUT PESANAN -->
                     <div class="d-flex justify-content-end mt-30">
                         <a href="{{url('checkout')}}" class="btn essence-btn bg-success">Checkout pesanan</a>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -138,7 +137,6 @@
 </div>
 <!-- SECTION END-->
 @endif
-
 
 <style>
     /* KUANTITAS */
@@ -267,9 +265,7 @@
     .button-9:focus {
         box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
     }
-
 </style>
-
 <script>
     document.getElementById("popupBtn").addEventListener("click", function () {
         document.getElementById("popupWrapper").style.display = "block";

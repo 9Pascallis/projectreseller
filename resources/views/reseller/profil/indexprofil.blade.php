@@ -1,8 +1,8 @@
 @extends('reseller.layout.template')
 @section('title', 'Reseller | Profil')
+
 @section('content')
 <br><br>
-<!-- ##### Blog Wrapper Area Start ##### -->
 <div class="single-blog-wrapper mb-30">
     <div class="container">
         <div class="row justify-content-center">
@@ -18,7 +18,8 @@
                                 <p class="text-dark"><b>Nama:</b></p>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" style="background-color: #ffffff;" value="{{ $user->nama_lengkap }}" disabled>
+                                <input type="text" class="form-control" style="background-color: #ffffff;"
+                                    value="{{ $user->nama_lengkap }}" disabled>
                             </div>
                         </div>
                         <div class="row" style="padding-bottom: 10px">
@@ -26,7 +27,8 @@
                                 <p class="text-dark"><b>Email:</b></p>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" style="background-color: #ffffff;" value="{{ $user->email }}" disabled>
+                                <input type="text" class="form-control" style="background-color: #ffffff;"
+                                    value="{{ $user->email }}" disabled>
                             </div>
                         </div>
                         <div class="row" style="padding-bottom: 10px">
@@ -34,7 +36,8 @@
                                 <p class="text-dark"><b>No Telp:</b></p>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" style="background-color: #ffffff;" value="{{ $user->no_telp }}" disabled>
+                                <input type="text" class="form-control" style="background-color: #ffffff;"
+                                    value="{{ $user->no_telp }}" disabled>
                             </div>
                         </div>
                         <div class="row" style="padding-bottom: 10px">
@@ -42,7 +45,8 @@
                                 <p class="text-dark"><b>Alamat:</b></p>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" style="background-color: #ffffff;" value="{{ $user->alamat }}" disabled>
+                                <input type="text" class="form-control" style="background-color: #ffffff;"
+                                    value="{{ $user->alamat }}" disabled>
                             </div>
                         </div>
                         <div class="row" style="padding-bottom: 10px">
@@ -50,7 +54,8 @@
                                 <p class="text-dark"><b>Provinsi:</b></p>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" style="background-color: #ffffff;" value="{{ $selectedProvinceName }}">
+                                <input type="text" class="form-control" style="background-color: #ffffff;"
+                                    value="{{ $selectedProvinceName }}">
                             </div>
                         </div>
                         <div class="row" style="padding-bottom: 10px">
@@ -58,7 +63,8 @@
                                 <p class="text-dark"><b>Kota:</b></p>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" style="background-color: #ffffff;" value="{{ $selectedRegencyName }}">
+                                <input type="text" class="form-control" style="background-color: #ffffff;"
+                                    value="{{ $selectedRegencyName }}">
                             </div>
                         </div>
                         <div class="row" style="padding-bottom: 10px">
@@ -66,7 +72,8 @@
                                 <p class="text-dark"><b>Kecamatan:</b></p>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" style="background-color: #ffffff;" value="{{ $selectedDistrictName }}">
+                                <input type="text" class="form-control" style="background-color: #ffffff;"
+                                    value="{{ $selectedDistrictName }}">
                             </div>
                         </div>
                         <div class="row" style="padding-bottom: 10px">
@@ -74,7 +81,8 @@
                                 <p class="text-dark"><b>Kode Pos:</b></p>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" style="background-color: #ffffff;" value="{{ $user->kode_pos }}" disabled>
+                                <input type="text" class="form-control" style="background-color: #ffffff;"
+                                    value="{{ $user->kode_pos }}" disabled>
                             </div>
                         </div>
                         <div class="row justify-content-between mt-30">
@@ -101,7 +109,6 @@
     </div>
 </div>
 </div>
-<!-- ##### Blog Wrapper Area End ##### -->
 @endsection
 
 @section('javascript')
@@ -121,6 +128,5 @@
     }
     toastr.success("{{ session('update') }}");
     @endif
-
 </script>
 @endsection

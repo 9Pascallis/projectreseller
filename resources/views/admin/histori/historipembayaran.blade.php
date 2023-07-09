@@ -67,6 +67,7 @@
     }
     toastr.success("{{ session('create') }}");
     @endif
+
 </script>
 
 @endsection

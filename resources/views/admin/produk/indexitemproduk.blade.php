@@ -46,9 +46,10 @@
                             </td>
                             <td class="text-center">{{ $item->ukuran->nama_ukuran}}</td>
                             <td class="text-center">{{ $item->warna->nama_warna}}</td>
-                            <td class="text-center project-state"><span class="badge text-center @if($item->jumlah_stok <= 10) bg-danger @elseif($item->jumlah_stok > 10 && $item->jumlah_stok <= 30) bg-warning @elseif($item->jumlah_stok > 30) bg-success @endif">
-                                {{ $item->jumlah_stok ?? '-' }}
-                            </span></td>
+                            <td class="text-center project-state"><span
+                                    class="badge text-center @if($item->jumlah_stok <= 10) bg-danger @elseif($item->jumlah_stok > 10 && $item->jumlah_stok <= 30) bg-warning @elseif($item->jumlah_stok > 30) bg-success @endif">
+                                    {{ $item->jumlah_stok ?? '-' }}
+                                </span></td>
                             <td class="text-center">
                                 <a class="btn btn-sm btn-outline-danger px-2 deleteitemproduk"
                                     data-id="{{ $item->id }}"><i class="fa fa-trash"></i></a>

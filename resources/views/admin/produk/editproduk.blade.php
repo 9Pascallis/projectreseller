@@ -26,8 +26,7 @@
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-3 col-form-label">Nama Produk</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control me-2"
-                            name="" value="{{$produk->nama_produk}}" disabled>
+                        <input type="text" class="form-control me-2" name="" value="{{$produk->nama_produk}}" disabled>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -53,8 +52,8 @@
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-3 col-form-label">Diskon Produk</label>
                     <div class="col-sm-8">
-                        <input type="number" class="form-control" name="diskon_produk" value="{{$produk->diskon_produk}}"
-                            required>
+                        <input type="number" class="form-control" name="diskon_produk"
+                            value="{{$produk->diskon_produk}}" required>
                         @error('diskon_produk')
                         <span class="invalid-feedback">{{ $message}}</span>
                         @enderror
@@ -70,16 +69,16 @@
                         @enderror
                     </div>
                 </div>
-    <br><br>
-    <div class="d-flex justify-content-end">
-        <div style="padding-right: 5px"><a href="/indexproduk" class="btn btn-secondary" role="button"
-                aria-pressed="true">Cancel</a></div>
-        <div><button type="submit" class="btn btn-success">Simpan</button></div>
+                <br><br>
+                <div class="d-flex justify-content-end">
+                    <div style="padding-right: 5px"><a href="/indexproduk" class="btn btn-secondary" role="button"
+                            aria-pressed="true">Cancel</a></div>
+                    <div><button type="submit" class="btn btn-success">Simpan</button></div>
+                </div>
+            </div>
+        </form>
+        <!-- ISI END -->
     </div>
-</div>
-</form>
-<!-- ISI END -->
-</div>
 </div>
 @endsection
 

@@ -32,9 +32,14 @@
                             <hr>
 
                             <div class="d-flex align-items-center mt-3 gap-2">
-                                <p class="mb-0">Harga Produk: <h6>Rp. {{ number_format($produk->harga_produk, 0, ',', '.')}}</h6></p>
-                                <p class="mb-0"><b>|</b> Diskon Produk: <h6>{{$produk->diskon_produk}}%</h6></p>
-                                <p class="mb-0"><b>|</b> Harga Reseller: <h6 class="text-danger"><b>Rp. {{ number_format($produk->harga_produk, 0, ',', '.')}}</b></h6></p>
+                                <p class="mb-0">Harga Produk: <h6>Rp.
+                                        {{ number_format($produk->harga_produk, 0, ',', '.')}}</h6>
+                                </p>
+                                <p class="mb-0"><b>|</b> Diskon Produk: <h6>{{$produk->diskon_produk}}%</h6>
+                                </p>
+                                <p class="mb-0"><b>|</b> Harga Reseller: <h6 class="text-danger"><b>Rp.
+                                            {{ number_format($produk->harga_produk, 0, ',', '.')}}</b></h6>
+                                </p>
                             </div>
                             <div class="mt-3">
                                 <h6>Deskripsi:</h6>

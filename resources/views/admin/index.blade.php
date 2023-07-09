@@ -137,59 +137,59 @@
 
 <div class="card radius-10">
     <div class="card-body">
-      <div class="text-center">
-        <h5 class="mb-0 text-dark text-center">STOK ITEM PRODUK KURANG DARI 10</h5>
-       </div><br>
-       <div class="table-responsive mt-2">
-        <table class="table align-middle mb-0">
-          <thead class="table-light">
-            <tr>
-              <th class="text-center">No</th>
-              <th>Foto</th>
-              <th>Nama Produk</th>
-              <th class="text-center">Ukuran</th>
-              <th class="text-center">Warna</th>
-              <th class="text-center">Sisa Stok</th>
-              {{-- <th class="text-center">Status</th> --}}
-              <th class="text-center">Tambah Stok</th>
-            </tr>
-          </thead>
-          <tbody>
-            @php
-            $no = 1;
-            @endphp
-            @foreach ($item_produk as $item)
-            <tr>
-                <td>{{ $no++}}</td>
-                <td>
-                    <div class="d-flex align-items-center gap-3">
-                      <div class="product-box border">
-                         <img src="{{asset('storage/'.$item->foto_item_produk)}}" alt="">
-                      </div>
-                    </div>
-                  </td>
-                <td>
-                  <div class="d-flex align-items-center gap-3">
-                    <div class="product-info">
-                      <p class="product-name mb-1">{{ $item->produk->nama_produk }}</p>
-                    </div>
-                  </div>
-                </td>
-                <th class="text-center">{{ $item->ukuran->nama_ukuran }}</td>
-                <td class="text-center">{{ $item->warna->nama_warna }}</td>
-                <td class="text-center">{{ $item->jumlah_stok }}</td>
-                <td class="text-center">
-                    <a class="btn btn-sm btn-outline-info px-2"
-                        href="/tambahstokitemproduk/{{ $item->id }}"><i class="fa fa-plus"></i></a>
-                </td>
-              </tr>
-            @endforeach
-            
-          </tbody>
-        </table>
-      </div>
+        <div class="text-center">
+            <h5 class="mb-0 text-dark text-center">STOK ITEM PRODUK KURANG DARI 10</h5>
+        </div><br>
+        <div class="table-responsive mt-2">
+            <table class="table align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="text-center">No</th>
+                        <th>Foto</th>
+                        <th>Nama Produk</th>
+                        <th class="text-center">Ukuran</th>
+                        <th class="text-center">Warna</th>
+                        <th class="text-center">Sisa Stok</th>
+                        {{-- <th class="text-center">Status</th> --}}
+                        <th class="text-center">Tambah Stok</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @php
+                    $no = 1;
+                    @endphp
+                    @foreach ($item_produk as $item)
+                    <tr>
+                        <td>{{ $no++}}</td>
+                        <td>
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="product-box border">
+                                    <img src="{{asset('storage/'.$item->foto_item_produk)}}" alt="">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="product-info">
+                                    <p class="product-name mb-1">{{ $item->produk->nama_produk }}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <th class="text-center">{{ $item->ukuran->nama_ukuran }}</td>
+                        <td class="text-center">{{ $item->warna->nama_warna }}</td>
+                        <td class="text-center">{{ $item->jumlah_stok }}</td>
+                        <td class="text-center">
+                            <a class="btn btn-sm btn-outline-info px-2" href="/tambahstokitemproduk/{{ $item->id }}"><i
+                                    class="fa fa-plus"></i></a>
+                        </td>
+                    </tr>
+                    @endforeach
+
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
+</div>
 
 {{-- <div class="card radius-10 overflow-hidden w-100">
     <div class="card-body">

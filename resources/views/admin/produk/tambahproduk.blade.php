@@ -90,7 +90,7 @@
                         @enderror
                     </div>
                 </div>
-                
+
                 <br><br>
                 <div class="d-flex justify-content-end">
                     <div style="padding-right: 5px"><a href="indexproduk" class="btn btn-secondary" role="button"
@@ -129,6 +129,7 @@
         // Set nilai harga_reseller
         inputHargaReseller.value = hargaReseller;
     }
+
 </script>
 
 @endsection

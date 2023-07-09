@@ -68,7 +68,8 @@
                                 ({{ $item->item_produk->warna->nama_warna }} |
                                 {{ $item->item_produk->ukuran->nama_ukuran }})</p>
                         </td>
-                        <td class="text-center">Rp. {{ number_format($item->item_produk->produk->harga_produk, 0, ',', '.') }}</td>
+                        <td class="text-center">Rp.
+                            {{ number_format($item->item_produk->produk->harga_produk, 0, ',', '.') }}</td>
                         <td class="text-center">{{ $item->kuantitas }}</td>
                         <td class="text-center">Rp. {{ number_format($item->jumlah_harga, 0, ',', '.') }}</td>
                     </tr>

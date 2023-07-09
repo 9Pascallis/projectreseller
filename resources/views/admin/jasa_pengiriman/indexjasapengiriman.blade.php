@@ -15,7 +15,8 @@
 
         <!-- TAMBAH JASA PENGIRIMAN -->
         <div class="col-12">
-            <a href="tambahjasapengiriman" class="btn btn-success" role="button" aria-pressed="true">+ Jasa Pengiriman</a>
+            <a href="tambahjasapengiriman" class="btn btn-success" role="button" aria-pressed="true">+ Jasa
+                Pengiriman</a>
         </div><br>
 
         <!-- ISI -->

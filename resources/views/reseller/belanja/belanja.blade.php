@@ -7,7 +7,6 @@
 <section class="shop_grid_area mb-100">
     <div class="container">
         <div class="row">
-
             <!-- CONTAINER KATEGORI -->
             <div class="col-12 col-md-3 col-lg-3">
                 <div class="shop_sidebar_area">
@@ -68,18 +67,6 @@
                                 <div class="total-products">
                                     <p><span style="color: #ff4a00">{{ $totalProduk }}</span> Produk Ditemukan</p>
                                 </div>
-                                {{-- <!-- TAMPILKAN -->
-                                <div class="product-sorting d-flex">
-                                    <p>Tampilkan :</p>
-                                    <form action="#" method="get">
-                                        <select name="select" id="t">
-                                            <option value="value">1-10</option>
-                                            <option value="value">1-20</option>
-                                            <option value="value">1-50</option>
-                                        </select>
-                                        <input type="submit" class="d-none" value="">
-                                    </form>
-                                </div> --}}
                             </div>
                         </div>
                     </div>

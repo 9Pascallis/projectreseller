@@ -1,9 +1,12 @@
 @extends('reseller.layout.template')
 @section('title', 'Reseller | Edit Profil')
+
 @section('header')
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
+
 @section('content')
 <br><br>
 <div class="single-blog-wrapper mb-100">
@@ -49,24 +52,30 @@
                                             <label for="provinsi"><b>Provinsi </b><span>*</span></label>
                                             <select class="w-100" id="provinsi" name="id_provinsi" required>
                                                 @foreach ($provinces as $provinsi)
-                                                    <option value="{{ $provinsi->id }}" {{ $selectedProvinceId == $provinsi->id ? 'selected' : '' }}>{{ $provinsi->name }}</option>
+                                                <option value="{{ $provinsi->id }}"
+                                                    {{ $selectedProvinceId == $provinsi->id ? 'selected' : '' }}>
+                                                    {{ $provinsi->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
-            
+
                                         <div class="col-md-11 mb-3">
                                             <label for="kabupaten"><b>Kota </b><span>*</span></label>
                                             <select class="w-100" id="kabupaten" name="id_kabupaten" required>
                                                 @foreach ($regencies as $kabupaten)
-                                                    <option value="{{ $kabupaten->id }}" {{ $selectedRegencyId == $kabupaten->id ? 'selected' : '' }}>{{ $kabupaten->name }}</option>
+                                                <option value="{{ $kabupaten->id }}"
+                                                    {{ $selectedRegencyId == $kabupaten->id ? 'selected' : '' }}>
+                                                    {{ $kabupaten->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="col-md-11 mb-3">
                                             <label for="kecamatan"><b>Kecamatan </b><span>*</span></label>
-                                            <select class="w-100" id="kecamatan" name="id_kecamatan" required> 
+                                            <select class="w-100" id="kecamatan" name="id_kecamatan" required>
                                                 @foreach ($districts as $kecamatan)
-                                                    <option value="{{ $kecamatan->id }}" {{ $selectedDistrictId == $kecamatan->id ? 'selected' : '' }}>{{ $kecamatan->name }}</option>
+                                                <option value="{{ $kecamatan->id }}"
+                                                    {{ $selectedDistrictId == $kecamatan->id ? 'selected' : '' }}>
+                                                    {{ $kecamatan->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -95,7 +104,6 @@
     </div>
 </div>
 </div>
-<!-- ##### Blog Wrapper Area End ##### -->
 @endsection
 
 @section('javascript')
@@ -117,66 +125,69 @@
     @endif
 
 </script>
-
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
 <script>
-    $(function() {
-  $.ajaxSetup({
-    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
-  });
-
-    $(function(){
-        $('#provinsi').on('change',function(){
-        let id_provinsi = $('#provinsi').val();
-        console.log(id_provinsi); // check id_provinsi = true
-
-        $.ajax({
-            type : 'POST',
-            url : "{{ route('getkabupaten') }}",
-            data : {id_provinsi:id_provinsi},
-            cache : false,
-            success: function(msg){
-            console.log(msg); // check response JSON
-            $('#kabupaten').html(msg);
-            $('#kabupaten').niceSelect('destroy'); //destroy the plugin 
-            $('#kabupaten').niceSelect();  //apply again
-            $('#kecamatan').html('');
-            $('#kecamatan').niceSelect('destroy'); //destroy the plugin 
-            $('#kecamatan').niceSelect();  //apply again
-            },
-            error: function(data){
-            console.log('error:', data);
-            },
+    $(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
+
+        $(function () {
+            $('#provinsi').on('change', function () {
+                let id_provinsi = $('#provinsi').val();
+                console.log(id_provinsi); // check id_provinsi = true
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('getkabupaten') }}",
+                    data: {
+                        id_provinsi: id_provinsi
+                    },
+                    cache: false,
+                    success: function (msg) {
+                        console.log(msg); // check response JSON
+                        $('#kabupaten').html(msg);
+                        $('#kabupaten').niceSelect('destroy'); //destroy the plugin 
+                        $('#kabupaten').niceSelect(); //apply again
+                        $('#kecamatan').html('');
+                        $('#kecamatan').niceSelect('destroy'); //destroy the plugin 
+                        $('#kecamatan').niceSelect(); //apply again
+                    },
+                    error: function (data) {
+                        console.log('error:', data);
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $('#kabupaten').on('change', function () {
+                let id_kabupaten = $('#kabupaten').val();
+                console.log(id_kabupaten); // check id_kabupaten = true
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('getkecamatan') }}",
+                    data: {
+                        id_kabupaten: id_kabupaten
+                    },
+                    cache: false,
+                    success: function (msg) {
+                        console.log(msg); // check response JSON
+                        $('#kecamatan').html(msg);
+                        $('#kecamatan').niceSelect('destroy'); //destroy the plugin 
+                        $('#kecamatan').niceSelect(); //apply again
+                    },
+                    error: function (data) {
+                        console.log('error:', data);
+                    },
+                });
+            });
         });
     });
-
-    $(function(){
-    $('#kabupaten').on('change',function(){
-      let id_kabupaten = $('#kabupaten').val();
-      console.log(id_kabupaten); // check id_kabupaten = true
-
-      $.ajax({
-        type : 'POST',
-        url : "{{ route('getkecamatan') }}",
-        data : {id_kabupaten:id_kabupaten},
-        cache : false,
-        success: function(msg){
-          console.log(msg); // check response JSON
-          $('#kecamatan').html(msg);
-          $('#kecamatan').niceSelect('destroy'); //destroy the plugin 
-          $('#kecamatan').niceSelect();  //apply again
-        },
-        error: function(data){
-          console.log('error:', data);
-        },
-      });
-    });
-  });
-});
-
-
 </script>
-
 @endsection

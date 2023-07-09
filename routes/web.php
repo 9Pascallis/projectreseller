@@ -28,10 +28,8 @@ use App\Http\Controllers\Admin\StokController;
 use App\Http\Controllers\Admin\HistoriPemesananController;
 use App\Http\Controllers\Admin\HistoriPembayaranController;
 
-
-
+    //ROLE ADMIN
         Route::middleware(['auth', 'cekrole:1'])->group(function () {
-            // Rute yang membutuhkan otentikasi (auth) dan middleware 'cekrole:1'
             Route::get('/admin', [IndexAdminController::class, 'index']) ->name('admin');
             //JENIS PRODUK
             Route::get('/indexjenisproduk', [JenisProdukController::class, 'index']) ->name('indexjenisproduk');
@@ -86,15 +84,12 @@ use App\Http\Controllers\Admin\HistoriPembayaranController;
             Route::get('/indexhistoripembayaran', [HistoriPembayaranController::class, 'index']) ->name('indexhistoripembayaran');
             Route::get('/detailhistoripembayaran/{id}', [HistoriPembayaranController::class, 'show']) ->name('detailhistoripembayaran/{id}');
 
-            
-            
-            
         });
 
+    //ROLE USER
         Route::middleware(['auth', 'cekrole:2'])->group(function () {
             //INDEX
             Route::get('/reseller', [IndexResellerController::class, 'index']) ->name('reseller');
-                    
 
             //BELANJA
             Route::get('/belanja', [BelanjaController::class, 'index']) ->name('belanja');
