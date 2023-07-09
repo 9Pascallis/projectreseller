@@ -164,18 +164,3 @@
 
 <!-- SECTION END -->
 @endsection
-
-@section('javascript')
-<script>
-    function resetFields() {
-        // Reset nilai-nilai input fields
-        document.getElementById("nama_lengkap").value = "";
-        document.getElementById("no_telp").value = "";
-        document.getElementById("alamat").value = "";
-        document.getElementById("provinsi").value = "";
-        document.getElementById("kota").value = "";
-        document.getElementById("kecamatan").value = "";
-        document.getElementById("kode_pos").value = "";
-    }
-</script>
-@endsection

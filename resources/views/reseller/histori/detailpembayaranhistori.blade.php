@@ -60,12 +60,18 @@
                         <thead>
                             <tr>
                                 <th>DETAIL PEMESANAN</th>
-                                <th class="text-center" width="20%">HARGA</th>
-                                <th class="text-center" width="10%">KUANTITAS</th>
-                                <th class="text-center" width="20%">TOTAL</th>
+                                <th class="text-center" width="15%">HARGA RETAIL</th>
+                                <th class="text-center" width="15%">HARGA RESELLER</th>
+                                <th class="text-center" width="5%">KUANTITAS</th>
+                                <th class="text-center" width="15%">TOTAL CUST</th>
+                                <th class="text-center" width="15%">TOTAL TAGIHAN</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                            $totalHargaCustomer = 0;
+                            $totalKuantitas = 0;
+                            @endphp
                             @foreach ($detail_pemesanan as $item)
                             <tr>
                                 <td>
@@ -74,15 +80,48 @@
                                         {{ $item->item_produk->ukuran->nama_ukuran }})</p>
                                 </td>
                                 <td class="text-center">Rp.
-                                    {{ number_format($item->item_produk->produk->harga_produk, 0, ',', '.') }}</td>
-                                <td class="text-center">{{ $item->kuantitas }}</td>
-                                <td class="text-center">Rp. {{ number_format($item->jumlah_harga, 0, ',', '.') }}</td>
+                                    {{ number_format($item->item_produk->produk->harga_produk, 0, ',', '.') }}
+                                    ({{$item->item_produk->produk->diskon_produk}}%)</td>
+                                <td class="text-center">Rp.
+                                    {{ number_format($item->item_produk->produk->harga_reseller, 0, ',', '.') }}
+                                </td>
+                                <td class="text-center">
+                                    @php
+                                    $totalKuantitas += $item->kuantitas;
+                                    @endphp
+                                    {{ $item->kuantitas }}</td>
+                                <td class="text-center">
+                                    @php
+                                    $totalHarga = $item->item_produk->produk->harga_produk * $item->kuantitas;
+                                    $totalHargaCustomer += $totalHarga;
+                                    @endphp
+                                    Rp. {{ number_format($totalHarga, 0, ',', '.') }}
+                                </td>
+                                <td class="text-center">Rp.
+                                    {{ number_format($item->jumlah_harga, 0, ',', '.') }}</td>
                             </tr>
                             @endforeach
                         </tbody>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="text-center" width="15%"></th>
+                                <th class="text-center" width="15%"></th>
+                                <th class="text-center" width="5%">
+                                    <h6>{{$totalKuantitas}}</h6>
+                                </th>
+                                <th class="text-center " width="15%">
+                                    <h6>Rp.
+                                        {{ number_format($totalHargaCustomer, 0, ',', '.') }}</h6>
+                                </th>
+                                <th class="text-center " width="15%">
+                                    <h6 class="text-danger">Rp.
+                                        {{ number_format($pemesanan->total_harga_pemesanan, 0, ',', '.') }}</h6>
+                                </th>
+                            </tr>
+                        </thead>
                     </table>
                 </div>
-                <!--end row-->
             </div>
 
             <div class="container py-2">
